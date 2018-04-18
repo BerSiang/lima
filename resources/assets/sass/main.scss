@@ -1,0 +1,99 @@
+* {
+  font-family: Microsoft JhengHei;
+}
+
+.nav {
+  margin: 1.2rem 2rem;
+  .head {
+    background-color: rgb(119, 147, 60);
+    color: white;
+    border-radius: 0.25rem;
+    img {
+      height: 2rem;
+      width: auto;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      padding: 0rem 1rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  }
+  .search {
+    height: 3rem;
+    background-color: rgb(195, 214, 155);
+    padding: 0.5rem;
+  }
+  img {
+    height: 2rem;
+    width: auto;
+  }
+}
+
+.menu-btn div {
+  width: 2.5rem;
+  height: 0.36rem;
+  background-color: white;
+  margin: 0.375rem 0;
+  border-radius: 0.5rem;
+}
+
+.search {
+  .location {
+    width: 90%;
+    input {
+      background-color: rgb(215, 228, 189);
+      height: 2rem;
+      border: none;
+      width: 100%;
+      text-indent: 1rem;
+      padding-right: 8%;
+    }
+  }
+  .search-btn {
+    height: 2rem;
+    width: auto;
+    margin-left: 0.5rem;
+  }
+}
+
+.location img {
+  position: absolute;
+  right: 12%;
+  height: 1.8rem;
+}
+
+.dropdown {
+  overflow: hidden;
+}
+
+.analysis-box {
+  height: 40rem;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 0.8rem;
+  font-size: 1.3rem;
+  overflow-y: auto;
+}
+
+.box {
+  background-color: rgba(195, 214, 155, 0.3);
+  margin-bottom: 0.5rem;
+  .title {
+    color: rgb(79, 98, 40);
+    background-color: rgba(195, 214, 155, 0.5);
+    font-weight: bold;
+    padding-left: 1rem;
+  }
+  ul {
+    list-style-type: none;
+    color: rgb(119, 147, 60);
+    padding-left: 1rem;
+    font-weight: bold;
+    margin-bottom: 0rem;
+    li {
+      padding: 0.5rem 1rem 0.5rem 0rem;
+    }
+  }
+}
