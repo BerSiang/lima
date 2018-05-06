@@ -30,7 +30,6 @@ class DataSet1 extends Command
     protected $description = 'Command description';
 
     protected $geocoder = null;
-
     /**
      * Create a new command instance.
      *
