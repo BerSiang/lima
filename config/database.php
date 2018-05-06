@@ -89,6 +89,18 @@ return [
 			'options'  => [
 				'database' => 'admin' // sets the authentication database required by mongo 3
 			],
+        ],
+
+		'life' => [
+			'driver'   => 'mongodb',
+			'host'     => env('DB_HOST', 'localhost'),
+			'port'     => env('DB_PORT', 27017),
+			'database' => env('life'),
+			'username' => env('DB_USERNAME'),
+			'password' => env('DB_PASSWORD'),
+			'options'  => [
+				'database' => 'admin' // sets the authentication database required by mongo 3
+			],
 		],
 
     ],

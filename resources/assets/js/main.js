@@ -3,9 +3,15 @@
 import _ from 'lodash';
 import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
+
+import 'swiper/dist/css/swiper.css'
 
 import SearchInput from './components/SearchInput.vue';
 import OptionBox from './components/OptionBox.vue';
+import FactorCard from './components/FactorCard.vue';
+import WeatherCard from './components/WeatherCard.vue';
+import SummaryCard from './components/SummaryCard.vue';
 //var SearchInput = require('./components/SearchInput.vue');
 //Vue.component('search-input', require('./components/SearchInput.vue'));
 Vue.use(VueGoogleMaps, {
@@ -24,7 +30,7 @@ new Vue({
         showDropdown: false,
         location: { lat: 25.0838492, lng: 121.5615529 },
         mapOptions: {
-        	mapTypeControl: false,
+            mapTypeControl: false,
             styles: [{
                     "featureType": "poi",
                     "stylers": [{
@@ -67,6 +73,41 @@ new Vue({
                     options: ['殯儀館', '垃圾場', '公墓', '大水溝', '焚化爐']
                 }
             ]
+        },
+        factors: [{
+                name: '居家安全'
+            },
+            {
+                name: '交通分析'
+            },
+            {
+                name: '民生建築'
+            },
+            {
+                name: '醫療服務'
+            },
+            {
+                name: '娛樂場所'
+            },
+            {
+                name: '嫌惡設施'
+            },
+            {
+                name: '學習資源'
+            },
+        ],
+        swiperOption: {
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'progressbar'
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
+            slidesPerView: 4,
+            slidesPerGroup: 4,
+            spaceBetween : 20,
         }
     },
     computed: {
@@ -122,6 +163,11 @@ new Vue({
     },
     components: {
         SearchInput,
-        OptionBox
+        OptionBox,
+        FactorCard,
+        WeatherCard,
+        SummaryCard,
+        swiper,
+        swiperSlide,
     }
 });

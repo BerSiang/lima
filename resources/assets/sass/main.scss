@@ -1,9 +1,11 @@
 * {
   font-family: Microsoft JhengHei;
 }
-
+.ui-root {
+  padding: 1.2rem 2rem;
+}
 .nav {
-  margin: 1.2rem 2rem;
+  //margin: 1.2rem 2rem;
   .head {
     background-color: rgb(119, 147, 60);
     color: white;
@@ -96,4 +98,7 @@
       padding: 0.5rem 1rem 0.5rem 0rem;
     }
   }
+}
+.text-center {
+  text-align: center;
 }

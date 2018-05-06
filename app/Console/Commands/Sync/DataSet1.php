@@ -9,6 +9,8 @@ use Geocoder\Query\GeocodeQuery;
 use Geocoder\Query\ReverseQuery;
 use Geocoder\Provider\GoogleMaps\GoogleMaps;
 use Geocoder\StatefulGeocoder;
+use GeoJson\Feature\Feature;
+use GeoJson\Geometry\Point;
 
 use App\Model\ExternalData\SourceInfo;
 use App\Model\ExternalData\Place;
@@ -58,13 +60,13 @@ class DataSet1 extends Command
 			$this->fetch($target)
 				->each(function($item) {
 					if($item['action'] == 'update') {
-						$this->update($item['data']);
+						$this->update($item['_id'], $item['properties']);
 					}
 					else if($item['action'] == 'create') {
-						$this->create($item['data']);
+						$this->create($item['properties']);
 					}
-					else if($item['action'] == 'delete') {
-						Place::where('address', $item['data']['address'])->delete();
+                    else if($item['action'] == 'delete') {
+                        $this->delete($item['_id']);
 					}
 				});
 		}
@@ -81,74 +83,76 @@ class DataSet1 extends Command
         $syncData = json_decode($response->getBody());
 
         return array(
-            "title" => $source->title,
-            "source_id" => $source->_id,
-			"name_index" => $source->name_index,
-            "address_index" => $source->address_index,
+            "source" => $source,
             "body" => collect($syncData->result->results)
         );
     }
 
     public function fetch($type) {
-        $source = $this->remote($type);
-        $local = $this->local($source['source_id']);
+        $remote = $this->remote($type);
+        $local = $this->local($remote['source']->_id);
 
-		$name_index = $source['name_index'];
-		$address_index = $source['address_index'];
+		$name_index = $remote['source']->name_index;
+		$address_index = $remote['source']->address_index;
 
-		$collection = $source['body']->reject(function($item) use ($name_index, $address_index) {
+		$collection = $remote['body']->reject(function($item) use ($name_index, $address_index) {   //移除空項
 			return $item->{$name_index} == null || $item->{$address_index} == null;
 		});
 
-        $collection = $collection->map(function($item) use ($source, $local) {
-            $found = Place::where('address', $item->{$source['address_index']})->first();
-			//$geocode = $found ? 
+        $collection = $collection->map(function($item) use ($name_index, $address_index, $remote, $local) {
+            $found = Place::where('properties.name', $item->{$name_index})  //檢查是否存在local db
+                        ->where('properties.address', $item->{$address_index})
+                        ->first();
 
-			return array(
-				'action' => $found ? 'update' : 'create',
-				'data' => [
-					'title' => $source['title'],
-					'source_id' => $source['source_id'],
-					'name' => $item->{$source['name_index']},
-					'address' => $item->{$source['address_index']},
+			$data = array(
+                'action' => $found ? 'update' : 'create',
+                '_id' => $found->_id ?? null,
+				'properties' => [
+					'title' => $remote['source']->title,
+					'source_id' => $remote['source']->_id,
+					'name' => $item->{$name_index},
+					'address' => $item->{$address_index},
 				]
-			);
+            );
+
+            return $data;
         });
 
-		$deletePlaces = $local->map(function($item) use ($source, $address_index) {
-			$has = $source['body']->where($address_index, $item->address)->first();
+		$deletePlaces = $local->map(function($item) use ($remote, $address_index) {
+			$has = $remote['body']->where($address_index, $item->address)->first();
 			if(!$has) {
 				return array(
 					'action' => 'delete',
-					'data' => $item
+					'_id' => $item->_id
 				);
 			}
-		});
+        })->reject(function($item) {
+            return $item === null;
+        });
 
 		return $collection->merge($deletePlaces);
     }
 
     public function create($data) {
-		$geocodeResult = $this->toXY($data['address'])->first();
-		$data['formatted_address'] = $geocodeResult->getFormattedAddress();
-		$location = array(
-			'type' => 'Point',
-			'coordinates' => $geocodeResult->getCoordinates()->toArray()
-		);
-		$data['location'] = $location;
-		$data['geocode_result'] = $geocodeResult->toArray();
+        $result = $this->toXY($data['address'])->first();
 
-		Place::create($data);
+        $point = new Point($result->getCoordinates()->toArray());
+        $properties = $data;
+        $properties['formatted_address'] = $result->getFormattedAddress();
+        $properties['geocode_result'] = $result->toArray();
+        $feature = new Feature($point, $properties);
+
+		Place::create($feature->jsonSerialize());
     }
 
-    public function update($data) {
-        Place::where('address', $data['address'])
+    public function update($id, $data) {
+        Place::find($id)
 			->update($data);
     }
 
-	public function delete($data) {
-        Place:where('address', $data['address'])
-			->delete($data);
+	public function delete($id) {
+        Place::find($id)
+			->delete();
 	}
 
     public function local($sourceId) {

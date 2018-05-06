@@ -1,0 +1,26 @@
+.summary-card {
+  padding: 0;
+  background: rgba(248,214,214,0.45);
+  border-radius: 0.5rem;
+  color: rgb(207,35,35);
+  font-weight: bold;
+  
+  .title {
+    font-size: 1.2rem;
+  }
+  .info {
+    width: 100%;
+    .title {
+      font-size: 1.4rem;
+      background: rgba(239,163,163,0.4);
+    }
+    .content {
+      max-height: 6rem;
+      min-height: 5rem;
+      overflow-x: hidden;
+      font-size: 1rem;
+      list-style-type: none;
+      padding: 1rem;
+    }
+  }
+}

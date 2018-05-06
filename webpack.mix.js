@@ -18,4 +18,5 @@ mix.js('resources/assets/js/main.js', 'public/js')
    .sass('node_modules/bootstrap/scss/bootstrap-reboot.scss', 'public/css')
    .sass('node_modules/bootstrap/scss/bootstrap-grid.scss', 'public/css')
    .copy('node_modules/animate.css/animate.min.css', 'public/css')
+   .copy('node_modules/swiper/dist/css/swiper.min.css', 'public/css')
    .extract(['vue', 'vue2-google-maps', /*'lodash', 'popper.js', 'axios'*/]);

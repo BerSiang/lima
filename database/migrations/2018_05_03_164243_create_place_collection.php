@@ -14,7 +14,9 @@ class CreatePlaceCollection extends Migration
     public function up()
     {
         Schema::create('places', function(Blueprint $collection) {
-            $collection->geospatial('location', '2dsphere');
+            $collection->geospatial('geometry', '2dsphere');
+            $collection->index('properties.name');
+            $collection->index('properties.address');
         });
     }
 
