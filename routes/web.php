@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('home');
 });
+Route::prefix('api')->group(function() {
+    Route::get('factors', 'FactorController@factors');
+});

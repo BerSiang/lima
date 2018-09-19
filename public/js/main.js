@@ -1,9132 +1,823 @@
-webpackJsonp([1],{
-
-/***/ 225:
+webpackJsonp([1],[
+/* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-!function(e,t){ true?module.exports=t(__webpack_require__(226)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
+"use strict";
 
-/***/ }),
 
-/***/ 226:
-/***/ (function(module, exports, __webpack_require__) {
+var bind = __webpack_require__(57);
+var isBuffer = __webpack_require__(96);
+
+/*global toString:true*/
+
+// utils is a library of generic helper functions non-specific to axios
+
+var toString = Object.prototype.toString;
 
 /**
- * Swiper 4.2.6
- * Most modern mobile touch slider and framework with hardware accelerated transitions
- * http://www.idangero.us/swiper/
+ * Determine if a value is an Array
  *
- * Copyright 2014-2018 Vladimir Kharlampidi
- *
- * Released under the MIT License
- *
- * Released on: May 1, 2018
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Array, otherwise false
  */
+function isArray(val) {
+  return toString.call(val) === '[object Array]';
+}
 
-(function (global, factory) {
-   true ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global.Swiper = factory());
-}(this, (function () { 'use strict';
+/**
+ * Determine if a value is an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+ */
+function isArrayBuffer(val) {
+  return toString.call(val) === '[object ArrayBuffer]';
+}
 
-  /**
-   * SSR Window 1.0.0
-   * Better handling for window object in SSR environment
-   * https://github.com/nolimits4web/ssr-window
-   *
-   * Copyright 2018, Vladimir Kharlampidi
-   *
-   * Licensed under MIT
-   *
-   * Released on: February 10, 2018
-   */
-  var d;
-  if (typeof document === 'undefined') {
-    d = {
-      body: {},
-      addEventListener: function addEventListener() {},
-      removeEventListener: function removeEventListener() {},
-      activeElement: {
-        blur: function blur() {},
-        nodeName: '',
-      },
-      querySelector: function querySelector() {
-        return null;
-      },
-      querySelectorAll: function querySelectorAll() {
-        return [];
-      },
-      getElementById: function getElementById() {
-        return null;
-      },
-      createEvent: function createEvent() {
-        return {
-          initEvent: function initEvent() {},
-        };
-      },
-      createElement: function createElement() {
-        return {
-          children: [],
-          childNodes: [],
-          style: {},
-          setAttribute: function setAttribute() {},
-          getElementsByTagName: function getElementsByTagName() {
-            return [];
-          },
-        };
-      },
-      location: { hash: '' },
-    };
+/**
+ * Determine if a value is a FormData
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an FormData, otherwise false
+ */
+function isFormData(val) {
+  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+}
+
+/**
+ * Determine if a value is a view on an ArrayBuffer
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+ */
+function isArrayBufferView(val) {
+  var result;
+  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+    result = ArrayBuffer.isView(val);
   } else {
-    // eslint-disable-next-line
-    d = document;
+    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
   }
+  return result;
+}
 
-  var doc = d;
+/**
+ * Determine if a value is a String
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a String, otherwise false
+ */
+function isString(val) {
+  return typeof val === 'string';
+}
 
-  var w;
-  if (typeof window === 'undefined') {
-    w = {
-      document: doc,
-      navigator: {
-        userAgent: '',
-      },
-      location: {},
-      history: {},
-      CustomEvent: function CustomEvent() {
-        return this;
-      },
-      addEventListener: function addEventListener() {},
-      removeEventListener: function removeEventListener() {},
-      getComputedStyle: function getComputedStyle() {
-        return {
-          getPropertyValue: function getPropertyValue() {
-            return '';
-          },
-        };
-      },
-      Image: function Image() {},
-      Date: function Date() {},
-      screen: {},
-      setTimeout: function setTimeout() {},
-      clearTimeout: function clearTimeout() {},
-    };
-  } else {
-    // eslint-disable-next-line
-    w = window;
-  }
+/**
+ * Determine if a value is a Number
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Number, otherwise false
+ */
+function isNumber(val) {
+  return typeof val === 'number';
+}
 
-  var win = w;
+/**
+ * Determine if a value is undefined
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if the value is undefined, otherwise false
+ */
+function isUndefined(val) {
+  return typeof val === 'undefined';
+}
 
-  /**
-   * Dom7 2.0.5
-   * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
-   * http://framework7.io/docs/dom.html
-   *
-   * Copyright 2018, Vladimir Kharlampidi
-   * The iDangero.us
-   * http://www.idangero.us/
-   *
-   * Licensed under MIT
-   *
-   * Released on: April 20, 2018
-   */
+/**
+ * Determine if a value is an Object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is an Object, otherwise false
+ */
+function isObject(val) {
+  return val !== null && typeof val === 'object';
+}
 
-  var Dom7 = function Dom7(arr) {
-    var self = this;
-    // Create array-like object
-    for (var i = 0; i < arr.length; i += 1) {
-      self[i] = arr[i];
-    }
-    self.length = arr.length;
-    // Return collection with methods
-    return this;
-  };
+/**
+ * Determine if a value is a Date
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Date, otherwise false
+ */
+function isDate(val) {
+  return toString.call(val) === '[object Date]';
+}
 
-  function $(selector, context) {
-    var arr = [];
-    var i = 0;
-    if (selector && !context) {
-      if (selector instanceof Dom7) {
-        return selector;
-      }
-    }
-    if (selector) {
-        // String
-      if (typeof selector === 'string') {
-        var els;
-        var tempParent;
-        var html = selector.trim();
-        if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
-          var toCreate = 'div';
-          if (html.indexOf('<li') === 0) { toCreate = 'ul'; }
-          if (html.indexOf('<tr') === 0) { toCreate = 'tbody'; }
-          if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) { toCreate = 'tr'; }
-          if (html.indexOf('<tbody') === 0) { toCreate = 'table'; }
-          if (html.indexOf('<option') === 0) { toCreate = 'select'; }
-          tempParent = doc.createElement(toCreate);
-          tempParent.innerHTML = html;
-          for (i = 0; i < tempParent.childNodes.length; i += 1) {
-            arr.push(tempParent.childNodes[i]);
-          }
-        } else {
-          if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
-            // Pure ID selector
-            els = [doc.getElementById(selector.trim().split('#')[1])];
-          } else {
-            // Other selectors
-            els = (context || doc).querySelectorAll(selector.trim());
-          }
-          for (i = 0; i < els.length; i += 1) {
-            if (els[i]) { arr.push(els[i]); }
-          }
-        }
-      } else if (selector.nodeType || selector === win || selector === doc) {
-        // Node/element
-        arr.push(selector);
-      } else if (selector.length > 0 && selector[0].nodeType) {
-        // Array of elements or instance of Dom
-        for (i = 0; i < selector.length; i += 1) {
-          arr.push(selector[i]);
-        }
-      }
-    }
-    return new Dom7(arr);
-  }
+/**
+ * Determine if a value is a File
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a File, otherwise false
+ */
+function isFile(val) {
+  return toString.call(val) === '[object File]';
+}
 
-  $.fn = Dom7.prototype;
-  $.Class = Dom7;
-  $.Dom7 = Dom7;
+/**
+ * Determine if a value is a Blob
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Blob, otherwise false
+ */
+function isBlob(val) {
+  return toString.call(val) === '[object Blob]';
+}
 
-  function unique(arr) {
-    var uniqueArray = [];
-    for (var i = 0; i < arr.length; i += 1) {
-      if (uniqueArray.indexOf(arr[i]) === -1) { uniqueArray.push(arr[i]); }
-    }
-    return uniqueArray;
-  }
+/**
+ * Determine if a value is a Function
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Function, otherwise false
+ */
+function isFunction(val) {
+  return toString.call(val) === '[object Function]';
+}
 
-  // Classes and attributes
-  function addClass(className) {
-    var this$1 = this;
+/**
+ * Determine if a value is a Stream
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a Stream, otherwise false
+ */
+function isStream(val) {
+  return isObject(val) && isFunction(val.pipe);
+}
 
-    if (typeof className === 'undefined') {
-      return this;
-    }
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.add(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function removeClass(className) {
-    var this$1 = this;
+/**
+ * Determine if a value is a URLSearchParams object
+ *
+ * @param {Object} val The value to test
+ * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+ */
+function isURLSearchParams(val) {
+  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+}
 
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.remove(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function hasClass(className) {
-    if (!this[0]) { return false; }
-    return this[0].classList.contains(className);
-  }
-  function toggleClass(className) {
-    var this$1 = this;
+/**
+ * Trim excess whitespace off the beginning and end of a string
+ *
+ * @param {String} str The String to trim
+ * @returns {String} The String freed of excess whitespace
+ */
+function trim(str) {
+  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+}
 
-    var classes = className.split(' ');
-    for (var i = 0; i < classes.length; i += 1) {
-      for (var j = 0; j < this.length; j += 1) {
-        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.toggle(classes[i]); }
-      }
-    }
-    return this;
-  }
-  function attr(attrs, value) {
-    var arguments$1 = arguments;
-    var this$1 = this;
-
-    if (arguments.length === 1 && typeof attrs === 'string') {
-      // Get attr
-      if (this[0]) { return this[0].getAttribute(attrs); }
-      return undefined;
-    }
-
-    // Set attrs
-    for (var i = 0; i < this.length; i += 1) {
-      if (arguments$1.length === 2) {
-        // String
-        this$1[i].setAttribute(attrs, value);
-      } else {
-        // Object
-        // eslint-disable-next-line
-        for (var attrName in attrs) {
-          this$1[i][attrName] = attrs[attrName];
-          this$1[i].setAttribute(attrName, attrs[attrName]);
-        }
-      }
-    }
-    return this;
-  }
-  // eslint-disable-next-line
-  function removeAttr(attr) {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].removeAttribute(attr);
-    }
-    return this;
-  }
-  function data(key, value) {
-    var this$1 = this;
-
-    var el;
-    if (typeof value === 'undefined') {
-      el = this[0];
-      // Get value
-      if (el) {
-        if (el.dom7ElementDataStorage && (key in el.dom7ElementDataStorage)) {
-          return el.dom7ElementDataStorage[key];
-        }
-
-        var dataKey = el.getAttribute(("data-" + key));
-        if (dataKey) {
-          return dataKey;
-        }
-        return undefined;
-      }
-      return undefined;
-    }
-
-    // Set value
-    for (var i = 0; i < this.length; i += 1) {
-      el = this$1[i];
-      if (!el.dom7ElementDataStorage) { el.dom7ElementDataStorage = {}; }
-      el.dom7ElementDataStorage[key] = value;
-    }
-    return this;
-  }
-  // Transforms
-  // eslint-disable-next-line
-  function transform(transform) {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      var elStyle = this$1[i].style;
-      elStyle.webkitTransform = transform;
-      elStyle.transform = transform;
-    }
-    return this;
-  }
-  function transition(duration) {
-    var this$1 = this;
-
-    if (typeof duration !== 'string') {
-      duration = duration + "ms"; // eslint-disable-line
-    }
-    for (var i = 0; i < this.length; i += 1) {
-      var elStyle = this$1[i].style;
-      elStyle.webkitTransitionDuration = duration;
-      elStyle.transitionDuration = duration;
-    }
-    return this;
-  }
-  // Events
-  function on() {
-    var this$1 = this;
-    var assign;
-
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-    var eventType = args[0];
-    var targetSelector = args[1];
-    var listener = args[2];
-    var capture = args[3];
-    if (typeof args[1] === 'function') {
-      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
-      targetSelector = undefined;
-    }
-    if (!capture) { capture = false; }
-
-    function handleLiveEvent(e) {
-      var target = e.target;
-      if (!target) { return; }
-      var eventData = e.target.dom7EventData || [];
-      if (eventData.indexOf(e) < 0) {
-        eventData.unshift(e);
-      }
-      if ($(target).is(targetSelector)) { listener.apply(target, eventData); }
-      else {
-        var parents = $(target).parents(); // eslint-disable-line
-        for (var k = 0; k < parents.length; k += 1) {
-          if ($(parents[k]).is(targetSelector)) { listener.apply(parents[k], eventData); }
-        }
-      }
-    }
-    function handleEvent(e) {
-      var eventData = e && e.target ? e.target.dom7EventData || [] : [];
-      if (eventData.indexOf(e) < 0) {
-        eventData.unshift(e);
-      }
-      listener.apply(this, eventData);
-    }
-    var events = eventType.split(' ');
-    var j;
-    for (var i = 0; i < this.length; i += 1) {
-      var el = this$1[i];
-      if (!targetSelector) {
-        for (j = 0; j < events.length; j += 1) {
-          var event = events[j];
-          if (!el.dom7Listeners) { el.dom7Listeners = {}; }
-          if (!el.dom7Listeners[event]) { el.dom7Listeners[event] = []; }
-          el.dom7Listeners[event].push({
-            listener: listener,
-            proxyListener: handleEvent,
-          });
-          el.addEventListener(event, handleEvent, capture);
-        }
-      } else {
-        // Live events
-        for (j = 0; j < events.length; j += 1) {
-          var event$1 = events[j];
-          if (!el.dom7LiveListeners) { el.dom7LiveListeners = {}; }
-          if (!el.dom7LiveListeners[event$1]) { el.dom7LiveListeners[event$1] = []; }
-          el.dom7LiveListeners[event$1].push({
-            listener: listener,
-            proxyListener: handleLiveEvent,
-          });
-          el.addEventListener(event$1, handleLiveEvent, capture);
-        }
-      }
-    }
-    return this;
-  }
-  function off() {
-    var this$1 = this;
-    var assign;
-
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-    var eventType = args[0];
-    var targetSelector = args[1];
-    var listener = args[2];
-    var capture = args[3];
-    if (typeof args[1] === 'function') {
-      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
-      targetSelector = undefined;
-    }
-    if (!capture) { capture = false; }
-
-    var events = eventType.split(' ');
-    for (var i = 0; i < events.length; i += 1) {
-      var event = events[i];
-      for (var j = 0; j < this.length; j += 1) {
-        var el = this$1[j];
-        var handlers = (void 0);
-        if (!targetSelector && el.dom7Listeners) {
-          handlers = el.dom7Listeners[event];
-        } else if (targetSelector && el.dom7LiveListeners) {
-          handlers = el.dom7LiveListeners[event];
-        }
-        for (var k = handlers.length - 1; k >= 0; k -= 1) {
-          var handler = handlers[k];
-          if (listener && handler.listener === listener) {
-            el.removeEventListener(event, handler.proxyListener, capture);
-            handlers.splice(k, 1);
-          } else if (!listener) {
-            el.removeEventListener(event, handler.proxyListener, capture);
-            handlers.splice(k, 1);
-          }
-        }
-      }
-    }
-    return this;
-  }
-  function trigger() {
-    var this$1 = this;
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var events = args[0].split(' ');
-    var eventData = args[1];
-    for (var i = 0; i < events.length; i += 1) {
-      var event = events[i];
-      for (var j = 0; j < this.length; j += 1) {
-        var el = this$1[j];
-        var evt = (void 0);
-        try {
-          evt = new win.CustomEvent(event, {
-            detail: eventData,
-            bubbles: true,
-            cancelable: true,
-          });
-        } catch (e) {
-          evt = doc.createEvent('Event');
-          evt.initEvent(event, true, true);
-          evt.detail = eventData;
-        }
-        // eslint-disable-next-line
-        el.dom7EventData = args.filter(function (data, dataIndex) { return dataIndex > 0; });
-        el.dispatchEvent(evt);
-        el.dom7EventData = [];
-        delete el.dom7EventData;
-      }
-    }
-    return this;
-  }
-  function transitionEnd(callback) {
-    var events = ['webkitTransitionEnd', 'transitionend'];
-    var dom = this;
-    var i;
-    function fireCallBack(e) {
-      /* jshint validthis:true */
-      if (e.target !== this) { return; }
-      callback.call(this, e);
-      for (i = 0; i < events.length; i += 1) {
-        dom.off(events[i], fireCallBack);
-      }
-    }
-    if (callback) {
-      for (i = 0; i < events.length; i += 1) {
-        dom.on(events[i], fireCallBack);
-      }
-    }
-    return this;
-  }
-  function outerWidth(includeMargins) {
-    if (this.length > 0) {
-      if (includeMargins) {
-        // eslint-disable-next-line
-        var styles = this.styles();
-        return this[0].offsetWidth + parseFloat(styles.getPropertyValue('margin-right')) + parseFloat(styles.getPropertyValue('margin-left'));
-      }
-      return this[0].offsetWidth;
-    }
-    return null;
-  }
-  function outerHeight(includeMargins) {
-    if (this.length > 0) {
-      if (includeMargins) {
-        // eslint-disable-next-line
-        var styles = this.styles();
-        return this[0].offsetHeight + parseFloat(styles.getPropertyValue('margin-top')) + parseFloat(styles.getPropertyValue('margin-bottom'));
-      }
-      return this[0].offsetHeight;
-    }
-    return null;
-  }
-  function offset() {
-    if (this.length > 0) {
-      var el = this[0];
-      var box = el.getBoundingClientRect();
-      var body = doc.body;
-      var clientTop = el.clientTop || body.clientTop || 0;
-      var clientLeft = el.clientLeft || body.clientLeft || 0;
-      var scrollTop = el === win ? win.scrollY : el.scrollTop;
-      var scrollLeft = el === win ? win.scrollX : el.scrollLeft;
-      return {
-        top: (box.top + scrollTop) - clientTop,
-        left: (box.left + scrollLeft) - clientLeft,
-      };
-    }
-
-    return null;
-  }
-  function styles() {
-    if (this[0]) { return win.getComputedStyle(this[0], null); }
-    return {};
-  }
-  function css(props, value) {
-    var this$1 = this;
-
-    var i;
-    if (arguments.length === 1) {
-      if (typeof props === 'string') {
-        if (this[0]) { return win.getComputedStyle(this[0], null).getPropertyValue(props); }
-      } else {
-        for (i = 0; i < this.length; i += 1) {
-          // eslint-disable-next-line
-          for (var prop in props) {
-            this$1[i].style[prop] = props[prop];
-          }
-        }
-        return this;
-      }
-    }
-    if (arguments.length === 2 && typeof props === 'string') {
-      for (i = 0; i < this.length; i += 1) {
-        this$1[i].style[props] = value;
-      }
-      return this;
-    }
-    return this;
-  }
-  // Iterate over the collection passing elements to `callback`
-  function each(callback) {
-    var this$1 = this;
-
-    // Don't bother continuing without a callback
-    if (!callback) { return this; }
-    // Iterate over the current collection
-    for (var i = 0; i < this.length; i += 1) {
-      // If the callback returns false
-      if (callback.call(this$1[i], i, this$1[i]) === false) {
-        // End the loop early
-        return this$1;
-      }
-    }
-    // Return `this` to allow chained DOM operations
-    return this;
-  }
-  // eslint-disable-next-line
-  function html(html) {
-    var this$1 = this;
-
-    if (typeof html === 'undefined') {
-      return this[0] ? this[0].innerHTML : undefined;
-    }
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].innerHTML = html;
-    }
-    return this;
-  }
-  // eslint-disable-next-line
-  function text(text) {
-    var this$1 = this;
-
-    if (typeof text === 'undefined') {
-      if (this[0]) {
-        return this[0].textContent.trim();
-      }
-      return null;
-    }
-
-    for (var i = 0; i < this.length; i += 1) {
-      this$1[i].textContent = text;
-    }
-    return this;
-  }
-  function is(selector) {
-    var el = this[0];
-    var compareWith;
-    var i;
-    if (!el || typeof selector === 'undefined') { return false; }
-    if (typeof selector === 'string') {
-      if (el.matches) { return el.matches(selector); }
-      else if (el.webkitMatchesSelector) { return el.webkitMatchesSelector(selector); }
-      else if (el.msMatchesSelector) { return el.msMatchesSelector(selector); }
-
-      compareWith = $(selector);
-      for (i = 0; i < compareWith.length; i += 1) {
-        if (compareWith[i] === el) { return true; }
-      }
-      return false;
-    } else if (selector === doc) { return el === doc; }
-    else if (selector === win) { return el === win; }
-
-    if (selector.nodeType || selector instanceof Dom7) {
-      compareWith = selector.nodeType ? [selector] : selector;
-      for (i = 0; i < compareWith.length; i += 1) {
-        if (compareWith[i] === el) { return true; }
-      }
-      return false;
-    }
+/**
+ * Determine if we're running in a standard browser environment
+ *
+ * This allows axios to run in a web worker, and react-native.
+ * Both environments support XMLHttpRequest, but not fully standard globals.
+ *
+ * web workers:
+ *  typeof window -> undefined
+ *  typeof document -> undefined
+ *
+ * react-native:
+ *  navigator.product -> 'ReactNative'
+ */
+function isStandardBrowserEnv() {
+  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
     return false;
   }
-  function index() {
-    var child = this[0];
-    var i;
-    if (child) {
-      i = 0;
-      // eslint-disable-next-line
-      while ((child = child.previousSibling) !== null) {
-        if (child.nodeType === 1) { i += 1; }
-      }
-      return i;
-    }
-    return undefined;
-  }
-  // eslint-disable-next-line
-  function eq(index) {
-    if (typeof index === 'undefined') { return this; }
-    var length = this.length;
-    var returnIndex;
-    if (index > length - 1) {
-      return new Dom7([]);
-    }
-    if (index < 0) {
-      returnIndex = length + index;
-      if (returnIndex < 0) { return new Dom7([]); }
-      return new Dom7([this[returnIndex]]);
-    }
-    return new Dom7([this[index]]);
-  }
-  function append() {
-    var this$1 = this;
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
+  return (
+    typeof window !== 'undefined' &&
+    typeof document !== 'undefined'
+  );
+}
 
-    var newChild;
+/**
+ * Iterate over an Array or an Object invoking a function for each item.
+ *
+ * If `obj` is an Array callback will be called passing
+ * the value, index, and complete array for each item.
+ *
+ * If 'obj' is an Object callback will be called passing
+ * the value, key, and complete object for each property.
+ *
+ * @param {Object|Array} obj The object to iterate
+ * @param {Function} fn The callback to invoke for each item
+ */
+function forEach(obj, fn) {
+  // Don't bother if no value provided
+  if (obj === null || typeof obj === 'undefined') {
+    return;
+  }
 
-    for (var k = 0; k < args.length; k += 1) {
-      newChild = args[k];
-      for (var i = 0; i < this.length; i += 1) {
-        if (typeof newChild === 'string') {
-          var tempDiv = doc.createElement('div');
-          tempDiv.innerHTML = newChild;
-          while (tempDiv.firstChild) {
-            this$1[i].appendChild(tempDiv.firstChild);
-          }
-        } else if (newChild instanceof Dom7) {
-          for (var j = 0; j < newChild.length; j += 1) {
-            this$1[i].appendChild(newChild[j]);
-          }
-        } else {
-          this$1[i].appendChild(newChild);
-        }
+  // Force an array if not already something iterable
+  if (typeof obj !== 'object') {
+    /*eslint no-param-reassign:0*/
+    obj = [obj];
+  }
+
+  if (isArray(obj)) {
+    // Iterate over array values
+    for (var i = 0, l = obj.length; i < l; i++) {
+      fn.call(null, obj[i], i, obj);
+    }
+  } else {
+    // Iterate over object keys
+    for (var key in obj) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        fn.call(null, obj[key], key, obj);
       }
     }
+  }
+}
 
-    return this;
-  }
-  function prepend(newChild) {
-    var this$1 = this;
-
-    var i;
-    var j;
-    for (i = 0; i < this.length; i += 1) {
-      if (typeof newChild === 'string') {
-        var tempDiv = doc.createElement('div');
-        tempDiv.innerHTML = newChild;
-        for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) {
-          this$1[i].insertBefore(tempDiv.childNodes[j], this$1[i].childNodes[0]);
-        }
-      } else if (newChild instanceof Dom7) {
-        for (j = 0; j < newChild.length; j += 1) {
-          this$1[i].insertBefore(newChild[j], this$1[i].childNodes[0]);
-        }
-      } else {
-        this$1[i].insertBefore(newChild, this$1[i].childNodes[0]);
-      }
+/**
+ * Accepts varargs expecting each argument to be an object, then
+ * immutably merges the properties of each object and returns result.
+ *
+ * When multiple objects contain the same key the later object in
+ * the arguments list will take precedence.
+ *
+ * Example:
+ *
+ * ```js
+ * var result = merge({foo: 123}, {foo: 456});
+ * console.log(result.foo); // outputs 456
+ * ```
+ *
+ * @param {Object} obj1 Object to merge
+ * @returns {Object} Result of all merge properties
+ */
+function merge(/* obj1, obj2, obj3, ... */) {
+  var result = {};
+  function assignValue(val, key) {
+    if (typeof result[key] === 'object' && typeof val === 'object') {
+      result[key] = merge(result[key], val);
+    } else {
+      result[key] = val;
     }
-    return this;
-  }
-  function next(selector) {
-    if (this.length > 0) {
-      if (selector) {
-        if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) {
-          return new Dom7([this[0].nextElementSibling]);
-        }
-        return new Dom7([]);
-      }
-
-      if (this[0].nextElementSibling) { return new Dom7([this[0].nextElementSibling]); }
-      return new Dom7([]);
-    }
-    return new Dom7([]);
-  }
-  function nextAll(selector) {
-    var nextEls = [];
-    var el = this[0];
-    if (!el) { return new Dom7([]); }
-    while (el.nextElementSibling) {
-      var next = el.nextElementSibling; // eslint-disable-line
-      if (selector) {
-        if ($(next).is(selector)) { nextEls.push(next); }
-      } else { nextEls.push(next); }
-      el = next;
-    }
-    return new Dom7(nextEls);
-  }
-  function prev(selector) {
-    if (this.length > 0) {
-      var el = this[0];
-      if (selector) {
-        if (el.previousElementSibling && $(el.previousElementSibling).is(selector)) {
-          return new Dom7([el.previousElementSibling]);
-        }
-        return new Dom7([]);
-      }
-
-      if (el.previousElementSibling) { return new Dom7([el.previousElementSibling]); }
-      return new Dom7([]);
-    }
-    return new Dom7([]);
-  }
-  function prevAll(selector) {
-    var prevEls = [];
-    var el = this[0];
-    if (!el) { return new Dom7([]); }
-    while (el.previousElementSibling) {
-      var prev = el.previousElementSibling; // eslint-disable-line
-      if (selector) {
-        if ($(prev).is(selector)) { prevEls.push(prev); }
-      } else { prevEls.push(prev); }
-      el = prev;
-    }
-    return new Dom7(prevEls);
-  }
-  function parent(selector) {
-    var this$1 = this;
-
-    var parents = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      if (this$1[i].parentNode !== null) {
-        if (selector) {
-          if ($(this$1[i].parentNode).is(selector)) { parents.push(this$1[i].parentNode); }
-        } else {
-          parents.push(this$1[i].parentNode);
-        }
-      }
-    }
-    return $(unique(parents));
-  }
-  function parents(selector) {
-    var this$1 = this;
-
-    var parents = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      var parent = this$1[i].parentNode; // eslint-disable-line
-      while (parent) {
-        if (selector) {
-          if ($(parent).is(selector)) { parents.push(parent); }
-        } else {
-          parents.push(parent);
-        }
-        parent = parent.parentNode;
-      }
-    }
-    return $(unique(parents));
-  }
-  function closest(selector) {
-    var closest = this; // eslint-disable-line
-    if (typeof selector === 'undefined') {
-      return new Dom7([]);
-    }
-    if (!closest.is(selector)) {
-      closest = closest.parents(selector).eq(0);
-    }
-    return closest;
-  }
-  function find(selector) {
-    var this$1 = this;
-
-    var foundElements = [];
-    for (var i = 0; i < this.length; i += 1) {
-      var found = this$1[i].querySelectorAll(selector);
-      for (var j = 0; j < found.length; j += 1) {
-        foundElements.push(found[j]);
-      }
-    }
-    return new Dom7(foundElements);
-  }
-  function children(selector) {
-    var this$1 = this;
-
-    var children = []; // eslint-disable-line
-    for (var i = 0; i < this.length; i += 1) {
-      var childNodes = this$1[i].childNodes;
-
-      for (var j = 0; j < childNodes.length; j += 1) {
-        if (!selector) {
-          if (childNodes[j].nodeType === 1) { children.push(childNodes[j]); }
-        } else if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) {
-          children.push(childNodes[j]);
-        }
-      }
-    }
-    return new Dom7(unique(children));
-  }
-  function remove() {
-    var this$1 = this;
-
-    for (var i = 0; i < this.length; i += 1) {
-      if (this$1[i].parentNode) { this$1[i].parentNode.removeChild(this$1[i]); }
-    }
-    return this;
-  }
-  function add() {
-    var args = [], len = arguments.length;
-    while ( len-- ) args[ len ] = arguments[ len ];
-
-    var dom = this;
-    var i;
-    var j;
-    for (i = 0; i < args.length; i += 1) {
-      var toAdd = $(args[i]);
-      for (j = 0; j < toAdd.length; j += 1) {
-        dom[dom.length] = toAdd[j];
-        dom.length += 1;
-      }
-    }
-    return dom;
   }
 
-  var Methods = {
-    addClass: addClass,
-    removeClass: removeClass,
-    hasClass: hasClass,
-    toggleClass: toggleClass,
-    attr: attr,
-    removeAttr: removeAttr,
-    data: data,
-    transform: transform,
-    transition: transition,
-    on: on,
-    off: off,
-    trigger: trigger,
-    transitionEnd: transitionEnd,
-    outerWidth: outerWidth,
-    outerHeight: outerHeight,
-    offset: offset,
-    css: css,
-    each: each,
-    html: html,
-    text: text,
-    is: is,
-    index: index,
-    eq: eq,
-    append: append,
-    prepend: prepend,
-    next: next,
-    nextAll: nextAll,
-    prev: prev,
-    prevAll: prevAll,
-    parent: parent,
-    parents: parents,
-    closest: closest,
-    find: find,
-    children: children,
-    remove: remove,
-    add: add,
-    styles: styles,
-  };
+  for (var i = 0, l = arguments.length; i < l; i++) {
+    forEach(arguments[i], assignValue);
+  }
+  return result;
+}
 
-  Object.keys(Methods).forEach(function (methodName) {
-    $.fn[methodName] = Methods[methodName];
+/**
+ * Extends object a by mutably adding to it the properties of object b.
+ *
+ * @param {Object} a The object to be extended
+ * @param {Object} b The object to copy properties from
+ * @param {Object} thisArg The object to bind function to
+ * @return {Object} The resulting value of object a
+ */
+function extend(a, b, thisArg) {
+  forEach(b, function assignValue(val, key) {
+    if (thisArg && typeof val === 'function') {
+      a[key] = bind(val, thisArg);
+    } else {
+      a[key] = val;
+    }
   });
-
-  var Utils = {
-    deleteProps: function deleteProps(obj) {
-      var object = obj;
-      Object.keys(object).forEach(function (key) {
-        try {
-          object[key] = null;
-        } catch (e) {
-          // no getter for object
-        }
-        try {
-          delete object[key];
-        } catch (e) {
-          // something got wrong
-        }
-      });
-    },
-    nextTick: function nextTick(callback, delay) {
-      if ( delay === void 0 ) delay = 0;
-
-      return setTimeout(callback, delay);
-    },
-    now: function now() {
-      return Date.now();
-    },
-    getTranslate: function getTranslate(el, axis) {
-      if ( axis === void 0 ) axis = 'x';
-
-      var matrix;
-      var curTransform;
-      var transformMatrix;
-
-      var curStyle = win.getComputedStyle(el, null);
-
-      if (win.WebKitCSSMatrix) {
-        curTransform = curStyle.transform || curStyle.webkitTransform;
-        if (curTransform.split(',').length > 6) {
-          curTransform = curTransform.split(', ').map(function (a) { return a.replace(',', '.'); }).join(', ');
-        }
-        // Some old versions of Webkit choke when 'none' is passed; pass
-        // empty string instead in this case
-        transformMatrix = new win.WebKitCSSMatrix(curTransform === 'none' ? '' : curTransform);
-      } else {
-        transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue('transform').replace('translate(', 'matrix(1, 0, 0, 1,');
-        matrix = transformMatrix.toString().split(',');
-      }
-
-      if (axis === 'x') {
-        // Latest Chrome and webkits Fix
-        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m41; }
-        // Crazy IE10 Matrix
-        else if (matrix.length === 16) { curTransform = parseFloat(matrix[12]); }
-        // Normal Browsers
-        else { curTransform = parseFloat(matrix[4]); }
-      }
-      if (axis === 'y') {
-        // Latest Chrome and webkits Fix
-        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m42; }
-        // Crazy IE10 Matrix
-        else if (matrix.length === 16) { curTransform = parseFloat(matrix[13]); }
-        // Normal Browsers
-        else { curTransform = parseFloat(matrix[5]); }
-      }
-      return curTransform || 0;
-    },
-    parseUrlQuery: function parseUrlQuery(url) {
-      var query = {};
-      var urlToParse = url || win.location.href;
-      var i;
-      var params;
-      var param;
-      var length;
-      if (typeof urlToParse === 'string' && urlToParse.length) {
-        urlToParse = urlToParse.indexOf('?') > -1 ? urlToParse.replace(/\S*\?/, '') : '';
-        params = urlToParse.split('&').filter(function (paramsPart) { return paramsPart !== ''; });
-        length = params.length;
-
-        for (i = 0; i < length; i += 1) {
-          param = params[i].replace(/#\S+/g, '').split('=');
-          query[decodeURIComponent(param[0])] = typeof param[1] === 'undefined' ? undefined : decodeURIComponent(param[1]) || '';
-        }
-      }
-      return query;
-    },
-    isObject: function isObject(o) {
-      return typeof o === 'object' && o !== null && o.constructor && o.constructor === Object;
-    },
-    extend: function extend() {
-      var args = [], len$1 = arguments.length;
-      while ( len$1-- ) args[ len$1 ] = arguments[ len$1 ];
-
-      var to = Object(args[0]);
-      for (var i = 1; i < args.length; i += 1) {
-        var nextSource = args[i];
-        if (nextSource !== undefined && nextSource !== null) {
-          var keysArray = Object.keys(Object(nextSource));
-          for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
-            var nextKey = keysArray[nextIndex];
-            var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
-            if (desc !== undefined && desc.enumerable) {
-              if (Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
-                Utils.extend(to[nextKey], nextSource[nextKey]);
-              } else if (!Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
-                to[nextKey] = {};
-                Utils.extend(to[nextKey], nextSource[nextKey]);
-              } else {
-                to[nextKey] = nextSource[nextKey];
-              }
-            }
-          }
-        }
-      }
-      return to;
-    },
-  };
-
-  var Support = (function Support() {
-    var testDiv = doc.createElement('div');
-    return {
-      touch: (win.Modernizr && win.Modernizr.touch === true) || (function checkTouch() {
-        return !!(('ontouchstart' in win) || (win.DocumentTouch && doc instanceof win.DocumentTouch));
-      }()),
-
-      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent),
-      prefixedPointerEvents: !!win.navigator.msPointerEnabled,
-
-      transition: (function checkTransition() {
-        var style = testDiv.style;
-        return ('transition' in style || 'webkitTransition' in style || 'MozTransition' in style);
-      }()),
-      transforms3d: (win.Modernizr && win.Modernizr.csstransforms3d === true) || (function checkTransforms3d() {
-        var style = testDiv.style;
-        return ('webkitPerspective' in style || 'MozPerspective' in style || 'OPerspective' in style || 'MsPerspective' in style || 'perspective' in style);
-      }()),
-
-      flexbox: (function checkFlexbox() {
-        var style = testDiv.style;
-        var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
-        for (var i = 0; i < styles.length; i += 1) {
-          if (styles[i] in style) { return true; }
-        }
-        return false;
-      }()),
-
-      observer: (function checkObserver() {
-        return ('MutationObserver' in win || 'WebkitMutationObserver' in win);
-      }()),
-
-      passiveListener: (function checkPassiveListener() {
-        var supportsPassive = false;
-        try {
-          var opts = Object.defineProperty({}, 'passive', {
-            // eslint-disable-next-line
-            get: function get() {
-              supportsPassive = true;
-            },
-          });
-          win.addEventListener('testPassiveListener', null, opts);
-        } catch (e) {
-          // No support
-        }
-        return supportsPassive;
-      }()),
-
-      gestures: (function checkGestures() {
-        return 'ongesturestart' in win;
-      }()),
-    };
-  }());
-
-  var SwiperClass = function SwiperClass(params) {
-    if ( params === void 0 ) params = {};
-
-    var self = this;
-    self.params = params;
-
-    // Events
-    self.eventsListeners = {};
-
-    if (self.params && self.params.on) {
-      Object.keys(self.params.on).forEach(function (eventName) {
-        self.on(eventName, self.params.on[eventName]);
-      });
-    }
-  };
-
-  var staticAccessors = { components: { configurable: true } };
-  SwiperClass.prototype.on = function on (events, handler, priority) {
-    var self = this;
-    if (typeof handler !== 'function') { return self; }
-    var method = priority ? 'unshift' : 'push';
-    events.split(' ').forEach(function (event) {
-      if (!self.eventsListeners[event]) { self.eventsListeners[event] = []; }
-      self.eventsListeners[event][method](handler);
-    });
-    return self;
-  };
-  SwiperClass.prototype.once = function once (events, handler, priority) {
-    var self = this;
-    if (typeof handler !== 'function') { return self; }
-    function onceHandler() {
-        var args = [], len = arguments.length;
-        while ( len-- ) args[ len ] = arguments[ len ];
-
-      handler.apply(self, args);
-      self.off(events, onceHandler);
-    }
-    return self.on(events, onceHandler, priority);
-  };
-  SwiperClass.prototype.off = function off (events, handler) {
-    var self = this;
-    if (!self.eventsListeners) { return self; }
-    events.split(' ').forEach(function (event) {
-      if (typeof handler === 'undefined') {
-        self.eventsListeners[event] = [];
-      } else {
-        self.eventsListeners[event].forEach(function (eventHandler, index) {
-          if (eventHandler === handler) {
-            self.eventsListeners[event].splice(index, 1);
-          }
-        });
-      }
-    });
-    return self;
-  };
-  SwiperClass.prototype.emit = function emit () {
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-
-    var self = this;
-    if (!self.eventsListeners) { return self; }
-    var events;
-    var data;
-    var context;
-    if (typeof args[0] === 'string' || Array.isArray(args[0])) {
-      events = args[0];
-      data = args.slice(1, args.length);
-      context = self;
-    } else {
-      events = args[0].events;
-      data = args[0].data;
-      context = args[0].context || self;
-    }
-    var eventsArray = Array.isArray(events) ? events : events.split(' ');
-    eventsArray.forEach(function (event) {
-      if (self.eventsListeners && self.eventsListeners[event]) {
-        var handlers = [];
-        self.eventsListeners[event].forEach(function (eventHandler) {
-          handlers.push(eventHandler);
-        });
-        handlers.forEach(function (eventHandler) {
-          eventHandler.apply(context, data);
-        });
-      }
-    });
-    return self;
-  };
-  SwiperClass.prototype.useModulesParams = function useModulesParams (instanceParams) {
-    var instance = this;
-    if (!instance.modules) { return; }
-    Object.keys(instance.modules).forEach(function (moduleName) {
-      var module = instance.modules[moduleName];
-      // Extend params
-      if (module.params) {
-        Utils.extend(instanceParams, module.params);
-      }
-    });
-  };
-  SwiperClass.prototype.useModules = function useModules (modulesParams) {
-      if ( modulesParams === void 0 ) modulesParams = {};
-
-    var instance = this;
-    if (!instance.modules) { return; }
-    Object.keys(instance.modules).forEach(function (moduleName) {
-      var module = instance.modules[moduleName];
-      var moduleParams = modulesParams[moduleName] || {};
-      // Extend instance methods and props
-      if (module.instance) {
-        Object.keys(module.instance).forEach(function (modulePropName) {
-          var moduleProp = module.instance[modulePropName];
-          if (typeof moduleProp === 'function') {
-            instance[modulePropName] = moduleProp.bind(instance);
-          } else {
-            instance[modulePropName] = moduleProp;
-          }
-        });
-      }
-      // Add event listeners
-      if (module.on && instance.on) {
-        Object.keys(module.on).forEach(function (moduleEventName) {
-          instance.on(moduleEventName, module.on[moduleEventName]);
-        });
-      }
-
-      // Module create callback
-      if (module.create) {
-        module.create.bind(instance)(moduleParams);
-      }
-    });
-  };
-  staticAccessors.components.set = function (components) {
-    var Class = this;
-    if (!Class.use) { return; }
-    Class.use(components);
-  };
-  SwiperClass.installModule = function installModule (module) {
-      var params = [], len = arguments.length - 1;
-      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
-
-    var Class = this;
-    if (!Class.prototype.modules) { Class.prototype.modules = {}; }
-    var name = module.name || (((Object.keys(Class.prototype.modules).length) + "_" + (Utils.now())));
-    Class.prototype.modules[name] = module;
-    // Prototype
-    if (module.proto) {
-      Object.keys(module.proto).forEach(function (key) {
-        Class.prototype[key] = module.proto[key];
-      });
-    }
-    // Class
-    if (module.static) {
-      Object.keys(module.static).forEach(function (key) {
-        Class[key] = module.static[key];
-      });
-    }
-    // Callback
-    if (module.install) {
-      module.install.apply(Class, params);
-    }
-    return Class;
-  };
-  SwiperClass.use = function use (module) {
-      var params = [], len = arguments.length - 1;
-      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
-
-    var Class = this;
-    if (Array.isArray(module)) {
-      module.forEach(function (m) { return Class.installModule(m); });
-      return Class;
-    }
-    return Class.installModule.apply(Class, [ module ].concat( params ));
-  };
-
-  Object.defineProperties( SwiperClass, staticAccessors );
-
-  function updateSize () {
-    var swiper = this;
-    var width;
-    var height;
-    var $el = swiper.$el;
-    if (typeof swiper.params.width !== 'undefined') {
-      width = swiper.params.width;
-    } else {
-      width = $el[0].clientWidth;
-    }
-    if (typeof swiper.params.height !== 'undefined') {
-      height = swiper.params.height;
-    } else {
-      height = $el[0].clientHeight;
-    }
-    if ((width === 0 && swiper.isHorizontal()) || (height === 0 && swiper.isVertical())) {
-      return;
-    }
-
-    // Subtract paddings
-    width = width - parseInt($el.css('padding-left'), 10) - parseInt($el.css('padding-right'), 10);
-    height = height - parseInt($el.css('padding-top'), 10) - parseInt($el.css('padding-bottom'), 10);
-
-    Utils.extend(swiper, {
-      width: width,
-      height: height,
-      size: swiper.isHorizontal() ? width : height,
-    });
-  }
-
-  function updateSlides () {
-    var swiper = this;
-    var params = swiper.params;
-
-    var $wrapperEl = swiper.$wrapperEl;
-    var swiperSize = swiper.size;
-    var rtl = swiper.rtlTranslate;
-    var wrongRTL = swiper.wrongRTL;
-    var slides = $wrapperEl.children(("." + (swiper.params.slideClass)));
-    var isVirtual = swiper.virtual && params.virtual.enabled;
-    var slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
-    var snapGrid = [];
-    var slidesGrid = [];
-    var slidesSizesGrid = [];
-
-    var offsetBefore = params.slidesOffsetBefore;
-    if (typeof offsetBefore === 'function') {
-      offsetBefore = params.slidesOffsetBefore.call(swiper);
-    }
-
-    var offsetAfter = params.slidesOffsetAfter;
-    if (typeof offsetAfter === 'function') {
-      offsetAfter = params.slidesOffsetAfter.call(swiper);
-    }
-
-    var previousSlidesLength = slidesLength;
-    var previousSnapGridLength = swiper.snapGrid.length;
-    var previousSlidesGridLength = swiper.snapGrid.length;
-
-    var spaceBetween = params.spaceBetween;
-    var slidePosition = -offsetBefore;
-    var prevSlideSize = 0;
-    var index = 0;
-    if (typeof swiperSize === 'undefined') {
-      return;
-    }
-    if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
-      spaceBetween = (parseFloat(spaceBetween.replace('%', '')) / 100) * swiperSize;
-    }
-
-    swiper.virtualSize = -spaceBetween;
-
-    // reset margins
-    if (rtl) { slides.css({ marginLeft: '', marginTop: '' }); }
-    else { slides.css({ marginRight: '', marginBottom: '' }); }
-
-    var slidesNumberEvenToRows;
-    if (params.slidesPerColumn > 1) {
-      if (Math.floor(slidesLength / params.slidesPerColumn) === slidesLength / swiper.params.slidesPerColumn) {
-        slidesNumberEvenToRows = slidesLength;
-      } else {
-        slidesNumberEvenToRows = Math.ceil(slidesLength / params.slidesPerColumn) * params.slidesPerColumn;
-      }
-      if (params.slidesPerView !== 'auto' && params.slidesPerColumnFill === 'row') {
-        slidesNumberEvenToRows = Math.max(slidesNumberEvenToRows, params.slidesPerView * params.slidesPerColumn);
-      }
-    }
-
-    // Calc slides
-    var slideSize;
-    var slidesPerColumn = params.slidesPerColumn;
-    var slidesPerRow = slidesNumberEvenToRows / slidesPerColumn;
-    var numFullColumns = slidesPerRow - ((params.slidesPerColumn * slidesPerRow) - slidesLength);
-    for (var i = 0; i < slidesLength; i += 1) {
-      slideSize = 0;
-      var slide = slides.eq(i);
-      if (params.slidesPerColumn > 1) {
-        // Set slides order
-        var newSlideOrderIndex = (void 0);
-        var column = (void 0);
-        var row = (void 0);
-        if (params.slidesPerColumnFill === 'column') {
-          column = Math.floor(i / slidesPerColumn);
-          row = i - (column * slidesPerColumn);
-          if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
-            row += 1;
-            if (row >= slidesPerColumn) {
-              row = 0;
-              column += 1;
-            }
-          }
-          newSlideOrderIndex = column + ((row * slidesNumberEvenToRows) / slidesPerColumn);
-          slide
-            .css({
-              '-webkit-box-ordinal-group': newSlideOrderIndex,
-              '-moz-box-ordinal-group': newSlideOrderIndex,
-              '-ms-flex-order': newSlideOrderIndex,
-              '-webkit-order': newSlideOrderIndex,
-              order: newSlideOrderIndex,
-            });
-        } else {
-          row = Math.floor(i / slidesPerRow);
-          column = i - (row * slidesPerRow);
-        }
-        slide
-          .css(
-            ("margin-" + (swiper.isHorizontal() ? 'top' : 'left')),
-            (row !== 0 && params.spaceBetween) && (((params.spaceBetween) + "px"))
-          )
-          .attr('data-swiper-column', column)
-          .attr('data-swiper-row', row);
-      }
-      if (slide.css('display') === 'none') { continue; } // eslint-disable-line
-
-      if (params.slidesPerView === 'auto') {
-        var slideStyles = win.getComputedStyle(slide[0], null);
-        var currentTransform = slide[0].style.transform;
-        if (currentTransform) {
-          slide[0].style.transform = 'none';
-        }
-        if (swiper.isHorizontal()) {
-          slideSize = slide[0].getBoundingClientRect().width +
-            parseFloat(slideStyles.getPropertyValue('margin-left')) +
-            parseFloat(slideStyles.getPropertyValue('margin-right'));
-        } else {
-          slideSize = slide[0].getBoundingClientRect().height +
-            parseFloat(slideStyles.getPropertyValue('margin-top')) +
-            parseFloat(slideStyles.getPropertyValue('margin-bottom'));
-        }
-        if (currentTransform) {
-          slide[0].style.transform = currentTransform;
-        }
-        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
-      } else {
-        slideSize = (swiperSize - ((params.slidesPerView - 1) * spaceBetween)) / params.slidesPerView;
-        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
-
-        if (slides[i]) {
-          if (swiper.isHorizontal()) {
-            slides[i].style.width = slideSize + "px";
-          } else {
-            slides[i].style.height = slideSize + "px";
-          }
-        }
-      }
-      if (slides[i]) {
-        slides[i].swiperSlideSize = slideSize;
-      }
-      slidesSizesGrid.push(slideSize);
-
-
-      if (params.centeredSlides) {
-        slidePosition = slidePosition + (slideSize / 2) + (prevSlideSize / 2) + spaceBetween;
-        if (prevSlideSize === 0 && i !== 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
-        if (i === 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
-        if (Math.abs(slidePosition) < 1 / 1000) { slidePosition = 0; }
-        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
-        slidesGrid.push(slidePosition);
-      } else {
-        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
-        slidesGrid.push(slidePosition);
-        slidePosition = slidePosition + slideSize + spaceBetween;
-      }
-
-      swiper.virtualSize += slideSize + spaceBetween;
-
-      prevSlideSize = slideSize;
-
-      index += 1;
-    }
-    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
-    var newSlidesGrid;
-
-    if (
-      rtl && wrongRTL && (params.effect === 'slide' || params.effect === 'coverflow')) {
-      $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") });
-    }
-    if (!Support.flexbox || params.setWrapperSize) {
-      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-    }
-
-    if (params.slidesPerColumn > 1) {
-      swiper.virtualSize = (slideSize + params.spaceBetween) * slidesNumberEvenToRows;
-      swiper.virtualSize = Math.ceil(swiper.virtualSize / params.slidesPerColumn) - params.spaceBetween;
-      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
-      if (params.centeredSlides) {
-        newSlidesGrid = [];
-        for (var i$1 = 0; i$1 < snapGrid.length; i$1 += 1) {
-          if (snapGrid[i$1] < swiper.virtualSize + snapGrid[0]) { newSlidesGrid.push(snapGrid[i$1]); }
-        }
-        snapGrid = newSlidesGrid;
-      }
-    }
-
-    // Remove last grid elements depending on width
-    if (!params.centeredSlides) {
-      newSlidesGrid = [];
-      for (var i$2 = 0; i$2 < snapGrid.length; i$2 += 1) {
-        if (snapGrid[i$2] <= swiper.virtualSize - swiperSize) {
-          newSlidesGrid.push(snapGrid[i$2]);
-        }
-      }
-      snapGrid = newSlidesGrid;
-      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
-        snapGrid.push(swiper.virtualSize - swiperSize);
-      }
-    }
-    if (snapGrid.length === 0) { snapGrid = [0]; }
-
-    if (params.spaceBetween !== 0) {
-      if (swiper.isHorizontal()) {
-        if (rtl) { slides.css({ marginLeft: (spaceBetween + "px") }); }
-        else { slides.css({ marginRight: (spaceBetween + "px") }); }
-      } else { slides.css({ marginBottom: (spaceBetween + "px") }); }
-    }
-
-    Utils.extend(swiper, {
-      slides: slides,
-      snapGrid: snapGrid,
-      slidesGrid: slidesGrid,
-      slidesSizesGrid: slidesSizesGrid,
-    });
-
-    if (slidesLength !== previousSlidesLength) {
-      swiper.emit('slidesLengthChange');
-    }
-    if (snapGrid.length !== previousSnapGridLength) {
-      if (swiper.params.watchOverflow) { swiper.checkOverflow(); }
-      swiper.emit('snapGridLengthChange');
-    }
-    if (slidesGrid.length !== previousSlidesGridLength) {
-      swiper.emit('slidesGridLengthChange');
-    }
-
-    if (params.watchSlidesProgress || params.watchSlidesVisibility) {
-      swiper.updateSlidesOffset();
-    }
-  }
-
-  function updateAutoHeight (speed) {
-    var swiper = this;
-    var activeSlides = [];
-    var newHeight = 0;
-    var i;
-    if (typeof speed === 'number') {
-      swiper.setTransition(speed);
-    } else if (speed === true) {
-      swiper.setTransition(swiper.params.speed);
-    }
-    // Find slides currently in view
-    if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
-      for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
-        var index = swiper.activeIndex + i;
-        if (index > swiper.slides.length) { break; }
-        activeSlides.push(swiper.slides.eq(index)[0]);
-      }
-    } else {
-      activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
-    }
-
-    // Find new height from highest slide in view
-    for (i = 0; i < activeSlides.length; i += 1) {
-      if (typeof activeSlides[i] !== 'undefined') {
-        var height = activeSlides[i].offsetHeight;
-        newHeight = height > newHeight ? height : newHeight;
-      }
-    }
-
-    // Update Height
-    if (newHeight) { swiper.$wrapperEl.css('height', (newHeight + "px")); }
-  }
-
-  function updateSlidesOffset () {
-    var swiper = this;
-    var slides = swiper.slides;
-    for (var i = 0; i < slides.length; i += 1) {
-      slides[i].swiperSlideOffset = swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop;
-    }
-  }
-
-  function updateSlidesProgress (translate) {
-    if ( translate === void 0 ) translate = (this && this.translate) || 0;
-
-    var swiper = this;
-    var params = swiper.params;
-
-    var slides = swiper.slides;
-    var rtl = swiper.rtlTranslate;
-
-    if (slides.length === 0) { return; }
-    if (typeof slides[0].swiperSlideOffset === 'undefined') { swiper.updateSlidesOffset(); }
-
-    var offsetCenter = -translate;
-    if (rtl) { offsetCenter = translate; }
-
-    // Visible Slides
-    slides.removeClass(params.slideVisibleClass);
-
-    for (var i = 0; i < slides.length; i += 1) {
-      var slide = slides[i];
-      var slideProgress =
-        (
-          (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
-        ) / (slide.swiperSlideSize + params.spaceBetween);
-      if (params.watchSlidesVisibility) {
-        var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
-        var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
-        var isVisible =
-                  (slideBefore >= 0 && slideBefore < swiper.size) ||
-                  (slideAfter > 0 && slideAfter <= swiper.size) ||
-                  (slideBefore <= 0 && slideAfter >= swiper.size);
-        if (isVisible) {
-          slides.eq(i).addClass(params.slideVisibleClass);
-        }
-      }
-      slide.progress = rtl ? -slideProgress : slideProgress;
-    }
-  }
-
-  function updateProgress (translate) {
-    if ( translate === void 0 ) translate = (this && this.translate) || 0;
-
-    var swiper = this;
-    var params = swiper.params;
-
-    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-    var progress = swiper.progress;
-    var isBeginning = swiper.isBeginning;
-    var isEnd = swiper.isEnd;
-    var wasBeginning = isBeginning;
-    var wasEnd = isEnd;
-    if (translatesDiff === 0) {
-      progress = 0;
-      isBeginning = true;
-      isEnd = true;
-    } else {
-      progress = (translate - swiper.minTranslate()) / (translatesDiff);
-      isBeginning = progress <= 0;
-      isEnd = progress >= 1;
-    }
-    Utils.extend(swiper, {
-      progress: progress,
-      isBeginning: isBeginning,
-      isEnd: isEnd,
-    });
-
-    if (params.watchSlidesProgress || params.watchSlidesVisibility) { swiper.updateSlidesProgress(translate); }
-
-    if (isBeginning && !wasBeginning) {
-      swiper.emit('reachBeginning toEdge');
-    }
-    if (isEnd && !wasEnd) {
-      swiper.emit('reachEnd toEdge');
-    }
-    if ((wasBeginning && !isBeginning) || (wasEnd && !isEnd)) {
-      swiper.emit('fromEdge');
-    }
-
-    swiper.emit('progress', progress);
-  }
-
-  function updateSlidesClasses () {
-    var swiper = this;
-
-    var slides = swiper.slides;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-    var realIndex = swiper.realIndex;
-    var isVirtual = swiper.virtual && params.virtual.enabled;
-
-    slides.removeClass(((params.slideActiveClass) + " " + (params.slideNextClass) + " " + (params.slidePrevClass) + " " + (params.slideDuplicateActiveClass) + " " + (params.slideDuplicateNextClass) + " " + (params.slideDuplicatePrevClass)));
-
-    var activeSlide;
-    if (isVirtual) {
-      activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + activeIndex + "\"]"));
-    } else {
-      activeSlide = slides.eq(activeIndex);
-    }
-
-    // Active classes
-    activeSlide.addClass(params.slideActiveClass);
-
-    if (params.loop) {
-      // Duplicate to all looped slides
-      if (activeSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + realIndex + "\"]"))
-          .addClass(params.slideDuplicateActiveClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]"))
-          .addClass(params.slideDuplicateActiveClass);
-      }
-    }
-    // Next Slide
-    var nextSlide = activeSlide.nextAll(("." + (params.slideClass))).eq(0).addClass(params.slideNextClass);
-    if (params.loop && nextSlide.length === 0) {
-      nextSlide = slides.eq(0);
-      nextSlide.addClass(params.slideNextClass);
-    }
-    // Prev Slide
-    var prevSlide = activeSlide.prevAll(("." + (params.slideClass))).eq(0).addClass(params.slidePrevClass);
-    if (params.loop && prevSlide.length === 0) {
-      prevSlide = slides.eq(-1);
-      prevSlide.addClass(params.slidePrevClass);
-    }
-    if (params.loop) {
-      // Duplicate to all looped slides
-      if (nextSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicateNextClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicateNextClass);
-      }
-      if (prevSlide.hasClass(params.slideDuplicateClass)) {
-        $wrapperEl
-          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicatePrevClass);
-      } else {
-        $wrapperEl
-          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
-          .addClass(params.slideDuplicatePrevClass);
-      }
-    }
-  }
-
-  function updateActiveIndex (newActiveIndex) {
-    var swiper = this;
-    var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
-    var slidesGrid = swiper.slidesGrid;
-    var snapGrid = swiper.snapGrid;
-    var params = swiper.params;
-    var previousIndex = swiper.activeIndex;
-    var previousRealIndex = swiper.realIndex;
-    var previousSnapIndex = swiper.snapIndex;
-    var activeIndex = newActiveIndex;
-    var snapIndex;
-    if (typeof activeIndex === 'undefined') {
-      for (var i = 0; i < slidesGrid.length; i += 1) {
-        if (typeof slidesGrid[i + 1] !== 'undefined') {
-          if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - ((slidesGrid[i + 1] - slidesGrid[i]) / 2)) {
-            activeIndex = i;
-          } else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) {
-            activeIndex = i + 1;
-          }
-        } else if (translate >= slidesGrid[i]) {
-          activeIndex = i;
-        }
-      }
-      // Normalize slideIndex
-      if (params.normalizeSlideIndex) {
-        if (activeIndex < 0 || typeof activeIndex === 'undefined') { activeIndex = 0; }
-      }
-    }
-    if (snapGrid.indexOf(translate) >= 0) {
-      snapIndex = snapGrid.indexOf(translate);
-    } else {
-      snapIndex = Math.floor(activeIndex / params.slidesPerGroup);
-    }
-    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
-    if (activeIndex === previousIndex) {
-      if (snapIndex !== previousSnapIndex) {
-        swiper.snapIndex = snapIndex;
-        swiper.emit('snapIndexChange');
-      }
-      return;
-    }
-
-    // Get real index
-    var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-swiper-slide-index') || activeIndex, 10);
-
-    Utils.extend(swiper, {
-      snapIndex: snapIndex,
-      realIndex: realIndex,
-      previousIndex: previousIndex,
-      activeIndex: activeIndex,
-    });
-    swiper.emit('activeIndexChange');
-    swiper.emit('snapIndexChange');
-    if (previousRealIndex !== realIndex) {
-      swiper.emit('realIndexChange');
-    }
-    swiper.emit('slideChange');
-  }
-
-  function updateClickedSlide (e) {
-    var swiper = this;
-    var params = swiper.params;
-    var slide = $(e.target).closest(("." + (params.slideClass)))[0];
-    var slideFound = false;
-    if (slide) {
-      for (var i = 0; i < swiper.slides.length; i += 1) {
-        if (swiper.slides[i] === slide) { slideFound = true; }
-      }
-    }
-
-    if (slide && slideFound) {
-      swiper.clickedSlide = slide;
-      if (swiper.virtual && swiper.params.virtual.enabled) {
-        swiper.clickedIndex = parseInt($(slide).attr('data-swiper-slide-index'), 10);
-      } else {
-        swiper.clickedIndex = $(slide).index();
-      }
-    } else {
-      swiper.clickedSlide = undefined;
-      swiper.clickedIndex = undefined;
-      return;
-    }
-    if (params.slideToClickedSlide && swiper.clickedIndex !== undefined && swiper.clickedIndex !== swiper.activeIndex) {
-      swiper.slideToClickedSlide();
-    }
-  }
-
-  var update = {
-    updateSize: updateSize,
-    updateSlides: updateSlides,
-    updateAutoHeight: updateAutoHeight,
-    updateSlidesOffset: updateSlidesOffset,
-    updateSlidesProgress: updateSlidesProgress,
-    updateProgress: updateProgress,
-    updateSlidesClasses: updateSlidesClasses,
-    updateActiveIndex: updateActiveIndex,
-    updateClickedSlide: updateClickedSlide,
-  };
-
-  function getTranslate (axis) {
-    if ( axis === void 0 ) axis = this.isHorizontal() ? 'x' : 'y';
-
-    var swiper = this;
-
-    var params = swiper.params;
-    var rtl = swiper.rtlTranslate;
-    var translate = swiper.translate;
-    var $wrapperEl = swiper.$wrapperEl;
-
-    if (params.virtualTranslate) {
-      return rtl ? -translate : translate;
-    }
-
-    var currentTranslate = Utils.getTranslate($wrapperEl[0], axis);
-    if (rtl) { currentTranslate = -currentTranslate; }
-
-    return currentTranslate || 0;
-  }
-
-  function setTranslate (translate, byController) {
-    var swiper = this;
-    var rtl = swiper.rtlTranslate;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var progress = swiper.progress;
-    var x = 0;
-    var y = 0;
-    var z = 0;
-
-    if (swiper.isHorizontal()) {
-      x = rtl ? -translate : translate;
-    } else {
-      y = translate;
-    }
-
-    if (params.roundLengths) {
-      x = Math.floor(x);
-      y = Math.floor(y);
-    }
-
-    if (!params.virtualTranslate) {
-      if (Support.transforms3d) { $wrapperEl.transform(("translate3d(" + x + "px, " + y + "px, " + z + "px)")); }
-      else { $wrapperEl.transform(("translate(" + x + "px, " + y + "px)")); }
-    }
-
-    swiper.translate = swiper.isHorizontal() ? x : y;
-
-    // Check if we need to update progress
-    var newProgress;
-    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
-    if (translatesDiff === 0) {
-      newProgress = 0;
-    } else {
-      newProgress = (translate - swiper.minTranslate()) / (translatesDiff);
-    }
-    if (newProgress !== progress) {
-      swiper.updateProgress(translate);
-    }
-
-    swiper.emit('setTranslate', swiper.translate, byController);
-  }
-
-  function minTranslate () {
-    return (-this.snapGrid[0]);
-  }
-
-  function maxTranslate () {
-    return (-this.snapGrid[this.snapGrid.length - 1]);
-  }
-
-  var translate = {
-    getTranslate: getTranslate,
-    setTranslate: setTranslate,
-    minTranslate: minTranslate,
-    maxTranslate: maxTranslate,
-  };
-
-  function setTransition (duration, byController) {
-    var swiper = this;
-
-    swiper.$wrapperEl.transition(duration);
-
-    swiper.emit('setTransition', duration, byController);
-  }
-
-  function transitionStart (runCallbacks, direction) {
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var params = swiper.params;
-    var previousIndex = swiper.previousIndex;
-    if (params.autoHeight) {
-      swiper.updateAutoHeight();
-    }
-
-    var dir = direction;
-    if (!dir) {
-      if (activeIndex > previousIndex) { dir = 'next'; }
-      else if (activeIndex < previousIndex) { dir = 'prev'; }
-      else { dir = 'reset'; }
-    }
-
-    swiper.emit('transitionStart');
-
-    if (runCallbacks && activeIndex !== previousIndex) {
-      if (dir === 'reset') {
-        swiper.emit('slideResetTransitionStart');
-        return;
-      }
-      swiper.emit('slideChangeTransitionStart');
-      if (dir === 'next') {
-        swiper.emit('slideNextTransitionStart');
-      } else {
-        swiper.emit('slidePrevTransitionStart');
-      }
-    }
-  }
-
-  function transitionEnd$1 (runCallbacks, direction) {
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var previousIndex = swiper.previousIndex;
-    swiper.animating = false;
-    swiper.setTransition(0);
-
-    var dir = direction;
-    if (!dir) {
-      if (activeIndex > previousIndex) { dir = 'next'; }
-      else if (activeIndex < previousIndex) { dir = 'prev'; }
-      else { dir = 'reset'; }
-    }
-
-    swiper.emit('transitionEnd');
-
-    if (runCallbacks && activeIndex !== previousIndex) {
-      if (dir === 'reset') {
-        swiper.emit('slideResetTransitionEnd');
-        return;
-      }
-      swiper.emit('slideChangeTransitionEnd');
-      if (dir === 'next') {
-        swiper.emit('slideNextTransitionEnd');
-      } else {
-        swiper.emit('slidePrevTransitionEnd');
-      }
-    }
-  }
-
-  var transition$1 = {
-    setTransition: setTransition,
-    transitionStart: transitionStart,
-    transitionEnd: transitionEnd$1,
-  };
-
-  function slideTo (index, speed, runCallbacks, internal) {
-    if ( index === void 0 ) index = 0;
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var slideIndex = index;
-    if (slideIndex < 0) { slideIndex = 0; }
-
-    var params = swiper.params;
-    var snapGrid = swiper.snapGrid;
-    var slidesGrid = swiper.slidesGrid;
-    var previousIndex = swiper.previousIndex;
-    var activeIndex = swiper.activeIndex;
-    var rtl = swiper.rtlTranslate;
-    if (swiper.animating && params.preventIntercationOnTransition) {
-      return false;
-    }
-
-    var snapIndex = Math.floor(slideIndex / params.slidesPerGroup);
-    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
-
-    if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
-      swiper.emit('beforeSlideChangeStart');
-    }
-
-    var translate = -snapGrid[snapIndex];
-
-    // Update progress
-    swiper.updateProgress(translate);
-
-    // Normalize slideIndex
-    if (params.normalizeSlideIndex) {
-      for (var i = 0; i < slidesGrid.length; i += 1) {
-        if (-Math.floor(translate * 100) >= Math.floor(slidesGrid[i] * 100)) {
-          slideIndex = i;
-        }
-      }
-    }
-    // Directions locks
-    if (swiper.initialized && slideIndex !== activeIndex) {
-      if (!swiper.allowSlideNext && translate < swiper.translate && translate < swiper.minTranslate()) {
-        return false;
-      }
-      if (!swiper.allowSlidePrev && translate > swiper.translate && translate > swiper.maxTranslate()) {
-        if ((activeIndex || 0) !== slideIndex) { return false; }
-      }
-    }
-
-    var direction;
-    if (slideIndex > activeIndex) { direction = 'next'; }
-    else if (slideIndex < activeIndex) { direction = 'prev'; }
-    else { direction = 'reset'; }
-
-
-    // Update Index
-    if ((rtl && -translate === swiper.translate) || (!rtl && translate === swiper.translate)) {
-      swiper.updateActiveIndex(slideIndex);
-      // Update Height
-      if (params.autoHeight) {
-        swiper.updateAutoHeight();
-      }
-      swiper.updateSlidesClasses();
-      if (params.effect !== 'slide') {
-        swiper.setTranslate(translate);
-      }
-      if (direction !== 'reset') {
-        swiper.transitionStart(runCallbacks, direction);
-        swiper.transitionEnd(runCallbacks, direction);
-      }
-      return false;
-    }
-
-    if (speed === 0 || !Support.transition) {
-      swiper.setTransition(0);
-      swiper.setTranslate(translate);
-      swiper.updateActiveIndex(slideIndex);
-      swiper.updateSlidesClasses();
-      swiper.emit('beforeTransitionStart', speed, internal);
-      swiper.transitionStart(runCallbacks, direction);
-      swiper.transitionEnd(runCallbacks, direction);
-    } else {
-      swiper.setTransition(speed);
-      swiper.setTranslate(translate);
-      swiper.updateActiveIndex(slideIndex);
-      swiper.updateSlidesClasses();
-      swiper.emit('beforeTransitionStart', speed, internal);
-      swiper.transitionStart(runCallbacks, direction);
-      if (!swiper.animating) {
-        swiper.animating = true;
-        if (!swiper.onSlideToWrapperTransitionEnd) {
-          swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
-            if (!swiper || swiper.destroyed) { return; }
-            if (e.target !== this) { return; }
-            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
-            swiper.transitionEnd(runCallbacks, direction);
-          };
-        }
-        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
-      }
-    }
-
-    return true;
-  }
-
-  function slideToLoop (index, speed, runCallbacks, internal) {
-    if ( index === void 0 ) index = 0;
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var newIndex = index;
-    if (swiper.params.loop) {
-      newIndex += swiper.loopedSlides;
-    }
-
-    return swiper.slideTo(newIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideNext (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var params = swiper.params;
-    var animating = swiper.animating;
-    if (params.loop) {
-      if (animating) { return false; }
-      swiper.loopFix();
-      // eslint-disable-next-line
-      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
-      return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
-    }
-    return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slidePrev (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var params = swiper.params;
-    var animating = swiper.animating;
-    var snapGrid = swiper.snapGrid;
-    var slidesGrid = swiper.slidesGrid;
-    var rtlTranslate = swiper.rtlTranslate;
-
-    if (params.loop) {
-      if (animating) { return false; }
-      swiper.loopFix();
-      // eslint-disable-next-line
-      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
-    }
-    var translate = rtlTranslate ? swiper.translate : -swiper.translate;
-    var currentSnap = snapGrid[snapGrid.indexOf(translate)];
-    var prevSnap = snapGrid[snapGrid.indexOf(translate) - 1];
-    var prevIndex;
-
-    if (prevSnap) {
-      prevIndex = slidesGrid.indexOf(prevSnap);
-      if (prevIndex < 0) { prevIndex = swiper.activeIndex - 1; }
-    }
-    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideReset (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
-  }
-
-  /* eslint no-unused-vars: "off" */
-  function slideToClosest (speed, runCallbacks, internal) {
-    if ( speed === void 0 ) speed = this.params.speed;
-    if ( runCallbacks === void 0 ) runCallbacks = true;
-
-    var swiper = this;
-    var index = swiper.activeIndex;
-    var snapIndex = Math.floor(index / swiper.params.slidesPerGroup);
-
-    if (snapIndex < swiper.snapGrid.length - 1) {
-      var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
-
-      var currentSnap = swiper.snapGrid[snapIndex];
-      var nextSnap = swiper.snapGrid[snapIndex + 1];
-
-      if ((translate - currentSnap) > (nextSnap - currentSnap) / 2) {
-        index = swiper.params.slidesPerGroup;
-      }
-    }
-
-    return swiper.slideTo(index, speed, runCallbacks, internal);
-  }
-
-  function slideToClickedSlide () {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-
-    var slidesPerView = params.slidesPerView === 'auto' ? swiper.slidesPerViewDynamic() : params.slidesPerView;
-    var slideToIndex = swiper.clickedIndex;
-    var realIndex;
-    if (params.loop) {
-      if (swiper.animating) { return; }
-      realIndex = parseInt($(swiper.clickedSlide).attr('data-swiper-slide-index'), 10);
-      if (params.centeredSlides) {
-        if (
-          (slideToIndex < swiper.loopedSlides - (slidesPerView / 2)) ||
-          (slideToIndex > (swiper.slides.length - swiper.loopedSlides) + (slidesPerView / 2))
-        ) {
-          swiper.loopFix();
-          slideToIndex = $wrapperEl
-            .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
-            .eq(0)
-            .index();
-
-          Utils.nextTick(function () {
-            swiper.slideTo(slideToIndex);
-          });
-        } else {
-          swiper.slideTo(slideToIndex);
-        }
-      } else if (slideToIndex > swiper.slides.length - slidesPerView) {
-        swiper.loopFix();
-        slideToIndex = $wrapperEl
-          .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
-          .eq(0)
-          .index();
-
-        Utils.nextTick(function () {
-          swiper.slideTo(slideToIndex);
-        });
-      } else {
-        swiper.slideTo(slideToIndex);
-      }
-    } else {
-      swiper.slideTo(slideToIndex);
-    }
-  }
-
-  var slide = {
-    slideTo: slideTo,
-    slideToLoop: slideToLoop,
-    slideNext: slideNext,
-    slidePrev: slidePrev,
-    slideReset: slideReset,
-    slideToClosest: slideToClosest,
-    slideToClickedSlide: slideToClickedSlide,
-  };
-
-  function loopCreate () {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    // Remove duplicated slides
-    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
-
-    var slides = $wrapperEl.children(("." + (params.slideClass)));
-
-    if (params.loopFillGroupWithBlank) {
-      var blankSlidesNum = params.slidesPerGroup - (slides.length % params.slidesPerGroup);
-      if (blankSlidesNum !== params.slidesPerGroup) {
-        for (var i = 0; i < blankSlidesNum; i += 1) {
-          var blankNode = $(doc.createElement('div')).addClass(((params.slideClass) + " " + (params.slideBlankClass)));
-          $wrapperEl.append(blankNode);
-        }
-        slides = $wrapperEl.children(("." + (params.slideClass)));
-      }
-    }
-
-    if (params.slidesPerView === 'auto' && !params.loopedSlides) { params.loopedSlides = slides.length; }
-
-    swiper.loopedSlides = parseInt(params.loopedSlides || params.slidesPerView, 10);
-    swiper.loopedSlides += params.loopAdditionalSlides;
-    if (swiper.loopedSlides > slides.length) {
-      swiper.loopedSlides = slides.length;
-    }
-
-    var prependSlides = [];
-    var appendSlides = [];
-    slides.each(function (index, el) {
-      var slide = $(el);
-      if (index < swiper.loopedSlides) { appendSlides.push(el); }
-      if (index < slides.length && index >= slides.length - swiper.loopedSlides) { prependSlides.push(el); }
-      slide.attr('data-swiper-slide-index', index);
-    });
-    for (var i$1 = 0; i$1 < appendSlides.length; i$1 += 1) {
-      $wrapperEl.append($(appendSlides[i$1].cloneNode(true)).addClass(params.slideDuplicateClass));
-    }
-    for (var i$2 = prependSlides.length - 1; i$2 >= 0; i$2 -= 1) {
-      $wrapperEl.prepend($(prependSlides[i$2].cloneNode(true)).addClass(params.slideDuplicateClass));
-    }
-  }
-
-  function loopFix () {
-    var swiper = this;
-    var params = swiper.params;
-    var activeIndex = swiper.activeIndex;
-    var slides = swiper.slides;
-    var loopedSlides = swiper.loopedSlides;
-    var allowSlidePrev = swiper.allowSlidePrev;
-    var allowSlideNext = swiper.allowSlideNext;
-    var snapGrid = swiper.snapGrid;
-    var rtl = swiper.rtlTranslate;
-    var newIndex;
-    swiper.allowSlidePrev = true;
-    swiper.allowSlideNext = true;
-
-    var snapTranslate = -snapGrid[activeIndex];
-    var diff = snapTranslate - swiper.getTranslate();
-
-
-    // Fix For Negative Oversliding
-    if (activeIndex < loopedSlides) {
-      newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
-      newIndex += loopedSlides;
-      var slideChanged = swiper.slideTo(newIndex, 0, false, true);
-      if (slideChanged && diff !== 0) {
-        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
-      }
-    } else if ((params.slidesPerView === 'auto' && activeIndex >= loopedSlides * 2) || (activeIndex > slides.length - (params.slidesPerView * 2))) {
-      // Fix For Positive Oversliding
-      newIndex = -slides.length + activeIndex + loopedSlides;
-      newIndex += loopedSlides;
-      var slideChanged$1 = swiper.slideTo(newIndex, 0, false, true);
-      if (slideChanged$1 && diff !== 0) {
-        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
-      }
-    }
-    swiper.allowSlidePrev = allowSlidePrev;
-    swiper.allowSlideNext = allowSlideNext;
-  }
-
-  function loopDestroy () {
-    var swiper = this;
-    var $wrapperEl = swiper.$wrapperEl;
-    var params = swiper.params;
-    var slides = swiper.slides;
-    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
-    slides.removeAttr('data-swiper-slide-index');
-  }
-
-  var loop = {
-    loopCreate: loopCreate,
-    loopFix: loopFix,
-    loopDestroy: loopDestroy,
-  };
-
-  function setGrabCursor (moving) {
-    var swiper = this;
-    if (Support.touch || !swiper.params.simulateTouch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
-    var el = swiper.el;
-    el.style.cursor = 'move';
-    el.style.cursor = moving ? '-webkit-grabbing' : '-webkit-grab';
-    el.style.cursor = moving ? '-moz-grabbin' : '-moz-grab';
-    el.style.cursor = moving ? 'grabbing' : 'grab';
-  }
-
-  function unsetGrabCursor () {
-    var swiper = this;
-    if (Support.touch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
-    swiper.el.style.cursor = '';
-  }
-
-  var grabCursor = {
-    setGrabCursor: setGrabCursor,
-    unsetGrabCursor: unsetGrabCursor,
-  };
-
-  function appendSlide (slides) {
-    var swiper = this;
-    var $wrapperEl = swiper.$wrapperEl;
-    var params = swiper.params;
-    if (params.loop) {
-      swiper.loopDestroy();
-    }
-    if (typeof slides === 'object' && 'length' in slides) {
-      for (var i = 0; i < slides.length; i += 1) {
-        if (slides[i]) { $wrapperEl.append(slides[i]); }
-      }
-    } else {
-      $wrapperEl.append(slides);
-    }
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-  }
-
-  function prependSlide (slides) {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-
-    if (params.loop) {
-      swiper.loopDestroy();
-    }
-    var newActiveIndex = activeIndex + 1;
-    if (typeof slides === 'object' && 'length' in slides) {
-      for (var i = 0; i < slides.length; i += 1) {
-        if (slides[i]) { $wrapperEl.prepend(slides[i]); }
-      }
-      newActiveIndex = activeIndex + slides.length;
-    } else {
-      $wrapperEl.prepend(slides);
-    }
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-    swiper.slideTo(newActiveIndex, 0, false);
-  }
-
-  function removeSlide (slidesIndexes) {
-    var swiper = this;
-    var params = swiper.params;
-    var $wrapperEl = swiper.$wrapperEl;
-    var activeIndex = swiper.activeIndex;
-
-    if (params.loop) {
-      swiper.loopDestroy();
-      swiper.slides = $wrapperEl.children(("." + (params.slideClass)));
-    }
-    var newActiveIndex = activeIndex;
-    var indexToRemove;
-
-    if (typeof slidesIndexes === 'object' && 'length' in slidesIndexes) {
-      for (var i = 0; i < slidesIndexes.length; i += 1) {
-        indexToRemove = slidesIndexes[i];
-        if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
-        if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
-      }
-      newActiveIndex = Math.max(newActiveIndex, 0);
-    } else {
-      indexToRemove = slidesIndexes;
-      if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
-      if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
-      newActiveIndex = Math.max(newActiveIndex, 0);
-    }
-
-    if (params.loop) {
-      swiper.loopCreate();
-    }
-
-    if (!(params.observer && Support.observer)) {
-      swiper.update();
-    }
-    if (params.loop) {
-      swiper.slideTo(newActiveIndex + swiper.loopedSlides, 0, false);
-    } else {
-      swiper.slideTo(newActiveIndex, 0, false);
-    }
-  }
-
-  function removeAllSlides () {
-    var swiper = this;
-
-    var slidesIndexes = [];
-    for (var i = 0; i < swiper.slides.length; i += 1) {
-      slidesIndexes.push(i);
-    }
-    swiper.removeSlide(slidesIndexes);
-  }
-
-  var manipulation = {
-    appendSlide: appendSlide,
-    prependSlide: prependSlide,
-    removeSlide: removeSlide,
-    removeAllSlides: removeAllSlides,
-  };
-
-  var Device = (function Device() {
-    var ua = win.navigator.userAgent;
-
-    var device = {
-      ios: false,
-      android: false,
-      androidChrome: false,
-      desktop: false,
-      windows: false,
-      iphone: false,
-      ipod: false,
-      ipad: false,
-      cordova: win.cordova || win.phonegap,
-      phonegap: win.cordova || win.phonegap,
-    };
-
-    var windows = ua.match(/(Windows Phone);?[\s\/]+([\d.]+)?/); // eslint-disable-line
-    var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/); // eslint-disable-line
-    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
-    var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
-    var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
-
-
-    // Windows
-    if (windows) {
-      device.os = 'windows';
-      device.osVersion = windows[2];
-      device.windows = true;
-    }
-    // Android
-    if (android && !windows) {
-      device.os = 'android';
-      device.osVersion = android[2];
-      device.android = true;
-      device.androidChrome = ua.toLowerCase().indexOf('chrome') >= 0;
-    }
-    if (ipad || iphone || ipod) {
-      device.os = 'ios';
-      device.ios = true;
-    }
-    // iOS
-    if (iphone && !ipod) {
-      device.osVersion = iphone[2].replace(/_/g, '.');
-      device.iphone = true;
-    }
-    if (ipad) {
-      device.osVersion = ipad[2].replace(/_/g, '.');
-      device.ipad = true;
-    }
-    if (ipod) {
-      device.osVersion = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
-      device.iphone = true;
-    }
-    // iOS 8+ changed UA
-    if (device.ios && device.osVersion && ua.indexOf('Version/') >= 0) {
-      if (device.osVersion.split('.')[0] === '10') {
-        device.osVersion = ua.toLowerCase().split('version/')[1].split(' ')[0];
-      }
-    }
-
-    // Desktop
-    device.desktop = !(device.os || device.android || device.webView);
-
-    // Webview
-    device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
-
-    // Minimal UI
-    if (device.os && device.os === 'ios') {
-      var osVersionArr = device.osVersion.split('.');
-      var metaViewport = doc.querySelector('meta[name="viewport"]');
-      device.minimalUi =
-        !device.webView &&
-        (ipod || iphone) &&
-        (osVersionArr[0] * 1 === 7 ? osVersionArr[1] * 1 >= 1 : osVersionArr[0] * 1 > 7) &&
-        metaViewport && metaViewport.getAttribute('content').indexOf('minimal-ui') >= 0;
-    }
-
-    // Pixel Ratio
-    device.pixelRatio = win.devicePixelRatio || 1;
-
-    // Export object
-    return device;
-  }());
-
-  function onTouchStart (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-    var params = swiper.params;
-    var touches = swiper.touches;
-    if (swiper.animating && params.preventIntercationOnTransition) {
-      return;
-    }
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    data.isTouchEvent = e.type === 'touchstart';
-    if (!data.isTouchEvent && 'which' in e && e.which === 3) { return; }
-    if (data.isTouched && data.isMoved) { return; }
-    if (params.noSwiping && $(e.target).closest(params.noSwipingSelector ? params.noSwipingSelector : ("." + (params.noSwipingClass)))[0]) {
-      swiper.allowClick = true;
-      return;
-    }
-    if (params.swipeHandler) {
-      if (!$(e).closest(params.swipeHandler)[0]) { return; }
-    }
-
-    touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
-    touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
-    var startX = touches.currentX;
-    var startY = touches.currentY;
-
-    // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
-
-    if (
-      Device.ios &&
-      !Device.cordova &&
-      params.iOSEdgeSwipeDetection &&
-      (startX <= params.iOSEdgeSwipeThreshold) &&
-      (startX >= win.screen.width - params.iOSEdgeSwipeThreshold)
-    ) {
-      return;
-    }
-
-    Utils.extend(data, {
-      isTouched: true,
-      isMoved: false,
-      allowTouchCallbacks: true,
-      isScrolling: undefined,
-      startMoving: undefined,
-    });
-
-    touches.startX = startX;
-    touches.startY = startY;
-    data.touchStartTime = Utils.now();
-    swiper.allowClick = true;
-    swiper.updateSize();
-    swiper.swipeDirection = undefined;
-    if (params.threshold > 0) { data.allowThresholdMove = false; }
-    if (e.type !== 'touchstart') {
-      var preventDefault = true;
-      if ($(e.target).is(data.formElements)) { preventDefault = false; }
-      if (
-        doc.activeElement &&
-        $(doc.activeElement).is(data.formElements) &&
-        doc.activeElement !== e.target
-      ) {
-        doc.activeElement.blur();
-      }
-      if (preventDefault && swiper.allowTouchMove) {
-        e.preventDefault();
-      }
-    }
-    swiper.emit('touchStart', e);
-  }
-
-  function onTouchMove (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-    var params = swiper.params;
-    var touches = swiper.touches;
-    var rtl = swiper.rtlTranslate;
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    if (!data.isTouched) {
-      if (data.startMoving && data.isScrolling) {
-        swiper.emit('touchMoveOpposite', e);
-      }
-      return;
-    }
-    if (data.isTouchEvent && e.type === 'mousemove') { return; }
-    var pageX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-    var pageY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
-    if (e.preventedByNestedSwiper) {
-      touches.startX = pageX;
-      touches.startY = pageY;
-      return;
-    }
-    if (!swiper.allowTouchMove) {
-      // isMoved = true;
-      swiper.allowClick = false;
-      if (data.isTouched) {
-        Utils.extend(touches, {
-          startX: pageX,
-          startY: pageY,
-          currentX: pageX,
-          currentY: pageY,
-        });
-        data.touchStartTime = Utils.now();
-      }
-      return;
-    }
-    if (data.isTouchEvent && params.touchReleaseOnEdges && !params.loop) {
-      if (swiper.isVertical()) {
-        // Vertical
-        if (
-          (pageY < touches.startY && swiper.translate <= swiper.maxTranslate()) ||
-          (pageY > touches.startY && swiper.translate >= swiper.minTranslate())
-        ) {
-          data.isTouched = false;
-          data.isMoved = false;
-          return;
-        }
-      } else if (
-        (pageX < touches.startX && swiper.translate <= swiper.maxTranslate()) ||
-        (pageX > touches.startX && swiper.translate >= swiper.minTranslate())
-      ) {
-        return;
-      }
-    }
-    if (data.isTouchEvent && doc.activeElement) {
-      if (e.target === doc.activeElement && $(e.target).is(data.formElements)) {
-        data.isMoved = true;
-        swiper.allowClick = false;
-        return;
-      }
-    }
-    if (data.allowTouchCallbacks) {
-      swiper.emit('touchMove', e);
-    }
-    if (e.targetTouches && e.targetTouches.length > 1) { return; }
-
-    touches.currentX = pageX;
-    touches.currentY = pageY;
-
-    var diffX = touches.currentX - touches.startX;
-    var diffY = touches.currentY - touches.startY;
-
-    if (typeof data.isScrolling === 'undefined') {
-      var touchAngle;
-      if ((swiper.isHorizontal() && touches.currentY === touches.startY) || (swiper.isVertical() && touches.currentX === touches.startX)) {
-        data.isScrolling = false;
-      } else {
-        // eslint-disable-next-line
-        if ((diffX * diffX) + (diffY * diffY) >= 25) {
-          touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
-          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : (90 - touchAngle > params.touchAngle);
-        }
-      }
-    }
-    if (data.isScrolling) {
-      swiper.emit('touchMoveOpposite', e);
-    }
-    if (typeof startMoving === 'undefined') {
-      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
-        data.startMoving = true;
-      }
-    }
-    if (data.isScrolling) {
-      data.isTouched = false;
-      return;
-    }
-    if (!data.startMoving) {
-      return;
-    }
-    swiper.allowClick = false;
-    e.preventDefault();
-    if (params.touchMoveStopPropagation && !params.nested) {
-      e.stopPropagation();
-    }
-
-    if (!data.isMoved) {
-      if (params.loop) {
-        swiper.loopFix();
-      }
-      data.startTranslate = swiper.getTranslate();
-      swiper.setTransition(0);
-      if (swiper.animating) {
-        swiper.$wrapperEl.trigger('webkitTransitionEnd transitionend');
-      }
-      data.allowMomentumBounce = false;
-      // Grab Cursor
-      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
-        swiper.setGrabCursor(true);
-      }
-      swiper.emit('sliderFirstMove', e);
-    }
-    swiper.emit('sliderMove', e);
-    data.isMoved = true;
-
-    var diff = swiper.isHorizontal() ? diffX : diffY;
-    touches.diff = diff;
-
-    diff *= params.touchRatio;
-    if (rtl) { diff = -diff; }
-
-    swiper.swipeDirection = diff > 0 ? 'prev' : 'next';
-    data.currentTranslate = diff + data.startTranslate;
-
-    var disableParentSwiper = true;
-    var resistanceRatio = params.resistanceRatio;
-    if (params.touchReleaseOnEdges) {
-      resistanceRatio = 0;
-    }
-    if ((diff > 0 && data.currentTranslate > swiper.minTranslate())) {
-      disableParentSwiper = false;
-      if (params.resistance) { data.currentTranslate = (swiper.minTranslate() - 1) + (Math.pow( (-swiper.minTranslate() + data.startTranslate + diff), resistanceRatio )); }
-    } else if (diff < 0 && data.currentTranslate < swiper.maxTranslate()) {
-      disableParentSwiper = false;
-      if (params.resistance) { data.currentTranslate = (swiper.maxTranslate() + 1) - (Math.pow( (swiper.maxTranslate() - data.startTranslate - diff), resistanceRatio )); }
-    }
-
-    if (disableParentSwiper) {
-      e.preventedByNestedSwiper = true;
-    }
-
-    // Directions locks
-    if (!swiper.allowSlideNext && swiper.swipeDirection === 'next' && data.currentTranslate < data.startTranslate) {
-      data.currentTranslate = data.startTranslate;
-    }
-    if (!swiper.allowSlidePrev && swiper.swipeDirection === 'prev' && data.currentTranslate > data.startTranslate) {
-      data.currentTranslate = data.startTranslate;
-    }
-
-
-    // Threshold
-    if (params.threshold > 0) {
-      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
-        if (!data.allowThresholdMove) {
-          data.allowThresholdMove = true;
-          touches.startX = touches.currentX;
-          touches.startY = touches.currentY;
-          data.currentTranslate = data.startTranslate;
-          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
-          return;
-        }
-      } else {
-        data.currentTranslate = data.startTranslate;
-        return;
-      }
-    }
-
-    if (!params.followFinger) { return; }
-
-    // Update active index in free mode
-    if (params.freeMode || params.watchSlidesProgress || params.watchSlidesVisibility) {
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-    }
-    if (params.freeMode) {
-      // Velocity
-      if (data.velocities.length === 0) {
-        data.velocities.push({
-          position: touches[swiper.isHorizontal() ? 'startX' : 'startY'],
-          time: data.touchStartTime,
-        });
-      }
-      data.velocities.push({
-        position: touches[swiper.isHorizontal() ? 'currentX' : 'currentY'],
-        time: Utils.now(),
-      });
-    }
-    // Update progress
-    swiper.updateProgress(data.currentTranslate);
-    // Update translate
-    swiper.setTranslate(data.currentTranslate);
-  }
-
-  function onTouchEnd (event) {
-    var swiper = this;
-    var data = swiper.touchEventsData;
-
-    var params = swiper.params;
-    var touches = swiper.touches;
-    var rtl = swiper.rtlTranslate;
-    var $wrapperEl = swiper.$wrapperEl;
-    var slidesGrid = swiper.slidesGrid;
-    var snapGrid = swiper.snapGrid;
-    var e = event;
-    if (e.originalEvent) { e = e.originalEvent; }
-    if (data.allowTouchCallbacks) {
-      swiper.emit('touchEnd', e);
-    }
-    data.allowTouchCallbacks = false;
-    if (!data.isTouched) {
-      if (data.isMoved && params.grabCursor) {
-        swiper.setGrabCursor(false);
-      }
-      data.isMoved = false;
-      data.startMoving = false;
-      return;
-    }
-    // Return Grab Cursor
-    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
-      swiper.setGrabCursor(false);
-    }
-
-    // Time diff
-    var touchEndTime = Utils.now();
-    var timeDiff = touchEndTime - data.touchStartTime;
-
-    // Tap, doubleTap, Click
-    if (swiper.allowClick) {
-      swiper.updateClickedSlide(e);
-      swiper.emit('tap', e);
-      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) > 300) {
-        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
-        data.clickTimeout = Utils.nextTick(function () {
-          if (!swiper || swiper.destroyed) { return; }
-          swiper.emit('click', e);
-        }, 300);
-      }
-      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) < 300) {
-        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
-        swiper.emit('doubleTap', e);
-      }
-    }
-
-    data.lastClickTime = Utils.now();
-    Utils.nextTick(function () {
-      if (!swiper.destroyed) { swiper.allowClick = true; }
-    });
-
-    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 || data.currentTranslate === data.startTranslate) {
-      data.isTouched = false;
-      data.isMoved = false;
-      data.startMoving = false;
-      return;
-    }
-    data.isTouched = false;
-    data.isMoved = false;
-    data.startMoving = false;
-
-    var currentPos;
-    if (params.followFinger) {
-      currentPos = rtl ? swiper.translate : -swiper.translate;
-    } else {
-      currentPos = -data.currentTranslate;
-    }
-
-    if (params.freeMode) {
-      if (currentPos < -swiper.minTranslate()) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      } else if (currentPos > -swiper.maxTranslate()) {
-        if (swiper.slides.length < snapGrid.length) {
-          swiper.slideTo(snapGrid.length - 1);
-        } else {
-          swiper.slideTo(swiper.slides.length - 1);
-        }
-        return;
-      }
-
-      if (params.freeModeMomentum) {
-        if (data.velocities.length > 1) {
-          var lastMoveEvent = data.velocities.pop();
-          var velocityEvent = data.velocities.pop();
-
-          var distance = lastMoveEvent.position - velocityEvent.position;
-          var time = lastMoveEvent.time - velocityEvent.time;
-          swiper.velocity = distance / time;
-          swiper.velocity /= 2;
-          if (Math.abs(swiper.velocity) < params.freeModeMinimumVelocity) {
-            swiper.velocity = 0;
-          }
-          // this implies that the user stopped moving a finger then released.
-          // There would be no events with distance zero, so the last event is stale.
-          if (time > 150 || (Utils.now() - lastMoveEvent.time) > 300) {
-            swiper.velocity = 0;
-          }
-        } else {
-          swiper.velocity = 0;
-        }
-        swiper.velocity *= params.freeModeMomentumVelocityRatio;
-
-        data.velocities.length = 0;
-        var momentumDuration = 1000 * params.freeModeMomentumRatio;
-        var momentumDistance = swiper.velocity * momentumDuration;
-
-        var newPosition = swiper.translate + momentumDistance;
-        if (rtl) { newPosition = -newPosition; }
-
-        var doBounce = false;
-        var afterBouncePosition;
-        var bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeModeMomentumBounceRatio;
-        var needsLoopFix;
-        if (newPosition < swiper.maxTranslate()) {
-          if (params.freeModeMomentumBounce) {
-            if (newPosition + swiper.maxTranslate() < -bounceAmount) {
-              newPosition = swiper.maxTranslate() - bounceAmount;
-            }
-            afterBouncePosition = swiper.maxTranslate();
-            doBounce = true;
-            data.allowMomentumBounce = true;
-          } else {
-            newPosition = swiper.maxTranslate();
-          }
-          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
-        } else if (newPosition > swiper.minTranslate()) {
-          if (params.freeModeMomentumBounce) {
-            if (newPosition - swiper.minTranslate() > bounceAmount) {
-              newPosition = swiper.minTranslate() + bounceAmount;
-            }
-            afterBouncePosition = swiper.minTranslate();
-            doBounce = true;
-            data.allowMomentumBounce = true;
-          } else {
-            newPosition = swiper.minTranslate();
-          }
-          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
-        } else if (params.freeModeSticky) {
-          var nextSlide;
-          for (var j = 0; j < snapGrid.length; j += 1) {
-            if (snapGrid[j] > -newPosition) {
-              nextSlide = j;
-              break;
-            }
-          }
-
-          if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || swiper.swipeDirection === 'next') {
-            newPosition = snapGrid[nextSlide];
-          } else {
-            newPosition = snapGrid[nextSlide - 1];
-          }
-          newPosition = -newPosition;
-        }
-        if (needsLoopFix) {
-          swiper.once('transitionEnd', function () {
-            swiper.loopFix();
-          });
-        }
-        // Fix duration
-        if (swiper.velocity !== 0) {
-          if (rtl) {
-            momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity);
-          } else {
-            momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
-          }
-        } else if (params.freeModeSticky) {
-          swiper.slideToClosest();
-          return;
-        }
-
-        if (params.freeModeMomentumBounce && doBounce) {
-          swiper.updateProgress(afterBouncePosition);
-          swiper.setTransition(momentumDuration);
-          swiper.setTranslate(newPosition);
-          swiper.transitionStart(true, swiper.swipeDirection);
-          swiper.animating = true;
-          $wrapperEl.transitionEnd(function () {
-            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) { return; }
-            swiper.emit('momentumBounce');
-
-            swiper.setTransition(params.speed);
-            swiper.setTranslate(afterBouncePosition);
-            $wrapperEl.transitionEnd(function () {
-              if (!swiper || swiper.destroyed) { return; }
-              swiper.transitionEnd();
-            });
-          });
-        } else if (swiper.velocity) {
-          swiper.updateProgress(newPosition);
-          swiper.setTransition(momentumDuration);
-          swiper.setTranslate(newPosition);
-          swiper.transitionStart(true, swiper.swipeDirection);
-          if (!swiper.animating) {
-            swiper.animating = true;
-            $wrapperEl.transitionEnd(function () {
-              if (!swiper || swiper.destroyed) { return; }
-              swiper.transitionEnd();
-            });
-          }
-        } else {
-          swiper.updateProgress(newPosition);
-        }
-
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      } else if (params.freeModeSticky) {
-        swiper.slideToClosest();
-        return;
-      }
-
-      if (!params.freeModeMomentum || timeDiff >= params.longSwipesMs) {
-        swiper.updateProgress();
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      }
-      return;
-    }
-
-    // Find current slide
-    var stopIndex = 0;
-    var groupSize = swiper.slidesSizesGrid[0];
-    for (var i = 0; i < slidesGrid.length; i += params.slidesPerGroup) {
-      if (typeof slidesGrid[i + params.slidesPerGroup] !== 'undefined') {
-        if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + params.slidesPerGroup]) {
-          stopIndex = i;
-          groupSize = slidesGrid[i + params.slidesPerGroup] - slidesGrid[i];
-        }
-      } else if (currentPos >= slidesGrid[i]) {
-        stopIndex = i;
-        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
-      }
-    }
-
-    // Find current slide size
-    var ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
-
-    if (timeDiff > params.longSwipesMs) {
-      // Long touches
-      if (!params.longSwipes) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      }
-      if (swiper.swipeDirection === 'next') {
-        if (ratio >= params.longSwipesRatio) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
-        else { swiper.slideTo(stopIndex); }
-      }
-      if (swiper.swipeDirection === 'prev') {
-        if (ratio > (1 - params.longSwipesRatio)) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
-        else { swiper.slideTo(stopIndex); }
-      }
-    } else {
-      // Short swipes
-      if (!params.shortSwipes) {
-        swiper.slideTo(swiper.activeIndex);
-        return;
-      }
-      if (swiper.swipeDirection === 'next') {
-        swiper.slideTo(stopIndex + params.slidesPerGroup);
-      }
-      if (swiper.swipeDirection === 'prev') {
-        swiper.slideTo(stopIndex);
-      }
-    }
-  }
-
-  function onResize () {
-    var swiper = this;
-
-    var params = swiper.params;
-    var el = swiper.el;
-
-    if (el && el.offsetWidth === 0) { return; }
-
-    // Breakpoints
-    if (params.breakpoints) {
-      swiper.setBreakpoint();
-    }
-
-    // Save locks
-    var allowSlideNext = swiper.allowSlideNext;
-    var allowSlidePrev = swiper.allowSlidePrev;
-    var snapGrid = swiper.snapGrid;
-
-    // Disable locks on resize
-    swiper.allowSlideNext = true;
-    swiper.allowSlidePrev = true;
-
-    swiper.updateSize();
-    swiper.updateSlides();
-
-    if (params.freeMode) {
-      var newTranslate = Math.min(Math.max(swiper.translate, swiper.maxTranslate()), swiper.minTranslate());
-      swiper.setTranslate(newTranslate);
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-
-      if (params.autoHeight) {
-        swiper.updateAutoHeight();
-      }
-    } else {
-      swiper.updateSlidesClasses();
-      if ((params.slidesPerView === 'auto' || params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
-        swiper.slideTo(swiper.slides.length - 1, 0, false, true);
-      } else {
-        swiper.slideTo(swiper.activeIndex, 0, false, true);
-      }
-    }
-    // Return locks after resize
-    swiper.allowSlidePrev = allowSlidePrev;
-    swiper.allowSlideNext = allowSlideNext;
-
-    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
-      swiper.checkOverflow();
-    }
-  }
-
-  function onClick (e) {
-    var swiper = this;
-    if (!swiper.allowClick) {
-      if (swiper.params.preventClicks) { e.preventDefault(); }
-      if (swiper.params.preventClicksPropagation && swiper.animating) {
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-      }
-    }
-  }
-
-  function attachEvents() {
-    var swiper = this;
-    var params = swiper.params;
-    var touchEvents = swiper.touchEvents;
-    var el = swiper.el;
-    var wrapperEl = swiper.wrapperEl;
-
-    {
-      swiper.onTouchStart = onTouchStart.bind(swiper);
-      swiper.onTouchMove = onTouchMove.bind(swiper);
-      swiper.onTouchEnd = onTouchEnd.bind(swiper);
-    }
-
-    swiper.onClick = onClick.bind(swiper);
-
-    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
-    var capture = !!params.nested;
-
-    // Touch Events
-    {
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.addEventListener(touchEvents.start, swiper.onTouchStart, false);
-        doc.addEventListener(touchEvents.move, swiper.onTouchMove, capture);
-        doc.addEventListener(touchEvents.end, swiper.onTouchEnd, false);
-      } else {
-        if (Support.touch) {
-          var passiveListener = touchEvents.start === 'touchstart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
-          target.addEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
-          target.addEventListener(touchEvents.move, swiper.onTouchMove, Support.passiveListener ? { passive: false, capture: capture } : capture);
-          target.addEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.addEventListener('mousedown', swiper.onTouchStart, false);
-          doc.addEventListener('mousemove', swiper.onTouchMove, capture);
-          doc.addEventListener('mouseup', swiper.onTouchEnd, false);
-        }
-      }
-      // Prevent Links Clicks
-      if (params.preventClicks || params.preventClicksPropagation) {
-        target.addEventListener('click', swiper.onClick, true);
-      }
-    }
-
-    // Resize handler
-    swiper.on('resize observerUpdate', onResize, true);
-  }
-
-  function detachEvents() {
-    var swiper = this;
-
-    var params = swiper.params;
-    var touchEvents = swiper.touchEvents;
-    var el = swiper.el;
-    var wrapperEl = swiper.wrapperEl;
-
-    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
-    var capture = !!params.nested;
-
-    // Touch Events
-    {
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.removeEventListener(touchEvents.start, swiper.onTouchStart, false);
-        doc.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
-        doc.removeEventListener(touchEvents.end, swiper.onTouchEnd, false);
-      } else {
-        if (Support.touch) {
-          var passiveListener = touchEvents.start === 'onTouchStart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
-          target.removeEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
-          target.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
-          target.removeEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.removeEventListener('mousedown', swiper.onTouchStart, false);
-          doc.removeEventListener('mousemove', swiper.onTouchMove, capture);
-          doc.removeEventListener('mouseup', swiper.onTouchEnd, false);
-        }
-      }
-      // Prevent Links Clicks
-      if (params.preventClicks || params.preventClicksPropagation) {
-        target.removeEventListener('click', swiper.onClick, true);
-      }
-    }
-
-    // Resize handler
-    swiper.off('resize observerUpdate', onResize);
-  }
-
-  var events = {
-    attachEvents: attachEvents,
-    detachEvents: detachEvents,
-  };
-
-  function setBreakpoint () {
-    var swiper = this;
-    var activeIndex = swiper.activeIndex;
-    var initialized = swiper.initialized;
-    var loopedSlides = swiper.loopedSlides; if ( loopedSlides === void 0 ) loopedSlides = 0;
-    var params = swiper.params;
-    var breakpoints = params.breakpoints;
-    if (!breakpoints || (breakpoints && Object.keys(breakpoints).length === 0)) { return; }
-    // Set breakpoint for window width and update parameters
-    var breakpoint = swiper.getBreakpoint(breakpoints);
-    if (breakpoint && swiper.currentBreakpoint !== breakpoint) {
-      var breakPointsParams = breakpoint in breakpoints ? breakpoints[breakpoint] : swiper.originalParams;
-      var needsReLoop = params.loop && (breakPointsParams.slidesPerView !== params.slidesPerView);
-
-      Utils.extend(swiper.params, breakPointsParams);
-
-      Utils.extend(swiper, {
-        allowTouchMove: swiper.params.allowTouchMove,
-        allowSlideNext: swiper.params.allowSlideNext,
-        allowSlidePrev: swiper.params.allowSlidePrev,
-      });
-
-      swiper.currentBreakpoint = breakpoint;
-
-      if (needsReLoop && initialized) {
-        swiper.loopDestroy();
-        swiper.loopCreate();
-        swiper.updateSlides();
-        swiper.slideTo((activeIndex - loopedSlides) + swiper.loopedSlides, 0, false);
-      }
-      swiper.emit('breakpoint', breakPointsParams);
-    }
-  }
-
-  function getBreakpoint (breakpoints) {
-    // Get breakpoint for window width
-    if (!breakpoints) { return undefined; }
-    var breakpoint = false;
-    var points = [];
-    Object.keys(breakpoints).forEach(function (point) {
-      points.push(point);
-    });
-    points.sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
-    for (var i = 0; i < points.length; i += 1) {
-      var point = points[i];
-      if (point >= win.innerWidth && !breakpoint) {
-        breakpoint = point;
-      }
-    }
-    return breakpoint || 'max';
-  }
-
-  var breakpoints = { setBreakpoint: setBreakpoint, getBreakpoint: getBreakpoint };
-
-  var Browser = (function Browser() {
-    function isSafari() {
-      var ua = win.navigator.userAgent.toLowerCase();
-      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
-    }
-    return {
-      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
-      isSafari: isSafari(),
-      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
-    };
-  }());
-
-  function addClasses () {
-    var swiper = this;
-    var classNames = swiper.classNames;
-    var params = swiper.params;
-    var rtl = swiper.rtl;
-    var $el = swiper.$el;
-    var suffixes = [];
-
-    suffixes.push(params.direction);
-
-    if (params.freeMode) {
-      suffixes.push('free-mode');
-    }
-    if (!Support.flexbox) {
-      suffixes.push('no-flexbox');
-    }
-    if (params.autoHeight) {
-      suffixes.push('autoheight');
-    }
-    if (rtl) {
-      suffixes.push('rtl');
-    }
-    if (params.slidesPerColumn > 1) {
-      suffixes.push('multirow');
-    }
-    if (Device.android) {
-      suffixes.push('android');
-    }
-    if (Device.ios) {
-      suffixes.push('ios');
-    }
-    // WP8 Touch Events Fix
-    if (Browser.isIE && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-      suffixes.push(("wp8-" + (params.direction)));
-    }
-
-    suffixes.forEach(function (suffix) {
-      classNames.push(params.containerModifierClass + suffix);
-    });
-
-    $el.addClass(classNames.join(' '));
-  }
-
-  function removeClasses () {
-    var swiper = this;
-    var $el = swiper.$el;
-    var classNames = swiper.classNames;
-
-    $el.removeClass(classNames.join(' '));
-  }
-
-  var classes = { addClasses: addClasses, removeClasses: removeClasses };
-
-  function loadImage (imageEl, src, srcset, sizes, checkForComplete, callback) {
-    var image;
-    function onReady() {
-      if (callback) { callback(); }
-    }
-    if (!imageEl.complete || !checkForComplete) {
-      if (src) {
-        image = new win.Image();
-        image.onload = onReady;
-        image.onerror = onReady;
-        if (sizes) {
-          image.sizes = sizes;
-        }
-        if (srcset) {
-          image.srcset = srcset;
-        }
-        if (src) {
-          image.src = src;
-        }
-      } else {
-        onReady();
-      }
-    } else {
-      // image already loaded...
-      onReady();
-    }
-  }
-
-  function preloadImages () {
-    var swiper = this;
-    swiper.imagesToLoad = swiper.$el.find('img');
-    function onReady() {
-      if (typeof swiper === 'undefined' || swiper === null || !swiper || swiper.destroyed) { return; }
-      if (swiper.imagesLoaded !== undefined) { swiper.imagesLoaded += 1; }
-      if (swiper.imagesLoaded === swiper.imagesToLoad.length) {
-        if (swiper.params.updateOnImagesReady) { swiper.update(); }
-        swiper.emit('imagesReady');
-      }
-    }
-    for (var i = 0; i < swiper.imagesToLoad.length; i += 1) {
-      var imageEl = swiper.imagesToLoad[i];
-      swiper.loadImage(
-        imageEl,
-        imageEl.currentSrc || imageEl.getAttribute('src'),
-        imageEl.srcset || imageEl.getAttribute('srcset'),
-        imageEl.sizes || imageEl.getAttribute('sizes'),
-        true,
-        onReady
-      );
-    }
-  }
-
-  var images = {
-    loadImage: loadImage,
-    preloadImages: preloadImages,
-  };
-
-  function checkOverflow() {
-    var swiper = this;
-    var wasLocked = swiper.isLocked;
-
-    swiper.isLocked = swiper.snapGrid.length === 1;
-    swiper.allowSlideNext = !swiper.isLocked;
-    swiper.allowSlidePrev = !swiper.isLocked;
-
-    // events
-    if (wasLocked !== swiper.isLocked) { swiper.emit(swiper.isLocked ? 'lock' : 'unlock'); }
-
-    if (wasLocked && wasLocked !== swiper.isLocked) {
-      swiper.isEnd = false;
-      swiper.navigation.update();
-    }
-  }
-
-  var checkOverflow$1 = { checkOverflow: checkOverflow };
-
-  var defaults = {
-    init: true,
-    direction: 'horizontal',
-    touchEventsTarget: 'container',
-    initialSlide: 0,
-    speed: 300,
-    //
-    preventIntercationOnTransition: false,
-
-    // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
-    iOSEdgeSwipeDetection: false,
-    iOSEdgeSwipeThreshold: 20,
-
-    // Free mode
-    freeMode: false,
-    freeModeMomentum: true,
-    freeModeMomentumRatio: 1,
-    freeModeMomentumBounce: true,
-    freeModeMomentumBounceRatio: 1,
-    freeModeMomentumVelocityRatio: 1,
-    freeModeSticky: false,
-    freeModeMinimumVelocity: 0.02,
-
-    // Autoheight
-    autoHeight: false,
-
-    // Set wrapper width
-    setWrapperSize: false,
-
-    // Virtual Translate
-    virtualTranslate: false,
-
-    // Effects
-    effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
-
-    // Breakpoints
-    breakpoints: undefined,
-
-    // Slides grid
-    spaceBetween: 0,
-    slidesPerView: 1,
-    slidesPerColumn: 1,
-    slidesPerColumnFill: 'column',
-    slidesPerGroup: 1,
-    centeredSlides: false,
-    slidesOffsetBefore: 0, // in px
-    slidesOffsetAfter: 0, // in px
-    normalizeSlideIndex: true,
-
-    // Disable swiper and hide navigation when container not overflow
-    watchOverflow: false,
-
-    // Round length
-    roundLengths: false,
-
-    // Touches
-    touchRatio: 1,
-    touchAngle: 45,
-    simulateTouch: true,
-    shortSwipes: true,
-    longSwipes: true,
-    longSwipesRatio: 0.5,
-    longSwipesMs: 300,
-    followFinger: true,
-    allowTouchMove: true,
-    threshold: 0,
-    touchMoveStopPropagation: true,
-    touchReleaseOnEdges: false,
-
-    // Unique Navigation Elements
-    uniqueNavElements: true,
-
-    // Resistance
-    resistance: true,
-    resistanceRatio: 0.85,
-
-    // Progress
-    watchSlidesProgress: false,
-    watchSlidesVisibility: false,
-
-    // Cursor
-    grabCursor: false,
-
-    // Clicks
-    preventClicks: true,
-    preventClicksPropagation: true,
-    slideToClickedSlide: false,
-
-    // Images
-    preloadImages: true,
-    updateOnImagesReady: true,
-
-    // loop
-    loop: false,
-    loopAdditionalSlides: 0,
-    loopedSlides: null,
-    loopFillGroupWithBlank: false,
-
-    // Swiping/no swiping
-    allowSlidePrev: true,
-    allowSlideNext: true,
-    swipeHandler: null, // '.swipe-handler',
-    noSwiping: true,
-    noSwipingClass: 'swiper-no-swiping',
-    noSwipingSelector: null,
-
-    // Passive Listeners
-    passiveListeners: true,
-
-    // NS
-    containerModifierClass: 'swiper-container-', // NEW
-    slideClass: 'swiper-slide',
-    slideBlankClass: 'swiper-slide-invisible-blank',
-    slideActiveClass: 'swiper-slide-active',
-    slideDuplicateActiveClass: 'swiper-slide-duplicate-active',
-    slideVisibleClass: 'swiper-slide-visible',
-    slideDuplicateClass: 'swiper-slide-duplicate',
-    slideNextClass: 'swiper-slide-next',
-    slideDuplicateNextClass: 'swiper-slide-duplicate-next',
-    slidePrevClass: 'swiper-slide-prev',
-    slideDuplicatePrevClass: 'swiper-slide-duplicate-prev',
-    wrapperClass: 'swiper-wrapper',
-
-    // Callbacks
-    runCallbacksOnInit: true,
-  };
-
-  var prototypes = {
-    update: update,
-    translate: translate,
-    transition: transition$1,
-    slide: slide,
-    loop: loop,
-    grabCursor: grabCursor,
-    manipulation: manipulation,
-    events: events,
-    breakpoints: breakpoints,
-    checkOverflow: checkOverflow$1,
-    classes: classes,
-    images: images,
-  };
-
-  var extendedDefaults = {};
-
-  var Swiper = (function (SwiperClass$$1) {
-    function Swiper() {
-      var assign;
-
-      var args = [], len = arguments.length;
-      while ( len-- ) args[ len ] = arguments[ len ];
-      var el;
-      var params;
-      if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
-        params = args[0];
-      } else {
-        (assign = args, el = assign[0], params = assign[1]);
-      }
-      if (!params) { params = {}; }
-
-      params = Utils.extend({}, params);
-      if (el && !params.el) { params.el = el; }
-
-      SwiperClass$$1.call(this, params);
-
-      Object.keys(prototypes).forEach(function (prototypeGroup) {
-        Object.keys(prototypes[prototypeGroup]).forEach(function (protoMethod) {
-          if (!Swiper.prototype[protoMethod]) {
-            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
-          }
-        });
-      });
-
-      // Swiper Instance
-      var swiper = this;
-      if (typeof swiper.modules === 'undefined') {
-        swiper.modules = {};
-      }
-      Object.keys(swiper.modules).forEach(function (moduleName) {
-        var module = swiper.modules[moduleName];
-        if (module.params) {
-          var moduleParamName = Object.keys(module.params)[0];
-          var moduleParams = module.params[moduleParamName];
-          if (typeof moduleParams !== 'object') { return; }
-          if (!(moduleParamName in params && 'enabled' in moduleParams)) { return; }
-          if (params[moduleParamName] === true) {
-            params[moduleParamName] = { enabled: true };
-          }
-          if (
-            typeof params[moduleParamName] === 'object' &&
-            !('enabled' in params[moduleParamName])
-          ) {
-            params[moduleParamName].enabled = true;
-          }
-          if (!params[moduleParamName]) { params[moduleParamName] = { enabled: false }; }
-        }
-      });
-
-      // Extend defaults with modules params
-      var swiperParams = Utils.extend({}, defaults);
-      swiper.useModulesParams(swiperParams);
-
-      // Extend defaults with passed params
-      swiper.params = Utils.extend({}, swiperParams, extendedDefaults, params);
-      swiper.originalParams = Utils.extend({}, swiper.params);
-      swiper.passedParams = Utils.extend({}, params);
-
-      // Save Dom lib
-      swiper.$ = $;
-
-      // Find el
-      var $el = $(swiper.params.el);
-      el = $el[0];
-
-      if (!el) {
-        return undefined;
-      }
-
-      if ($el.length > 1) {
-        var swipers = [];
-        $el.each(function (index, containerEl) {
-          var newParams = Utils.extend({}, params, { el: containerEl });
-          swipers.push(new Swiper(newParams));
-        });
-        return swipers;
-      }
-
-      el.swiper = swiper;
-      $el.data('swiper', swiper);
-
-      // Find Wrapper
-      var $wrapperEl = $el.children(("." + (swiper.params.wrapperClass)));
-
-      // Extend Swiper
-      Utils.extend(swiper, {
-        $el: $el,
-        el: el,
-        $wrapperEl: $wrapperEl,
-        wrapperEl: $wrapperEl[0],
-
-        // Classes
-        classNames: [],
-
-        // Slides
-        slides: $(),
-        slidesGrid: [],
-        snapGrid: [],
-        slidesSizesGrid: [],
-
-        // isDirection
-        isHorizontal: function isHorizontal() {
-          return swiper.params.direction === 'horizontal';
-        },
-        isVertical: function isVertical() {
-          return swiper.params.direction === 'vertical';
-        },
-        // RTL
-        rtl: (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
-        rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
-        wrongRTL: $wrapperEl.css('display') === '-webkit-box',
-
-        // Indexes
-        activeIndex: 0,
-        realIndex: 0,
-
-        //
-        isBeginning: true,
-        isEnd: false,
-
-        // Props
-        translate: 0,
-        progress: 0,
-        velocity: 0,
-        animating: false,
-
-        // Locks
-        allowSlideNext: swiper.params.allowSlideNext,
-        allowSlidePrev: swiper.params.allowSlidePrev,
-
-        // Touch Events
-        touchEvents: (function touchEvents() {
-          var touch = ['touchstart', 'touchmove', 'touchend'];
-          var desktop = ['mousedown', 'mousemove', 'mouseup'];
-          if (Support.pointerEvents) {
-            desktop = ['pointerdown', 'pointermove', 'pointerup'];
-          } else if (Support.prefixedPointerEvents) {
-            desktop = ['MSPointerDown', 'MSPointerMove', 'MSPointerUp'];
-          }
-          swiper.touchEventsTouch = {
-            start: touch[0],
-            move: touch[1],
-            end: touch[2],
-          };
-          swiper.touchEventsDesktop = {
-            start: desktop[0],
-            move: desktop[1],
-            end: desktop[2],
-          };
-          return Support.touch || !swiper.params.simulateTouch ? swiper.touchEventsTouch : swiper.touchEventsDesktop;
-        }()),
-        touchEventsData: {
-          isTouched: undefined,
-          isMoved: undefined,
-          allowTouchCallbacks: undefined,
-          touchStartTime: undefined,
-          isScrolling: undefined,
-          currentTranslate: undefined,
-          startTranslate: undefined,
-          allowThresholdMove: undefined,
-          // Form elements to match
-          formElements: 'input, select, option, textarea, button, video',
-          // Last click time
-          lastClickTime: Utils.now(),
-          clickTimeout: undefined,
-          // Velocities
-          velocities: [],
-          allowMomentumBounce: undefined,
-          isTouchEvent: undefined,
-          startMoving: undefined,
-        },
-
-        // Clicks
-        allowClick: true,
-
-        // Touches
-        allowTouchMove: swiper.params.allowTouchMove,
-
-        touches: {
-          startX: 0,
-          startY: 0,
-          currentX: 0,
-          currentY: 0,
-          diff: 0,
-        },
-
-        // Images
-        imagesToLoad: [],
-        imagesLoaded: 0,
-
-      });
-
-      // Install Modules
-      swiper.useModules();
-
-      // Init
-      if (swiper.params.init) {
-        swiper.init();
-      }
-
-      // Return app instance
-      return swiper;
-    }
-
-    if ( SwiperClass$$1 ) Swiper.__proto__ = SwiperClass$$1;
-    Swiper.prototype = Object.create( SwiperClass$$1 && SwiperClass$$1.prototype );
-    Swiper.prototype.constructor = Swiper;
-
-    var staticAccessors = { extendedDefaults: { configurable: true },defaults: { configurable: true },Class: { configurable: true },$: { configurable: true } };
-    Swiper.prototype.slidesPerViewDynamic = function slidesPerViewDynamic () {
-      var swiper = this;
-      var params = swiper.params;
-      var slides = swiper.slides;
-      var slidesGrid = swiper.slidesGrid;
-      var swiperSize = swiper.size;
-      var activeIndex = swiper.activeIndex;
-      var spv = 1;
-      if (params.centeredSlides) {
-        var slideSize = slides[activeIndex].swiperSlideSize;
-        var breakLoop;
-        for (var i = activeIndex + 1; i < slides.length; i += 1) {
-          if (slides[i] && !breakLoop) {
-            slideSize += slides[i].swiperSlideSize;
-            spv += 1;
-            if (slideSize > swiperSize) { breakLoop = true; }
-          }
-        }
-        for (var i$1 = activeIndex - 1; i$1 >= 0; i$1 -= 1) {
-          if (slides[i$1] && !breakLoop) {
-            slideSize += slides[i$1].swiperSlideSize;
-            spv += 1;
-            if (slideSize > swiperSize) { breakLoop = true; }
-          }
-        }
-      } else {
-        for (var i$2 = activeIndex + 1; i$2 < slides.length; i$2 += 1) {
-          if (slidesGrid[i$2] - slidesGrid[activeIndex] < swiperSize) {
-            spv += 1;
-          }
-        }
-      }
-      return spv;
-    };
-    Swiper.prototype.update = function update$$1 () {
-      var swiper = this;
-      if (!swiper || swiper.destroyed) { return; }
-      var snapGrid = swiper.snapGrid;
-      var params = swiper.params;
-      // Breakpoints
-      if (params.breakpoints) {
-        swiper.setBreakpoint();
-      }
-      swiper.updateSize();
-      swiper.updateSlides();
-      swiper.updateProgress();
-      swiper.updateSlidesClasses();
-
-      function setTranslate() {
-        var translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
-        var newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
-        swiper.setTranslate(newTranslate);
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-      }
-      var translated;
-      if (swiper.params.freeMode) {
-        setTranslate();
-        if (swiper.params.autoHeight) {
-          swiper.updateAutoHeight();
-        }
-      } else {
-        if ((swiper.params.slidesPerView === 'auto' || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
-          translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true);
-        } else {
-          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
-        }
-        if (!translated) {
-          setTranslate();
-        }
-      }
-      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
-        swiper.checkOverflow();
-      }
-      swiper.emit('update');
-    };
-    Swiper.prototype.init = function init () {
-      var swiper = this;
-      if (swiper.initialized) { return; }
-
-      swiper.emit('beforeInit');
-
-      // Set breakpoint
-      if (swiper.params.breakpoints) {
-        swiper.setBreakpoint();
-      }
-
-      // Add Classes
-      swiper.addClasses();
-
-      // Create loop
-      if (swiper.params.loop) {
-        swiper.loopCreate();
-      }
-
-      // Update size
-      swiper.updateSize();
-
-      // Update slides
-      swiper.updateSlides();
-
-      if (swiper.params.watchOverflow) {
-        swiper.checkOverflow();
-      }
-
-      // Set Grab Cursor
-      if (swiper.params.grabCursor) {
-        swiper.setGrabCursor();
-      }
-
-      if (swiper.params.preloadImages) {
-        swiper.preloadImages();
-      }
-
-      // Slide To Initial Slide
-      if (swiper.params.loop) {
-        swiper.slideTo(swiper.params.initialSlide + swiper.loopedSlides, 0, swiper.params.runCallbacksOnInit);
-      } else {
-        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit);
-      }
-
-      // Attach events
-      swiper.attachEvents();
-
-      // Init Flag
-      swiper.initialized = true;
-
-      // Emit
-      swiper.emit('init');
-    };
-    Swiper.prototype.destroy = function destroy (deleteInstance, cleanStyles) {
-      if ( deleteInstance === void 0 ) deleteInstance = true;
-      if ( cleanStyles === void 0 ) cleanStyles = true;
-
-      var swiper = this;
-      var params = swiper.params;
-      var $el = swiper.$el;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slides = swiper.slides;
-
-      if (typeof swiper.params === 'undefined' || swiper.destroyed) {
-        return null;
-      }
-
-      swiper.emit('beforeDestroy');
-
-      // Init Flag
-      swiper.initialized = false;
-
-      // Detach events
-      swiper.detachEvents();
-
-      // Destroy loop
-      if (params.loop) {
-        swiper.loopDestroy();
-      }
-
-      // Cleanup styles
-      if (cleanStyles) {
-        swiper.removeClasses();
-        $el.removeAttr('style');
-        $wrapperEl.removeAttr('style');
-        if (slides && slides.length) {
-          slides
-            .removeClass([
-              params.slideVisibleClass,
-              params.slideActiveClass,
-              params.slideNextClass,
-              params.slidePrevClass ].join(' '))
-            .removeAttr('style')
-            .removeAttr('data-swiper-slide-index')
-            .removeAttr('data-swiper-column')
-            .removeAttr('data-swiper-row');
-        }
-      }
-
-      swiper.emit('destroy');
-
-      // Detach emitter events
-      Object.keys(swiper.eventsListeners).forEach(function (eventName) {
-        swiper.off(eventName);
-      });
-
-      if (deleteInstance !== false) {
-        swiper.$el[0].swiper = null;
-        swiper.$el.data('swiper', null);
-        Utils.deleteProps(swiper);
-      }
-      swiper.destroyed = true;
-
-      return null;
-    };
-    Swiper.extendDefaults = function extendDefaults (newDefaults) {
-      Utils.extend(extendedDefaults, newDefaults);
-    };
-    staticAccessors.extendedDefaults.get = function () {
-      return extendedDefaults;
-    };
-    staticAccessors.defaults.get = function () {
-      return defaults;
-    };
-    staticAccessors.Class.get = function () {
-      return SwiperClass$$1;
-    };
-    staticAccessors.$.get = function () {
-      return $;
-    };
-
-    Object.defineProperties( Swiper, staticAccessors );
-
-    return Swiper;
-  }(SwiperClass));
-
-  var Device$1 = {
-    name: 'device',
-    proto: {
-      device: Device,
-    },
-    static: {
-      device: Device,
-    },
-  };
-
-  var Support$1 = {
-    name: 'support',
-    proto: {
-      support: Support,
-    },
-    static: {
-      support: Support,
-    },
-  };
-
-  var Browser$1 = {
-    name: 'browser',
-    proto: {
-      browser: Browser,
-    },
-    static: {
-      browser: Browser,
-    },
-  };
-
-  var Resize = {
-    name: 'resize',
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        resize: {
-          resizeHandler: function resizeHandler() {
-            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
-            swiper.emit('beforeResize');
-            swiper.emit('resize');
-          },
-          orientationChangeHandler: function orientationChangeHandler() {
-            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
-            swiper.emit('orientationchange');
-          },
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        // Emit resize
-        win.addEventListener('resize', swiper.resize.resizeHandler);
-
-        // Emit orientationchange
-        win.addEventListener('orientationchange', swiper.resize.orientationChangeHandler);
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        win.removeEventListener('resize', swiper.resize.resizeHandler);
-        win.removeEventListener('orientationchange', swiper.resize.orientationChangeHandler);
-      },
-    },
-  };
-
-  var Observer = {
-    func: win.MutationObserver || win.WebkitMutationObserver,
-    attach: function attach(target, options) {
-      if ( options === void 0 ) options = {};
-
-      var swiper = this;
-
-      var ObserverFunc = Observer.func;
-      var observer = new ObserverFunc(function (mutations) {
-        mutations.forEach(function (mutation) {
-          swiper.emit('observerUpdate', mutation);
-        });
-      });
-
-      observer.observe(target, {
-        attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
-        childList: typeof options.childList === 'undefined' ? true : options.childList,
-        characterData: typeof options.characterData === 'undefined' ? true : options.characterData,
-      });
-
-      swiper.observer.observers.push(observer);
-    },
-    init: function init() {
-      var swiper = this;
-      if (!Support.observer || !swiper.params.observer) { return; }
-      if (swiper.params.observeParents) {
-        var containerParents = swiper.$el.parents();
-        for (var i = 0; i < containerParents.length; i += 1) {
-          swiper.observer.attach(containerParents[i]);
-        }
-      }
-      // Observe container
-      swiper.observer.attach(swiper.$el[0], { childList: false });
-
-      // Observe wrapper
-      swiper.observer.attach(swiper.$wrapperEl[0], { attributes: false });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      swiper.observer.observers.forEach(function (observer) {
-        observer.disconnect();
-      });
-      swiper.observer.observers = [];
-    },
-  };
-
-  var Observer$1 = {
-    name: 'observer',
-    params: {
-      observer: false,
-      observeParents: false,
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        observer: {
-          init: Observer.init.bind(swiper),
-          attach: Observer.attach.bind(swiper),
-          destroy: Observer.destroy.bind(swiper),
-          observers: [],
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.observer.init();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.observer.destroy();
-      },
-    },
-  };
-
-  var Virtual = {
-    update: function update(force) {
-      var swiper = this;
-      var ref = swiper.params;
-      var slidesPerView = ref.slidesPerView;
-      var slidesPerGroup = ref.slidesPerGroup;
-      var centeredSlides = ref.centeredSlides;
-      var ref$1 = swiper.virtual;
-      var previousFrom = ref$1.from;
-      var previousTo = ref$1.to;
-      var slides = ref$1.slides;
-      var previousSlidesGrid = ref$1.slidesGrid;
-      var renderSlide = ref$1.renderSlide;
-      var previousOffset = ref$1.offset;
-      swiper.updateActiveIndex();
-      var activeIndex = swiper.activeIndex || 0;
-
-      var offsetProp;
-      if (swiper.rtlTranslate) { offsetProp = 'right'; }
-      else { offsetProp = swiper.isHorizontal() ? 'left' : 'top'; }
-
-      var slidesAfter;
-      var slidesBefore;
-      if (centeredSlides) {
-        slidesAfter = Math.floor(slidesPerView / 2) + slidesPerGroup;
-        slidesBefore = Math.floor(slidesPerView / 2) + slidesPerGroup;
-      } else {
-        slidesAfter = slidesPerView + (slidesPerGroup - 1);
-        slidesBefore = slidesPerGroup;
-      }
-      var from = Math.max((activeIndex || 0) - slidesBefore, 0);
-      var to = Math.min((activeIndex || 0) + slidesAfter, slides.length - 1);
-      var offset = (swiper.slidesGrid[from] || 0) - (swiper.slidesGrid[0] || 0);
-
-      Utils.extend(swiper.virtual, {
-        from: from,
-        to: to,
-        offset: offset,
-        slidesGrid: swiper.slidesGrid,
-      });
-
-      function onRendered() {
-        swiper.updateSlides();
-        swiper.updateProgress();
-        swiper.updateSlidesClasses();
-        if (swiper.lazy && swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      }
-
-      if (previousFrom === from && previousTo === to && !force) {
-        if (swiper.slidesGrid !== previousSlidesGrid && offset !== previousOffset) {
-          swiper.slides.css(offsetProp, (offset + "px"));
-        }
-        swiper.updateProgress();
-        return;
-      }
-      if (swiper.params.virtual.renderExternal) {
-        swiper.params.virtual.renderExternal.call(swiper, {
-          offset: offset,
-          from: from,
-          to: to,
-          slides: (function getSlides() {
-            var slidesToRender = [];
-            for (var i = from; i <= to; i += 1) {
-              slidesToRender.push(slides[i]);
-            }
-            return slidesToRender;
-          }()),
-        });
-        onRendered();
-        return;
-      }
-      var prependIndexes = [];
-      var appendIndexes = [];
-      if (force) {
-        swiper.$wrapperEl.find(("." + (swiper.params.slideClass))).remove();
-      } else {
-        for (var i = previousFrom; i <= previousTo; i += 1) {
-          if (i < from || i > to) {
-            swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + i + "\"]")).remove();
-          }
-        }
-      }
-      for (var i$1 = 0; i$1 < slides.length; i$1 += 1) {
-        if (i$1 >= from && i$1 <= to) {
-          if (typeof previousTo === 'undefined' || force) {
-            appendIndexes.push(i$1);
-          } else {
-            if (i$1 > previousTo) { appendIndexes.push(i$1); }
-            if (i$1 < previousFrom) { prependIndexes.push(i$1); }
-          }
-        }
-      }
-      appendIndexes.forEach(function (index) {
-        swiper.$wrapperEl.append(renderSlide(slides[index], index));
-      });
-      prependIndexes.sort(function (a, b) { return a < b; }).forEach(function (index) {
-        swiper.$wrapperEl.prepend(renderSlide(slides[index], index));
-      });
-      swiper.$wrapperEl.children('.swiper-slide').css(offsetProp, (offset + "px"));
-      onRendered();
-    },
-    renderSlide: function renderSlide(slide, index) {
-      var swiper = this;
-      var params = swiper.params.virtual;
-      if (params.cache && swiper.virtual.cache[index]) {
-        return swiper.virtual.cache[index];
-      }
-      var $slideEl = params.renderSlide
-        ? $(params.renderSlide.call(swiper, slide, index))
-        : $(("<div class=\"" + (swiper.params.slideClass) + "\" data-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
-      if (!$slideEl.attr('data-swiper-slide-index')) { $slideEl.attr('data-swiper-slide-index', index); }
-      if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
-      return $slideEl;
-    },
-    appendSlide: function appendSlide(slide) {
-      var swiper = this;
-      swiper.virtual.slides.push(slide);
-      swiper.virtual.update(true);
-    },
-    prependSlide: function prependSlide(slide) {
-      var swiper = this;
-      swiper.virtual.slides.unshift(slide);
-      if (swiper.params.virtual.cache) {
-        var cache = swiper.virtual.cache;
-        var newCache = {};
-        Object.keys(cache).forEach(function (cachedIndex) {
-          newCache[cachedIndex + 1] = cache[cachedIndex];
-        });
-        swiper.virtual.cache = newCache;
-      }
-      swiper.virtual.update(true);
-      swiper.slideNext(0);
-    },
-  };
-
-  var Virtual$1 = {
-    name: 'virtual',
-    params: {
-      virtual: {
-        enabled: false,
-        slides: [],
-        cache: true,
-        renderSlide: null,
-        renderExternal: null,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        virtual: {
-          update: Virtual.update.bind(swiper),
-          appendSlide: Virtual.appendSlide.bind(swiper),
-          prependSlide: Virtual.prependSlide.bind(swiper),
-          renderSlide: Virtual.renderSlide.bind(swiper),
-          slides: swiper.params.virtual.slides,
-          cache: {},
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (!swiper.params.virtual.enabled) { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "virtual"));
-        var overwriteParams = {
-          watchSlidesProgress: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-
-        swiper.virtual.update();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (!swiper.params.virtual.enabled) { return; }
-        swiper.virtual.update();
-      },
-    },
-  };
-
-  var Keyboard = {
-    handle: function handle(event) {
-      var swiper = this;
-      var rtl = swiper.rtlTranslate;
-      var e = event;
-      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
-      var kc = e.keyCode || e.charCode;
-      // Directions locks
-      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40))) {
-        return false;
-      }
-      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38))) {
-        return false;
-      }
-      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
-        return undefined;
-      }
-      if (doc.activeElement && doc.activeElement.nodeName && (doc.activeElement.nodeName.toLowerCase() === 'input' || doc.activeElement.nodeName.toLowerCase() === 'textarea')) {
-        return undefined;
-      }
-      if (swiper.params.keyboard.onlyInViewport && (kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
-        var inView = false;
-        // Check that swiper should be inside of visible area of window
-        if (swiper.$el.parents(("." + (swiper.params.slideClass))).length > 0 && swiper.$el.parents(("." + (swiper.params.slideActiveClass))).length === 0) {
-          return undefined;
-        }
-        var windowWidth = win.innerWidth;
-        var windowHeight = win.innerHeight;
-        var swiperOffset = swiper.$el.offset();
-        if (rtl) { swiperOffset.left -= swiper.$el[0].scrollLeft; }
-        var swiperCoord = [
-          [swiperOffset.left, swiperOffset.top],
-          [swiperOffset.left + swiper.width, swiperOffset.top],
-          [swiperOffset.left, swiperOffset.top + swiper.height],
-          [swiperOffset.left + swiper.width, swiperOffset.top + swiper.height] ];
-        for (var i = 0; i < swiperCoord.length; i += 1) {
-          var point = swiperCoord[i];
-          if (
-            point[0] >= 0 && point[0] <= windowWidth &&
-            point[1] >= 0 && point[1] <= windowHeight
-          ) {
-            inView = true;
-          }
-        }
-        if (!inView) { return undefined; }
-      }
-      if (swiper.isHorizontal()) {
-        if (kc === 37 || kc === 39) {
-          if (e.preventDefault) { e.preventDefault(); }
-          else { e.returnValue = false; }
-        }
-        if ((kc === 39 && !rtl) || (kc === 37 && rtl)) { swiper.slideNext(); }
-        if ((kc === 37 && !rtl) || (kc === 39 && rtl)) { swiper.slidePrev(); }
-      } else {
-        if (kc === 38 || kc === 40) {
-          if (e.preventDefault) { e.preventDefault(); }
-          else { e.returnValue = false; }
-        }
-        if (kc === 40) { swiper.slideNext(); }
-        if (kc === 38) { swiper.slidePrev(); }
-      }
-      swiper.emit('keyPress', kc);
-      return undefined;
-    },
-    enable: function enable() {
-      var swiper = this;
-      if (swiper.keyboard.enabled) { return; }
-      $(doc).on('keydown', swiper.keyboard.handle);
-      swiper.keyboard.enabled = true;
-    },
-    disable: function disable() {
-      var swiper = this;
-      if (!swiper.keyboard.enabled) { return; }
-      $(doc).off('keydown', swiper.keyboard.handle);
-      swiper.keyboard.enabled = false;
-    },
-  };
-
-  var Keyboard$1 = {
-    name: 'keyboard',
-    params: {
-      keyboard: {
-        enabled: false,
-        onlyInViewport: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        keyboard: {
-          enabled: false,
-          enable: Keyboard.enable.bind(swiper),
-          disable: Keyboard.disable.bind(swiper),
-          handle: Keyboard.handle.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.keyboard.enabled) {
-          swiper.keyboard.enable();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.keyboard.enabled) {
-          swiper.keyboard.disable();
-        }
-      },
-    },
-  };
-
-  function isEventSupported() {
-    var eventName = 'onwheel';
-    var isSupported = eventName in doc;
-
-    if (!isSupported) {
-      var element = doc.createElement('div');
-      element.setAttribute(eventName, 'return;');
-      isSupported = typeof element[eventName] === 'function';
-    }
-
-    if (!isSupported &&
-      doc.implementation &&
-      doc.implementation.hasFeature &&
-      // always returns true in newer browsers as per the standard.
-      // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
-      doc.implementation.hasFeature('', '') !== true
-    ) {
-      // This is the only way to test support for the `wheel` event in IE9+.
-      isSupported = doc.implementation.hasFeature('Events.wheel', '3.0');
-    }
-
-    return isSupported;
-  }
-  var Mousewheel = {
-    lastScrollTime: Utils.now(),
-    event: (function getEvent() {
-      if (win.navigator.userAgent.indexOf('firefox') > -1) { return 'DOMMouseScroll'; }
-      return isEventSupported() ? 'wheel' : 'mousewheel';
-    }()),
-    normalize: function normalize(e) {
-      // Reasonable defaults
-      var PIXEL_STEP = 10;
-      var LINE_HEIGHT = 40;
-      var PAGE_HEIGHT = 800;
-
-      var sX = 0;
-      var sY = 0; // spinX, spinY
-      var pX = 0;
-      var pY = 0; // pixelX, pixelY
-
-      // Legacy
-      if ('detail' in e) {
-        sY = e.detail;
-      }
-      if ('wheelDelta' in e) {
-        sY = -e.wheelDelta / 120;
-      }
-      if ('wheelDeltaY' in e) {
-        sY = -e.wheelDeltaY / 120;
-      }
-      if ('wheelDeltaX' in e) {
-        sX = -e.wheelDeltaX / 120;
-      }
-
-      // side scrolling on FF with DOMMouseScroll
-      if ('axis' in e && e.axis === e.HORIZONTAL_AXIS) {
-        sX = sY;
-        sY = 0;
-      }
-
-      pX = sX * PIXEL_STEP;
-      pY = sY * PIXEL_STEP;
-
-      if ('deltaY' in e) {
-        pY = e.deltaY;
-      }
-      if ('deltaX' in e) {
-        pX = e.deltaX;
-      }
-
-      if ((pX || pY) && e.deltaMode) {
-        if (e.deltaMode === 1) { // delta in LINE units
-          pX *= LINE_HEIGHT;
-          pY *= LINE_HEIGHT;
-        } else { // delta in PAGE units
-          pX *= PAGE_HEIGHT;
-          pY *= PAGE_HEIGHT;
-        }
-      }
-
-      // Fall-back if spin cannot be determined
-      if (pX && !sX) {
-        sX = (pX < 1) ? -1 : 1;
-      }
-      if (pY && !sY) {
-        sY = (pY < 1) ? -1 : 1;
-      }
-
-      return {
-        spinX: sX,
-        spinY: sY,
-        pixelX: pX,
-        pixelY: pY,
-      };
-    },
-    handleMouseEnter: function handleMouseEnter() {
-      var swiper = this;
-      swiper.mouseEntered = true;
-    },
-    handleMouseLeave: function handleMouseLeave() {
-      var swiper = this;
-      swiper.mouseEntered = false;
-    },
-    handle: function handle(event) {
-      var e = event;
-      var swiper = this;
-      var params = swiper.params.mousewheel;
-
-      if (!swiper.mouseEntered && !params.releaseOnEdges) { return true; }
-
-      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
-      var delta = 0;
-      var rtlFactor = swiper.rtlTranslate ? -1 : 1;
-
-      var data = Mousewheel.normalize(e);
-
-      if (params.forceToAxis) {
-        if (swiper.isHorizontal()) {
-          if (Math.abs(data.pixelX) > Math.abs(data.pixelY)) { delta = data.pixelX * rtlFactor; }
-          else { return true; }
-        } else if (Math.abs(data.pixelY) > Math.abs(data.pixelX)) { delta = data.pixelY; }
-        else { return true; }
-      } else {
-        delta = Math.abs(data.pixelX) > Math.abs(data.pixelY) ? -data.pixelX * rtlFactor : -data.pixelY;
-      }
-
-      if (delta === 0) { return true; }
-
-      if (params.invert) { delta = -delta; }
-
-      if (!swiper.params.freeMode) {
-        if (Utils.now() - swiper.mousewheel.lastScrollTime > 60) {
-          if (delta < 0) {
-            if ((!swiper.isEnd || swiper.params.loop) && !swiper.animating) {
-              swiper.slideNext();
-              swiper.emit('scroll', e);
-            } else if (params.releaseOnEdges) { return true; }
-          } else if ((!swiper.isBeginning || swiper.params.loop) && !swiper.animating) {
-            swiper.slidePrev();
-            swiper.emit('scroll', e);
-          } else if (params.releaseOnEdges) { return true; }
-        }
-        swiper.mousewheel.lastScrollTime = (new win.Date()).getTime();
-      } else {
-        // Freemode or scrollContainer:
-        if (swiper.params.loop) {
-          swiper.loopFix();
-        }
-        var position = swiper.getTranslate() + (delta * params.sensitivity);
-        var wasBeginning = swiper.isBeginning;
-        var wasEnd = swiper.isEnd;
-
-        if (position >= swiper.minTranslate()) { position = swiper.minTranslate(); }
-        if (position <= swiper.maxTranslate()) { position = swiper.maxTranslate(); }
-
-        swiper.setTransition(0);
-        swiper.setTranslate(position);
-        swiper.updateProgress();
-        swiper.updateActiveIndex();
-        swiper.updateSlidesClasses();
-
-        if ((!wasBeginning && swiper.isBeginning) || (!wasEnd && swiper.isEnd)) {
-          swiper.updateSlidesClasses();
-        }
-
-        if (swiper.params.freeModeSticky) {
-          clearTimeout(swiper.mousewheel.timeout);
-          swiper.mousewheel.timeout = Utils.nextTick(function () {
-            swiper.slideToClosest();
-          }, 300);
-        }
-        // Emit event
-        swiper.emit('scroll', e);
-
-        // Stop autoplay
-        if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction) { swiper.stopAutoplay(); }
-        // Return page scroll on edge positions
-        if (position === swiper.minTranslate() || position === swiper.maxTranslate()) { return true; }
-      }
-
-      if (e.preventDefault) { e.preventDefault(); }
-      else { e.returnValue = false; }
-      return false;
-    },
-    enable: function enable() {
-      var swiper = this;
-      if (!Mousewheel.event) { return false; }
-      if (swiper.mousewheel.enabled) { return false; }
-      var target = swiper.$el;
-      if (swiper.params.mousewheel.eventsTarged !== 'container') {
-        target = $(swiper.params.mousewheel.eventsTarged);
-      }
-      target.on('mouseenter', swiper.mousewheel.handleMouseEnter);
-      target.on('mouseleave', swiper.mousewheel.handleMouseLeave);
-      target.on(Mousewheel.event, swiper.mousewheel.handle);
-      swiper.mousewheel.enabled = true;
-      return true;
-    },
-    disable: function disable() {
-      var swiper = this;
-      if (!Mousewheel.event) { return false; }
-      if (!swiper.mousewheel.enabled) { return false; }
-      var target = swiper.$el;
-      if (swiper.params.mousewheel.eventsTarged !== 'container') {
-        target = $(swiper.params.mousewheel.eventsTarged);
-      }
-      target.off(Mousewheel.event, swiper.mousewheel.handle);
-      swiper.mousewheel.enabled = false;
-      return true;
-    },
-  };
-
-  var Mousewheel$1 = {
-    name: 'mousewheel',
-    params: {
-      mousewheel: {
-        enabled: false,
-        releaseOnEdges: false,
-        invert: false,
-        forceToAxis: false,
-        sensitivity: 1,
-        eventsTarged: 'container',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        mousewheel: {
-          enabled: false,
-          enable: Mousewheel.enable.bind(swiper),
-          disable: Mousewheel.disable.bind(swiper),
-          handle: Mousewheel.handle.bind(swiper),
-          handleMouseEnter: Mousewheel.handleMouseEnter.bind(swiper),
-          handleMouseLeave: Mousewheel.handleMouseLeave.bind(swiper),
-          lastScrollTime: Utils.now(),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.mousewheel.enabled) { swiper.mousewheel.enable(); }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.mousewheel.enabled) { swiper.mousewheel.disable(); }
-      },
-    },
-  };
-
-  var Navigation = {
-    update: function update() {
-      // Update Navigation Buttons
-      var swiper = this;
-      var params = swiper.params.navigation;
-
-      if (swiper.params.loop) { return; }
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-
-      if ($prevEl && $prevEl.length > 0) {
-        if (swiper.isBeginning) {
-          $prevEl.addClass(params.disabledClass);
-        } else {
-          $prevEl.removeClass(params.disabledClass);
-        }
-        $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-      }
-      if ($nextEl && $nextEl.length > 0) {
-        if (swiper.isEnd) {
-          $nextEl.addClass(params.disabledClass);
-        } else {
-          $nextEl.removeClass(params.disabledClass);
-        }
-        $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      var params = swiper.params.navigation;
-      if (!(params.nextEl || params.prevEl)) { return; }
-
-      var $nextEl;
-      var $prevEl;
-      if (params.nextEl) {
-        $nextEl = $(params.nextEl);
-        if (
-          swiper.params.uniqueNavElements &&
-          typeof params.nextEl === 'string' &&
-          $nextEl.length > 1 &&
-          swiper.$el.find(params.nextEl).length === 1
-        ) {
-          $nextEl = swiper.$el.find(params.nextEl);
-        }
-      }
-      if (params.prevEl) {
-        $prevEl = $(params.prevEl);
-        if (
-          swiper.params.uniqueNavElements &&
-          typeof params.prevEl === 'string' &&
-          $prevEl.length > 1 &&
-          swiper.$el.find(params.prevEl).length === 1
-        ) {
-          $prevEl = swiper.$el.find(params.prevEl);
-        }
-      }
-
-      if ($nextEl && $nextEl.length > 0) {
-        $nextEl.on('click', function (e) {
-          e.preventDefault();
-          if (swiper.isEnd && !swiper.params.loop) { return; }
-          swiper.slideNext();
-        });
-      }
-      if ($prevEl && $prevEl.length > 0) {
-        $prevEl.on('click', function (e) {
-          e.preventDefault();
-          if (swiper.isBeginning && !swiper.params.loop) { return; }
-          swiper.slidePrev();
-        });
-      }
-
-      Utils.extend(swiper.navigation, {
-        $nextEl: $nextEl,
-        nextEl: $nextEl && $nextEl[0],
-        $prevEl: $prevEl,
-        prevEl: $prevEl && $prevEl[0],
-      });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-      if ($nextEl && $nextEl.length) {
-        $nextEl.off('click');
-        $nextEl.removeClass(swiper.params.navigation.disabledClass);
-      }
-      if ($prevEl && $prevEl.length) {
-        $prevEl.off('click');
-        $prevEl.removeClass(swiper.params.navigation.disabledClass);
-      }
-    },
-  };
-
-  var Navigation$1 = {
-    name: 'navigation',
-    params: {
-      navigation: {
-        nextEl: null,
-        prevEl: null,
-
-        hideOnClick: false,
-        disabledClass: 'swiper-button-disabled',
-        hiddenClass: 'swiper-button-hidden',
-        lockClass: 'swiper-button-lock',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        navigation: {
-          init: Navigation.init.bind(swiper),
-          update: Navigation.update.bind(swiper),
-          destroy: Navigation.destroy.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.navigation.init();
-        swiper.navigation.update();
-      },
-      toEdge: function toEdge() {
-        var swiper = this;
-        swiper.navigation.update();
-      },
-      fromEdge: function fromEdge() {
-        var swiper = this;
-        swiper.navigation.update();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.navigation.destroy();
-      },
-      click: function click(e) {
-        var swiper = this;
-        var ref = swiper.navigation;
-        var $nextEl = ref.$nextEl;
-        var $prevEl = ref.$prevEl;
-        if (
-          swiper.params.navigation.hideOnClick &&
-          !$(e.target).is($prevEl) &&
-          !$(e.target).is($nextEl)
-        ) {
-          if ($nextEl) { $nextEl.toggleClass(swiper.params.navigation.hiddenClass); }
-          if ($prevEl) { $prevEl.toggleClass(swiper.params.navigation.hiddenClass); }
-        }
-      },
-    },
-  };
-
-  var Pagination = {
-    update: function update() {
-      // Render || Update Pagination bullets/items
-      var swiper = this;
-      var rtl = swiper.rtl;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
-      var $el = swiper.pagination.$el;
-      // Current/Total
-      var current;
-      var total = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
-      if (swiper.params.loop) {
-        current = Math.ceil((swiper.activeIndex - swiper.loopedSlides) / swiper.params.slidesPerGroup);
-        if (current > slidesLength - 1 - (swiper.loopedSlides * 2)) {
-          current -= (slidesLength - (swiper.loopedSlides * 2));
-        }
-        if (current > total - 1) { current -= total; }
-        if (current < 0 && swiper.params.paginationType !== 'bullets') { current = total + current; }
-      } else if (typeof swiper.snapIndex !== 'undefined') {
-        current = swiper.snapIndex;
-      } else {
-        current = swiper.activeIndex || 0;
-      }
-      // Types
-      if (params.type === 'bullets' && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
-        var bullets = swiper.pagination.bullets;
-        var firstIndex;
-        var lastIndex;
-        var midIndex;
-        if (params.dynamicBullets) {
-          swiper.pagination.bulletSize = bullets.eq(0)[swiper.isHorizontal() ? 'outerWidth' : 'outerHeight'](true);
-          $el.css(swiper.isHorizontal() ? 'width' : 'height', ((swiper.pagination.bulletSize * (params.dynamicMainBullets + 4)) + "px"));
-          if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
-            swiper.pagination.dynamicBulletIndex += (current - swiper.previousIndex);
-            if (swiper.pagination.dynamicBulletIndex > (params.dynamicMainBullets - 1)) {
-              swiper.pagination.dynamicBulletIndex = params.dynamicMainBullets - 1;
-            } else if (swiper.pagination.dynamicBulletIndex < 0) {
-              swiper.pagination.dynamicBulletIndex = 0;
-            }
-          }
-          firstIndex = current - swiper.pagination.dynamicBulletIndex;
-          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
-          midIndex = (lastIndex + firstIndex) / 2;
-        }
-        bullets.removeClass(((params.bulletActiveClass) + " " + (params.bulletActiveClass) + "-next " + (params.bulletActiveClass) + "-next-next " + (params.bulletActiveClass) + "-prev " + (params.bulletActiveClass) + "-prev-prev " + (params.bulletActiveClass) + "-main"));
-        if ($el.length > 1) {
-          bullets.each(function (index, bullet) {
-            var $bullet = $(bullet);
-            var bulletIndex = $bullet.index();
-            if (bulletIndex === current) {
-              $bullet.addClass(params.bulletActiveClass);
-            }
-            if (params.dynamicBullets) {
-              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
-                $bullet.addClass(((params.bulletActiveClass) + "-main"));
-              }
-              if (bulletIndex === firstIndex) {
-                $bullet
-                  .prev()
-                  .addClass(((params.bulletActiveClass) + "-prev"))
-                  .prev()
-                  .addClass(((params.bulletActiveClass) + "-prev-prev"));
-              }
-              if (bulletIndex === lastIndex) {
-                $bullet
-                  .next()
-                  .addClass(((params.bulletActiveClass) + "-next"))
-                  .next()
-                  .addClass(((params.bulletActiveClass) + "-next-next"));
-              }
-            }
-          });
-        } else {
-          var $bullet = bullets.eq(current);
-          $bullet.addClass(params.bulletActiveClass);
-          if (params.dynamicBullets) {
-            var $firstDisplayedBullet = bullets.eq(firstIndex);
-            var $lastDisplayedBullet = bullets.eq(lastIndex);
-            for (var i = firstIndex; i <= lastIndex; i += 1) {
-              bullets.eq(i).addClass(((params.bulletActiveClass) + "-main"));
-            }
-            $firstDisplayedBullet
-              .prev()
-              .addClass(((params.bulletActiveClass) + "-prev"))
-              .prev()
-              .addClass(((params.bulletActiveClass) + "-prev-prev"));
-            $lastDisplayedBullet
-              .next()
-              .addClass(((params.bulletActiveClass) + "-next"))
-              .next()
-              .addClass(((params.bulletActiveClass) + "-next-next"));
-          }
-        }
-        if (params.dynamicBullets) {
-          var dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
-          var bulletsOffset = (((swiper.pagination.bulletSize * dynamicBulletsLength) - (swiper.pagination.bulletSize)) / 2) - (midIndex * swiper.pagination.bulletSize);
-          var offsetProp = rtl ? 'right' : 'left';
-          bullets.css(swiper.isHorizontal() ? offsetProp : 'top', (bulletsOffset + "px"));
-        }
-      }
-      if (params.type === 'fraction') {
-        $el.find(("." + (params.currentClass))).text(current + 1);
-        $el.find(("." + (params.totalClass))).text(total);
-      }
-      if (params.type === 'progressbar') {
-        var progressbarDirection;
-        if (params.progressbarOpposite) {
-          progressbarDirection = swiper.isHorizontal() ? 'vertical' : 'horizontal';
-        } else {
-          progressbarDirection = swiper.isHorizontal() ? 'horizontal' : 'vertical';
-        }
-        var scale = (current + 1) / total;
-        var scaleX = 1;
-        var scaleY = 1;
-        if (progressbarDirection === 'horizontal') {
-          scaleX = scale;
-        } else {
-          scaleY = scale;
-        }
-        $el.find(("." + (params.progressbarFillClass))).transform(("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")")).transition(swiper.params.speed);
-      }
-      if (params.type === 'custom' && params.renderCustom) {
-        $el.html(params.renderCustom(swiper, current + 1, total));
-        swiper.emit('paginationRender', swiper, $el[0]);
-      } else {
-        swiper.emit('paginationUpdate', swiper, $el[0]);
-      }
-      $el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
-    },
-    render: function render() {
-      // Render Container
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
-
-      var $el = swiper.pagination.$el;
-      var paginationHTML = '';
-      if (params.type === 'bullets') {
-        var numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
-        for (var i = 0; i < numberOfBullets; i += 1) {
-          if (params.renderBullet) {
-            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
-          } else {
-            paginationHTML += "<" + (params.bulletElement) + " class=\"" + (params.bulletClass) + "\"></" + (params.bulletElement) + ">";
-          }
-        }
-        $el.html(paginationHTML);
-        swiper.pagination.bullets = $el.find(("." + (params.bulletClass)));
-      }
-      if (params.type === 'fraction') {
-        if (params.renderFraction) {
-          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
-        } else {
-          paginationHTML =
-          "<span class=\"" + (params.currentClass) + "\"></span>" +
-          ' / ' +
-          "<span class=\"" + (params.totalClass) + "\"></span>";
-        }
-        $el.html(paginationHTML);
-      }
-      if (params.type === 'progressbar') {
-        if (params.renderProgressbar) {
-          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
-        } else {
-          paginationHTML = "<span class=\"" + (params.progressbarFillClass) + "\"></span>";
-        }
-        $el.html(paginationHTML);
-      }
-      if (params.type !== 'custom') {
-        swiper.emit('paginationRender', swiper.pagination.$el[0]);
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el) { return; }
-
-      var $el = $(params.el);
-      if ($el.length === 0) { return; }
-
-      if (
-        swiper.params.uniqueNavElements &&
-        typeof params.el === 'string' &&
-        $el.length > 1 &&
-        swiper.$el.find(params.el).length === 1
-      ) {
-        $el = swiper.$el.find(params.el);
-      }
-
-      if (params.type === 'bullets' && params.clickable) {
-        $el.addClass(params.clickableClass);
-      }
-
-      $el.addClass(params.modifierClass + params.type);
-
-      if (params.type === 'bullets' && params.dynamicBullets) {
-        $el.addClass(("" + (params.modifierClass) + (params.type) + "-dynamic"));
-        swiper.pagination.dynamicBulletIndex = 0;
-        if (params.dynamicMainBullets < 1) {
-          params.dynamicMainBullets = 1;
-        }
-      }
-      if (params.type === 'progressbar' && params.progressbarOpposite) {
-        $el.addClass(params.progressbarOppositeClass);
-      }
-
-      if (params.clickable) {
-        $el.on('click', ("." + (params.bulletClass)), function onClick(e) {
-          e.preventDefault();
-          var index = $(this).index() * swiper.params.slidesPerGroup;
-          if (swiper.params.loop) { index += swiper.loopedSlides; }
-          swiper.slideTo(index);
-        });
-      }
-
-      Utils.extend(swiper.pagination, {
-        $el: $el,
-        el: $el[0],
-      });
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      var params = swiper.params.pagination;
-      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
-      var $el = swiper.pagination.$el;
-
-      $el.removeClass(params.hiddenClass);
-      $el.removeClass(params.modifierClass + params.type);
-      if (swiper.pagination.bullets) { swiper.pagination.bullets.removeClass(params.bulletActiveClass); }
-      if (params.clickable) {
-        $el.off('click', ("." + (params.bulletClass)));
-      }
-    },
-  };
-
-  var Pagination$1 = {
-    name: 'pagination',
-    params: {
-      pagination: {
-        el: null,
-        bulletElement: 'span',
-        clickable: false,
-        hideOnClick: false,
-        renderBullet: null,
-        renderProgressbar: null,
-        renderFraction: null,
-        renderCustom: null,
-        progressbarOpposite: false,
-        type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
-        dynamicBullets: false,
-        dynamicMainBullets: 1,
-        bulletClass: 'swiper-pagination-bullet',
-        bulletActiveClass: 'swiper-pagination-bullet-active',
-        modifierClass: 'swiper-pagination-', // NEW
-        currentClass: 'swiper-pagination-current',
-        totalClass: 'swiper-pagination-total',
-        hiddenClass: 'swiper-pagination-hidden',
-        progressbarFillClass: 'swiper-pagination-progressbar-fill',
-        progressbarOppositeClass: 'swiper-pagination-progressbar-opposite',
-        clickableClass: 'swiper-pagination-clickable', // NEW
-        lockClass: 'swiper-pagination-lock',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        pagination: {
-          init: Pagination.init.bind(swiper),
-          render: Pagination.render.bind(swiper),
-          update: Pagination.update.bind(swiper),
-          destroy: Pagination.destroy.bind(swiper),
-          dynamicBulletIndex: 0,
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.pagination.init();
-        swiper.pagination.render();
-        swiper.pagination.update();
-      },
-      activeIndexChange: function activeIndexChange() {
-        var swiper = this;
-        if (swiper.params.loop) {
-          swiper.pagination.update();
-        } else if (typeof swiper.snapIndex === 'undefined') {
-          swiper.pagination.update();
-        }
-      },
-      snapIndexChange: function snapIndexChange() {
-        var swiper = this;
-        if (!swiper.params.loop) {
-          swiper.pagination.update();
-        }
-      },
-      slidesLengthChange: function slidesLengthChange() {
-        var swiper = this;
-        if (swiper.params.loop) {
-          swiper.pagination.render();
-          swiper.pagination.update();
-        }
-      },
-      snapGridLengthChange: function snapGridLengthChange() {
-        var swiper = this;
-        if (!swiper.params.loop) {
-          swiper.pagination.render();
-          swiper.pagination.update();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.pagination.destroy();
-      },
-      click: function click(e) {
-        var swiper = this;
-        if (
-          swiper.params.pagination.el &&
-          swiper.params.pagination.hideOnClick &&
-          swiper.pagination.$el.length > 0 &&
-          !$(e.target).hasClass(swiper.params.pagination.bulletClass)
-        ) {
-          swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
-        }
-      },
-    },
-  };
-
-  var Scrollbar = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var rtl = swiper.rtlTranslate;
-      var progress = swiper.progress;
-      var dragSize = scrollbar.dragSize;
-      var trackSize = scrollbar.trackSize;
-      var $dragEl = scrollbar.$dragEl;
-      var $el = scrollbar.$el;
-      var params = swiper.params.scrollbar;
-
-      var newSize = dragSize;
-      var newPos = (trackSize - dragSize) * progress;
-      if (rtl) {
-        newPos = -newPos;
-        if (newPos > 0) {
-          newSize = dragSize - newPos;
-          newPos = 0;
-        } else if (-newPos + dragSize > trackSize) {
-          newSize = trackSize + newPos;
-        }
-      } else if (newPos < 0) {
-        newSize = dragSize + newPos;
-        newPos = 0;
-      } else if (newPos + dragSize > trackSize) {
-        newSize = trackSize - newPos;
-      }
-      if (swiper.isHorizontal()) {
-        if (Support.transforms3d) {
-          $dragEl.transform(("translate3d(" + newPos + "px, 0, 0)"));
-        } else {
-          $dragEl.transform(("translateX(" + newPos + "px)"));
-        }
-        $dragEl[0].style.width = newSize + "px";
-      } else {
-        if (Support.transforms3d) {
-          $dragEl.transform(("translate3d(0px, " + newPos + "px, 0)"));
-        } else {
-          $dragEl.transform(("translateY(" + newPos + "px)"));
-        }
-        $dragEl[0].style.height = newSize + "px";
-      }
-      if (params.hide) {
-        clearTimeout(swiper.scrollbar.timeout);
-        $el[0].style.opacity = 1;
-        swiper.scrollbar.timeout = setTimeout(function () {
-          $el[0].style.opacity = 0;
-          $el.transition(400);
-        }, 1000);
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-      swiper.scrollbar.$dragEl.transition(duration);
-    },
-    updateSize: function updateSize() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
-
-      var scrollbar = swiper.scrollbar;
-      var $dragEl = scrollbar.$dragEl;
-      var $el = scrollbar.$el;
-
-      $dragEl[0].style.width = '';
-      $dragEl[0].style.height = '';
-      var trackSize = swiper.isHorizontal() ? $el[0].offsetWidth : $el[0].offsetHeight;
-
-      var divider = swiper.size / swiper.virtualSize;
-      var moveDivider = divider * (trackSize / swiper.size);
-      var dragSize;
-      if (swiper.params.scrollbar.dragSize === 'auto') {
-        dragSize = trackSize * divider;
-      } else {
-        dragSize = parseInt(swiper.params.scrollbar.dragSize, 10);
-      }
-
-      if (swiper.isHorizontal()) {
-        $dragEl[0].style.width = dragSize + "px";
-      } else {
-        $dragEl[0].style.height = dragSize + "px";
-      }
-
-      if (divider >= 1) {
-        $el[0].style.display = 'none';
-      } else {
-        $el[0].style.display = '';
-      }
-      if (swiper.params.scrollbarHide) {
-        $el[0].style.opacity = 0;
-      }
-      Utils.extend(scrollbar, {
-        trackSize: trackSize,
-        divider: divider,
-        moveDivider: moveDivider,
-        dragSize: dragSize,
-      });
-      scrollbar.$el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](swiper.params.scrollbar.lockClass);
-    },
-    setDragPosition: function setDragPosition(e) {
-      var swiper = this;
-      var scrollbar = swiper.scrollbar;
-      var rtl = swiper.rtlTranslate;
-      var $el = scrollbar.$el;
-      var dragSize = scrollbar.dragSize;
-      var trackSize = scrollbar.trackSize;
-
-      var pointerPosition;
-      if (swiper.isHorizontal()) {
-        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
-      } else {
-        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
-      }
-      var positionRatio;
-      positionRatio = ((pointerPosition) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top'] - (dragSize / 2)) / (trackSize - dragSize);
-      positionRatio = Math.max(Math.min(positionRatio, 1), 0);
-      if (rtl) {
-        positionRatio = 1 - positionRatio;
-      }
-
-      var position = swiper.minTranslate() + ((swiper.maxTranslate() - swiper.minTranslate()) * positionRatio);
-
-      swiper.updateProgress(position);
-      swiper.setTranslate(position);
-      swiper.updateActiveIndex();
-      swiper.updateSlidesClasses();
-    },
-    onDragStart: function onDragStart(e) {
-      var swiper = this;
-      var params = swiper.params.scrollbar;
-      var scrollbar = swiper.scrollbar;
-      var $wrapperEl = swiper.$wrapperEl;
-      var $el = scrollbar.$el;
-      var $dragEl = scrollbar.$dragEl;
-      swiper.scrollbar.isTouched = true;
-      e.preventDefault();
-      e.stopPropagation();
-
-      $wrapperEl.transition(100);
-      $dragEl.transition(100);
-      scrollbar.setDragPosition(e);
-
-      clearTimeout(swiper.scrollbar.dragTimeout);
-
-      $el.transition(0);
-      if (params.hide) {
-        $el.css('opacity', 1);
-      }
-      swiper.emit('scrollbarDragStart', e);
-    },
-    onDragMove: function onDragMove(e) {
-      var swiper = this;
-      var scrollbar = swiper.scrollbar;
-      var $wrapperEl = swiper.$wrapperEl;
-      var $el = scrollbar.$el;
-      var $dragEl = scrollbar.$dragEl;
-
-      if (!swiper.scrollbar.isTouched) { return; }
-      if (e.preventDefault) { e.preventDefault(); }
-      else { e.returnValue = false; }
-      scrollbar.setDragPosition(e);
-      $wrapperEl.transition(0);
-      $el.transition(0);
-      $dragEl.transition(0);
-      swiper.emit('scrollbarDragMove', e);
-    },
-    onDragEnd: function onDragEnd(e) {
-      var swiper = this;
-
-      var params = swiper.params.scrollbar;
-      var scrollbar = swiper.scrollbar;
-      var $el = scrollbar.$el;
-
-      if (!swiper.scrollbar.isTouched) { return; }
-      swiper.scrollbar.isTouched = false;
-      if (params.hide) {
-        clearTimeout(swiper.scrollbar.dragTimeout);
-        swiper.scrollbar.dragTimeout = Utils.nextTick(function () {
-          $el.css('opacity', 0);
-          $el.transition(400);
-        }, 1000);
-      }
-      swiper.emit('scrollbarDragEnd', e);
-      if (params.snapOnRelease) {
-        swiper.slideToClosest();
-      }
-    },
-    enableDraggable: function enableDraggable() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var touchEvents = swiper.touchEvents;
-      var touchEventsDesktop = swiper.touchEventsDesktop;
-      var params = swiper.params;
-      var $el = scrollbar.$el;
-      var target = $el[0];
-      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
-      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.addEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
-        doc.addEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
-        doc.addEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
-      } else {
-        if (Support.touch) {
-          target.addEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
-          target.addEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
-          target.addEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.addEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
-          doc.addEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
-          doc.addEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
-        }
-      }
-    },
-    disableDraggable: function disableDraggable() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var touchEvents = swiper.touchEvents;
-      var touchEventsDesktop = swiper.touchEventsDesktop;
-      var params = swiper.params;
-      var $el = scrollbar.$el;
-      var target = $el[0];
-      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
-      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
-      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
-        target.removeEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
-        doc.removeEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
-        doc.removeEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
-      } else {
-        if (Support.touch) {
-          target.removeEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
-          target.removeEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
-          target.removeEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
-        }
-        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
-          target.removeEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
-          doc.removeEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
-          doc.removeEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
-        }
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.scrollbar.el) { return; }
-      var scrollbar = swiper.scrollbar;
-      var $swiperEl = swiper.$el;
-      var params = swiper.params.scrollbar;
-
-      var $el = $(params.el);
-      if (swiper.params.uniqueNavElements && typeof params.el === 'string' && $el.length > 1 && $swiperEl.find(params.el).length === 1) {
-        $el = $swiperEl.find(params.el);
-      }
-
-      var $dragEl = $el.find(("." + (swiper.params.scrollbar.dragClass)));
-      if ($dragEl.length === 0) {
-        $dragEl = $(("<div class=\"" + (swiper.params.scrollbar.dragClass) + "\"></div>"));
-        $el.append($dragEl);
-      }
-
-      Utils.extend(scrollbar, {
-        $el: $el,
-        el: $el[0],
-        $dragEl: $dragEl,
-        dragEl: $dragEl[0],
-      });
-
-      if (params.draggable) {
-        scrollbar.enableDraggable();
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      swiper.scrollbar.disableDraggable();
-    },
-  };
-
-  var Scrollbar$1 = {
-    name: 'scrollbar',
-    params: {
-      scrollbar: {
-        el: null,
-        dragSize: 'auto',
-        hide: false,
-        draggable: false,
-        snapOnRelease: true,
-        lockClass: 'swiper-scrollbar-lock',
-        dragClass: 'swiper-scrollbar-drag',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        scrollbar: {
-          init: Scrollbar.init.bind(swiper),
-          destroy: Scrollbar.destroy.bind(swiper),
-          updateSize: Scrollbar.updateSize.bind(swiper),
-          setTranslate: Scrollbar.setTranslate.bind(swiper),
-          setTransition: Scrollbar.setTransition.bind(swiper),
-          enableDraggable: Scrollbar.enableDraggable.bind(swiper),
-          disableDraggable: Scrollbar.disableDraggable.bind(swiper),
-          setDragPosition: Scrollbar.setDragPosition.bind(swiper),
-          onDragStart: Scrollbar.onDragStart.bind(swiper),
-          onDragMove: Scrollbar.onDragMove.bind(swiper),
-          onDragEnd: Scrollbar.onDragEnd.bind(swiper),
-          isTouched: false,
-          timeout: null,
-          dragTimeout: null,
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        swiper.scrollbar.init();
-        swiper.scrollbar.updateSize();
-        swiper.scrollbar.setTranslate();
-      },
-      update: function update() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      resize: function resize() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      observerUpdate: function observerUpdate() {
-        var swiper = this;
-        swiper.scrollbar.updateSize();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        swiper.scrollbar.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        swiper.scrollbar.setTransition(duration);
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.scrollbar.destroy();
-      },
-    },
-  };
-
-  var Parallax = {
-    setTransform: function setTransform(el, progress) {
-      var swiper = this;
-      var rtl = swiper.rtl;
-
-      var $el = $(el);
-      var rtlFactor = rtl ? -1 : 1;
-
-      var p = $el.attr('data-swiper-parallax') || '0';
-      var x = $el.attr('data-swiper-parallax-x');
-      var y = $el.attr('data-swiper-parallax-y');
-      var scale = $el.attr('data-swiper-parallax-scale');
-      var opacity = $el.attr('data-swiper-parallax-opacity');
-
-      if (x || y) {
-        x = x || '0';
-        y = y || '0';
-      } else if (swiper.isHorizontal()) {
-        x = p;
-        y = '0';
-      } else {
-        y = p;
-        x = '0';
-      }
-
-      if ((x).indexOf('%') >= 0) {
-        x = (parseInt(x, 10) * progress * rtlFactor) + "%";
-      } else {
-        x = (x * progress * rtlFactor) + "px";
-      }
-      if ((y).indexOf('%') >= 0) {
-        y = (parseInt(y, 10) * progress) + "%";
-      } else {
-        y = (y * progress) + "px";
-      }
-
-      if (typeof opacity !== 'undefined' && opacity !== null) {
-        var currentOpacity = opacity - ((opacity - 1) * (1 - Math.abs(progress)));
-        $el[0].style.opacity = currentOpacity;
-      }
-      if (typeof scale === 'undefined' || scale === null) {
-        $el.transform(("translate3d(" + x + ", " + y + ", 0px)"));
-      } else {
-        var currentScale = scale - ((scale - 1) * (1 - Math.abs(progress)));
-        $el.transform(("translate3d(" + x + ", " + y + ", 0px) scale(" + currentScale + ")"));
-      }
-    },
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var $el = swiper.$el;
-      var slides = swiper.slides;
-      var progress = swiper.progress;
-      var snapGrid = swiper.snapGrid;
-      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-        .each(function (index, el) {
-          swiper.parallax.setTransform(el, progress);
-        });
-      slides.each(function (slideIndex, slideEl) {
-        var slideProgress = slideEl.progress;
-        if (swiper.params.slidesPerGroup > 1 && swiper.params.slidesPerView !== 'auto') {
-          slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
-        }
-        slideProgress = Math.min(Math.max(slideProgress, -1), 1);
-        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-          .each(function (index, el) {
-            swiper.parallax.setTransform(el, slideProgress);
-          });
-      });
-    },
-    setTransition: function setTransition(duration) {
-      if ( duration === void 0 ) duration = this.params.speed;
-
-      var swiper = this;
-      var $el = swiper.$el;
-      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
-        .each(function (index, parallaxEl) {
-          var $parallaxEl = $(parallaxEl);
-          var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
-          if (duration === 0) { parallaxDuration = 0; }
-          $parallaxEl.transition(parallaxDuration);
-        });
-    },
-  };
-
-  var Parallax$1 = {
-    name: 'parallax',
-    params: {
-      parallax: {
-        enabled: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        parallax: {
-          setTransform: Parallax.setTransform.bind(swiper),
-          setTranslate: Parallax.setTranslate.bind(swiper),
-          setTransition: Parallax.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (!swiper.params.parallax.enabled) { return; }
-        swiper.params.watchSlidesProgress = true;
-      },
-      init: function init() {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTranslate();
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (!swiper.params.parallax) { return; }
-        swiper.parallax.setTransition(duration);
-      },
-    },
-  };
-
-  var Zoom = {
-    // Calc Scale From Multi-touches
-    getDistanceBetweenTouches: function getDistanceBetweenTouches(e) {
-      if (e.targetTouches.length < 2) { return 1; }
-      var x1 = e.targetTouches[0].pageX;
-      var y1 = e.targetTouches[0].pageY;
-      var x2 = e.targetTouches[1].pageX;
-      var y2 = e.targetTouches[1].pageY;
-      var distance = Math.sqrt((Math.pow( (x2 - x1), 2 )) + (Math.pow( (y2 - y1), 2 )));
-      return distance;
-    },
-    // Events
-    onGestureStart: function onGestureStart(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      zoom.fakeGestureTouched = false;
-      zoom.fakeGestureMoved = false;
-      if (!Support.gestures) {
-        if (e.type !== 'touchstart' || (e.type === 'touchstart' && e.targetTouches.length < 2)) {
-          return;
-        }
-        zoom.fakeGestureTouched = true;
-        gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
-      }
-      if (!gesture.$slideEl || !gesture.$slideEl.length) {
-        gesture.$slideEl = $(e.target).closest('.swiper-slide');
-        if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-        gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-        if (gesture.$imageWrapEl.length === 0) {
-          gesture.$imageEl = undefined;
-          return;
-        }
-      }
-      gesture.$imageEl.transition(0);
-      swiper.zoom.isScaling = true;
-    },
-    onGestureChange: function onGestureChange(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (!Support.gestures) {
-        if (e.type !== 'touchmove' || (e.type === 'touchmove' && e.targetTouches.length < 2)) {
-          return;
-        }
-        zoom.fakeGestureMoved = true;
-        gesture.scaleMove = Zoom.getDistanceBetweenTouches(e);
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (Support.gestures) {
-        swiper.zoom.scale = e.scale * zoom.currentScale;
-      } else {
-        zoom.scale = (gesture.scaleMove / gesture.scaleStart) * zoom.currentScale;
-      }
-      if (zoom.scale > gesture.maxRatio) {
-        zoom.scale = (gesture.maxRatio - 1) + (Math.pow( ((zoom.scale - gesture.maxRatio) + 1), 0.5 ));
-      }
-      if (zoom.scale < params.minRatio) {
-        zoom.scale = (params.minRatio + 1) - (Math.pow( ((params.minRatio - zoom.scale) + 1), 0.5 ));
-      }
-      gesture.$imageEl.transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-    },
-    onGestureEnd: function onGestureEnd(e) {
-      var swiper = this;
-      var params = swiper.params.zoom;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (!Support.gestures) {
-        if (!zoom.fakeGestureTouched || !zoom.fakeGestureMoved) {
-          return;
-        }
-        if (e.type !== 'touchend' || (e.type === 'touchend' && e.changedTouches.length < 2 && !Device.android)) {
-          return;
-        }
-        zoom.fakeGestureTouched = false;
-        zoom.fakeGestureMoved = false;
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      zoom.scale = Math.max(Math.min(zoom.scale, gesture.maxRatio), params.minRatio);
-      gesture.$imageEl.transition(swiper.params.speed).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-      zoom.currentScale = zoom.scale;
-      zoom.isScaling = false;
-      if (zoom.scale === 1) { gesture.$slideEl = undefined; }
-    },
-    onTouchStart: function onTouchStart(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (image.isTouched) { return; }
-      if (Device.android) { e.preventDefault(); }
-      image.isTouched = true;
-      image.touchesStart.x = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
-      image.touchesStart.y = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
-    },
-    onTouchMove: function onTouchMove(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      var velocity = zoom.velocity;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      swiper.allowClick = false;
-      if (!image.isTouched || !gesture.$slideEl) { return; }
-
-      if (!image.isMoved) {
-        image.width = gesture.$imageEl[0].offsetWidth;
-        image.height = gesture.$imageEl[0].offsetHeight;
-        image.startX = Utils.getTranslate(gesture.$imageWrapEl[0], 'x') || 0;
-        image.startY = Utils.getTranslate(gesture.$imageWrapEl[0], 'y') || 0;
-        gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
-        gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
-        gesture.$imageWrapEl.transition(0);
-        if (swiper.rtl) {
-          image.startX = -image.startX;
-          image.startY = -image.startY;
-        }
-      }
-      // Define if we need image drag
-      var scaledWidth = image.width * zoom.scale;
-      var scaledHeight = image.height * zoom.scale;
-
-      if (scaledWidth < gesture.slideWidth && scaledHeight < gesture.slideHeight) { return; }
-
-      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
-      image.maxX = -image.minX;
-      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
-      image.maxY = -image.minY;
-
-      image.touchesCurrent.x = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
-      image.touchesCurrent.y = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
-
-      if (!image.isMoved && !zoom.isScaling) {
-        if (
-          swiper.isHorizontal() &&
-          (
-            (Math.floor(image.minX) === Math.floor(image.startX) && image.touchesCurrent.x < image.touchesStart.x) ||
-            (Math.floor(image.maxX) === Math.floor(image.startX) && image.touchesCurrent.x > image.touchesStart.x)
-          )
-        ) {
-          image.isTouched = false;
-          return;
-        } else if (
-          !swiper.isHorizontal() &&
-          (
-            (Math.floor(image.minY) === Math.floor(image.startY) && image.touchesCurrent.y < image.touchesStart.y) ||
-            (Math.floor(image.maxY) === Math.floor(image.startY) && image.touchesCurrent.y > image.touchesStart.y)
-          )
-        ) {
-          image.isTouched = false;
-          return;
-        }
-      }
-      e.preventDefault();
-      e.stopPropagation();
-
-      image.isMoved = true;
-      image.currentX = (image.touchesCurrent.x - image.touchesStart.x) + image.startX;
-      image.currentY = (image.touchesCurrent.y - image.touchesStart.y) + image.startY;
-
-      if (image.currentX < image.minX) {
-        image.currentX = (image.minX + 1) - (Math.pow( ((image.minX - image.currentX) + 1), 0.8 ));
-      }
-      if (image.currentX > image.maxX) {
-        image.currentX = (image.maxX - 1) + (Math.pow( ((image.currentX - image.maxX) + 1), 0.8 ));
-      }
-
-      if (image.currentY < image.minY) {
-        image.currentY = (image.minY + 1) - (Math.pow( ((image.minY - image.currentY) + 1), 0.8 ));
-      }
-      if (image.currentY > image.maxY) {
-        image.currentY = (image.maxY - 1) + (Math.pow( ((image.currentY - image.maxY) + 1), 0.8 ));
-      }
-
-      // Velocity
-      if (!velocity.prevPositionX) { velocity.prevPositionX = image.touchesCurrent.x; }
-      if (!velocity.prevPositionY) { velocity.prevPositionY = image.touchesCurrent.y; }
-      if (!velocity.prevTime) { velocity.prevTime = Date.now(); }
-      velocity.x = (image.touchesCurrent.x - velocity.prevPositionX) / (Date.now() - velocity.prevTime) / 2;
-      velocity.y = (image.touchesCurrent.y - velocity.prevPositionY) / (Date.now() - velocity.prevTime) / 2;
-      if (Math.abs(image.touchesCurrent.x - velocity.prevPositionX) < 2) { velocity.x = 0; }
-      if (Math.abs(image.touchesCurrent.y - velocity.prevPositionY) < 2) { velocity.y = 0; }
-      velocity.prevPositionX = image.touchesCurrent.x;
-      velocity.prevPositionY = image.touchesCurrent.y;
-      velocity.prevTime = Date.now();
-
-      gesture.$imageWrapEl.transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
-    },
-    onTouchEnd: function onTouchEnd() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-      var velocity = zoom.velocity;
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-      if (!image.isTouched || !image.isMoved) {
-        image.isTouched = false;
-        image.isMoved = false;
-        return;
-      }
-      image.isTouched = false;
-      image.isMoved = false;
-      var momentumDurationX = 300;
-      var momentumDurationY = 300;
-      var momentumDistanceX = velocity.x * momentumDurationX;
-      var newPositionX = image.currentX + momentumDistanceX;
-      var momentumDistanceY = velocity.y * momentumDurationY;
-      var newPositionY = image.currentY + momentumDistanceY;
-
-      // Fix duration
-      if (velocity.x !== 0) { momentumDurationX = Math.abs((newPositionX - image.currentX) / velocity.x); }
-      if (velocity.y !== 0) { momentumDurationY = Math.abs((newPositionY - image.currentY) / velocity.y); }
-      var momentumDuration = Math.max(momentumDurationX, momentumDurationY);
-
-      image.currentX = newPositionX;
-      image.currentY = newPositionY;
-
-      // Define if we need image drag
-      var scaledWidth = image.width * zoom.scale;
-      var scaledHeight = image.height * zoom.scale;
-      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
-      image.maxX = -image.minX;
-      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
-      image.maxY = -image.minY;
-      image.currentX = Math.max(Math.min(image.currentX, image.maxX), image.minX);
-      image.currentY = Math.max(Math.min(image.currentY, image.maxY), image.minY);
-
-      gesture.$imageWrapEl.transition(momentumDuration).transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
-    },
-    onTransitionEnd: function onTransitionEnd() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      var gesture = zoom.gesture;
-      if (gesture.$slideEl && swiper.previousIndex !== swiper.activeIndex) {
-        gesture.$imageEl.transform('translate3d(0,0,0) scale(1)');
-        gesture.$imageWrapEl.transform('translate3d(0,0,0)');
-        gesture.$slideEl = undefined;
-        gesture.$imageEl = undefined;
-        gesture.$imageWrapEl = undefined;
-
-        zoom.scale = 1;
-        zoom.currentScale = 1;
-      }
-    },
-    // Toggle Zoom
-    toggle: function toggle(e) {
-      var swiper = this;
-      var zoom = swiper.zoom;
-
-      if (zoom.scale && zoom.scale !== 1) {
-        // Zoom Out
-        zoom.out();
-      } else {
-        // Zoom In
-        zoom.in(e);
-      }
-    },
-    in: function in$1(e) {
-      var swiper = this;
-
-      var zoom = swiper.zoom;
-      var params = swiper.params.zoom;
-      var gesture = zoom.gesture;
-      var image = zoom.image;
-
-      if (!gesture.$slideEl) {
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-
-      gesture.$slideEl.addClass(("" + (params.zoomedSlideClass)));
-
-      var touchX;
-      var touchY;
-      var offsetX;
-      var offsetY;
-      var diffX;
-      var diffY;
-      var translateX;
-      var translateY;
-      var imageWidth;
-      var imageHeight;
-      var scaledWidth;
-      var scaledHeight;
-      var translateMinX;
-      var translateMinY;
-      var translateMaxX;
-      var translateMaxY;
-      var slideWidth;
-      var slideHeight;
-
-      if (typeof image.touchesStart.x === 'undefined' && e) {
-        touchX = e.type === 'touchend' ? e.changedTouches[0].pageX : e.pageX;
-        touchY = e.type === 'touchend' ? e.changedTouches[0].pageY : e.pageY;
-      } else {
-        touchX = image.touchesStart.x;
-        touchY = image.touchesStart.y;
-      }
-
-      zoom.scale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-      zoom.currentScale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
-      if (e) {
-        slideWidth = gesture.$slideEl[0].offsetWidth;
-        slideHeight = gesture.$slideEl[0].offsetHeight;
-        offsetX = gesture.$slideEl.offset().left;
-        offsetY = gesture.$slideEl.offset().top;
-        diffX = (offsetX + (slideWidth / 2)) - touchX;
-        diffY = (offsetY + (slideHeight / 2)) - touchY;
-
-        imageWidth = gesture.$imageEl[0].offsetWidth;
-        imageHeight = gesture.$imageEl[0].offsetHeight;
-        scaledWidth = imageWidth * zoom.scale;
-        scaledHeight = imageHeight * zoom.scale;
-
-        translateMinX = Math.min(((slideWidth / 2) - (scaledWidth / 2)), 0);
-        translateMinY = Math.min(((slideHeight / 2) - (scaledHeight / 2)), 0);
-        translateMaxX = -translateMinX;
-        translateMaxY = -translateMinY;
-
-        translateX = diffX * zoom.scale;
-        translateY = diffY * zoom.scale;
-
-        if (translateX < translateMinX) {
-          translateX = translateMinX;
-        }
-        if (translateX > translateMaxX) {
-          translateX = translateMaxX;
-        }
-
-        if (translateY < translateMinY) {
-          translateY = translateMinY;
-        }
-        if (translateY > translateMaxY) {
-          translateY = translateMaxY;
-        }
-      } else {
-        translateX = 0;
-        translateY = 0;
-      }
-      gesture.$imageWrapEl.transition(300).transform(("translate3d(" + translateX + "px, " + translateY + "px,0)"));
-      gesture.$imageEl.transition(300).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
-    },
-    out: function out() {
-      var swiper = this;
-
-      var zoom = swiper.zoom;
-      var params = swiper.params.zoom;
-      var gesture = zoom.gesture;
-
-      if (!gesture.$slideEl) {
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
-      }
-      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
-
-      zoom.scale = 1;
-      zoom.currentScale = 1;
-      gesture.$imageWrapEl.transition(300).transform('translate3d(0,0,0)');
-      gesture.$imageEl.transition(300).transform('translate3d(0,0,0) scale(1)');
-      gesture.$slideEl.removeClass(("" + (params.zoomedSlideClass)));
-      gesture.$slideEl = undefined;
-    },
-    // Attach/Detach Events
-    enable: function enable() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      if (zoom.enabled) { return; }
-      zoom.enabled = true;
-
-      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
-
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      }
-
-      // Move image
-      swiper.$wrapperEl.on(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
-    },
-    disable: function disable() {
-      var swiper = this;
-      var zoom = swiper.zoom;
-      if (!zoom.enabled) { return; }
-
-      swiper.zoom.enabled = false;
-
-      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
-
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      }
-
-      // Move image
-      swiper.$wrapperEl.off(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
-    },
-  };
-
-  var Zoom$1 = {
-    name: 'zoom',
-    params: {
-      zoom: {
-        enabled: false,
-        maxRatio: 3,
-        minRatio: 1,
-        toggle: true,
-        containerClass: 'swiper-zoom-container',
-        zoomedSlideClass: 'swiper-slide-zoomed',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      var zoom = {
-        enabled: false,
-        scale: 1,
-        currentScale: 1,
-        isScaling: false,
-        gesture: {
-          $slideEl: undefined,
-          slideWidth: undefined,
-          slideHeight: undefined,
-          $imageEl: undefined,
-          $imageWrapEl: undefined,
-          maxRatio: 3,
-        },
-        image: {
-          isTouched: undefined,
-          isMoved: undefined,
-          currentX: undefined,
-          currentY: undefined,
-          minX: undefined,
-          minY: undefined,
-          maxX: undefined,
-          maxY: undefined,
-          width: undefined,
-          height: undefined,
-          startX: undefined,
-          startY: undefined,
-          touchesStart: {},
-          touchesCurrent: {},
-        },
-        velocity: {
-          x: undefined,
-          y: undefined,
-          prevPositionX: undefined,
-          prevPositionY: undefined,
-          prevTime: undefined,
-        },
-      };
-      ('onGestureStart onGestureChange onGestureEnd onTouchStart onTouchMove onTouchEnd onTransitionEnd toggle enable disable in out').split(' ').forEach(function (methodName) {
-        zoom[methodName] = Zoom[methodName].bind(swiper);
-      });
-      Utils.extend(swiper, {
-        zoom: zoom,
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.zoom.enabled) {
-          swiper.zoom.enable();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        swiper.zoom.disable();
-      },
-      touchStart: function touchStart(e) {
-        var swiper = this;
-        if (!swiper.zoom.enabled) { return; }
-        swiper.zoom.onTouchStart(e);
-      },
-      touchEnd: function touchEnd(e) {
-        var swiper = this;
-        if (!swiper.zoom.enabled) { return; }
-        swiper.zoom.onTouchEnd(e);
-      },
-      doubleTap: function doubleTap(e) {
-        var swiper = this;
-        if (swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
-          swiper.zoom.toggle(e);
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.zoom.enabled && swiper.params.zoom.enabled) {
-          swiper.zoom.onTransitionEnd();
-        }
-      },
-    },
-  };
-
-  var Lazy = {
-    loadInSlide: function loadInSlide(index, loadInDuplicate) {
-      if ( loadInDuplicate === void 0 ) loadInDuplicate = true;
-
-      var swiper = this;
-      var params = swiper.params.lazy;
-      if (typeof index === 'undefined') { return; }
-      if (swiper.slides.length === 0) { return; }
-      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
-
-      var $slideEl = isVirtual
-        ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]"))
-        : swiper.slides.eq(index);
-
-      var $images = $slideEl.find(("." + (params.elementClass) + ":not(." + (params.loadedClass) + "):not(." + (params.loadingClass) + ")"));
-      if ($slideEl.hasClass(params.elementClass) && !$slideEl.hasClass(params.loadedClass) && !$slideEl.hasClass(params.loadingClass)) {
-        $images = $images.add($slideEl[0]);
-      }
-      if ($images.length === 0) { return; }
-
-      $images.each(function (imageIndex, imageEl) {
-        var $imageEl = $(imageEl);
-        $imageEl.addClass(params.loadingClass);
-
-        var background = $imageEl.attr('data-background');
-        var src = $imageEl.attr('data-src');
-        var srcset = $imageEl.attr('data-srcset');
-        var sizes = $imageEl.attr('data-sizes');
-
-        swiper.loadImage($imageEl[0], (src || background), srcset, sizes, false, function () {
-          if (typeof swiper === 'undefined' || swiper === null || !swiper || (swiper && !swiper.params) || swiper.destroyed) { return; }
-          if (background) {
-            $imageEl.css('background-image', ("url(\"" + background + "\")"));
-            $imageEl.removeAttr('data-background');
-          } else {
-            if (srcset) {
-              $imageEl.attr('srcset', srcset);
-              $imageEl.removeAttr('data-srcset');
-            }
-            if (sizes) {
-              $imageEl.attr('sizes', sizes);
-              $imageEl.removeAttr('data-sizes');
-            }
-            if (src) {
-              $imageEl.attr('src', src);
-              $imageEl.removeAttr('data-src');
-            }
-          }
-
-          $imageEl.addClass(params.loadedClass).removeClass(params.loadingClass);
-          $slideEl.find(("." + (params.preloaderClass))).remove();
-          if (swiper.params.loop && loadInDuplicate) {
-            var slideOriginalIndex = $slideEl.attr('data-swiper-slide-index');
-            if ($slideEl.hasClass(swiper.params.slideDuplicateClass)) {
-              var originalSlide = swiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
-              swiper.lazy.loadInSlide(originalSlide.index(), false);
-            } else {
-              var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
-              swiper.lazy.loadInSlide(duplicatedSlide.index(), false);
-            }
-          }
-          swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
-        });
-
-        swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
-      });
-    },
-    load: function load() {
-      var swiper = this;
-      var $wrapperEl = swiper.$wrapperEl;
-      var swiperParams = swiper.params;
-      var slides = swiper.slides;
-      var activeIndex = swiper.activeIndex;
-      var isVirtual = swiper.virtual && swiperParams.virtual.enabled;
-      var params = swiperParams.lazy;
-
-      var slidesPerView = swiperParams.slidesPerView;
-      if (slidesPerView === 'auto') {
-        slidesPerView = 0;
-      }
-
-      function slideExist(index) {
-        if (isVirtual) {
-          if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]")).length) {
-            return true;
-          }
-        } else if (slides[index]) { return true; }
-        return false;
-      }
-      function slideIndex(slideEl) {
-        if (isVirtual) {
-          return $(slideEl).attr('data-swiper-slide-index');
-        }
-        return $(slideEl).index();
-      }
-
-      if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
-      if (swiper.params.watchSlidesVisibility) {
-        $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
-          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index();
-          swiper.lazy.loadInSlide(index);
-        });
-      } else if (slidesPerView > 1) {
-        for (var i = activeIndex; i < activeIndex + slidesPerView; i += 1) {
-          if (slideExist(i)) { swiper.lazy.loadInSlide(i); }
-        }
-      } else {
-        swiper.lazy.loadInSlide(activeIndex);
-      }
-      if (params.loadPrevNext) {
-        if (slidesPerView > 1 || (params.loadPrevNextAmount && params.loadPrevNextAmount > 1)) {
-          var amount = params.loadPrevNextAmount;
-          var spv = slidesPerView;
-          var maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
-          var minIndex = Math.max(activeIndex - Math.max(spv, amount), 0);
-          // Next Slides
-          for (var i$1 = activeIndex + slidesPerView; i$1 < maxIndex; i$1 += 1) {
-            if (slideExist(i$1)) { swiper.lazy.loadInSlide(i$1); }
-          }
-          // Prev Slides
-          for (var i$2 = minIndex; i$2 < activeIndex; i$2 += 1) {
-            if (slideExist(i$2)) { swiper.lazy.loadInSlide(i$2); }
-          }
-        } else {
-          var nextSlide = $wrapperEl.children(("." + (swiperParams.slideNextClass)));
-          if (nextSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(nextSlide)); }
-
-          var prevSlide = $wrapperEl.children(("." + (swiperParams.slidePrevClass)));
-          if (prevSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(prevSlide)); }
-        }
-      }
-    },
-  };
-
-  var Lazy$1 = {
-    name: 'lazy',
-    params: {
-      lazy: {
-        enabled: false,
-        loadPrevNext: false,
-        loadPrevNextAmount: 1,
-        loadOnTransitionStart: false,
-
-        elementClass: 'swiper-lazy',
-        loadingClass: 'swiper-lazy-loading',
-        loadedClass: 'swiper-lazy-loaded',
-        preloaderClass: 'swiper-lazy-preloader',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        lazy: {
-          initialImageLoaded: false,
-          load: Lazy.load.bind(swiper),
-          loadInSlide: Lazy.loadInSlide.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && swiper.params.preloadImages) {
-          swiper.params.preloadImages = false;
-        }
-      },
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && !swiper.params.loop && swiper.params.initialSlide === 0) {
-          swiper.lazy.load();
-        }
-      },
-      scroll: function scroll() {
-        var swiper = this;
-        if (swiper.params.freeMode && !swiper.params.freeModeSticky) {
-          swiper.lazy.load();
-        }
-      },
-      resize: function resize() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      },
-      scrollbarDragMove: function scrollbarDragMove() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          swiper.lazy.load();
-        }
-      },
-      transitionStart: function transitionStart() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled) {
-          if (swiper.params.lazy.loadOnTransitionStart || (!swiper.params.lazy.loadOnTransitionStart && !swiper.lazy.initialImageLoaded)) {
-            swiper.lazy.load();
-          }
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.params.lazy.enabled && !swiper.params.lazy.loadOnTransitionStart) {
-          swiper.lazy.load();
-        }
-      },
-    },
-  };
-
-  /* eslint no-bitwise: ["error", { "allow": [">>"] }] */
-
-  var Controller = {
-    LinearSpline: function LinearSpline(x, y) {
-      var binarySearch = (function search() {
-        var maxIndex;
-        var minIndex;
-        var guess;
-        return function (array, val) {
-          minIndex = -1;
-          maxIndex = array.length;
-          while (maxIndex - minIndex > 1) {
-            guess = maxIndex + minIndex >> 1;
-            if (array[guess] <= val) {
-              minIndex = guess;
-            } else {
-              maxIndex = guess;
-            }
-          }
-          return maxIndex;
-        };
-      }());
-      this.x = x;
-      this.y = y;
-      this.lastIndex = x.length - 1;
-      // Given an x value (x2), return the expected y2 value:
-      // (x1,y1) is the known point before given value,
-      // (x3,y3) is the known point after given value.
-      var i1;
-      var i3;
-
-      this.interpolate = function interpolate(x2) {
-        if (!x2) { return 0; }
-
-        // Get the indexes of x1 and x3 (the array indexes before and after given x2):
-        i3 = binarySearch(this.x, x2);
-        i1 = i3 - 1;
-
-        // We have our indexes i1 & i3, so we can calculate already:
-        // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
-        return (((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1])) + this.y[i1];
-      };
-      return this;
-    },
-    // xxx: for now i will just save one spline function to to
-    getInterpolateFunction: function getInterpolateFunction(c) {
-      var swiper = this;
-      if (!swiper.controller.spline) {
-        swiper.controller.spline = swiper.params.loop ?
-          new Controller.LinearSpline(swiper.slidesGrid, c.slidesGrid) :
-          new Controller.LinearSpline(swiper.snapGrid, c.snapGrid);
-      }
-    },
-    setTranslate: function setTranslate(setTranslate$1, byController) {
-      var swiper = this;
-      var controlled = swiper.controller.control;
-      var multiplier;
-      var controlledTranslate;
-      function setControlledTranslate(c) {
-        // this will create an Interpolate function based on the snapGrids
-        // x is the Grid of the scrolled scroller and y will be the controlled scroller
-        // it makes sense to create this only once and recall it for the interpolation
-        // the function does a lot of value caching for performance
-        var translate = swiper.rtlTranslate ? -swiper.translate : swiper.translate;
-        if (swiper.params.controller.by === 'slide') {
-          swiper.controller.getInterpolateFunction(c);
-          // i am not sure why the values have to be multiplicated this way, tried to invert the snapGrid
-          // but it did not work out
-          controlledTranslate = -swiper.controller.spline.interpolate(-translate);
-        }
-
-        if (!controlledTranslate || swiper.params.controller.by === 'container') {
-          multiplier = (c.maxTranslate() - c.minTranslate()) / (swiper.maxTranslate() - swiper.minTranslate());
-          controlledTranslate = ((translate - swiper.minTranslate()) * multiplier) + c.minTranslate();
-        }
-
-        if (swiper.params.controller.inverse) {
-          controlledTranslate = c.maxTranslate() - controlledTranslate;
-        }
-        c.updateProgress(controlledTranslate);
-        c.setTranslate(controlledTranslate, swiper);
-        c.updateActiveIndex();
-        c.updateSlidesClasses();
-      }
-      if (Array.isArray(controlled)) {
-        for (var i = 0; i < controlled.length; i += 1) {
-          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
-            setControlledTranslate(controlled[i]);
-          }
-        }
-      } else if (controlled instanceof Swiper && byController !== controlled) {
-        setControlledTranslate(controlled);
-      }
-    },
-    setTransition: function setTransition(duration, byController) {
-      var swiper = this;
-      var controlled = swiper.controller.control;
-      var i;
-      function setControlledTransition(c) {
-        c.setTransition(duration, swiper);
-        if (duration !== 0) {
-          c.transitionStart();
-          c.$wrapperEl.transitionEnd(function () {
-            if (!controlled) { return; }
-            if (c.params.loop && swiper.params.controller.by === 'slide') {
-              c.loopFix();
-            }
-            c.transitionEnd();
-          });
-        }
-      }
-      if (Array.isArray(controlled)) {
-        for (i = 0; i < controlled.length; i += 1) {
-          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
-            setControlledTransition(controlled[i]);
-          }
-        }
-      } else if (controlled instanceof Swiper && byController !== controlled) {
-        setControlledTransition(controlled);
-      }
-    },
-  };
-  var Controller$1 = {
-    name: 'controller',
-    params: {
-      controller: {
-        control: undefined,
-        inverse: false,
-        by: 'slide', // or 'container'
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        controller: {
-          control: swiper.params.controller.control,
-          getInterpolateFunction: Controller.getInterpolateFunction.bind(swiper),
-          setTranslate: Controller.setTranslate.bind(swiper),
-          setTransition: Controller.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      update: function update() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      resize: function resize() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      observerUpdate: function observerUpdate() {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        if (swiper.controller.spline) {
-          swiper.controller.spline = undefined;
-          delete swiper.controller.spline;
-        }
-      },
-      setTranslate: function setTranslate(translate, byController) {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        swiper.controller.setTranslate(translate, byController);
-      },
-      setTransition: function setTransition(duration, byController) {
-        var swiper = this;
-        if (!swiper.controller.control) { return; }
-        swiper.controller.setTransition(duration, byController);
-      },
-    },
-  };
-
-  var a11y = {
-    makeElFocusable: function makeElFocusable($el) {
-      $el.attr('tabIndex', '0');
-      return $el;
-    },
-    addElRole: function addElRole($el, role) {
-      $el.attr('role', role);
-      return $el;
-    },
-    addElLabel: function addElLabel($el, label) {
-      $el.attr('aria-label', label);
-      return $el;
-    },
-    disableEl: function disableEl($el) {
-      $el.attr('aria-disabled', true);
-      return $el;
-    },
-    enableEl: function enableEl($el) {
-      $el.attr('aria-disabled', false);
-      return $el;
-    },
-    onEnterKey: function onEnterKey(e) {
-      var swiper = this;
-      var params = swiper.params.a11y;
-      if (e.keyCode !== 13) { return; }
-      var $targetEl = $(e.target);
-      if (swiper.navigation && swiper.navigation.$nextEl && $targetEl.is(swiper.navigation.$nextEl)) {
-        if (!(swiper.isEnd && !swiper.params.loop)) {
-          swiper.slideNext();
-        }
-        if (swiper.isEnd) {
-          swiper.a11y.notify(params.lastSlideMessage);
-        } else {
-          swiper.a11y.notify(params.nextSlideMessage);
-        }
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl && $targetEl.is(swiper.navigation.$prevEl)) {
-        if (!(swiper.isBeginning && !swiper.params.loop)) {
-          swiper.slidePrev();
-        }
-        if (swiper.isBeginning) {
-          swiper.a11y.notify(params.firstSlideMessage);
-        } else {
-          swiper.a11y.notify(params.prevSlideMessage);
-        }
-      }
-      if (swiper.pagination && $targetEl.is(("." + (swiper.params.pagination.bulletClass)))) {
-        $targetEl[0].click();
-      }
-    },
-    notify: function notify(message) {
-      var swiper = this;
-      var notification = swiper.a11y.liveRegion;
-      if (notification.length === 0) { return; }
-      notification.html('');
-      notification.html(message);
-    },
-    updateNavigation: function updateNavigation() {
-      var swiper = this;
-
-      if (swiper.params.loop) { return; }
-      var ref = swiper.navigation;
-      var $nextEl = ref.$nextEl;
-      var $prevEl = ref.$prevEl;
-
-      if ($prevEl && $prevEl.length > 0) {
-        if (swiper.isBeginning) {
-          swiper.a11y.disableEl($prevEl);
-        } else {
-          swiper.a11y.enableEl($prevEl);
-        }
-      }
-      if ($nextEl && $nextEl.length > 0) {
-        if (swiper.isEnd) {
-          swiper.a11y.disableEl($nextEl);
-        } else {
-          swiper.a11y.enableEl($nextEl);
-        }
-      }
-    },
-    updatePagination: function updatePagination() {
-      var swiper = this;
-      var params = swiper.params.a11y;
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.bullets.each(function (bulletIndex, bulletEl) {
-          var $bulletEl = $(bulletEl);
-          swiper.a11y.makeElFocusable($bulletEl);
-          swiper.a11y.addElRole($bulletEl, 'button');
-          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index() + 1));
-        });
-      }
-    },
-    init: function init() {
-      var swiper = this;
-
-      swiper.$el.append(swiper.a11y.liveRegion);
-
-      // Navigation
-      var params = swiper.params.a11y;
-      var $nextEl;
-      var $prevEl;
-      if (swiper.navigation && swiper.navigation.$nextEl) {
-        $nextEl = swiper.navigation.$nextEl;
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl) {
-        $prevEl = swiper.navigation.$prevEl;
-      }
-      if ($nextEl) {
-        swiper.a11y.makeElFocusable($nextEl);
-        swiper.a11y.addElRole($nextEl, 'button');
-        swiper.a11y.addElLabel($nextEl, params.nextSlideMessage);
-        $nextEl.on('keydown', swiper.a11y.onEnterKey);
-      }
-      if ($prevEl) {
-        swiper.a11y.makeElFocusable($prevEl);
-        swiper.a11y.addElRole($prevEl, 'button');
-        swiper.a11y.addElLabel($prevEl, params.prevSlideMessage);
-        $prevEl.on('keydown', swiper.a11y.onEnterKey);
-      }
-
-      // Pagination
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.$el.on('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (swiper.a11y.liveRegion && swiper.a11y.liveRegion.length > 0) { swiper.a11y.liveRegion.remove(); }
-
-      var $nextEl;
-      var $prevEl;
-      if (swiper.navigation && swiper.navigation.$nextEl) {
-        $nextEl = swiper.navigation.$nextEl;
-      }
-      if (swiper.navigation && swiper.navigation.$prevEl) {
-        $prevEl = swiper.navigation.$prevEl;
-      }
-      if ($nextEl) {
-        $nextEl.off('keydown', swiper.a11y.onEnterKey);
-      }
-      if ($prevEl) {
-        $prevEl.off('keydown', swiper.a11y.onEnterKey);
-      }
-
-      // Pagination
-      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
-        swiper.pagination.$el.off('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
-      }
-    },
-  };
-  var A11y = {
-    name: 'a11y',
-    params: {
-      a11y: {
-        enabled: true,
-        notificationClass: 'swiper-notification',
-        prevSlideMessage: 'Previous slide',
-        nextSlideMessage: 'Next slide',
-        firstSlideMessage: 'This is the first slide',
-        lastSlideMessage: 'This is the last slide',
-        paginationBulletMessage: 'Go to slide {{index}}',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        a11y: {
-          liveRegion: $(("<span class=\"" + (swiper.params.a11y.notificationClass) + "\" aria-live=\"assertive\" aria-atomic=\"true\"></span>")),
-        },
-      });
-      Object.keys(a11y).forEach(function (methodName) {
-        swiper.a11y[methodName] = a11y[methodName].bind(swiper);
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.init();
-        swiper.a11y.updateNavigation();
-      },
-      toEdge: function toEdge() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updateNavigation();
-      },
-      fromEdge: function fromEdge() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updateNavigation();
-      },
-      paginationUpdate: function paginationUpdate() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.updatePagination();
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (!swiper.params.a11y.enabled) { return; }
-        swiper.a11y.destroy();
-      },
-    },
-  };
-
-  var History = {
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.history) { return; }
-      if (!win.history || !win.history.pushState) {
-        swiper.params.history.enabled = false;
-        swiper.params.hashNavigation.enabled = true;
-        return;
-      }
-      var history = swiper.history;
-      history.initialized = true;
-      history.paths = History.getPathValues();
-      if (!history.paths.key && !history.paths.value) { return; }
-      history.scrollToSlide(0, history.paths.value, swiper.params.runCallbacksOnInit);
-      if (!swiper.params.history.replaceState) {
-        win.addEventListener('popstate', swiper.history.setHistoryPopState);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (!swiper.params.history.replaceState) {
-        win.removeEventListener('popstate', swiper.history.setHistoryPopState);
-      }
-    },
-    setHistoryPopState: function setHistoryPopState() {
-      var swiper = this;
-      swiper.history.paths = History.getPathValues();
-      swiper.history.scrollToSlide(swiper.params.speed, swiper.history.paths.value, false);
-    },
-    getPathValues: function getPathValues() {
-      var pathArray = win.location.pathname.slice(1).split('/').filter(function (part) { return part !== ''; });
-      var total = pathArray.length;
-      var key = pathArray[total - 2];
-      var value = pathArray[total - 1];
-      return { key: key, value: value };
-    },
-    setHistory: function setHistory(key, index) {
-      var swiper = this;
-      if (!swiper.history.initialized || !swiper.params.history.enabled) { return; }
-      var slide = swiper.slides.eq(index);
-      var value = History.slugify(slide.attr('data-history'));
-      if (!win.location.pathname.includes(key)) {
-        value = key + "/" + value;
-      }
-      var currentState = win.history.state;
-      if (currentState && currentState.value === value) {
-        return;
-      }
-      if (swiper.params.history.replaceState) {
-        win.history.replaceState({ value: value }, null, value);
-      } else {
-        win.history.pushState({ value: value }, null, value);
-      }
-    },
-    slugify: function slugify(text) {
-      return text.toString().toLowerCase()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]+/g, '')
-        .replace(/--+/g, '-')
-        .replace(/^-+/, '')
-        .replace(/-+$/, '');
-    },
-    scrollToSlide: function scrollToSlide(speed, value, runCallbacks) {
-      var swiper = this;
-      if (value) {
-        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
-          var slide = swiper.slides.eq(i);
-          var slideHistory = History.slugify(slide.attr('data-history'));
-          if (slideHistory === value && !slide.hasClass(swiper.params.slideDuplicateClass)) {
-            var index = slide.index();
-            swiper.slideTo(index, speed, runCallbacks);
-          }
-        }
-      } else {
-        swiper.slideTo(0, speed, runCallbacks);
-      }
-    },
-  };
-
-  var History$1 = {
-    name: 'history',
-    params: {
-      history: {
-        enabled: false,
-        replaceState: false,
-        key: 'slides',
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        history: {
-          init: History.init.bind(swiper),
-          setHistory: History.setHistory.bind(swiper),
-          setHistoryPopState: History.setHistoryPopState.bind(swiper),
-          scrollToSlide: History.scrollToSlide.bind(swiper),
-          destroy: History.destroy.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.history.enabled) {
-          swiper.history.init();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.params.history.enabled) {
-          swiper.history.destroy();
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.history.initialized) {
-          swiper.history.setHistory(swiper.params.history.key, swiper.activeIndex);
-        }
-      },
-    },
-  };
-
-  var HashNavigation = {
-    onHashCange: function onHashCange() {
-      var swiper = this;
-      var newHash = doc.location.hash.replace('#', '');
-      var activeSlideHash = swiper.slides.eq(swiper.activeIndex).attr('data-hash');
-      if (newHash !== activeSlideHash) {
-        swiper.slideTo(swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-hash=\"" + newHash + "\"]")).index());
-      }
-    },
-    setHash: function setHash() {
-      var swiper = this;
-      if (!swiper.hashNavigation.initialized || !swiper.params.hashNavigation.enabled) { return; }
-      if (swiper.params.hashNavigation.replaceState && win.history && win.history.replaceState) {
-        win.history.replaceState(null, null, (("#" + (swiper.slides.eq(swiper.activeIndex).attr('data-hash'))) || ''));
-      } else {
-        var slide = swiper.slides.eq(swiper.activeIndex);
-        var hash = slide.attr('data-hash') || slide.attr('data-history');
-        doc.location.hash = hash || '';
-      }
-    },
-    init: function init() {
-      var swiper = this;
-      if (!swiper.params.hashNavigation.enabled || (swiper.params.history && swiper.params.history.enabled)) { return; }
-      swiper.hashNavigation.initialized = true;
-      var hash = doc.location.hash.replace('#', '');
-      if (hash) {
-        var speed = 0;
-        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
-          var slide = swiper.slides.eq(i);
-          var slideHash = slide.attr('data-hash') || slide.attr('data-history');
-          if (slideHash === hash && !slide.hasClass(swiper.params.slideDuplicateClass)) {
-            var index = slide.index();
-            swiper.slideTo(index, speed, swiper.params.runCallbacksOnInit, true);
-          }
-        }
-      }
-      if (swiper.params.hashNavigation.watchState) {
-        $(win).on('hashchange', swiper.hashNavigation.onHashCange);
-      }
-    },
-    destroy: function destroy() {
-      var swiper = this;
-      if (swiper.params.hashNavigation.watchState) {
-        $(win).off('hashchange', swiper.hashNavigation.onHashCange);
-      }
-    },
-  };
-  var HashNavigation$1 = {
-    name: 'hash-navigation',
-    params: {
-      hashNavigation: {
-        enabled: false,
-        replaceState: false,
-        watchState: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        hashNavigation: {
-          initialized: false,
-          init: HashNavigation.init.bind(swiper),
-          destroy: HashNavigation.destroy.bind(swiper),
-          setHash: HashNavigation.setHash.bind(swiper),
-          onHashCange: HashNavigation.onHashCange.bind(swiper),
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.hashNavigation.enabled) {
-          swiper.hashNavigation.init();
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.params.hashNavigation.enabled) {
-          swiper.hashNavigation.destroy();
-        }
-      },
-      transitionEnd: function transitionEnd() {
-        var swiper = this;
-        if (swiper.hashNavigation.initialized) {
-          swiper.hashNavigation.setHash();
-        }
-      },
-    },
-  };
-
-  /* eslint no-underscore-dangle: "off" */
-
-  var Autoplay = {
-    run: function run() {
-      var swiper = this;
-      var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
-      var delay = swiper.params.autoplay.delay;
-      if ($activeSlideEl.attr('data-swiper-autoplay')) {
-        delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
-      }
-      swiper.autoplay.timeout = Utils.nextTick(function () {
-        if (swiper.params.autoplay.reverseDirection) {
-          if (swiper.params.loop) {
-            swiper.loopFix();
-            swiper.slidePrev(swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else if (!swiper.isBeginning) {
-            swiper.slidePrev(swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else if (!swiper.params.autoplay.stopOnLastSlide) {
-            swiper.slideTo(swiper.slides.length - 1, swiper.params.speed, true, true);
-            swiper.emit('autoplay');
-          } else {
-            swiper.autoplay.stop();
-          }
-        } else if (swiper.params.loop) {
-          swiper.loopFix();
-          swiper.slideNext(swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else if (!swiper.isEnd) {
-          swiper.slideNext(swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else if (!swiper.params.autoplay.stopOnLastSlide) {
-          swiper.slideTo(0, swiper.params.speed, true, true);
-          swiper.emit('autoplay');
-        } else {
-          swiper.autoplay.stop();
-        }
-      }, delay);
-    },
-    start: function start() {
-      var swiper = this;
-      if (typeof swiper.autoplay.timeout !== 'undefined') { return false; }
-      if (swiper.autoplay.running) { return false; }
-      swiper.autoplay.running = true;
-      swiper.emit('autoplayStart');
-      swiper.autoplay.run();
-      return true;
-    },
-    stop: function stop() {
-      var swiper = this;
-      if (!swiper.autoplay.running) { return false; }
-      if (typeof swiper.autoplay.timeout === 'undefined') { return false; }
-
-      if (swiper.autoplay.timeout) {
-        clearTimeout(swiper.autoplay.timeout);
-        swiper.autoplay.timeout = undefined;
-      }
-      swiper.autoplay.running = false;
-      swiper.emit('autoplayStop');
-      return true;
-    },
-    pause: function pause(speed) {
-      var swiper = this;
-      if (!swiper.autoplay.running) { return; }
-      if (swiper.autoplay.paused) { return; }
-      if (swiper.autoplay.timeout) { clearTimeout(swiper.autoplay.timeout); }
-      swiper.autoplay.paused = true;
-      if (speed === 0 || !swiper.params.autoplay.waitForTransition) {
-        swiper.autoplay.paused = false;
-        swiper.autoplay.run();
-      } else {
-        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.autoplay.onTransitionEnd);
-        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
-      }
-    },
-  };
-
-  var Autoplay$1 = {
-    name: 'autoplay',
-    params: {
-      autoplay: {
-        enabled: false,
-        delay: 3000,
-        waitForTransition: true,
-        disableOnInteraction: true,
-        stopOnLastSlide: false,
-        reverseDirection: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        autoplay: {
-          running: false,
-          paused: false,
-          run: Autoplay.run.bind(swiper),
-          start: Autoplay.start.bind(swiper),
-          stop: Autoplay.stop.bind(swiper),
-          pause: Autoplay.pause.bind(swiper),
-          onTransitionEnd: function onTransitionEnd(e) {
-            if (!swiper || swiper.destroyed || !swiper.$wrapperEl) { return; }
-            if (e.target !== this) { return; }
-            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.autoplay.onTransitionEnd);
-            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
-            swiper.autoplay.paused = false;
-            if (!swiper.autoplay.running) {
-              swiper.autoplay.stop();
-            } else {
-              swiper.autoplay.run();
-            }
-          },
-        },
-      });
-    },
-    on: {
-      init: function init() {
-        var swiper = this;
-        if (swiper.params.autoplay.enabled) {
-          swiper.autoplay.start();
-        }
-      },
-      beforeTransitionStart: function beforeTransitionStart(speed, internal) {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          if (internal || !swiper.params.autoplay.disableOnInteraction) {
-            swiper.autoplay.pause(speed);
-          } else {
-            swiper.autoplay.stop();
-          }
-        }
-      },
-      sliderFirstMove: function sliderFirstMove() {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          if (swiper.params.autoplay.disableOnInteraction) {
-            swiper.autoplay.stop();
-          } else {
-            swiper.autoplay.pause();
-          }
-        }
-      },
-      destroy: function destroy() {
-        var swiper = this;
-        if (swiper.autoplay.running) {
-          swiper.autoplay.stop();
-        }
-      },
-    },
-  };
-
-  var Fade = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var slides = swiper.slides;
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = swiper.slides.eq(i);
-        var offset = $slideEl[0].swiperSlideOffset;
-        var tx = -offset;
-        if (!swiper.params.virtualTranslate) { tx -= swiper.translate; }
-        var ty = 0;
-        if (!swiper.isHorizontal()) {
-          ty = tx;
-          tx = 0;
-        }
-        var slideOpacity = swiper.params.fadeEffect.crossFade ?
-          Math.max(1 - Math.abs($slideEl[0].progress), 0) :
-          1 + Math.min(Math.max($slideEl[0].progress, -1), 0);
-        $slideEl
-          .css({
-            opacity: slideOpacity,
-          })
-          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px)"));
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var slides = swiper.slides;
-      var $wrapperEl = swiper.$wrapperEl;
-      slides.transition(duration);
-      if (swiper.params.virtualTranslate && duration !== 0) {
-        var eventTriggered = false;
-        slides.transitionEnd(function () {
-          if (eventTriggered) { return; }
-          if (!swiper || swiper.destroyed) { return; }
-          eventTriggered = true;
-          swiper.animating = false;
-          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
-          for (var i = 0; i < triggerEvents.length; i += 1) {
-            $wrapperEl.trigger(triggerEvents[i]);
-          }
-        });
-      }
-    },
-  };
-
-  var EffectFade = {
-    name: 'effect-fade',
-    params: {
-      fadeEffect: {
-        crossFade: false,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        fadeEffect: {
-          setTranslate: Fade.setTranslate.bind(swiper),
-          setTransition: Fade.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "fade"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          spaceBetween: 0,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.fadeEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'fade') { return; }
-        swiper.fadeEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Cube = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var $el = swiper.$el;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slides = swiper.slides;
-      var swiperWidth = swiper.width;
-      var swiperHeight = swiper.height;
-      var rtl = swiper.rtlTranslate;
-      var swiperSize = swiper.size;
-      var params = swiper.params.cubeEffect;
-      var isHorizontal = swiper.isHorizontal();
-      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
-      var wrapperRotate = 0;
-      var $cubeShadowEl;
-      if (params.shadow) {
-        if (isHorizontal) {
-          $cubeShadowEl = $wrapperEl.find('.swiper-cube-shadow');
-          if ($cubeShadowEl.length === 0) {
-            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
-            $wrapperEl.append($cubeShadowEl);
-          }
-          $cubeShadowEl.css({ height: (swiperWidth + "px") });
-        } else {
-          $cubeShadowEl = $el.find('.swiper-cube-shadow');
-          if ($cubeShadowEl.length === 0) {
-            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
-            $el.append($cubeShadowEl);
-          }
-        }
-      }
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var slideIndex = i;
-        if (isVirtual) {
-          slideIndex = parseInt($slideEl.attr('data-swiper-slide-index'), 10);
-        }
-        var slideAngle = slideIndex * 90;
-        var round = Math.floor(slideAngle / 360);
-        if (rtl) {
-          slideAngle = -slideAngle;
-          round = Math.floor(-slideAngle / 360);
-        }
-        var progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
-        var tx = 0;
-        var ty = 0;
-        var tz = 0;
-        if (slideIndex % 4 === 0) {
-          tx = -round * 4 * swiperSize;
-          tz = 0;
-        } else if ((slideIndex - 1) % 4 === 0) {
-          tx = 0;
-          tz = -round * 4 * swiperSize;
-        } else if ((slideIndex - 2) % 4 === 0) {
-          tx = swiperSize + (round * 4 * swiperSize);
-          tz = swiperSize;
-        } else if ((slideIndex - 3) % 4 === 0) {
-          tx = -swiperSize;
-          tz = (3 * swiperSize) + (swiperSize * 4 * round);
-        }
-        if (rtl) {
-          tx = -tx;
-        }
-
-        if (!isHorizontal) {
-          ty = tx;
-          tx = 0;
-        }
-
-        var transform = "rotateX(" + (isHorizontal ? 0 : -slideAngle) + "deg) rotateY(" + (isHorizontal ? slideAngle : 0) + "deg) translate3d(" + tx + "px, " + ty + "px, " + tz + "px)";
-        if (progress <= 1 && progress > -1) {
-          wrapperRotate = (slideIndex * 90) + (progress * 90);
-          if (rtl) { wrapperRotate = (-slideIndex * 90) - (progress * 90); }
-        }
-        $slideEl.transform(transform);
-        if (params.slideShadows) {
-          // Set shadows
-          var shadowBefore = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var shadowAfter = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if (shadowBefore.length === 0) {
-            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append(shadowBefore);
-          }
-          if (shadowAfter.length === 0) {
-            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append(shadowAfter);
-          }
-          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
-          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
-        }
-      }
-      $wrapperEl.css({
-        '-webkit-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        '-moz-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        '-ms-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-        'transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
-      });
-
-      if (params.shadow) {
-        if (isHorizontal) {
-          $cubeShadowEl.transform(("translate3d(0px, " + ((swiperWidth / 2) + params.shadowOffset) + "px, " + (-swiperWidth / 2) + "px) rotateX(90deg) rotateZ(0deg) scale(" + (params.shadowScale) + ")"));
-        } else {
-          var shadowAngle = Math.abs(wrapperRotate) - (Math.floor(Math.abs(wrapperRotate) / 90) * 90);
-          var multiplier = 1.5 - (
-            (Math.sin((shadowAngle * 2 * Math.PI) / 360) / 2) +
-            (Math.cos((shadowAngle * 2 * Math.PI) / 360) / 2)
-          );
-          var scale1 = params.shadowScale;
-          var scale2 = params.shadowScale / multiplier;
-          var offset = params.shadowOffset;
-          $cubeShadowEl.transform(("scale3d(" + scale1 + ", 1, " + scale2 + ") translate3d(0px, " + ((swiperHeight / 2) + offset) + "px, " + (-swiperHeight / 2 / scale2) + "px) rotateX(-90deg)"));
-        }
-      }
-      var zFactor = (Browser.isSafari || Browser.isUiWebView) ? (-swiperSize / 2) : 0;
-      $wrapperEl
-        .transform(("translate3d(0px,0," + zFactor + "px) rotateX(" + (swiper.isHorizontal() ? 0 : wrapperRotate) + "deg) rotateY(" + (swiper.isHorizontal() ? -wrapperRotate : 0) + "deg)"));
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var $el = swiper.$el;
-      var slides = swiper.slides;
-      slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-      if (swiper.params.cubeEffect.shadow && !swiper.isHorizontal()) {
-        $el.find('.swiper-cube-shadow').transition(duration);
-      }
-    },
-  };
-
-  var EffectCube = {
-    name: 'effect-cube',
-    params: {
-      cubeEffect: {
-        slideShadows: true,
-        shadow: true,
-        shadowOffset: 20,
-        shadowScale: 0.94,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        cubeEffect: {
-          setTranslate: Cube.setTranslate.bind(swiper),
-          setTransition: Cube.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "cube"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          resistanceRatio: 0,
-          spaceBetween: 0,
-          centeredSlides: false,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.cubeEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'cube') { return; }
-        swiper.cubeEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Flip = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var slides = swiper.slides;
-      var rtl = swiper.rtlTranslate;
-      for (var i = 0; i < slides.length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var progress = $slideEl[0].progress;
-        if (swiper.params.flipEffect.limitRotation) {
-          progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
-        }
-        var offset = $slideEl[0].swiperSlideOffset;
-        var rotate = -180 * progress;
-        var rotateY = rotate;
-        var rotateX = 0;
-        var tx = -offset;
-        var ty = 0;
-        if (!swiper.isHorizontal()) {
-          ty = tx;
-          tx = 0;
-          rotateX = -rotateY;
-          rotateY = 0;
-        } else if (rtl) {
-          rotateY = -rotateY;
-        }
-
-        $slideEl[0].style.zIndex = -Math.abs(Math.round(progress)) + slides.length;
-
-        if (swiper.params.flipEffect.slideShadows) {
-          // Set shadows
-          var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if (shadowBefore.length === 0) {
-            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append(shadowBefore);
-          }
-          if (shadowAfter.length === 0) {
-            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append(shadowAfter);
-          }
-          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
-          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
-        }
-        $slideEl
-          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)"));
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      var slides = swiper.slides;
-      var activeIndex = swiper.activeIndex;
-      var $wrapperEl = swiper.$wrapperEl;
-      slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-      if (swiper.params.virtualTranslate && duration !== 0) {
-        var eventTriggered = false;
-        // eslint-disable-next-line
-        slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
-          if (eventTriggered) { return; }
-          if (!swiper || swiper.destroyed) { return; }
-          // if (!$(this).hasClass(swiper.params.slideActiveClass)) return;
-          eventTriggered = true;
-          swiper.animating = false;
-          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
-          for (var i = 0; i < triggerEvents.length; i += 1) {
-            $wrapperEl.trigger(triggerEvents[i]);
-          }
-        });
-      }
-    },
-  };
-
-  var EffectFlip = {
-    name: 'effect-flip',
-    params: {
-      flipEffect: {
-        slideShadows: true,
-        limitRotation: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        flipEffect: {
-          setTranslate: Flip.setTranslate.bind(swiper),
-          setTransition: Flip.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "flip"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-        var overwriteParams = {
-          slidesPerView: 1,
-          slidesPerColumn: 1,
-          slidesPerGroup: 1,
-          watchSlidesProgress: true,
-          spaceBetween: 0,
-          virtualTranslate: true,
-        };
-        Utils.extend(swiper.params, overwriteParams);
-        Utils.extend(swiper.originalParams, overwriteParams);
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.flipEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'flip') { return; }
-        swiper.flipEffect.setTransition(duration);
-      },
-    },
-  };
-
-  var Coverflow = {
-    setTranslate: function setTranslate() {
-      var swiper = this;
-      var swiperWidth = swiper.width;
-      var swiperHeight = swiper.height;
-      var slides = swiper.slides;
-      var $wrapperEl = swiper.$wrapperEl;
-      var slidesSizesGrid = swiper.slidesSizesGrid;
-      var params = swiper.params.coverflowEffect;
-      var isHorizontal = swiper.isHorizontal();
-      var transform = swiper.translate;
-      var center = isHorizontal ? -transform + (swiperWidth / 2) : -transform + (swiperHeight / 2);
-      var rotate = isHorizontal ? params.rotate : -params.rotate;
-      var translate = params.depth;
-      // Each slide offset from center
-      for (var i = 0, length = slides.length; i < length; i += 1) {
-        var $slideEl = slides.eq(i);
-        var slideSize = slidesSizesGrid[i];
-        var slideOffset = $slideEl[0].swiperSlideOffset;
-        var offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
-
-        var rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
-        var rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
-        // var rotateZ = 0
-        var translateZ = -translate * Math.abs(offsetMultiplier);
-
-        var translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-        var translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-
-        // Fix for ultra small values
-        if (Math.abs(translateX) < 0.001) { translateX = 0; }
-        if (Math.abs(translateY) < 0.001) { translateY = 0; }
-        if (Math.abs(translateZ) < 0.001) { translateZ = 0; }
-        if (Math.abs(rotateY) < 0.001) { rotateY = 0; }
-        if (Math.abs(rotateX) < 0.001) { rotateX = 0; }
-
-        var slideTransform = "translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)  rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
-
-        $slideEl.transform(slideTransform);
-        $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
-        if (params.slideShadows) {
-          // Set shadows
-          var $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          var $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          if ($shadowBeforeEl.length === 0) {
-            $shadowBeforeEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
-            $slideEl.append($shadowBeforeEl);
-          }
-          if ($shadowAfterEl.length === 0) {
-            $shadowAfterEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
-            $slideEl.append($shadowAfterEl);
-          }
-          if ($shadowBeforeEl.length) { $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0; }
-          if ($shadowAfterEl.length) { $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0; }
-        }
-      }
-
-      // Set correct perspective for IE10
-      if (Support.pointerEvents || Support.prefixedPointerEvents) {
-        var ws = $wrapperEl[0].style;
-        ws.perspectiveOrigin = center + "px 50%";
-      }
-    },
-    setTransition: function setTransition(duration) {
-      var swiper = this;
-      swiper.slides
-        .transition(duration)
-        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-        .transition(duration);
-    },
-  };
-
-  var EffectCoverflow = {
-    name: 'effect-coverflow',
-    params: {
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-    },
-    create: function create() {
-      var swiper = this;
-      Utils.extend(swiper, {
-        coverflowEffect: {
-          setTranslate: Coverflow.setTranslate.bind(swiper),
-          setTransition: Coverflow.setTransition.bind(swiper),
-        },
-      });
-    },
-    on: {
-      beforeInit: function beforeInit() {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "coverflow"));
-        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
-
-        swiper.params.watchSlidesProgress = true;
-        swiper.originalParams.watchSlidesProgress = true;
-      },
-      setTranslate: function setTranslate() {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-        swiper.coverflowEffect.setTranslate();
-      },
-      setTransition: function setTransition(duration) {
-        var swiper = this;
-        if (swiper.params.effect !== 'coverflow') { return; }
-        swiper.coverflowEffect.setTransition(duration);
-      },
-    },
-  };
-
-  // Swiper Class
-
-  var components = [
-    Device$1,
-    Support$1,
-    Browser$1,
-    Resize,
-    Observer$1,
-    Virtual$1,
-    Keyboard$1,
-    Mousewheel$1,
-    Navigation$1,
-    Pagination$1,
-    Scrollbar$1,
-    Parallax$1,
-    Zoom$1,
-    Lazy$1,
-    Controller$1,
-    A11y,
-    History$1,
-    HashNavigation$1,
-    Autoplay$1,
-    EffectFade,
-    EffectCube,
-    EffectFlip,
-    EffectCoverflow
-  ];
-
-  if (typeof Swiper.use === 'undefined') {
-    Swiper.use = Swiper.Class.use;
-    Swiper.installModule = Swiper.Class.installModule;
-  }
-
-  Swiper.use(components);
-
-  return Swiper;
-
-})));
-
-
-/***/ }),
-
-/***/ 227:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(228);
-if(typeof content === 'string') content = [[module.i, content, '']];
-// Prepare cssTransformation
-var transform;
-
-var options = {}
-options.transform = transform
-// add the styles to the DOM
-var update = __webpack_require__(229)(content, options);
-if(content.locals) module.exports = content.locals;
-// Hot Module Replacement
-if(false) {
-	// When the styles change, update the <style> tags
-	if(!content.locals) {
-		module.hot.accept("!!../../../css-loader/index.js!./swiper.css", function() {
-			var newContent = require("!!../../../css-loader/index.js!./swiper.css");
-			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-			update(newContent);
-		});
-	}
-	// When the module is disposed, remove the <style> tags
-	module.hot.dispose(function() { update(); });
+  return a;
 }
 
-/***/ }),
-
-/***/ 228:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(16)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/**\n * Swiper 4.2.6\n * Most modern mobile touch slider and framework with hardware accelerated transitions\n * http://www.idangero.us/swiper/\n *\n * Copyright 2014-2018 Vladimir Kharlampidi\n *\n * Released under the MIT License\n *\n * Released on: May 1, 2018\n */\n.swiper-container {\n  margin: 0 auto;\n  position: relative;\n  overflow: hidden;\n  list-style: none;\n  padding: 0;\n  /* Fix of Webkit flickering */\n  z-index: 1;\n}\n.swiper-container-no-flexbox .swiper-slide {\n  float: left;\n}\n.swiper-container-vertical > .swiper-wrapper {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n.swiper-wrapper {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n  -webkit-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.swiper-container-android .swiper-slide,\n.swiper-wrapper {\n  -webkit-transform: translate3d(0px, 0, 0);\n  transform: translate3d(0px, 0, 0);\n}\n.swiper-container-multirow > .swiper-wrapper {\n  -webkit-flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n}\n.swiper-container-free-mode > .swiper-wrapper {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n  margin: 0 auto;\n}\n.swiper-slide {\n  -webkit-flex-shrink: 0;\n  -ms-flex-negative: 0;\n  flex-shrink: 0;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n}\n.swiper-invisible-blank-slide {\n  visibility: hidden;\n}\n/* Auto Height */\n.swiper-container-autoheight,\n.swiper-container-autoheight .swiper-slide {\n  height: auto;\n}\n.swiper-container-autoheight .swiper-wrapper {\n  -webkit-box-align: start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-transition-property: height, -webkit-transform;\n  transition-property: height, -webkit-transform;\n  -o-transition-property: transform, height;\n  transition-property: transform, height;\n  transition-property: transform, height, -webkit-transform;\n}\n/* 3D Effects */\n.swiper-container-3d {\n  -webkit-perspective: 1200px;\n  perspective: 1200px;\n}\n.swiper-container-3d .swiper-wrapper,\n.swiper-container-3d .swiper-slide,\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom,\n.swiper-container-3d .swiper-cube-shadow {\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  z-index: 10;\n}\n.swiper-container-3d .swiper-slide-shadow-left {\n  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-right {\n  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-top {\n  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n/* IE10 Windows Phone 8 Fixes */\n.swiper-container-wp8-horizontal,\n.swiper-container-wp8-horizontal > .swiper-wrapper {\n  -ms-touch-action: pan-y;\n  touch-action: pan-y;\n}\n.swiper-container-wp8-vertical,\n.swiper-container-wp8-vertical > .swiper-wrapper {\n  -ms-touch-action: pan-x;\n  touch-action: pan-x;\n}\n.swiper-button-prev,\n.swiper-button-next {\n  position: absolute;\n  top: 50%;\n  width: 27px;\n  height: 44px;\n  margin-top: -22px;\n  z-index: 10;\n  cursor: pointer;\n  background-size: 27px 44px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.swiper-button-prev.swiper-button-disabled,\n.swiper-button-next.swiper-button-disabled {\n  opacity: 0.35;\n  cursor: auto;\n  pointer-events: none;\n}\n.swiper-button-prev,\n.swiper-container-rtl .swiper-button-next {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  left: 10px;\n  right: auto;\n}\n.swiper-button-next,\n.swiper-container-rtl .swiper-button-prev {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  right: 10px;\n  left: auto;\n}\n.swiper-button-prev.swiper-button-white,\n.swiper-container-rtl .swiper-button-next.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-white,\n.swiper-container-rtl .swiper-button-prev.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-prev.swiper-button-black,\n.swiper-container-rtl .swiper-button-next.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-black,\n.swiper-container-rtl .swiper-button-prev.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-lock {\n  display: none;\n}\n.swiper-pagination {\n  position: absolute;\n  text-align: center;\n  -webkit-transition: 300ms opacity;\n  -o-transition: 300ms opacity;\n  transition: 300ms opacity;\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n  z-index: 10;\n}\n.swiper-pagination.swiper-pagination-hidden {\n  opacity: 0;\n}\n/* Common Styles */\n.swiper-pagination-fraction,\n.swiper-pagination-custom,\n.swiper-container-horizontal > .swiper-pagination-bullets {\n  bottom: 10px;\n  left: 0;\n  width: 100%;\n}\n/* Bullets */\n.swiper-pagination-bullets-dynamic {\n  overflow: hidden;\n  font-size: 0;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n  position: relative;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullet {\n  width: 8px;\n  height: 8px;\n  display: inline-block;\n  border-radius: 100%;\n  background: #000;\n  opacity: 0.2;\n}\nbutton.swiper-pagination-bullet {\n  border: none;\n  margin: 0;\n  padding: 0;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.swiper-pagination-clickable .swiper-pagination-bullet {\n  cursor: pointer;\n}\n.swiper-pagination-bullet-active {\n  opacity: 1;\n  background: #007aff;\n}\n.swiper-container-vertical > .swiper-pagination-bullets {\n  right: 10px;\n  top: 50%;\n  -webkit-transform: translate3d(0px, -50%, 0);\n  transform: translate3d(0px, -50%, 0);\n}\n.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 6px 0;\n  display: block;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  width: 8px;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  display: inline-block;\n  -webkit-transition: 200ms top, 200ms -webkit-transform;\n  transition: 200ms top, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top, 200ms -webkit-transform;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 0 4px;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n  white-space: nowrap;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms left, 200ms -webkit-transform;\n  transition: 200ms left, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left, 200ms -webkit-transform;\n}\n.swiper-container-horizontal.swiper-container-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms right, 200ms -webkit-transform;\n  transition: 200ms right, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right, 200ms -webkit-transform;\n}\n/* Progress */\n.swiper-pagination-progressbar {\n  background: rgba(0, 0, 0, 0.25);\n  position: absolute;\n}\n.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  background: #007aff;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: scale(0);\n  -ms-transform: scale(0);\n  transform: scale(0);\n  -webkit-transform-origin: left top;\n  -ms-transform-origin: left top;\n  transform-origin: left top;\n}\n.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  -webkit-transform-origin: right top;\n  -ms-transform-origin: right top;\n  transform-origin: right top;\n}\n.swiper-container-horizontal > .swiper-pagination-progressbar,\n.swiper-container-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 100%;\n  height: 4px;\n  left: 0;\n  top: 0;\n}\n.swiper-container-vertical > .swiper-pagination-progressbar,\n.swiper-container-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 4px;\n  height: 100%;\n  left: 0;\n  top: 0;\n}\n.swiper-pagination-white .swiper-pagination-bullet-active {\n  background: #ffffff;\n}\n.swiper-pagination-progressbar.swiper-pagination-white {\n  background: rgba(255, 255, 255, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill {\n  background: #ffffff;\n}\n.swiper-pagination-black .swiper-pagination-bullet-active {\n  background: #000000;\n}\n.swiper-pagination-progressbar.swiper-pagination-black {\n  background: rgba(0, 0, 0, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill {\n  background: #000000;\n}\n.swiper-pagination-lock {\n  display: none;\n}\n/* Scrollbar */\n.swiper-scrollbar {\n  border-radius: 10px;\n  position: relative;\n  -ms-touch-action: none;\n  background: rgba(0, 0, 0, 0.1);\n}\n.swiper-container-horizontal > .swiper-scrollbar {\n  position: absolute;\n  left: 1%;\n  bottom: 3px;\n  z-index: 50;\n  height: 5px;\n  width: 98%;\n}\n.swiper-container-vertical > .swiper-scrollbar {\n  position: absolute;\n  right: 3px;\n  top: 1%;\n  z-index: 50;\n  width: 5px;\n  height: 98%;\n}\n.swiper-scrollbar-drag {\n  height: 100%;\n  width: 100%;\n  position: relative;\n  background: rgba(0, 0, 0, 0.5);\n  border-radius: 10px;\n  left: 0;\n  top: 0;\n}\n.swiper-scrollbar-cursor-drag {\n  cursor: move;\n}\n.swiper-scrollbar-lock {\n  display: none;\n}\n.swiper-zoom-container {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  text-align: center;\n}\n.swiper-zoom-container > img,\n.swiper-zoom-container > svg,\n.swiper-zoom-container > canvas {\n  max-width: 100%;\n  max-height: 100%;\n  -o-object-fit: contain;\n  object-fit: contain;\n}\n.swiper-slide-zoomed {\n  cursor: move;\n}\n/* Preloader */\n.swiper-lazy-preloader {\n  width: 42px;\n  height: 42px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  margin-left: -21px;\n  margin-top: -21px;\n  z-index: 10;\n  -webkit-transform-origin: 50%;\n  -ms-transform-origin: 50%;\n  transform-origin: 50%;\n  -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;\n  animation: swiper-preloader-spin 1s steps(12, end) infinite;\n}\n.swiper-lazy-preloader:after {\n  display: block;\n  content: '';\n  width: 100%;\n  height: 100%;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n  background-position: 50%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n}\n.swiper-lazy-preloader-white:after {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n}\n@-webkit-keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/* a11y */\n.swiper-container .swiper-notification {\n  position: absolute;\n  left: 0;\n  top: 0;\n  pointer-events: none;\n  opacity: 0;\n  z-index: -1000;\n}\n.swiper-container-fade.swiper-container-free-mode .swiper-slide {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n}\n.swiper-container-fade .swiper-slide {\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -o-transition-property: opacity;\n  transition-property: opacity;\n}\n.swiper-container-fade .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-fade .swiper-slide-active,\n.swiper-container-fade .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube {\n  overflow: visible;\n}\n.swiper-container-cube .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n  visibility: hidden;\n  -webkit-transform-origin: 0 0;\n  -ms-transform-origin: 0 0;\n  transform-origin: 0 0;\n  width: 100%;\n  height: 100%;\n}\n.swiper-container-cube .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-cube.swiper-container-rtl .swiper-slide {\n  -webkit-transform-origin: 100% 0;\n  -ms-transform-origin: 100% 0;\n  transform-origin: 100% 0;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-next,\n.swiper-container-cube .swiper-slide-prev,\n.swiper-container-cube .swiper-slide-next + .swiper-slide {\n  pointer-events: auto;\n  visibility: visible;\n}\n.swiper-container-cube .swiper-slide-shadow-top,\n.swiper-container-cube .swiper-slide-shadow-bottom,\n.swiper-container-cube .swiper-slide-shadow-left,\n.swiper-container-cube .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-cube .swiper-cube-shadow {\n  position: absolute;\n  left: 0;\n  bottom: 0px;\n  width: 100%;\n  height: 100%;\n  background: #000;\n  opacity: 0.6;\n  -webkit-filter: blur(50px);\n  filter: blur(50px);\n  z-index: 0;\n}\n.swiper-container-flip {\n  overflow: visible;\n}\n.swiper-container-flip .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n}\n.swiper-container-flip .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-flip .swiper-slide-active,\n.swiper-container-flip .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-flip .swiper-slide-shadow-top,\n.swiper-container-flip .swiper-slide-shadow-bottom,\n.swiper-container-flip .swiper-slide-shadow-left,\n.swiper-container-flip .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-coverflow .swiper-wrapper {\n  /* Windows 8 IE 10 fix */\n  -ms-perspective: 1200px;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 229:
-/***/ (function(module, exports, __webpack_require__) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-
-var stylesInDom = {};
-
-var	memoize = function (fn) {
-	var memo;
-
-	return function () {
-		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
-		return memo;
-	};
+module.exports = {
+  isArray: isArray,
+  isArrayBuffer: isArrayBuffer,
+  isBuffer: isBuffer,
+  isFormData: isFormData,
+  isArrayBufferView: isArrayBufferView,
+  isString: isString,
+  isNumber: isNumber,
+  isObject: isObject,
+  isUndefined: isUndefined,
+  isDate: isDate,
+  isFile: isFile,
+  isBlob: isBlob,
+  isFunction: isFunction,
+  isStream: isStream,
+  isURLSearchParams: isURLSearchParams,
+  isStandardBrowserEnv: isStandardBrowserEnv,
+  forEach: forEach,
+  merge: merge,
+  extend: extend,
+  trim: trim
 };
 
-var isOldIE = memoize(function () {
-	// Test for IE <= 9 as proposed by Browserhacks
-	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
-	// Tests for existence of standard globals is to allow style-loader
-	// to operate correctly into non-standard environments
-	// @see https://github.com/webpack-contrib/style-loader/issues/177
-	return window && document && document.all && !window.atob;
-});
 
-var getElement = (function (fn) {
-	var memo = {};
+/***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */,
+/* 5 */,
+/* 6 */,
+/* 7 */,
+/* 8 */,
+/* 9 */,
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
+/* 15 */,
+/* 16 */,
+/* 17 */,
+/* 18 */,
+/* 19 */,
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */,
+/* 29 */,
+/* 30 */,
+/* 31 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	return function(selector) {
-		if (typeof memo[selector] === "undefined") {
-			memo[selector] = fn.call(this, selector);
-		}
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
 
-		return memo[selector]
-	};
-})(function (target) {
-	return document.querySelector(target)
-});
+var utils = __webpack_require__(0);
+var normalizeHeaderName = __webpack_require__(98);
 
-var singleton = null;
-var	singletonCounter = 0;
-var	stylesInsertedAtTop = [];
-
-var	fixUrls = __webpack_require__(230);
-
-module.exports = function(list, options) {
-	if (typeof DEBUG !== "undefined" && DEBUG) {
-		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
-	}
-
-	options = options || {};
-
-	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
-
-	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
-	// tags it will allow on a page
-	if (!options.singleton) options.singleton = isOldIE();
-
-	// By default, add <style> tags to the <head> element
-	if (!options.insertInto) options.insertInto = "head";
-
-	// By default, add <style> tags to the bottom of the target
-	if (!options.insertAt) options.insertAt = "bottom";
-
-	var styles = listToStyles(list, options);
-
-	addStylesToDom(styles, options);
-
-	return function update (newList) {
-		var mayRemove = [];
-
-		for (var i = 0; i < styles.length; i++) {
-			var item = styles[i];
-			var domStyle = stylesInDom[item.id];
-
-			domStyle.refs--;
-			mayRemove.push(domStyle);
-		}
-
-		if(newList) {
-			var newStyles = listToStyles(newList, options);
-			addStylesToDom(newStyles, options);
-		}
-
-		for (var i = 0; i < mayRemove.length; i++) {
-			var domStyle = mayRemove[i];
-
-			if(domStyle.refs === 0) {
-				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
-
-				delete stylesInDom[domStyle.id];
-			}
-		}
-	};
+var DEFAULT_CONTENT_TYPE = {
+  'Content-Type': 'application/x-www-form-urlencoded'
 };
 
-function addStylesToDom (styles, options) {
-	for (var i = 0; i < styles.length; i++) {
-		var item = styles[i];
-		var domStyle = stylesInDom[item.id];
-
-		if(domStyle) {
-			domStyle.refs++;
-
-			for(var j = 0; j < domStyle.parts.length; j++) {
-				domStyle.parts[j](item.parts[j]);
-			}
-
-			for(; j < item.parts.length; j++) {
-				domStyle.parts.push(addStyle(item.parts[j], options));
-			}
-		} else {
-			var parts = [];
-
-			for(var j = 0; j < item.parts.length; j++) {
-				parts.push(addStyle(item.parts[j], options));
-			}
-
-			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
-		}
-	}
+function setContentTypeIfUnset(headers, value) {
+  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+    headers['Content-Type'] = value;
+  }
 }
 
-function listToStyles (list, options) {
-	var styles = [];
-	var newStyles = {};
-
-	for (var i = 0; i < list.length; i++) {
-		var item = list[i];
-		var id = options.base ? item[0] + options.base : item[0];
-		var css = item[1];
-		var media = item[2];
-		var sourceMap = item[3];
-		var part = {css: css, media: media, sourceMap: sourceMap};
-
-		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
-		else newStyles[id].parts.push(part);
-	}
-
-	return styles;
+function getDefaultAdapter() {
+  var adapter;
+  if (typeof XMLHttpRequest !== 'undefined') {
+    // For browsers use XHR adapter
+    adapter = __webpack_require__(59);
+  } else if (typeof process !== 'undefined') {
+    // For node use HTTP adapter
+    adapter = __webpack_require__(59);
+  }
+  return adapter;
 }
 
-function insertStyleElement (options, style) {
-	var target = getElement(options.insertInto)
+var defaults = {
+  adapter: getDefaultAdapter(),
 
-	if (!target) {
-		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
-	}
+  transformRequest: [function transformRequest(data, headers) {
+    normalizeHeaderName(headers, 'Content-Type');
+    if (utils.isFormData(data) ||
+      utils.isArrayBuffer(data) ||
+      utils.isBuffer(data) ||
+      utils.isStream(data) ||
+      utils.isFile(data) ||
+      utils.isBlob(data)
+    ) {
+      return data;
+    }
+    if (utils.isArrayBufferView(data)) {
+      return data.buffer;
+    }
+    if (utils.isURLSearchParams(data)) {
+      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+      return data.toString();
+    }
+    if (utils.isObject(data)) {
+      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+      return JSON.stringify(data);
+    }
+    return data;
+  }],
 
-	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+  transformResponse: [function transformResponse(data) {
+    /*eslint no-param-reassign:0*/
+    if (typeof data === 'string') {
+      try {
+        data = JSON.parse(data);
+      } catch (e) { /* Ignore */ }
+    }
+    return data;
+  }],
 
-	if (options.insertAt === "top") {
-		if (!lastStyleElementInsertedAtTop) {
-			target.insertBefore(style, target.firstChild);
-		} else if (lastStyleElementInsertedAtTop.nextSibling) {
-			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
-		} else {
-			target.appendChild(style);
-		}
-		stylesInsertedAtTop.push(style);
-	} else if (options.insertAt === "bottom") {
-		target.appendChild(style);
-	} else {
-		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
-	}
-}
+  /**
+   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+   * timeout is not created.
+   */
+  timeout: 0,
 
-function removeStyleElement (style) {
-	if (style.parentNode === null) return false;
-	style.parentNode.removeChild(style);
+  xsrfCookieName: 'XSRF-TOKEN',
+  xsrfHeaderName: 'X-XSRF-TOKEN',
 
-	var idx = stylesInsertedAtTop.indexOf(style);
-	if(idx >= 0) {
-		stylesInsertedAtTop.splice(idx, 1);
-	}
-}
+  maxContentLength: -1,
 
-function createStyleElement (options) {
-	var style = document.createElement("style");
+  validateStatus: function validateStatus(status) {
+    return status >= 200 && status < 300;
+  }
+};
 
-	options.attrs.type = "text/css";
+defaults.headers = {
+  common: {
+    'Accept': 'application/json, text/plain, */*'
+  }
+};
 
-	addAttrs(style, options.attrs);
-	insertStyleElement(options, style);
+utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+  defaults.headers[method] = {};
+});
 
-	return style;
-}
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+});
 
-function createLinkElement (options) {
-	var link = document.createElement("link");
+module.exports = defaults;
 
-	options.attrs.type = "text/css";
-	options.attrs.rel = "stylesheet";
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(58)))
 
-	addAttrs(link, options.attrs);
-	insertStyleElement(options, link);
+/***/ }),
+/* 32 */,
+/* 33 */,
+/* 34 */,
+/* 35 */,
+/* 36 */,
+/* 37 */,
+/* 38 */,
+/* 39 */,
+/* 40 */,
+/* 41 */,
+/* 42 */,
+/* 43 */,
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	return link;
-}
+"use strict";
 
-function addAttrs (el, attrs) {
-	Object.keys(attrs).forEach(function (key) {
-		el.setAttribute(key, attrs[key]);
-	});
-}
 
-function addStyle (obj, options) {
-	var style, update, remove, result;
-
-	// If a transform function was defined, run it on the css
-	if (options.transform && obj.css) {
-	    result = options.transform(obj.css);
-
-	    if (result) {
-	    	// If transform returns a value, use that instead of the original css.
-	    	// This allows running runtime transformations on the css.
-	    	obj.css = result;
-	    } else {
-	    	// If the transform function returns a falsy value, don't add this css.
-	    	// This allows conditional loading of css
-	    	return function() {
-	    		// noop
-	    	};
-	    }
-	}
-
-	if (options.singleton) {
-		var styleIndex = singletonCounter++;
-
-		style = singleton || (singleton = createStyleElement(options));
-
-		update = applyToSingletonTag.bind(null, style, styleIndex, false);
-		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
-
-	} else if (
-		obj.sourceMap &&
-		typeof URL === "function" &&
-		typeof URL.createObjectURL === "function" &&
-		typeof URL.revokeObjectURL === "function" &&
-		typeof Blob === "function" &&
-		typeof btoa === "function"
-	) {
-		style = createLinkElement(options);
-		update = updateLink.bind(null, style, options);
-		remove = function () {
-			removeStyleElement(style);
-
-			if(style.href) URL.revokeObjectURL(style.href);
-		};
-	} else {
-		style = createStyleElement(options);
-		update = applyToTag.bind(null, style);
-		remove = function () {
-			removeStyleElement(style);
-		};
-	}
-
-	update(obj);
-
-	return function updateStyle (newObj) {
-		if (newObj) {
-			if (
-				newObj.css === obj.css &&
-				newObj.media === obj.media &&
-				newObj.sourceMap === obj.sourceMap
-			) {
-				return;
-			}
-
-			update(obj = newObj);
-		} else {
-			remove();
-		}
-	};
-}
-
-var replaceText = (function () {
-	var textStore = [];
-
-	return function (index, replacement) {
-		textStore[index] = replacement;
-
-		return textStore.filter(Boolean).join('\n');
-	};
-})();
-
-function applyToSingletonTag (style, index, remove, obj) {
-	var css = remove ? "" : obj.css;
-
-	if (style.styleSheet) {
-		style.styleSheet.cssText = replaceText(index, css);
-	} else {
-		var cssNode = document.createTextNode(css);
-		var childNodes = style.childNodes;
-
-		if (childNodes[index]) style.removeChild(childNodes[index]);
-
-		if (childNodes.length) {
-			style.insertBefore(cssNode, childNodes[index]);
-		} else {
-			style.appendChild(cssNode);
-		}
-	}
-}
-
-function applyToTag (style, obj) {
-	var css = obj.css;
-	var media = obj.media;
-
-	if(media) {
-		style.setAttribute("media", media)
-	}
-
-	if(style.styleSheet) {
-		style.styleSheet.cssText = css;
-	} else {
-		while(style.firstChild) {
-			style.removeChild(style.firstChild);
-		}
-
-		style.appendChild(document.createTextNode(css));
-	}
-}
-
-function updateLink (link, options, obj) {
-	var css = obj.css;
-	var sourceMap = obj.sourceMap;
-
-	/*
-		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
-		and there is no publicPath defined then lets turn convertToAbsoluteUrls
-		on by default.  Otherwise default to the convertToAbsoluteUrls option
-		directly
-	*/
-	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
-
-	if (options.convertToAbsoluteUrls || autoFixUrls) {
-		css = fixUrls(css);
-	}
-
-	if (sourceMap) {
-		// http://stackoverflow.com/a/26603875
-		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
-	}
-
-	var blob = new Blob([css], { type: "text/css" });
-
-	var oldSrc = link.href;
-
-	link.href = URL.createObjectURL(blob);
-
-	if(oldSrc) URL.revokeObjectURL(oldSrc);
-}
+module.exports = function bind(fn, thisArg) {
+  return function wrap() {
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+    return fn.apply(thisArg, args);
+  };
+};
 
 
 /***/ }),
+/* 58 */,
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 230:
-/***/ (function(module, exports) {
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var settle = __webpack_require__(99);
+var buildURL = __webpack_require__(101);
+var parseHeaders = __webpack_require__(102);
+var isURLSameOrigin = __webpack_require__(103);
+var createError = __webpack_require__(60);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(104);
+
+module.exports = function xhrAdapter(config) {
+  return new Promise(function dispatchXhrRequest(resolve, reject) {
+    var requestData = config.data;
+    var requestHeaders = config.headers;
+
+    if (utils.isFormData(requestData)) {
+      delete requestHeaders['Content-Type']; // Let the browser set it
+    }
+
+    var request = new XMLHttpRequest();
+    var loadEvent = 'onreadystatechange';
+    var xDomain = false;
+
+    // For IE 8/9 CORS support
+    // Only supports POST and GET calls and doesn't returns the response headers.
+    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+    if ("development" !== 'test' &&
+        typeof window !== 'undefined' &&
+        window.XDomainRequest && !('withCredentials' in request) &&
+        !isURLSameOrigin(config.url)) {
+      request = new window.XDomainRequest();
+      loadEvent = 'onload';
+      xDomain = true;
+      request.onprogress = function handleProgress() {};
+      request.ontimeout = function handleTimeout() {};
+    }
+
+    // HTTP basic authentication
+    if (config.auth) {
+      var username = config.auth.username || '';
+      var password = config.auth.password || '';
+      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+    }
+
+    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+    // Set the request timeout in MS
+    request.timeout = config.timeout;
+
+    // Listen for ready state
+    request[loadEvent] = function handleLoad() {
+      if (!request || (request.readyState !== 4 && !xDomain)) {
+        return;
+      }
+
+      // The request errored out and we didn't get a response, this will be
+      // handled by onerror instead
+      // With one exception: request that using file: protocol, most browsers
+      // will return status as 0 even though it's a successful request
+      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+        return;
+      }
+
+      // Prepare the response
+      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+      var response = {
+        data: responseData,
+        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+        status: request.status === 1223 ? 204 : request.status,
+        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+        headers: responseHeaders,
+        config: config,
+        request: request
+      };
+
+      settle(resolve, reject, response);
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle low level network errors
+    request.onerror = function handleError() {
+      // Real errors are hidden from us by the browser
+      // onerror should only fire if it's a network error
+      reject(createError('Network Error', config, null, request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Handle timeout
+    request.ontimeout = function handleTimeout() {
+      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+        request));
+
+      // Clean up request
+      request = null;
+    };
+
+    // Add xsrf header
+    // This is only done if running in a standard browser environment.
+    // Specifically not if we're in a web worker, or react-native.
+    if (utils.isStandardBrowserEnv()) {
+      var cookies = __webpack_require__(105);
+
+      // Add xsrf header
+      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+          cookies.read(config.xsrfCookieName) :
+          undefined;
+
+      if (xsrfValue) {
+        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+      }
+    }
+
+    // Add headers to the request
+    if ('setRequestHeader' in request) {
+      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+          // Remove Content-Type if data is undefined
+          delete requestHeaders[key];
+        } else {
+          // Otherwise add header to the request
+          request.setRequestHeader(key, val);
+        }
+      });
+    }
+
+    // Add withCredentials to request if needed
+    if (config.withCredentials) {
+      request.withCredentials = true;
+    }
+
+    // Add responseType to request if needed
+    if (config.responseType) {
+      try {
+        request.responseType = config.responseType;
+      } catch (e) {
+        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+        if (config.responseType !== 'json') {
+          throw e;
+        }
+      }
+    }
+
+    // Handle progress if needed
+    if (typeof config.onDownloadProgress === 'function') {
+      request.addEventListener('progress', config.onDownloadProgress);
+    }
+
+    // Not all browsers support upload events
+    if (typeof config.onUploadProgress === 'function' && request.upload) {
+      request.upload.addEventListener('progress', config.onUploadProgress);
+    }
+
+    if (config.cancelToken) {
+      // Handle cancellation
+      config.cancelToken.promise.then(function onCanceled(cancel) {
+        if (!request) {
+          return;
+        }
+
+        request.abort();
+        reject(cancel);
+        // Clean up request
+        request = null;
+      });
+    }
+
+    if (requestData === undefined) {
+      requestData = null;
+    }
+
+    // Send the request
+    request.send(requestData);
+  });
+};
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var enhanceError = __webpack_require__(100);
+
+/**
+ * Create an Error with the specified message, config, error code, request and response.
+ *
+ * @param {string} message The error message.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The created error.
+ */
+module.exports = function createError(message, config, code, request, response) {
+  var error = new Error(message);
+  return enhanceError(error, config, code, request, response);
+};
+
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function isCancel(value) {
+  return !!(value && value.__CANCEL__);
+};
+
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 /**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
+ * A `Cancel` is an object that is thrown when an operation is canceled.
  *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
+ * @class
+ * @param {string=} message The message.
  */
+function Cancel(message) {
+  this.message = message;
+}
 
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
+Cancel.prototype.toString = function toString() {
+  return 'Cancel' + (this.message ? ': ' + this.message : '');
 };
 
+Cancel.prototype.__CANCEL__ = true;
+
+module.exports = Cancel;
+
 
 /***/ }),
-
-/***/ 231:
+/* 63 */,
+/* 64 */,
+/* 65 */,
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var disposed = false
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(232)
-/* template */
-var __vue_template__ = __webpack_require__(233)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/SearchInput.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-fa6524ca", Component.options)
-  } else {
-    hotAPI.reload("data-v-fa6524ca", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
+module.exports = __webpack_require__(267)
 
 
 /***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
 
-/***/ 232:
+__webpack_require__(92);
+__webpack_require__(285);
+__webpack_require__(286);
+module.exports = __webpack_require__(287);
+
+
+/***/ }),
+/* 92 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            inputHint: "請輸入欲搜尋地點…",
-            address: ''
-        };
-    },
-    watch: {
-        /*address: function() {
-            this.findLocation();
-        }*/
-    },
-    methods: {
-        findLocation: _.debounce(function () {
-            if (this.address.length > 0) {
-                this.$emit('located');
-            } else {
-                this.$emit('cleared');
-            }
-        }, 500),
-        setPlace: function setPlace(place) {
-            this.$emit('located', place);
-        }
-    }
-});
-
-/***/ }),
-
-/***/ 233:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "col-md-12 search d-flex justify-content-between" },
-    [
-      _c(
-        "div",
-        { staticClass: "location d-flex" },
-        [
-          _c("GmapAutocomplete", {
-            attrs: { placeholder: _vm.inputHint, value: _vm.address },
-            on: { place_changed: _vm.setPlace }
-          }),
-          _vm._v(" "),
-          _c("img", {
-            staticClass: "align-self-center",
-            attrs: { src: "icons/icon.png" }
-          })
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { attrs: { href: "#" } }, [
-      _c("img", {
-        staticClass: "search-btn",
-        attrs: { src: "icons/search.png", alt: "" }
-      })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-fa6524ca", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 234:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(235)
-/* template */
-var __vue_template__ = __webpack_require__(236)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/OptionBox.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0f4ff1ef", Component.options)
-  } else {
-    hotAPI.reload("data-v-0f4ff1ef", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 235:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['item']
-});
-
-/***/ }),
-
-/***/ 236:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "box" }, [
-    _c("div", { staticClass: "title" }, [
-      _c("input", { attrs: { type: "checkbox" } }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "" } }, [_vm._v(_vm._s(_vm.item.aspect))])
-    ]),
-    _vm._v(" "),
-    _c(
-      "ul",
-      { staticClass: "d-flex flex-wrap" },
-      _vm._l(_vm.item.options, function(option) {
-        return _c("li", [
-          _c("input", { attrs: { type: "checkbox" } }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "" } }, [_vm._v(_vm._s(option))])
-        ])
-      })
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0f4ff1ef", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 237:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(238)
-}
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(240)
-/* template */
-var __vue_template__ = __webpack_require__(241)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-bf994214"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/FactorCard.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-bf994214", Component.options)
-  } else {
-    hotAPI.reload("data-v-bf994214", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 238:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(239);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(21)("cc748438", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf994214\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorCard.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf994214\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorCard.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 239:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(16)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.card[data-v-bf994214] {\n  padding: 0;\n  background: #dbf3bf;\n  border-color: #b9d08c;\n  border-style: solid;\n  border-radius: 0.5rem;\n  color: #4f6228;\n  font-weight: bold;\n}\n.card .title[data-v-bf994214] {\n    font-size: 1.2rem;\n}\n.card .info[data-v-bf994214] {\n    width: 100%;\n}\n.card .info .title[data-v-bf994214] {\n      font-size: 1.4rem;\n      background: #bce986;\n}\n.card .info .content[data-v-bf994214] {\n      max-height: 6rem;\n      min-height: 5rem;\n      overflow-y: auto;\n      font-size: 1rem;\n      list-style-type: none;\n      padding: 1rem;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 240:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            score: 50 / 10
-        };
-    },
-    watch: {
-        /*address: function() {
-            this.findLocation();
-        }*/
-    },
-    methods: {},
-    components: {
-        VueCircle: __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress___default.a
-    },
-    props: ['factor']
-});
-
-/***/ }),
-
-/***/ 241:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "card d-flex flex-column align-items-center" },
-    [
-      _c("div", { staticClass: "title" }, [_vm._v(_vm._s(_vm.factor.name))]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "score" },
-        [
-          _c(
-            "vue-circle",
-            {
-              attrs: {
-                progress: _vm.score * 10,
-                size: 100,
-                reverse: false,
-                "line-cap": "round",
-                "empty-fill": "rgba(0, 0, 0, .1)",
-                "animation-start-value": 0.0,
-                "start-angle": -1 / 2 * Math.PI,
-                "insert-mode": "append",
-                thickness: 10,
-                "show-percent": false
-              }
-            },
-            [
-              _c(
-                "p",
-                {
-                  staticStyle: { "font-size": "1.3rem", "font-weight": "bold" }
-                },
-                [_vm._v(_vm._s(_vm.score.toFixed(1)) + " / 10")]
-              )
-            ]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info d-inline" }, [
-      _c("div", { staticClass: "title text-center" }, [_vm._v("優劣分析")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "content" }, [
-        _c("li", [_vm._v("距離公園 承德公園260 m")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("距離士林運動中心 250 m")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("距離KTV 好樂迪 開車16min")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("距離百貨公司 開車10min")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("距離電影院 陽明劇院 500m")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-bf994214", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 242:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(243)
-}
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(245)
-/* template */
-var __vue_template__ = __webpack_require__(246)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-31df4ebd"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/WeatherCard.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-31df4ebd", Component.options)
-  } else {
-    hotAPI.reload("data-v-31df4ebd", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 243:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(244);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(21)("1f524b84", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31df4ebd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WeatherCard.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31df4ebd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WeatherCard.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 244:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(16)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.weather-card[data-v-31df4ebd] {\n  width: 100%;\n  padding: 0;\n  background: #9db9d9;\n  border-radius: 0.5rem;\n  color: white;\n  font-size: 1rem;\n  font-weight: bold;\n}\n.weather-card .title[data-v-31df4ebd] {\n    font-size: 1.4rem;\n    padding: 0.5rem 0;\n    border-bottom-style: dotted;\n    border-color: #638fc4;\n}\n.weather-card .content[data-v-31df4ebd] {\n    list-style-type: none;\n    padding: 10%;\n}\n.text-center[data-v-31df4ebd] {\n  text-align: center;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 245:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            summerAvgTemp: 28.1,
-            winterAvgTemp: 15.8,
-            annualRainfall: 2094.9
-        };
-    },
-    watch: {
-        /*address: function() {
-            this.findLocation();
-        }*/
-    },
-    methods: {},
-    props: ['weatherData']
-});
-
-/***/ }),
-
-/***/ 246:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "weather-card align-items-center" }, [
-    _c("div", { staticClass: "title text-center" }, [_vm._v("地區氣候")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "d-flex" }, [
-      _c("ul", { staticClass: "content d-inline" }, [
-        _c("li", [_vm._v("夏季均溫：" + _vm._s(_vm.summerAvgTemp) + " °C")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("冬季均溫：" + _vm._s(_vm.winterAvgTemp) + " °C")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("年降雨量：" + _vm._s(_vm.annualRainfall) + " 毫米")])
-      ])
-    ])
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-31df4ebd", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 247:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(248)
-}
-var normalizeComponent = __webpack_require__(4)
-/* script */
-var __vue_script__ = __webpack_require__(250)
-/* template */
-var __vue_template__ = __webpack_require__(251)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-43efec6f"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/SummaryCard.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-43efec6f", Component.options)
-  } else {
-    hotAPI.reload("data-v-43efec6f", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 248:
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(249);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(21)("6a918b99", content, false, {});
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43efec6f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SummaryCard.vue", function() {
-     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43efec6f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SummaryCard.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-
-/***/ 249:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(16)(false);
-// imports
-
-
-// module
-exports.push([module.i, "\n.summary-card[data-v-43efec6f] {\n  padding: 0;\n  background: rgba(248, 214, 214, 0.45);\n  border-radius: 0.5rem;\n  color: #cf2323;\n  font-weight: bold;\n}\n.summary-card .title[data-v-43efec6f] {\n    font-size: 1.2rem;\n}\n.summary-card .info[data-v-43efec6f] {\n    width: 100%;\n}\n.summary-card .info .title[data-v-43efec6f] {\n      font-size: 1.4rem;\n      background: rgba(239, 163, 163, 0.4);\n}\n.summary-card .info .content[data-v-43efec6f] {\n      max-height: 6rem;\n      min-height: 5rem;\n      overflow-x: hidden;\n      font-size: 1rem;\n      list-style-type: none;\n      padding: 1rem;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 250:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress__);
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            score: 77 / 10
-        };
-    },
-    watch: {
-        /*address: function() {
-            this.findLocation();
-        }*/
-    },
-    methods: {},
-    components: {
-        VueCircle: __WEBPACK_IMPORTED_MODULE_0_vue2_circle_progress___default.a
-    },
-    props: ['factor']
-});
-
-/***/ }),
-
-/***/ 251:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "summary-card d-flex flex-column align-items-center" },
-    [
-      _c("div", { staticClass: "title" }, [_vm._v("綜合分數")]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "score" },
-        [
-          _c(
-            "vue-circle",
-            {
-              attrs: {
-                progress: _vm.score * 10,
-                size: 150,
-                reverse: false,
-                "line-cap": "round",
-                "empty-fill": "rgba(0, 0, 0, .1)",
-                "animation-start-value": 0.0,
-                "start-angle": -1 / 2 * Math.PI,
-                "insert-mode": "append",
-                thickness: 15,
-                "show-percent": false
-              }
-            },
-            [
-              _c(
-                "p",
-                {
-                  staticStyle: { "font-size": "1.3rem", "font-weight": "bold" }
-                },
-                [_vm._v(_vm._s(_vm.score.toFixed(1)) + " / 10")]
-              )
-            ]
-          )
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _vm._m(0)
-    ]
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "info d-inline" }, [
-      _c("div", { staticClass: "title text-center" }, [_vm._v("房屋簡歷")]),
-      _vm._v(" "),
-      _c("ul", { staticClass: "content" }, [
-        _c("li", [_vm._v("平均房價：53.2萬 / 坪")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("平均坪數：26.8 坪")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("平均屋齡：18年")])
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-43efec6f", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 252:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 253:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 254:
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 82:
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(e,t){ true?module.exports=t():"function"==typeof define&&define.amd?define([],t):"object"==typeof exports?exports["vue-circle-progress"]=t():e["vue-circle-progress"]=t()}(this,function(){return function(e){function t(r){if(n[r])return n[r].exports;var i=n[r]={exports:{},id:r,loaded:!1};return e[r].call(i.exports,i,i.exports,t),i.loaded=!0,i.exports}var n={};return t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){var r,i,o={};n(9),r=n(2),i=n(7),e.exports=r||{},e.exports.__esModule&&(e.exports=e.exports.default);var a="function"==typeof e.exports?e.exports.options||(e.exports.options={}):e.exports;i&&(a.template=i),a.computed||(a.computed={}),Object.keys(o).forEach(function(e){var t=o[e];a.computed[e]=function(){return t}})},function(e,t,n){var r,i;/*!
-	 * jQuery JavaScript Library v3.2.1
-	 * https://jquery.com/
-	 *
-	 * Includes Sizzle.js
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright JS Foundation and other contributors
-	 * Released under the MIT license
-	 * https://jquery.org/license
-	 *
-	 * Date: 2017-03-20T18:59Z
-	 */
-!function(t,n){"use strict";"object"==typeof e&&"object"==typeof e.exports?e.exports=t.document?n(t,!0):function(e){if(!e.document)throw new Error("jQuery requires a window with a document");return n(e)}:n(t)}("undefined"!=typeof window?window:this,function(n,o){"use strict";function a(e,t){t=t||ae;var n=t.createElement("script");n.text=e,t.head.appendChild(n).parentNode.removeChild(n)}function s(e){var t=!!e&&"length"in e&&e.length,n=xe.type(e);return"function"!==n&&!xe.isWindow(e)&&("array"===n||0===t||"number"==typeof t&&t>0&&t-1 in e)}function u(e,t){return e.nodeName&&e.nodeName.toLowerCase()===t.toLowerCase()}function c(e,t,n){return xe.isFunction(t)?xe.grep(e,function(e,r){return!!t.call(e,r,e)!==n}):t.nodeType?xe.grep(e,function(e){return e===t!==n}):"string"!=typeof t?xe.grep(e,function(e){return fe.call(t,e)>-1!==n}):je.test(t)?xe.filter(t,e,n):(t=xe.filter(t,e),xe.grep(e,function(e){return fe.call(t,e)>-1!==n&&1===e.nodeType}))}function l(e,t){for(;(e=e[t])&&1!==e.nodeType;);return e}function f(e){var t={};return xe.each(e.match(Pe)||[],function(e,n){t[n]=!0}),t}function p(e){return e}function d(e){throw e}function h(e,t,n,r){var i;try{e&&xe.isFunction(i=e.promise)?i.call(e).done(t).fail(n):e&&xe.isFunction(i=e.then)?i.call(e,t,n):t.apply(void 0,[e].slice(r))}catch(e){n.apply(void 0,[e])}}function g(){ae.removeEventListener("DOMContentLoaded",g),n.removeEventListener("load",g),xe.ready()}function v(){this.expando=xe.expando+v.uid++}function m(e){return"true"===e||"false"!==e&&("null"===e?null:e===+e+""?+e:$e.test(e)?JSON.parse(e):e)}function y(e,t,n){var r;if(void 0===n&&1===e.nodeType)if(r="data-"+t.replace(_e,"-$&").toLowerCase(),n=e.getAttribute(r),"string"==typeof n){try{n=m(n)}catch(e){}We.set(e,t,n)}else n=void 0;return n}function x(e,t,n,r){var i,o=1,a=20,s=r?function(){return r.cur()}:function(){return xe.css(e,t,"")},u=s(),c=n&&n[3]||(xe.cssNumber[t]?"":"px"),l=(xe.cssNumber[t]||"px"!==c&&+u)&&Ve.exec(xe.css(e,t));if(l&&l[3]!==c){c=c||l[3],n=n||[],l=+u||1;do o=o||".5",l/=o,xe.style(e,t,l+c);while(o!==(o=s()/u)&&1!==o&&--a)}return n&&(l=+l||+u||0,i=n[1]?l+(n[1]+1)*n[2]:+n[2],r&&(r.unit=c,r.start=l,r.end=i)),i}function b(e){var t,n=e.ownerDocument,r=e.nodeName,i=Ge[r];return i?i:(t=n.body.appendChild(n.createElement(r)),i=xe.css(t,"display"),t.parentNode.removeChild(t),"none"===i&&(i="block"),Ge[r]=i,i)}function w(e,t){for(var n,r,i=[],o=0,a=e.length;o<a;o++)r=e[o],r.style&&(n=r.style.display,t?("none"===n&&(i[o]=Be.get(r,"display")||null,i[o]||(r.style.display="")),""===r.style.display&&Xe(r)&&(i[o]=b(r))):"none"!==n&&(i[o]="none",Be.set(r,"display",n)));for(o=0;o<a;o++)null!=i[o]&&(e[o].style.display=i[o]);return e}function T(e,t){var n;return n="undefined"!=typeof e.getElementsByTagName?e.getElementsByTagName(t||"*"):"undefined"!=typeof e.querySelectorAll?e.querySelectorAll(t||"*"):[],void 0===t||t&&u(e,t)?xe.merge([e],n):n}function C(e,t){for(var n=0,r=e.length;n<r;n++)Be.set(e[n],"globalEval",!t||Be.get(t[n],"globalEval"))}function k(e,t,n,r,i){for(var o,a,s,u,c,l,f=t.createDocumentFragment(),p=[],d=0,h=e.length;d<h;d++)if(o=e[d],o||0===o)if("object"===xe.type(o))xe.merge(p,o.nodeType?[o]:o);else if(et.test(o)){for(a=a||f.appendChild(t.createElement("div")),s=(Je.exec(o)||["",""])[1].toLowerCase(),u=Ze[s]||Ze._default,a.innerHTML=u[1]+xe.htmlPrefilter(o)+u[2],l=u[0];l--;)a=a.lastChild;xe.merge(p,a.childNodes),a=f.firstChild,a.textContent=""}else p.push(t.createTextNode(o));for(f.textContent="",d=0;o=p[d++];)if(r&&xe.inArray(o,r)>-1)i&&i.push(o);else if(c=xe.contains(o.ownerDocument,o),a=T(f.appendChild(o),"script"),c&&C(a),n)for(l=0;o=a[l++];)Ke.test(o.type||"")&&n.push(o);return f}function S(){return!0}function E(){return!1}function N(){try{return ae.activeElement}catch(e){}}function A(e,t,n,r,i,o){var a,s;if("object"==typeof t){"string"!=typeof n&&(r=r||n,n=void 0);for(s in t)A(e,s,n,r,t[s],o);return e}if(null==r&&null==i?(i=n,r=n=void 0):null==i&&("string"==typeof n?(i=r,r=void 0):(i=r,r=n,n=void 0)),i===!1)i=E;else if(!i)return e;return 1===o&&(a=i,i=function(e){return xe().off(e),a.apply(this,arguments)},i.guid=a.guid||(a.guid=xe.guid++)),e.each(function(){xe.event.add(this,t,i,r,n)})}function j(e,t){return u(e,"table")&&u(11!==t.nodeType?t:t.firstChild,"tr")?xe(">tbody",e)[0]||e:e}function D(e){return e.type=(null!==e.getAttribute("type"))+"/"+e.type,e}function M(e){var t=ut.exec(e.type);return t?e.type=t[1]:e.removeAttribute("type"),e}function q(e,t){var n,r,i,o,a,s,u,c;if(1===t.nodeType){if(Be.hasData(e)&&(o=Be.access(e),a=Be.set(t,o),c=o.events)){delete a.handle,a.events={};for(i in c)for(n=0,r=c[i].length;n<r;n++)xe.event.add(t,i,c[i][n])}We.hasData(e)&&(s=We.access(e),u=xe.extend({},s),We.set(t,u))}}function O(e,t){var n=t.nodeName.toLowerCase();"input"===n&&Ye.test(e.type)?t.checked=e.checked:"input"!==n&&"textarea"!==n||(t.defaultValue=e.defaultValue)}function L(e,t,n,r){t=ce.apply([],t);var i,o,s,u,c,l,f=0,p=e.length,d=p-1,h=t[0],g=xe.isFunction(h);if(g||p>1&&"string"==typeof h&&!me.checkClone&&st.test(h))return e.each(function(i){var o=e.eq(i);g&&(t[0]=h.call(this,i,o.html())),L(o,t,n,r)});if(p&&(i=k(t,e[0].ownerDocument,!1,e,r),o=i.firstChild,1===i.childNodes.length&&(i=o),o||r)){for(s=xe.map(T(i,"script"),D),u=s.length;f<p;f++)c=i,f!==d&&(c=xe.clone(c,!0,!0),u&&xe.merge(s,T(c,"script"))),n.call(e[f],c,f);if(u)for(l=s[s.length-1].ownerDocument,xe.map(s,M),f=0;f<u;f++)c=s[f],Ke.test(c.type||"")&&!Be.access(c,"globalEval")&&xe.contains(l,c)&&(c.src?xe._evalUrl&&xe._evalUrl(c.src):a(c.textContent.replace(ct,""),l))}return e}function P(e,t,n){for(var r,i=t?xe.filter(t,e):e,o=0;null!=(r=i[o]);o++)n||1!==r.nodeType||xe.cleanData(T(r)),r.parentNode&&(n&&xe.contains(r.ownerDocument,r)&&C(T(r,"script")),r.parentNode.removeChild(r));return e}function F(e,t,n){var r,i,o,a,s=e.style;return n=n||pt(e),n&&(a=n.getPropertyValue(t)||n[t],""!==a||xe.contains(e.ownerDocument,e)||(a=xe.style(e,t)),!me.pixelMarginRight()&&ft.test(a)&&lt.test(t)&&(r=s.width,i=s.minWidth,o=s.maxWidth,s.minWidth=s.maxWidth=s.width=a,a=n.width,s.width=r,s.minWidth=i,s.maxWidth=o)),void 0!==a?a+"":a}function I(e,t){return{get:function(){return e()?void delete this.get:(this.get=t).apply(this,arguments)}}}function H(e){if(e in yt)return e;for(var t=e[0].toUpperCase()+e.slice(1),n=mt.length;n--;)if(e=mt[n]+t,e in yt)return e}function R(e){var t=xe.cssProps[e];return t||(t=xe.cssProps[e]=H(e)||e),t}function B(e,t,n){var r=Ve.exec(t);return r?Math.max(0,r[2]-(n||0))+(r[3]||"px"):t}function W(e,t,n,r,i){var o,a=0;for(o=n===(r?"border":"content")?4:"width"===t?1:0;o<4;o+=2)"margin"===n&&(a+=xe.css(e,n+Ue[o],!0,i)),r?("content"===n&&(a-=xe.css(e,"padding"+Ue[o],!0,i)),"margin"!==n&&(a-=xe.css(e,"border"+Ue[o]+"Width",!0,i))):(a+=xe.css(e,"padding"+Ue[o],!0,i),"padding"!==n&&(a+=xe.css(e,"border"+Ue[o]+"Width",!0,i)));return a}function $(e,t,n){var r,i=pt(e),o=F(e,t,i),a="border-box"===xe.css(e,"boxSizing",!1,i);return ft.test(o)?o:(r=a&&(me.boxSizingReliable()||o===e.style[t]),"auto"===o&&(o=e["offset"+t[0].toUpperCase()+t.slice(1)]),o=parseFloat(o)||0,o+W(e,t,n||(a?"border":"content"),r,i)+"px")}function _(e,t,n,r,i){return new _.prototype.init(e,t,n,r,i)}function z(){bt&&(ae.hidden===!1&&n.requestAnimationFrame?n.requestAnimationFrame(z):n.setTimeout(z,xe.fx.interval),xe.fx.tick())}function V(){return n.setTimeout(function(){xt=void 0}),xt=xe.now()}function U(e,t){var n,r=0,i={height:e};for(t=t?1:0;r<4;r+=2-t)n=Ue[r],i["margin"+n]=i["padding"+n]=e;return t&&(i.opacity=i.width=e),i}function X(e,t,n){for(var r,i=(Y.tweeners[t]||[]).concat(Y.tweeners["*"]),o=0,a=i.length;o<a;o++)if(r=i[o].call(n,t,e))return r}function Q(e,t,n){var r,i,o,a,s,u,c,l,f="width"in t||"height"in t,p=this,d={},h=e.style,g=e.nodeType&&Xe(e),v=Be.get(e,"fxshow");n.queue||(a=xe._queueHooks(e,"fx"),null==a.unqueued&&(a.unqueued=0,s=a.empty.fire,a.empty.fire=function(){a.unqueued||s()}),a.unqueued++,p.always(function(){p.always(function(){a.unqueued--,xe.queue(e,"fx").length||a.empty.fire()})}));for(r in t)if(i=t[r],wt.test(i)){if(delete t[r],o=o||"toggle"===i,i===(g?"hide":"show")){if("show"!==i||!v||void 0===v[r])continue;g=!0}d[r]=v&&v[r]||xe.style(e,r)}if(u=!xe.isEmptyObject(t),u||!xe.isEmptyObject(d)){f&&1===e.nodeType&&(n.overflow=[h.overflow,h.overflowX,h.overflowY],c=v&&v.display,null==c&&(c=Be.get(e,"display")),l=xe.css(e,"display"),"none"===l&&(c?l=c:(w([e],!0),c=e.style.display||c,l=xe.css(e,"display"),w([e]))),("inline"===l||"inline-block"===l&&null!=c)&&"none"===xe.css(e,"float")&&(u||(p.done(function(){h.display=c}),null==c&&(l=h.display,c="none"===l?"":l)),h.display="inline-block")),n.overflow&&(h.overflow="hidden",p.always(function(){h.overflow=n.overflow[0],h.overflowX=n.overflow[1],h.overflowY=n.overflow[2]})),u=!1;for(r in d)u||(v?"hidden"in v&&(g=v.hidden):v=Be.access(e,"fxshow",{display:c}),o&&(v.hidden=!g),g&&w([e],!0),p.done(function(){g||w([e]),Be.remove(e,"fxshow");for(r in d)xe.style(e,r,d[r])})),u=X(g?v[r]:0,r,p),r in v||(v[r]=u.start,g&&(u.end=u.start,u.start=0))}}function G(e,t){var n,r,i,o,a;for(n in e)if(r=xe.camelCase(n),i=t[r],o=e[n],Array.isArray(o)&&(i=o[1],o=e[n]=o[0]),n!==r&&(e[r]=o,delete e[n]),a=xe.cssHooks[r],a&&"expand"in a){o=a.expand(o),delete e[r];for(n in o)n in e||(e[n]=o[n],t[n]=i)}else t[r]=i}function Y(e,t,n){var r,i,o=0,a=Y.prefilters.length,s=xe.Deferred().always(function(){delete u.elem}),u=function(){if(i)return!1;for(var t=xt||V(),n=Math.max(0,c.startTime+c.duration-t),r=n/c.duration||0,o=1-r,a=0,u=c.tweens.length;a<u;a++)c.tweens[a].run(o);return s.notifyWith(e,[c,o,n]),o<1&&u?n:(u||s.notifyWith(e,[c,1,0]),s.resolveWith(e,[c]),!1)},c=s.promise({elem:e,props:xe.extend({},t),opts:xe.extend(!0,{specialEasing:{},easing:xe.easing._default},n),originalProperties:t,originalOptions:n,startTime:xt||V(),duration:n.duration,tweens:[],createTween:function(t,n){var r=xe.Tween(e,c.opts,t,n,c.opts.specialEasing[t]||c.opts.easing);return c.tweens.push(r),r},stop:function(t){var n=0,r=t?c.tweens.length:0;if(i)return this;for(i=!0;n<r;n++)c.tweens[n].run(1);return t?(s.notifyWith(e,[c,1,0]),s.resolveWith(e,[c,t])):s.rejectWith(e,[c,t]),this}}),l=c.props;for(G(l,c.opts.specialEasing);o<a;o++)if(r=Y.prefilters[o].call(c,e,l,c.opts))return xe.isFunction(r.stop)&&(xe._queueHooks(c.elem,c.opts.queue).stop=xe.proxy(r.stop,r)),r;return xe.map(l,X,c),xe.isFunction(c.opts.start)&&c.opts.start.call(e,c),c.progress(c.opts.progress).done(c.opts.done,c.opts.complete).fail(c.opts.fail).always(c.opts.always),xe.fx.timer(xe.extend(u,{elem:e,anim:c,queue:c.opts.queue})),c}function J(e){var t=e.match(Pe)||[];return t.join(" ")}function K(e){return e.getAttribute&&e.getAttribute("class")||""}function Z(e,t,n,r){var i;if(Array.isArray(t))xe.each(t,function(t,i){n||qt.test(e)?r(e,i):Z(e+"["+("object"==typeof i&&null!=i?t:"")+"]",i,n,r)});else if(n||"object"!==xe.type(t))r(e,t);else for(i in t)Z(e+"["+i+"]",t[i],n,r)}function ee(e){return function(t,n){"string"!=typeof t&&(n=t,t="*");var r,i=0,o=t.toLowerCase().match(Pe)||[];if(xe.isFunction(n))for(;r=o[i++];)"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).unshift(n)):(e[r]=e[r]||[]).push(n)}}function te(e,t,n,r){function i(s){var u;return o[s]=!0,xe.each(e[s]||[],function(e,s){var c=s(t,n,r);return"string"!=typeof c||a||o[c]?a?!(u=c):void 0:(t.dataTypes.unshift(c),i(c),!1)}),u}var o={},a=e===zt;return i(t.dataTypes[0])||!o["*"]&&i("*")}function ne(e,t){var n,r,i=xe.ajaxSettings.flatOptions||{};for(n in t)void 0!==t[n]&&((i[n]?e:r||(r={}))[n]=t[n]);return r&&xe.extend(!0,e,r),e}function re(e,t,n){for(var r,i,o,a,s=e.contents,u=e.dataTypes;"*"===u[0];)u.shift(),void 0===r&&(r=e.mimeType||t.getResponseHeader("Content-Type"));if(r)for(i in s)if(s[i]&&s[i].test(r)){u.unshift(i);break}if(u[0]in n)o=u[0];else{for(i in n){if(!u[0]||e.converters[i+" "+u[0]]){o=i;break}a||(a=i)}o=o||a}if(o)return o!==u[0]&&u.unshift(o),n[o]}function ie(e,t,n,r){var i,o,a,s,u,c={},l=e.dataTypes.slice();if(l[1])for(a in e.converters)c[a.toLowerCase()]=e.converters[a];for(o=l.shift();o;)if(e.responseFields[o]&&(n[e.responseFields[o]]=t),!u&&r&&e.dataFilter&&(t=e.dataFilter(t,e.dataType)),u=o,o=l.shift())if("*"===o)o=u;else if("*"!==u&&u!==o){if(a=c[u+" "+o]||c["* "+o],!a)for(i in c)if(s=i.split(" "),s[1]===o&&(a=c[u+" "+s[0]]||c["* "+s[0]])){a===!0?a=c[i]:c[i]!==!0&&(o=s[0],l.unshift(s[1]));break}if(a!==!0)if(a&&e.throws)t=a(t);else try{t=a(t)}catch(e){return{state:"parsererror",error:a?e:"No conversion from "+u+" to "+o}}}return{state:"success",data:t}}var oe=[],ae=n.document,se=Object.getPrototypeOf,ue=oe.slice,ce=oe.concat,le=oe.push,fe=oe.indexOf,pe={},de=pe.toString,he=pe.hasOwnProperty,ge=he.toString,ve=ge.call(Object),me={},ye="3.2.1",xe=function(e,t){return new xe.fn.init(e,t)},be=/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g,we=/^-ms-/,Te=/-([a-z])/g,Ce=function(e,t){return t.toUpperCase()};xe.fn=xe.prototype={jquery:ye,constructor:xe,length:0,toArray:function(){return ue.call(this)},get:function(e){return null==e?ue.call(this):e<0?this[e+this.length]:this[e]},pushStack:function(e){var t=xe.merge(this.constructor(),e);return t.prevObject=this,t},each:function(e){return xe.each(this,e)},map:function(e){return this.pushStack(xe.map(this,function(t,n){return e.call(t,n,t)}))},slice:function(){return this.pushStack(ue.apply(this,arguments))},first:function(){return this.eq(0)},last:function(){return this.eq(-1)},eq:function(e){var t=this.length,n=+e+(e<0?t:0);return this.pushStack(n>=0&&n<t?[this[n]]:[])},end:function(){return this.prevObject||this.constructor()},push:le,sort:oe.sort,splice:oe.splice},xe.extend=xe.fn.extend=function(){var e,t,n,r,i,o,a=arguments[0]||{},s=1,u=arguments.length,c=!1;for("boolean"==typeof a&&(c=a,a=arguments[s]||{},s++),"object"==typeof a||xe.isFunction(a)||(a={}),s===u&&(a=this,s--);s<u;s++)if(null!=(e=arguments[s]))for(t in e)n=a[t],r=e[t],a!==r&&(c&&r&&(xe.isPlainObject(r)||(i=Array.isArray(r)))?(i?(i=!1,o=n&&Array.isArray(n)?n:[]):o=n&&xe.isPlainObject(n)?n:{},a[t]=xe.extend(c,o,r)):void 0!==r&&(a[t]=r));return a},xe.extend({expando:"jQuery"+(ye+Math.random()).replace(/\D/g,""),isReady:!0,error:function(e){throw new Error(e)},noop:function(){},isFunction:function(e){return"function"===xe.type(e)},isWindow:function(e){return null!=e&&e===e.window},isNumeric:function(e){var t=xe.type(e);return("number"===t||"string"===t)&&!isNaN(e-parseFloat(e))},isPlainObject:function(e){var t,n;return!(!e||"[object Object]"!==de.call(e))&&(!(t=se(e))||(n=he.call(t,"constructor")&&t.constructor,"function"==typeof n&&ge.call(n)===ve))},isEmptyObject:function(e){var t;for(t in e)return!1;return!0},type:function(e){return null==e?e+"":"object"==typeof e||"function"==typeof e?pe[de.call(e)]||"object":typeof e},globalEval:function(e){a(e)},camelCase:function(e){return e.replace(we,"ms-").replace(Te,Ce)},each:function(e,t){var n,r=0;if(s(e))for(n=e.length;r<n&&t.call(e[r],r,e[r])!==!1;r++);else for(r in e)if(t.call(e[r],r,e[r])===!1)break;return e},trim:function(e){return null==e?"":(e+"").replace(be,"")},makeArray:function(e,t){var n=t||[];return null!=e&&(s(Object(e))?xe.merge(n,"string"==typeof e?[e]:e):le.call(n,e)),n},inArray:function(e,t,n){return null==t?-1:fe.call(t,e,n)},merge:function(e,t){for(var n=+t.length,r=0,i=e.length;r<n;r++)e[i++]=t[r];return e.length=i,e},grep:function(e,t,n){for(var r,i=[],o=0,a=e.length,s=!n;o<a;o++)r=!t(e[o],o),r!==s&&i.push(e[o]);return i},map:function(e,t,n){var r,i,o=0,a=[];if(s(e))for(r=e.length;o<r;o++)i=t(e[o],o,n),null!=i&&a.push(i);else for(o in e)i=t(e[o],o,n),null!=i&&a.push(i);return ce.apply([],a)},guid:1,proxy:function(e,t){var n,r,i;if("string"==typeof t&&(n=e[t],t=e,e=n),xe.isFunction(e))return r=ue.call(arguments,2),i=function(){return e.apply(t||this,r.concat(ue.call(arguments)))},i.guid=e.guid=e.guid||xe.guid++,i},now:Date.now,support:me}),"function"==typeof Symbol&&(xe.fn[Symbol.iterator]=oe[Symbol.iterator]),xe.each("Boolean Number String Function Array Date RegExp Object Error Symbol".split(" "),function(e,t){pe["[object "+t+"]"]=t.toLowerCase()});var ke=/*!
-	 * Sizzle CSS Selector Engine v2.3.3
-	 * https://sizzlejs.com/
-	 *
-	 * Copyright jQuery Foundation and other contributors
-	 * Released under the MIT license
-	 * http://jquery.org/license
-	 *
-	 * Date: 2016-08-08
-	 */
-function(e){function t(e,t,n,r){var i,o,a,s,u,c,l,p=t&&t.ownerDocument,h=t?t.nodeType:9;if(n=n||[],"string"!=typeof e||!e||1!==h&&9!==h&&11!==h)return n;if(!r&&((t?t.ownerDocument||t:W)!==O&&q(t),t=t||O,P)){if(11!==h&&(u=me.exec(e)))if(i=u[1]){if(9===h){if(!(a=t.getElementById(i)))return n;if(a.id===i)return n.push(a),n}else if(p&&(a=p.getElementById(i))&&R(t,a)&&a.id===i)return n.push(a),n}else{if(u[2])return K.apply(n,t.getElementsByTagName(e)),n;if((i=u[3])&&T.getElementsByClassName&&t.getElementsByClassName)return K.apply(n,t.getElementsByClassName(i)),n}if(T.qsa&&!U[e+" "]&&(!F||!F.test(e))){if(1!==h)p=t,l=e;else if("object"!==t.nodeName.toLowerCase()){for((s=t.getAttribute("id"))?s=s.replace(we,Te):t.setAttribute("id",s=B),c=E(e),o=c.length;o--;)c[o]="#"+s+" "+d(c[o]);l=c.join(","),p=ye.test(e)&&f(t.parentNode)||t}if(l)try{return K.apply(n,p.querySelectorAll(l)),n}catch(e){}finally{s===B&&t.removeAttribute("id")}}}return A(e.replace(se,"$1"),t,n,r)}function n(){function e(n,r){return t.push(n+" ")>C.cacheLength&&delete e[t.shift()],e[n+" "]=r}var t=[];return e}function r(e){return e[B]=!0,e}function i(e){var t=O.createElement("fieldset");try{return!!e(t)}catch(e){return!1}finally{t.parentNode&&t.parentNode.removeChild(t),t=null}}function o(e,t){for(var n=e.split("|"),r=n.length;r--;)C.attrHandle[n[r]]=t}function a(e,t){var n=t&&e,r=n&&1===e.nodeType&&1===t.nodeType&&e.sourceIndex-t.sourceIndex;if(r)return r;if(n)for(;n=n.nextSibling;)if(n===t)return-1;return e?1:-1}function s(e){return function(t){var n=t.nodeName.toLowerCase();return"input"===n&&t.type===e}}function u(e){return function(t){var n=t.nodeName.toLowerCase();return("input"===n||"button"===n)&&t.type===e}}function c(e){return function(t){return"form"in t?t.parentNode&&t.disabled===!1?"label"in t?"label"in t.parentNode?t.parentNode.disabled===e:t.disabled===e:t.isDisabled===e||t.isDisabled!==!e&&ke(t)===e:t.disabled===e:"label"in t&&t.disabled===e}}function l(e){return r(function(t){return t=+t,r(function(n,r){for(var i,o=e([],n.length,t),a=o.length;a--;)n[i=o[a]]&&(n[i]=!(r[i]=n[i]))})})}function f(e){return e&&"undefined"!=typeof e.getElementsByTagName&&e}function p(){}function d(e){for(var t=0,n=e.length,r="";t<n;t++)r+=e[t].value;return r}function h(e,t,n){var r=t.dir,i=t.next,o=i||r,a=n&&"parentNode"===o,s=_++;return t.first?function(t,n,i){for(;t=t[r];)if(1===t.nodeType||a)return e(t,n,i);return!1}:function(t,n,u){var c,l,f,p=[$,s];if(u){for(;t=t[r];)if((1===t.nodeType||a)&&e(t,n,u))return!0}else for(;t=t[r];)if(1===t.nodeType||a)if(f=t[B]||(t[B]={}),l=f[t.uniqueID]||(f[t.uniqueID]={}),i&&i===t.nodeName.toLowerCase())t=t[r]||t;else{if((c=l[o])&&c[0]===$&&c[1]===s)return p[2]=c[2];if(l[o]=p,p[2]=e(t,n,u))return!0}return!1}}function g(e){return e.length>1?function(t,n,r){for(var i=e.length;i--;)if(!e[i](t,n,r))return!1;return!0}:e[0]}function v(e,n,r){for(var i=0,o=n.length;i<o;i++)t(e,n[i],r);return r}function m(e,t,n,r,i){for(var o,a=[],s=0,u=e.length,c=null!=t;s<u;s++)(o=e[s])&&(n&&!n(o,r,i)||(a.push(o),c&&t.push(s)));return a}function y(e,t,n,i,o,a){return i&&!i[B]&&(i=y(i)),o&&!o[B]&&(o=y(o,a)),r(function(r,a,s,u){var c,l,f,p=[],d=[],h=a.length,g=r||v(t||"*",s.nodeType?[s]:s,[]),y=!e||!r&&t?g:m(g,p,e,s,u),x=n?o||(r?e:h||i)?[]:a:y;if(n&&n(y,x,s,u),i)for(c=m(x,d),i(c,[],s,u),l=c.length;l--;)(f=c[l])&&(x[d[l]]=!(y[d[l]]=f));if(r){if(o||e){if(o){for(c=[],l=x.length;l--;)(f=x[l])&&c.push(y[l]=f);o(null,x=[],c,u)}for(l=x.length;l--;)(f=x[l])&&(c=o?ee(r,f):p[l])>-1&&(r[c]=!(a[c]=f))}}else x=m(x===a?x.splice(h,x.length):x),o?o(null,a,x,u):K.apply(a,x)})}function x(e){for(var t,n,r,i=e.length,o=C.relative[e[0].type],a=o||C.relative[" "],s=o?1:0,u=h(function(e){return e===t},a,!0),c=h(function(e){return ee(t,e)>-1},a,!0),l=[function(e,n,r){var i=!o&&(r||n!==j)||((t=n).nodeType?u(e,n,r):c(e,n,r));return t=null,i}];s<i;s++)if(n=C.relative[e[s].type])l=[h(g(l),n)];else{if(n=C.filter[e[s].type].apply(null,e[s].matches),n[B]){for(r=++s;r<i&&!C.relative[e[r].type];r++);return y(s>1&&g(l),s>1&&d(e.slice(0,s-1).concat({value:" "===e[s-2].type?"*":""})).replace(se,"$1"),n,s<r&&x(e.slice(s,r)),r<i&&x(e=e.slice(r)),r<i&&d(e))}l.push(n)}return g(l)}function b(e,n){var i=n.length>0,o=e.length>0,a=function(r,a,s,u,c){var l,f,p,d=0,h="0",g=r&&[],v=[],y=j,x=r||o&&C.find.TAG("*",c),b=$+=null==y?1:Math.random()||.1,w=x.length;for(c&&(j=a===O||a||c);h!==w&&null!=(l=x[h]);h++){if(o&&l){for(f=0,a||l.ownerDocument===O||(q(l),s=!P);p=e[f++];)if(p(l,a||O,s)){u.push(l);break}c&&($=b)}i&&((l=!p&&l)&&d--,r&&g.push(l))}if(d+=h,i&&h!==d){for(f=0;p=n[f++];)p(g,v,a,s);if(r){if(d>0)for(;h--;)g[h]||v[h]||(v[h]=Y.call(u));v=m(v)}K.apply(u,v),c&&!r&&v.length>0&&d+n.length>1&&t.uniqueSort(u)}return c&&($=b,j=y),g};return i?r(a):a}var w,T,C,k,S,E,N,A,j,D,M,q,O,L,P,F,I,H,R,B="sizzle"+1*new Date,W=e.document,$=0,_=0,z=n(),V=n(),U=n(),X=function(e,t){return e===t&&(M=!0),0},Q={}.hasOwnProperty,G=[],Y=G.pop,J=G.push,K=G.push,Z=G.slice,ee=function(e,t){for(var n=0,r=e.length;n<r;n++)if(e[n]===t)return n;return-1},te="checked|selected|async|autofocus|autoplay|controls|defer|disabled|hidden|ismap|loop|multiple|open|readonly|required|scoped",ne="[\\x20\\t\\r\\n\\f]",re="(?:\\\\.|[\\w-]|[^\0-\\xa0])+",ie="\\["+ne+"*("+re+")(?:"+ne+"*([*^$|!~]?=)"+ne+"*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|("+re+"))|)"+ne+"*\\]",oe=":("+re+")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|"+ie+")*)|.*)\\)|)",ae=new RegExp(ne+"+","g"),se=new RegExp("^"+ne+"+|((?:^|[^\\\\])(?:\\\\.)*)"+ne+"+$","g"),ue=new RegExp("^"+ne+"*,"+ne+"*"),ce=new RegExp("^"+ne+"*([>+~]|"+ne+")"+ne+"*"),le=new RegExp("="+ne+"*([^\\]'\"]*?)"+ne+"*\\]","g"),fe=new RegExp(oe),pe=new RegExp("^"+re+"$"),de={ID:new RegExp("^#("+re+")"),CLASS:new RegExp("^\\.("+re+")"),TAG:new RegExp("^("+re+"|[*])"),ATTR:new RegExp("^"+ie),PSEUDO:new RegExp("^"+oe),CHILD:new RegExp("^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\("+ne+"*(even|odd|(([+-]|)(\\d*)n|)"+ne+"*(?:([+-]|)"+ne+"*(\\d+)|))"+ne+"*\\)|)","i"),bool:new RegExp("^(?:"+te+")$","i"),needsContext:new RegExp("^"+ne+"*[>+~]|:(even|odd|eq|gt|lt|nth|first|last)(?:\\("+ne+"*((?:-\\d)?\\d*)"+ne+"*\\)|)(?=[^-]|$)","i")},he=/^(?:input|select|textarea|button)$/i,ge=/^h\d$/i,ve=/^[^{]+\{\s*\[native \w/,me=/^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,ye=/[+~]/,xe=new RegExp("\\\\([\\da-f]{1,6}"+ne+"?|("+ne+")|.)","ig"),be=function(e,t,n){var r="0x"+t-65536;return r!==r||n?t:r<0?String.fromCharCode(r+65536):String.fromCharCode(r>>10|55296,1023&r|56320)},we=/([\0-\x1f\x7f]|^-?\d)|^-$|[^\0-\x1f\x7f-\uFFFF\w-]/g,Te=function(e,t){return t?"\0"===e?"�":e.slice(0,-1)+"\\"+e.charCodeAt(e.length-1).toString(16)+" ":"\\"+e},Ce=function(){q()},ke=h(function(e){return e.disabled===!0&&("form"in e||"label"in e)},{dir:"parentNode",next:"legend"});try{K.apply(G=Z.call(W.childNodes),W.childNodes),G[W.childNodes.length].nodeType}catch(e){K={apply:G.length?function(e,t){J.apply(e,Z.call(t))}:function(e,t){for(var n=e.length,r=0;e[n++]=t[r++];);e.length=n-1}}}T=t.support={},S=t.isXML=function(e){var t=e&&(e.ownerDocument||e).documentElement;return!!t&&"HTML"!==t.nodeName},q=t.setDocument=function(e){var t,n,r=e?e.ownerDocument||e:W;return r!==O&&9===r.nodeType&&r.documentElement?(O=r,L=O.documentElement,P=!S(O),W!==O&&(n=O.defaultView)&&n.top!==n&&(n.addEventListener?n.addEventListener("unload",Ce,!1):n.attachEvent&&n.attachEvent("onunload",Ce)),T.attributes=i(function(e){return e.className="i",!e.getAttribute("className")}),T.getElementsByTagName=i(function(e){return e.appendChild(O.createComment("")),!e.getElementsByTagName("*").length}),T.getElementsByClassName=ve.test(O.getElementsByClassName),T.getById=i(function(e){return L.appendChild(e).id=B,!O.getElementsByName||!O.getElementsByName(B).length}),T.getById?(C.filter.ID=function(e){var t=e.replace(xe,be);return function(e){return e.getAttribute("id")===t}},C.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&P){var n=t.getElementById(e);return n?[n]:[]}}):(C.filter.ID=function(e){var t=e.replace(xe,be);return function(e){var n="undefined"!=typeof e.getAttributeNode&&e.getAttributeNode("id");return n&&n.value===t}},C.find.ID=function(e,t){if("undefined"!=typeof t.getElementById&&P){var n,r,i,o=t.getElementById(e);if(o){if(n=o.getAttributeNode("id"),n&&n.value===e)return[o];for(i=t.getElementsByName(e),r=0;o=i[r++];)if(n=o.getAttributeNode("id"),n&&n.value===e)return[o]}return[]}}),C.find.TAG=T.getElementsByTagName?function(e,t){return"undefined"!=typeof t.getElementsByTagName?t.getElementsByTagName(e):T.qsa?t.querySelectorAll(e):void 0}:function(e,t){var n,r=[],i=0,o=t.getElementsByTagName(e);if("*"===e){for(;n=o[i++];)1===n.nodeType&&r.push(n);return r}return o},C.find.CLASS=T.getElementsByClassName&&function(e,t){if("undefined"!=typeof t.getElementsByClassName&&P)return t.getElementsByClassName(e)},I=[],F=[],(T.qsa=ve.test(O.querySelectorAll))&&(i(function(e){L.appendChild(e).innerHTML="<a id='"+B+"'></a><select id='"+B+"-\r\\' msallowcapture=''><option selected=''></option></select>",e.querySelectorAll("[msallowcapture^='']").length&&F.push("[*^$]="+ne+"*(?:''|\"\")"),e.querySelectorAll("[selected]").length||F.push("\\["+ne+"*(?:value|"+te+")"),e.querySelectorAll("[id~="+B+"-]").length||F.push("~="),e.querySelectorAll(":checked").length||F.push(":checked"),e.querySelectorAll("a#"+B+"+*").length||F.push(".#.+[+~]")}),i(function(e){e.innerHTML="<a href='' disabled='disabled'></a><select disabled='disabled'><option/></select>";var t=O.createElement("input");t.setAttribute("type","hidden"),e.appendChild(t).setAttribute("name","D"),e.querySelectorAll("[name=d]").length&&F.push("name"+ne+"*[*^$|!~]?="),2!==e.querySelectorAll(":enabled").length&&F.push(":enabled",":disabled"),L.appendChild(e).disabled=!0,2!==e.querySelectorAll(":disabled").length&&F.push(":enabled",":disabled"),e.querySelectorAll("*,:x"),F.push(",.*:")})),(T.matchesSelector=ve.test(H=L.matches||L.webkitMatchesSelector||L.mozMatchesSelector||L.oMatchesSelector||L.msMatchesSelector))&&i(function(e){T.disconnectedMatch=H.call(e,"*"),H.call(e,"[s!='']:x"),I.push("!=",oe)}),F=F.length&&new RegExp(F.join("|")),I=I.length&&new RegExp(I.join("|")),t=ve.test(L.compareDocumentPosition),R=t||ve.test(L.contains)?function(e,t){var n=9===e.nodeType?e.documentElement:e,r=t&&t.parentNode;return e===r||!(!r||1!==r.nodeType||!(n.contains?n.contains(r):e.compareDocumentPosition&&16&e.compareDocumentPosition(r)))}:function(e,t){if(t)for(;t=t.parentNode;)if(t===e)return!0;return!1},X=t?function(e,t){if(e===t)return M=!0,0;var n=!e.compareDocumentPosition-!t.compareDocumentPosition;return n?n:(n=(e.ownerDocument||e)===(t.ownerDocument||t)?e.compareDocumentPosition(t):1,1&n||!T.sortDetached&&t.compareDocumentPosition(e)===n?e===O||e.ownerDocument===W&&R(W,e)?-1:t===O||t.ownerDocument===W&&R(W,t)?1:D?ee(D,e)-ee(D,t):0:4&n?-1:1)}:function(e,t){if(e===t)return M=!0,0;var n,r=0,i=e.parentNode,o=t.parentNode,s=[e],u=[t];if(!i||!o)return e===O?-1:t===O?1:i?-1:o?1:D?ee(D,e)-ee(D,t):0;if(i===o)return a(e,t);for(n=e;n=n.parentNode;)s.unshift(n);for(n=t;n=n.parentNode;)u.unshift(n);for(;s[r]===u[r];)r++;return r?a(s[r],u[r]):s[r]===W?-1:u[r]===W?1:0},O):O},t.matches=function(e,n){return t(e,null,null,n)},t.matchesSelector=function(e,n){if((e.ownerDocument||e)!==O&&q(e),n=n.replace(le,"='$1']"),T.matchesSelector&&P&&!U[n+" "]&&(!I||!I.test(n))&&(!F||!F.test(n)))try{var r=H.call(e,n);if(r||T.disconnectedMatch||e.document&&11!==e.document.nodeType)return r}catch(e){}return t(n,O,null,[e]).length>0},t.contains=function(e,t){return(e.ownerDocument||e)!==O&&q(e),R(e,t)},t.attr=function(e,t){(e.ownerDocument||e)!==O&&q(e);var n=C.attrHandle[t.toLowerCase()],r=n&&Q.call(C.attrHandle,t.toLowerCase())?n(e,t,!P):void 0;return void 0!==r?r:T.attributes||!P?e.getAttribute(t):(r=e.getAttributeNode(t))&&r.specified?r.value:null},t.escape=function(e){return(e+"").replace(we,Te)},t.error=function(e){throw new Error("Syntax error, unrecognized expression: "+e)},t.uniqueSort=function(e){var t,n=[],r=0,i=0;if(M=!T.detectDuplicates,D=!T.sortStable&&e.slice(0),e.sort(X),M){for(;t=e[i++];)t===e[i]&&(r=n.push(i));for(;r--;)e.splice(n[r],1)}return D=null,e},k=t.getText=function(e){var t,n="",r=0,i=e.nodeType;if(i){if(1===i||9===i||11===i){if("string"==typeof e.textContent)return e.textContent;for(e=e.firstChild;e;e=e.nextSibling)n+=k(e)}else if(3===i||4===i)return e.nodeValue}else for(;t=e[r++];)n+=k(t);return n},C=t.selectors={cacheLength:50,createPseudo:r,match:de,attrHandle:{},find:{},relative:{">":{dir:"parentNode",first:!0}," ":{dir:"parentNode"},"+":{dir:"previousSibling",first:!0},"~":{dir:"previousSibling"}},preFilter:{ATTR:function(e){return e[1]=e[1].replace(xe,be),e[3]=(e[3]||e[4]||e[5]||"").replace(xe,be),"~="===e[2]&&(e[3]=" "+e[3]+" "),e.slice(0,4)},CHILD:function(e){return e[1]=e[1].toLowerCase(),"nth"===e[1].slice(0,3)?(e[3]||t.error(e[0]),e[4]=+(e[4]?e[5]+(e[6]||1):2*("even"===e[3]||"odd"===e[3])),e[5]=+(e[7]+e[8]||"odd"===e[3])):e[3]&&t.error(e[0]),e},PSEUDO:function(e){var t,n=!e[6]&&e[2];return de.CHILD.test(e[0])?null:(e[3]?e[2]=e[4]||e[5]||"":n&&fe.test(n)&&(t=E(n,!0))&&(t=n.indexOf(")",n.length-t)-n.length)&&(e[0]=e[0].slice(0,t),e[2]=n.slice(0,t)),e.slice(0,3))}},filter:{TAG:function(e){var t=e.replace(xe,be).toLowerCase();return"*"===e?function(){return!0}:function(e){return e.nodeName&&e.nodeName.toLowerCase()===t}},CLASS:function(e){var t=z[e+" "];return t||(t=new RegExp("(^|"+ne+")"+e+"("+ne+"|$)"))&&z(e,function(e){return t.test("string"==typeof e.className&&e.className||"undefined"!=typeof e.getAttribute&&e.getAttribute("class")||"")})},ATTR:function(e,n,r){return function(i){var o=t.attr(i,e);return null==o?"!="===n:!n||(o+="","="===n?o===r:"!="===n?o!==r:"^="===n?r&&0===o.indexOf(r):"*="===n?r&&o.indexOf(r)>-1:"$="===n?r&&o.slice(-r.length)===r:"~="===n?(" "+o.replace(ae," ")+" ").indexOf(r)>-1:"|="===n&&(o===r||o.slice(0,r.length+1)===r+"-"))}},CHILD:function(e,t,n,r,i){var o="nth"!==e.slice(0,3),a="last"!==e.slice(-4),s="of-type"===t;return 1===r&&0===i?function(e){return!!e.parentNode}:function(t,n,u){var c,l,f,p,d,h,g=o!==a?"nextSibling":"previousSibling",v=t.parentNode,m=s&&t.nodeName.toLowerCase(),y=!u&&!s,x=!1;if(v){if(o){for(;g;){for(p=t;p=p[g];)if(s?p.nodeName.toLowerCase()===m:1===p.nodeType)return!1;h=g="only"===e&&!h&&"nextSibling"}return!0}if(h=[a?v.firstChild:v.lastChild],a&&y){for(p=v,f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),c=l[e]||[],d=c[0]===$&&c[1],x=d&&c[2],p=d&&v.childNodes[d];p=++d&&p&&p[g]||(x=d=0)||h.pop();)if(1===p.nodeType&&++x&&p===t){l[e]=[$,d,x];break}}else if(y&&(p=t,f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),c=l[e]||[],d=c[0]===$&&c[1],x=d),x===!1)for(;(p=++d&&p&&p[g]||(x=d=0)||h.pop())&&((s?p.nodeName.toLowerCase()!==m:1!==p.nodeType)||!++x||(y&&(f=p[B]||(p[B]={}),l=f[p.uniqueID]||(f[p.uniqueID]={}),l[e]=[$,x]),p!==t)););return x-=i,x===r||x%r===0&&x/r>=0}}},PSEUDO:function(e,n){var i,o=C.pseudos[e]||C.setFilters[e.toLowerCase()]||t.error("unsupported pseudo: "+e);return o[B]?o(n):o.length>1?(i=[e,e,"",n],C.setFilters.hasOwnProperty(e.toLowerCase())?r(function(e,t){for(var r,i=o(e,n),a=i.length;a--;)r=ee(e,i[a]),e[r]=!(t[r]=i[a])}):function(e){return o(e,0,i)}):o}},pseudos:{not:r(function(e){var t=[],n=[],i=N(e.replace(se,"$1"));return i[B]?r(function(e,t,n,r){for(var o,a=i(e,null,r,[]),s=e.length;s--;)(o=a[s])&&(e[s]=!(t[s]=o))}):function(e,r,o){return t[0]=e,i(t,null,o,n),t[0]=null,!n.pop()}}),has:r(function(e){return function(n){return t(e,n).length>0}}),contains:r(function(e){return e=e.replace(xe,be),function(t){return(t.textContent||t.innerText||k(t)).indexOf(e)>-1}}),lang:r(function(e){return pe.test(e||"")||t.error("unsupported lang: "+e),e=e.replace(xe,be).toLowerCase(),function(t){var n;do if(n=P?t.lang:t.getAttribute("xml:lang")||t.getAttribute("lang"))return n=n.toLowerCase(),n===e||0===n.indexOf(e+"-");while((t=t.parentNode)&&1===t.nodeType);return!1}}),target:function(t){var n=e.location&&e.location.hash;return n&&n.slice(1)===t.id},root:function(e){return e===L},focus:function(e){return e===O.activeElement&&(!O.hasFocus||O.hasFocus())&&!!(e.type||e.href||~e.tabIndex)},enabled:c(!1),disabled:c(!0),checked:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&!!e.checked||"option"===t&&!!e.selected},selected:function(e){return e.parentNode&&e.parentNode.selectedIndex,e.selected===!0},empty:function(e){for(e=e.firstChild;e;e=e.nextSibling)if(e.nodeType<6)return!1;return!0},parent:function(e){return!C.pseudos.empty(e)},header:function(e){return ge.test(e.nodeName)},input:function(e){return he.test(e.nodeName)},button:function(e){var t=e.nodeName.toLowerCase();return"input"===t&&"button"===e.type||"button"===t},text:function(e){var t;return"input"===e.nodeName.toLowerCase()&&"text"===e.type&&(null==(t=e.getAttribute("type"))||"text"===t.toLowerCase())},first:l(function(){return[0]}),last:l(function(e,t){return[t-1]}),eq:l(function(e,t,n){return[n<0?n+t:n]}),even:l(function(e,t){for(var n=0;n<t;n+=2)e.push(n);return e}),odd:l(function(e,t){for(var n=1;n<t;n+=2)e.push(n);return e}),lt:l(function(e,t,n){for(var r=n<0?n+t:n;--r>=0;)e.push(r);return e}),gt:l(function(e,t,n){for(var r=n<0?n+t:n;++r<t;)e.push(r);return e})}},C.pseudos.nth=C.pseudos.eq;for(w in{radio:!0,checkbox:!0,file:!0,password:!0,image:!0})C.pseudos[w]=s(w);for(w in{submit:!0,reset:!0})C.pseudos[w]=u(w);return p.prototype=C.filters=C.pseudos,C.setFilters=new p,E=t.tokenize=function(e,n){var r,i,o,a,s,u,c,l=V[e+" "];if(l)return n?0:l.slice(0);for(s=e,u=[],c=C.preFilter;s;){r&&!(i=ue.exec(s))||(i&&(s=s.slice(i[0].length)||s),u.push(o=[])),r=!1,(i=ce.exec(s))&&(r=i.shift(),o.push({value:r,type:i[0].replace(se," ")}),s=s.slice(r.length));for(a in C.filter)!(i=de[a].exec(s))||c[a]&&!(i=c[a](i))||(r=i.shift(),o.push({value:r,type:a,matches:i}),s=s.slice(r.length));if(!r)break}return n?s.length:s?t.error(e):V(e,u).slice(0)},N=t.compile=function(e,t){var n,r=[],i=[],o=U[e+" "];if(!o){for(t||(t=E(e)),n=t.length;n--;)o=x(t[n]),o[B]?r.push(o):i.push(o);o=U(e,b(i,r)),o.selector=e}return o},A=t.select=function(e,t,n,r){var i,o,a,s,u,c="function"==typeof e&&e,l=!r&&E(e=c.selector||e);if(n=n||[],1===l.length){if(o=l[0]=l[0].slice(0),o.length>2&&"ID"===(a=o[0]).type&&9===t.nodeType&&P&&C.relative[o[1].type]){if(t=(C.find.ID(a.matches[0].replace(xe,be),t)||[])[0],!t)return n;c&&(t=t.parentNode),e=e.slice(o.shift().value.length)}for(i=de.needsContext.test(e)?0:o.length;i--&&(a=o[i],!C.relative[s=a.type]);)if((u=C.find[s])&&(r=u(a.matches[0].replace(xe,be),ye.test(o[0].type)&&f(t.parentNode)||t))){if(o.splice(i,1),e=r.length&&d(o),!e)return K.apply(n,r),n;break}}return(c||N(e,l))(r,t,!P,n,!t||ye.test(e)&&f(t.parentNode)||t),n},T.sortStable=B.split("").sort(X).join("")===B,T.detectDuplicates=!!M,q(),T.sortDetached=i(function(e){return 1&e.compareDocumentPosition(O.createElement("fieldset"))}),i(function(e){return e.innerHTML="<a href='#'></a>","#"===e.firstChild.getAttribute("href")})||o("type|href|height|width",function(e,t,n){if(!n)return e.getAttribute(t,"type"===t.toLowerCase()?1:2)}),T.attributes&&i(function(e){return e.innerHTML="<input/>",e.firstChild.setAttribute("value",""),""===e.firstChild.getAttribute("value")})||o("value",function(e,t,n){if(!n&&"input"===e.nodeName.toLowerCase())return e.defaultValue}),i(function(e){return null==e.getAttribute("disabled")})||o(te,function(e,t,n){var r;if(!n)return e[t]===!0?t.toLowerCase():(r=e.getAttributeNode(t))&&r.specified?r.value:null}),t}(n);xe.find=ke,xe.expr=ke.selectors,xe.expr[":"]=xe.expr.pseudos,xe.uniqueSort=xe.unique=ke.uniqueSort,xe.text=ke.getText,xe.isXMLDoc=ke.isXML,xe.contains=ke.contains,xe.escapeSelector=ke.escape;var Se=function(e,t,n){for(var r=[],i=void 0!==n;(e=e[t])&&9!==e.nodeType;)if(1===e.nodeType){if(i&&xe(e).is(n))break;r.push(e)}return r},Ee=function(e,t){for(var n=[];e;e=e.nextSibling)1===e.nodeType&&e!==t&&n.push(e);return n},Ne=xe.expr.match.needsContext,Ae=/^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i,je=/^.[^:#\[\.,]*$/;xe.filter=function(e,t,n){var r=t[0];return n&&(e=":not("+e+")"),1===t.length&&1===r.nodeType?xe.find.matchesSelector(r,e)?[r]:[]:xe.find.matches(e,xe.grep(t,function(e){return 1===e.nodeType}))},xe.fn.extend({find:function(e){var t,n,r=this.length,i=this;if("string"!=typeof e)return this.pushStack(xe(e).filter(function(){for(t=0;t<r;t++)if(xe.contains(i[t],this))return!0}));for(n=this.pushStack([]),t=0;t<r;t++)xe.find(e,i[t],n);return r>1?xe.uniqueSort(n):n},filter:function(e){return this.pushStack(c(this,e||[],!1))},not:function(e){return this.pushStack(c(this,e||[],!0))},is:function(e){return!!c(this,"string"==typeof e&&Ne.test(e)?xe(e):e||[],!1).length}});var De,Me=/^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/,qe=xe.fn.init=function(e,t,n){var r,i;if(!e)return this;if(n=n||De,"string"==typeof e){if(r="<"===e[0]&&">"===e[e.length-1]&&e.length>=3?[null,e,null]:Me.exec(e),!r||!r[1]&&t)return!t||t.jquery?(t||n).find(e):this.constructor(t).find(e);if(r[1]){if(t=t instanceof xe?t[0]:t,xe.merge(this,xe.parseHTML(r[1],t&&t.nodeType?t.ownerDocument||t:ae,!0)),Ae.test(r[1])&&xe.isPlainObject(t))for(r in t)xe.isFunction(this[r])?this[r](t[r]):this.attr(r,t[r]);return this}return i=ae.getElementById(r[2]),i&&(this[0]=i,this.length=1),this}return e.nodeType?(this[0]=e,this.length=1,this):xe.isFunction(e)?void 0!==n.ready?n.ready(e):e(xe):xe.makeArray(e,this)};qe.prototype=xe.fn,De=xe(ae);var Oe=/^(?:parents|prev(?:Until|All))/,Le={children:!0,contents:!0,next:!0,prev:!0};xe.fn.extend({has:function(e){var t=xe(e,this),n=t.length;return this.filter(function(){for(var e=0;e<n;e++)if(xe.contains(this,t[e]))return!0})},closest:function(e,t){var n,r=0,i=this.length,o=[],a="string"!=typeof e&&xe(e);if(!Ne.test(e))for(;r<i;r++)for(n=this[r];n&&n!==t;n=n.parentNode)if(n.nodeType<11&&(a?a.index(n)>-1:1===n.nodeType&&xe.find.matchesSelector(n,e))){o.push(n);break}return this.pushStack(o.length>1?xe.uniqueSort(o):o)},index:function(e){return e?"string"==typeof e?fe.call(xe(e),this[0]):fe.call(this,e.jquery?e[0]:e):this[0]&&this[0].parentNode?this.first().prevAll().length:-1},add:function(e,t){return this.pushStack(xe.uniqueSort(xe.merge(this.get(),xe(e,t))))},addBack:function(e){return this.add(null==e?this.prevObject:this.prevObject.filter(e))}}),xe.each({parent:function(e){var t=e.parentNode;return t&&11!==t.nodeType?t:null},parents:function(e){return Se(e,"parentNode")},parentsUntil:function(e,t,n){return Se(e,"parentNode",n)},next:function(e){return l(e,"nextSibling")},prev:function(e){return l(e,"previousSibling")},nextAll:function(e){return Se(e,"nextSibling")},prevAll:function(e){return Se(e,"previousSibling")},nextUntil:function(e,t,n){return Se(e,"nextSibling",n)},prevUntil:function(e,t,n){return Se(e,"previousSibling",n)},siblings:function(e){return Ee((e.parentNode||{}).firstChild,e)},children:function(e){return Ee(e.firstChild)},contents:function(e){return u(e,"iframe")?e.contentDocument:(u(e,"template")&&(e=e.content||e),xe.merge([],e.childNodes))}},function(e,t){xe.fn[e]=function(n,r){var i=xe.map(this,t,n);return"Until"!==e.slice(-5)&&(r=n),r&&"string"==typeof r&&(i=xe.filter(r,i)),this.length>1&&(Le[e]||xe.uniqueSort(i),Oe.test(e)&&i.reverse()),this.pushStack(i)}});var Pe=/[^\x20\t\r\n\f]+/g;xe.Callbacks=function(e){e="string"==typeof e?f(e):xe.extend({},e);var t,n,r,i,o=[],a=[],s=-1,u=function(){for(i=i||e.once,r=t=!0;a.length;s=-1)for(n=a.shift();++s<o.length;)o[s].apply(n[0],n[1])===!1&&e.stopOnFalse&&(s=o.length,n=!1);e.memory||(n=!1),t=!1,i&&(o=n?[]:"")},c={add:function(){return o&&(n&&!t&&(s=o.length-1,a.push(n)),function t(n){xe.each(n,function(n,r){xe.isFunction(r)?e.unique&&c.has(r)||o.push(r):r&&r.length&&"string"!==xe.type(r)&&t(r)})}(arguments),n&&!t&&u()),this},remove:function(){return xe.each(arguments,function(e,t){for(var n;(n=xe.inArray(t,o,n))>-1;)o.splice(n,1),n<=s&&s--}),this},has:function(e){return e?xe.inArray(e,o)>-1:o.length>0},empty:function(){return o&&(o=[]),this},disable:function(){return i=a=[],o=n="",this},disabled:function(){return!o},lock:function(){return i=a=[],n||t||(o=n=""),this},locked:function(){return!!i},fireWith:function(e,n){return i||(n=n||[],n=[e,n.slice?n.slice():n],a.push(n),t||u()),this},fire:function(){return c.fireWith(this,arguments),this},fired:function(){return!!r}};return c},xe.extend({Deferred:function(e){var t=[["notify","progress",xe.Callbacks("memory"),xe.Callbacks("memory"),2],["resolve","done",xe.Callbacks("once memory"),xe.Callbacks("once memory"),0,"resolved"],["reject","fail",xe.Callbacks("once memory"),xe.Callbacks("once memory"),1,"rejected"]],r="pending",i={state:function(){return r},always:function(){return o.done(arguments).fail(arguments),this},catch:function(e){return i.then(null,e)},pipe:function(){var e=arguments;return xe.Deferred(function(n){xe.each(t,function(t,r){var i=xe.isFunction(e[r[4]])&&e[r[4]];o[r[1]](function(){var e=i&&i.apply(this,arguments);e&&xe.isFunction(e.promise)?e.promise().progress(n.notify).done(n.resolve).fail(n.reject):n[r[0]+"With"](this,i?[e]:arguments)})}),e=null}).promise()},then:function(e,r,i){function o(e,t,r,i){return function(){var s=this,u=arguments,c=function(){var n,c;if(!(e<a)){if(n=r.apply(s,u),n===t.promise())throw new TypeError("Thenable self-resolution");c=n&&("object"==typeof n||"function"==typeof n)&&n.then,xe.isFunction(c)?i?c.call(n,o(a,t,p,i),o(a,t,d,i)):(a++,c.call(n,o(a,t,p,i),o(a,t,d,i),o(a,t,p,t.notifyWith))):(r!==p&&(s=void 0,u=[n]),(i||t.resolveWith)(s,u))}},l=i?c:function(){try{c()}catch(n){xe.Deferred.exceptionHook&&xe.Deferred.exceptionHook(n,l.stackTrace),e+1>=a&&(r!==d&&(s=void 0,u=[n]),t.rejectWith(s,u))}};e?l():(xe.Deferred.getStackHook&&(l.stackTrace=xe.Deferred.getStackHook()),n.setTimeout(l))}}var a=0;return xe.Deferred(function(n){t[0][3].add(o(0,n,xe.isFunction(i)?i:p,n.notifyWith)),t[1][3].add(o(0,n,xe.isFunction(e)?e:p)),t[2][3].add(o(0,n,xe.isFunction(r)?r:d))}).promise()},promise:function(e){return null!=e?xe.extend(e,i):i}},o={};return xe.each(t,function(e,n){var a=n[2],s=n[5];i[n[1]]=a.add,s&&a.add(function(){r=s},t[3-e][2].disable,t[0][2].lock),a.add(n[3].fire),o[n[0]]=function(){return o[n[0]+"With"](this===o?void 0:this,arguments),this},o[n[0]+"With"]=a.fireWith}),i.promise(o),e&&e.call(o,o),o},when:function(e){var t=arguments.length,n=t,r=Array(n),i=ue.call(arguments),o=xe.Deferred(),a=function(e){return function(n){r[e]=this,i[e]=arguments.length>1?ue.call(arguments):n,--t||o.resolveWith(r,i)}};if(t<=1&&(h(e,o.done(a(n)).resolve,o.reject,!t),"pending"===o.state()||xe.isFunction(i[n]&&i[n].then)))return o.then();for(;n--;)h(i[n],a(n),o.reject);return o.promise()}});var Fe=/^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;xe.Deferred.exceptionHook=function(e,t){n.console&&n.console.warn&&e&&Fe.test(e.name)&&n.console.warn("jQuery.Deferred exception: "+e.message,e.stack,t)},xe.readyException=function(e){n.setTimeout(function(){throw e})};var Ie=xe.Deferred();xe.fn.ready=function(e){return Ie.then(e).catch(function(e){xe.readyException(e)}),this},xe.extend({isReady:!1,readyWait:1,ready:function(e){(e===!0?--xe.readyWait:xe.isReady)||(xe.isReady=!0,e!==!0&&--xe.readyWait>0||Ie.resolveWith(ae,[xe]))}}),xe.ready.then=Ie.then,"complete"===ae.readyState||"loading"!==ae.readyState&&!ae.documentElement.doScroll?n.setTimeout(xe.ready):(ae.addEventListener("DOMContentLoaded",g),n.addEventListener("load",g));var He=function(e,t,n,r,i,o,a){var s=0,u=e.length,c=null==n;if("object"===xe.type(n)){i=!0;for(s in n)He(e,t,s,n[s],!0,o,a)}else if(void 0!==r&&(i=!0,xe.isFunction(r)||(a=!0),c&&(a?(t.call(e,r),t=null):(c=t,t=function(e,t,n){return c.call(xe(e),n)})),t))for(;s<u;s++)t(e[s],n,a?r:r.call(e[s],s,t(e[s],n)));return i?e:c?t.call(e):u?t(e[0],n):o},Re=function(e){return 1===e.nodeType||9===e.nodeType||!+e.nodeType};v.uid=1,v.prototype={cache:function(e){var t=e[this.expando];return t||(t={},Re(e)&&(e.nodeType?e[this.expando]=t:Object.defineProperty(e,this.expando,{value:t,configurable:!0}))),t},set:function(e,t,n){var r,i=this.cache(e);if("string"==typeof t)i[xe.camelCase(t)]=n;else for(r in t)i[xe.camelCase(r)]=t[r];return i},get:function(e,t){return void 0===t?this.cache(e):e[this.expando]&&e[this.expando][xe.camelCase(t)]},access:function(e,t,n){return void 0===t||t&&"string"==typeof t&&void 0===n?this.get(e,t):(this.set(e,t,n),void 0!==n?n:t)},remove:function(e,t){var n,r=e[this.expando];if(void 0!==r){if(void 0!==t){Array.isArray(t)?t=t.map(xe.camelCase):(t=xe.camelCase(t),t=t in r?[t]:t.match(Pe)||[]),n=t.length;for(;n--;)delete r[t[n]]}(void 0===t||xe.isEmptyObject(r))&&(e.nodeType?e[this.expando]=void 0:delete e[this.expando])}},hasData:function(e){var t=e[this.expando];return void 0!==t&&!xe.isEmptyObject(t)}};var Be=new v,We=new v,$e=/^(?:\{[\w\W]*\}|\[[\w\W]*\])$/,_e=/[A-Z]/g;xe.extend({hasData:function(e){return We.hasData(e)||Be.hasData(e)},data:function(e,t,n){return We.access(e,t,n)},removeData:function(e,t){We.remove(e,t)},_data:function(e,t,n){return Be.access(e,t,n)},_removeData:function(e,t){Be.remove(e,t)}}),xe.fn.extend({data:function(e,t){var n,r,i,o=this[0],a=o&&o.attributes;if(void 0===e){if(this.length&&(i=We.get(o),1===o.nodeType&&!Be.get(o,"hasDataAttrs"))){for(n=a.length;n--;)a[n]&&(r=a[n].name,0===r.indexOf("data-")&&(r=xe.camelCase(r.slice(5)),y(o,r,i[r])));Be.set(o,"hasDataAttrs",!0)}return i}return"object"==typeof e?this.each(function(){We.set(this,e)}):He(this,function(t){var n;if(o&&void 0===t){if(n=We.get(o,e),void 0!==n)return n;if(n=y(o,e),void 0!==n)return n}else this.each(function(){We.set(this,e,t)})},null,t,arguments.length>1,null,!0)},removeData:function(e){return this.each(function(){We.remove(this,e)})}}),xe.extend({queue:function(e,t,n){var r;if(e)return t=(t||"fx")+"queue",r=Be.get(e,t),n&&(!r||Array.isArray(n)?r=Be.access(e,t,xe.makeArray(n)):r.push(n)),r||[]},dequeue:function(e,t){t=t||"fx";var n=xe.queue(e,t),r=n.length,i=n.shift(),o=xe._queueHooks(e,t),a=function(){xe.dequeue(e,t)};"inprogress"===i&&(i=n.shift(),r--),i&&("fx"===t&&n.unshift("inprogress"),delete o.stop,i.call(e,a,o)),!r&&o&&o.empty.fire()},_queueHooks:function(e,t){var n=t+"queueHooks";return Be.get(e,n)||Be.access(e,n,{empty:xe.Callbacks("once memory").add(function(){Be.remove(e,[t+"queue",n])})})}}),xe.fn.extend({queue:function(e,t){var n=2;return"string"!=typeof e&&(t=e,e="fx",n--),arguments.length<n?xe.queue(this[0],e):void 0===t?this:this.each(function(){var n=xe.queue(this,e,t);xe._queueHooks(this,e),"fx"===e&&"inprogress"!==n[0]&&xe.dequeue(this,e)})},dequeue:function(e){return this.each(function(){xe.dequeue(this,e)})},clearQueue:function(e){return this.queue(e||"fx",[])},promise:function(e,t){var n,r=1,i=xe.Deferred(),o=this,a=this.length,s=function(){--r||i.resolveWith(o,[o])};for("string"!=typeof e&&(t=e,e=void 0),e=e||"fx";a--;)n=Be.get(o[a],e+"queueHooks"),n&&n.empty&&(r++,n.empty.add(s));return s(),i.promise(t)}});var ze=/[+-]?(?:\d*\.|)\d+(?:[eE][+-]?\d+|)/.source,Ve=new RegExp("^(?:([+-])=|)("+ze+")([a-z%]*)$","i"),Ue=["Top","Right","Bottom","Left"],Xe=function(e,t){return e=t||e,"none"===e.style.display||""===e.style.display&&xe.contains(e.ownerDocument,e)&&"none"===xe.css(e,"display")},Qe=function(e,t,n,r){var i,o,a={};for(o in t)a[o]=e.style[o],e.style[o]=t[o];i=n.apply(e,r||[]);for(o in t)e.style[o]=a[o];return i},Ge={};xe.fn.extend({show:function(){return w(this,!0)},hide:function(){return w(this)},toggle:function(e){return"boolean"==typeof e?e?this.show():this.hide():this.each(function(){Xe(this)?xe(this).show():xe(this).hide()})}});var Ye=/^(?:checkbox|radio)$/i,Je=/<([a-z][^\/\0>\x20\t\r\n\f]+)/i,Ke=/^$|\/(?:java|ecma)script/i,Ze={option:[1,"<select multiple='multiple'>","</select>"],thead:[1,"<table>","</table>"],col:[2,"<table><colgroup>","</colgroup></table>"],tr:[2,"<table><tbody>","</tbody></table>"],td:[3,"<table><tbody><tr>","</tr></tbody></table>"],_default:[0,"",""]};Ze.optgroup=Ze.option,Ze.tbody=Ze.tfoot=Ze.colgroup=Ze.caption=Ze.thead,
-Ze.th=Ze.td;var et=/<|&#?\w+;/;!function(){var e=ae.createDocumentFragment(),t=e.appendChild(ae.createElement("div")),n=ae.createElement("input");n.setAttribute("type","radio"),n.setAttribute("checked","checked"),n.setAttribute("name","t"),t.appendChild(n),me.checkClone=t.cloneNode(!0).cloneNode(!0).lastChild.checked,t.innerHTML="<textarea>x</textarea>",me.noCloneChecked=!!t.cloneNode(!0).lastChild.defaultValue}();var tt=ae.documentElement,nt=/^key/,rt=/^(?:mouse|pointer|contextmenu|drag|drop)|click/,it=/^([^.]*)(?:\.(.+)|)/;xe.event={global:{},add:function(e,t,n,r,i){var o,a,s,u,c,l,f,p,d,h,g,v=Be.get(e);if(v)for(n.handler&&(o=n,n=o.handler,i=o.selector),i&&xe.find.matchesSelector(tt,i),n.guid||(n.guid=xe.guid++),(u=v.events)||(u=v.events={}),(a=v.handle)||(a=v.handle=function(t){return"undefined"!=typeof xe&&xe.event.triggered!==t.type?xe.event.dispatch.apply(e,arguments):void 0}),t=(t||"").match(Pe)||[""],c=t.length;c--;)s=it.exec(t[c])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d&&(f=xe.event.special[d]||{},d=(i?f.delegateType:f.bindType)||d,f=xe.event.special[d]||{},l=xe.extend({type:d,origType:g,data:r,handler:n,guid:n.guid,selector:i,needsContext:i&&xe.expr.match.needsContext.test(i),namespace:h.join(".")},o),(p=u[d])||(p=u[d]=[],p.delegateCount=0,f.setup&&f.setup.call(e,r,h,a)!==!1||e.addEventListener&&e.addEventListener(d,a)),f.add&&(f.add.call(e,l),l.handler.guid||(l.handler.guid=n.guid)),i?p.splice(p.delegateCount++,0,l):p.push(l),xe.event.global[d]=!0)},remove:function(e,t,n,r,i){var o,a,s,u,c,l,f,p,d,h,g,v=Be.hasData(e)&&Be.get(e);if(v&&(u=v.events)){for(t=(t||"").match(Pe)||[""],c=t.length;c--;)if(s=it.exec(t[c])||[],d=g=s[1],h=(s[2]||"").split(".").sort(),d){for(f=xe.event.special[d]||{},d=(r?f.delegateType:f.bindType)||d,p=u[d]||[],s=s[2]&&new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"),a=o=p.length;o--;)l=p[o],!i&&g!==l.origType||n&&n.guid!==l.guid||s&&!s.test(l.namespace)||r&&r!==l.selector&&("**"!==r||!l.selector)||(p.splice(o,1),l.selector&&p.delegateCount--,f.remove&&f.remove.call(e,l));a&&!p.length&&(f.teardown&&f.teardown.call(e,h,v.handle)!==!1||xe.removeEvent(e,d,v.handle),delete u[d])}else for(d in u)xe.event.remove(e,d+t[c],n,r,!0);xe.isEmptyObject(u)&&Be.remove(e,"handle events")}},dispatch:function(e){var t,n,r,i,o,a,s=xe.event.fix(e),u=new Array(arguments.length),c=(Be.get(this,"events")||{})[s.type]||[],l=xe.event.special[s.type]||{};for(u[0]=s,t=1;t<arguments.length;t++)u[t]=arguments[t];if(s.delegateTarget=this,!l.preDispatch||l.preDispatch.call(this,s)!==!1){for(a=xe.event.handlers.call(this,s,c),t=0;(i=a[t++])&&!s.isPropagationStopped();)for(s.currentTarget=i.elem,n=0;(o=i.handlers[n++])&&!s.isImmediatePropagationStopped();)s.rnamespace&&!s.rnamespace.test(o.namespace)||(s.handleObj=o,s.data=o.data,r=((xe.event.special[o.origType]||{}).handle||o.handler).apply(i.elem,u),void 0!==r&&(s.result=r)===!1&&(s.preventDefault(),s.stopPropagation()));return l.postDispatch&&l.postDispatch.call(this,s),s.result}},handlers:function(e,t){var n,r,i,o,a,s=[],u=t.delegateCount,c=e.target;if(u&&c.nodeType&&!("click"===e.type&&e.button>=1))for(;c!==this;c=c.parentNode||this)if(1===c.nodeType&&("click"!==e.type||c.disabled!==!0)){for(o=[],a={},n=0;n<u;n++)r=t[n],i=r.selector+" ",void 0===a[i]&&(a[i]=r.needsContext?xe(i,this).index(c)>-1:xe.find(i,this,null,[c]).length),a[i]&&o.push(r);o.length&&s.push({elem:c,handlers:o})}return c=this,u<t.length&&s.push({elem:c,handlers:t.slice(u)}),s},addProp:function(e,t){Object.defineProperty(xe.Event.prototype,e,{enumerable:!0,configurable:!0,get:xe.isFunction(t)?function(){if(this.originalEvent)return t(this.originalEvent)}:function(){if(this.originalEvent)return this.originalEvent[e]},set:function(t){Object.defineProperty(this,e,{enumerable:!0,configurable:!0,writable:!0,value:t})}})},fix:function(e){return e[xe.expando]?e:new xe.Event(e)},special:{load:{noBubble:!0},focus:{trigger:function(){if(this!==N()&&this.focus)return this.focus(),!1},delegateType:"focusin"},blur:{trigger:function(){if(this===N()&&this.blur)return this.blur(),!1},delegateType:"focusout"},click:{trigger:function(){if("checkbox"===this.type&&this.click&&u(this,"input"))return this.click(),!1},_default:function(e){return u(e.target,"a")}},beforeunload:{postDispatch:function(e){void 0!==e.result&&e.originalEvent&&(e.originalEvent.returnValue=e.result)}}}},xe.removeEvent=function(e,t,n){e.removeEventListener&&e.removeEventListener(t,n)},xe.Event=function(e,t){return this instanceof xe.Event?(e&&e.type?(this.originalEvent=e,this.type=e.type,this.isDefaultPrevented=e.defaultPrevented||void 0===e.defaultPrevented&&e.returnValue===!1?S:E,this.target=e.target&&3===e.target.nodeType?e.target.parentNode:e.target,this.currentTarget=e.currentTarget,this.relatedTarget=e.relatedTarget):this.type=e,t&&xe.extend(this,t),this.timeStamp=e&&e.timeStamp||xe.now(),void(this[xe.expando]=!0)):new xe.Event(e,t)},xe.Event.prototype={constructor:xe.Event,isDefaultPrevented:E,isPropagationStopped:E,isImmediatePropagationStopped:E,isSimulated:!1,preventDefault:function(){var e=this.originalEvent;this.isDefaultPrevented=S,e&&!this.isSimulated&&e.preventDefault()},stopPropagation:function(){var e=this.originalEvent;this.isPropagationStopped=S,e&&!this.isSimulated&&e.stopPropagation()},stopImmediatePropagation:function(){var e=this.originalEvent;this.isImmediatePropagationStopped=S,e&&!this.isSimulated&&e.stopImmediatePropagation(),this.stopPropagation()}},xe.each({altKey:!0,bubbles:!0,cancelable:!0,changedTouches:!0,ctrlKey:!0,detail:!0,eventPhase:!0,metaKey:!0,pageX:!0,pageY:!0,shiftKey:!0,view:!0,char:!0,charCode:!0,key:!0,keyCode:!0,button:!0,buttons:!0,clientX:!0,clientY:!0,offsetX:!0,offsetY:!0,pointerId:!0,pointerType:!0,screenX:!0,screenY:!0,targetTouches:!0,toElement:!0,touches:!0,which:function(e){var t=e.button;return null==e.which&&nt.test(e.type)?null!=e.charCode?e.charCode:e.keyCode:!e.which&&void 0!==t&&rt.test(e.type)?1&t?1:2&t?3:4&t?2:0:e.which}},xe.event.addProp),xe.each({mouseenter:"mouseover",mouseleave:"mouseout",pointerenter:"pointerover",pointerleave:"pointerout"},function(e,t){xe.event.special[e]={delegateType:t,bindType:t,handle:function(e){var n,r=this,i=e.relatedTarget,o=e.handleObj;return i&&(i===r||xe.contains(r,i))||(e.type=o.origType,n=o.handler.apply(this,arguments),e.type=t),n}}}),xe.fn.extend({on:function(e,t,n,r){return A(this,e,t,n,r)},one:function(e,t,n,r){return A(this,e,t,n,r,1)},off:function(e,t,n){var r,i;if(e&&e.preventDefault&&e.handleObj)return r=e.handleObj,xe(e.delegateTarget).off(r.namespace?r.origType+"."+r.namespace:r.origType,r.selector,r.handler),this;if("object"==typeof e){for(i in e)this.off(i,t,e[i]);return this}return t!==!1&&"function"!=typeof t||(n=t,t=void 0),n===!1&&(n=E),this.each(function(){xe.event.remove(this,e,n,t)})}});var ot=/<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,at=/<script|<style|<link/i,st=/checked\s*(?:[^=]|=\s*.checked.)/i,ut=/^true\/(.*)/,ct=/^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;xe.extend({htmlPrefilter:function(e){return e.replace(ot,"<$1></$2>")},clone:function(e,t,n){var r,i,o,a,s=e.cloneNode(!0),u=xe.contains(e.ownerDocument,e);if(!(me.noCloneChecked||1!==e.nodeType&&11!==e.nodeType||xe.isXMLDoc(e)))for(a=T(s),o=T(e),r=0,i=o.length;r<i;r++)O(o[r],a[r]);if(t)if(n)for(o=o||T(e),a=a||T(s),r=0,i=o.length;r<i;r++)q(o[r],a[r]);else q(e,s);return a=T(s,"script"),a.length>0&&C(a,!u&&T(e,"script")),s},cleanData:function(e){for(var t,n,r,i=xe.event.special,o=0;void 0!==(n=e[o]);o++)if(Re(n)){if(t=n[Be.expando]){if(t.events)for(r in t.events)i[r]?xe.event.remove(n,r):xe.removeEvent(n,r,t.handle);n[Be.expando]=void 0}n[We.expando]&&(n[We.expando]=void 0)}}}),xe.fn.extend({detach:function(e){return P(this,e,!0)},remove:function(e){return P(this,e)},text:function(e){return He(this,function(e){return void 0===e?xe.text(this):this.empty().each(function(){1!==this.nodeType&&11!==this.nodeType&&9!==this.nodeType||(this.textContent=e)})},null,e,arguments.length)},append:function(){return L(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=j(this,e);t.appendChild(e)}})},prepend:function(){return L(this,arguments,function(e){if(1===this.nodeType||11===this.nodeType||9===this.nodeType){var t=j(this,e);t.insertBefore(e,t.firstChild)}})},before:function(){return L(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this)})},after:function(){return L(this,arguments,function(e){this.parentNode&&this.parentNode.insertBefore(e,this.nextSibling)})},empty:function(){for(var e,t=0;null!=(e=this[t]);t++)1===e.nodeType&&(xe.cleanData(T(e,!1)),e.textContent="");return this},clone:function(e,t){return e=null!=e&&e,t=null==t?e:t,this.map(function(){return xe.clone(this,e,t)})},html:function(e){return He(this,function(e){var t=this[0]||{},n=0,r=this.length;if(void 0===e&&1===t.nodeType)return t.innerHTML;if("string"==typeof e&&!at.test(e)&&!Ze[(Je.exec(e)||["",""])[1].toLowerCase()]){e=xe.htmlPrefilter(e);try{for(;n<r;n++)t=this[n]||{},1===t.nodeType&&(xe.cleanData(T(t,!1)),t.innerHTML=e);t=0}catch(e){}}t&&this.empty().append(e)},null,e,arguments.length)},replaceWith:function(){var e=[];return L(this,arguments,function(t){var n=this.parentNode;xe.inArray(this,e)<0&&(xe.cleanData(T(this)),n&&n.replaceChild(t,this))},e)}}),xe.each({appendTo:"append",prependTo:"prepend",insertBefore:"before",insertAfter:"after",replaceAll:"replaceWith"},function(e,t){xe.fn[e]=function(e){for(var n,r=[],i=xe(e),o=i.length-1,a=0;a<=o;a++)n=a===o?this:this.clone(!0),xe(i[a])[t](n),le.apply(r,n.get());return this.pushStack(r)}});var lt=/^margin/,ft=new RegExp("^("+ze+")(?!px)[a-z%]+$","i"),pt=function(e){var t=e.ownerDocument.defaultView;return t&&t.opener||(t=n),t.getComputedStyle(e)};!function(){function e(){if(s){s.style.cssText="box-sizing:border-box;position:relative;display:block;margin:auto;border:1px;padding:1px;top:1%;width:50%",s.innerHTML="",tt.appendChild(a);var e=n.getComputedStyle(s);t="1%"!==e.top,o="2px"===e.marginLeft,r="4px"===e.width,s.style.marginRight="50%",i="4px"===e.marginRight,tt.removeChild(a),s=null}}var t,r,i,o,a=ae.createElement("div"),s=ae.createElement("div");s.style&&(s.style.backgroundClip="content-box",s.cloneNode(!0).style.backgroundClip="",me.clearCloneStyle="content-box"===s.style.backgroundClip,a.style.cssText="border:0;width:8px;height:0;top:0;left:-9999px;padding:0;margin-top:1px;position:absolute",a.appendChild(s),xe.extend(me,{pixelPosition:function(){return e(),t},boxSizingReliable:function(){return e(),r},pixelMarginRight:function(){return e(),i},reliableMarginLeft:function(){return e(),o}}))}();var dt=/^(none|table(?!-c[ea]).+)/,ht=/^--/,gt={position:"absolute",visibility:"hidden",display:"block"},vt={letterSpacing:"0",fontWeight:"400"},mt=["Webkit","Moz","ms"],yt=ae.createElement("div").style;xe.extend({cssHooks:{opacity:{get:function(e,t){if(t){var n=F(e,"opacity");return""===n?"1":n}}}},cssNumber:{animationIterationCount:!0,columnCount:!0,fillOpacity:!0,flexGrow:!0,flexShrink:!0,fontWeight:!0,lineHeight:!0,opacity:!0,order:!0,orphans:!0,widows:!0,zIndex:!0,zoom:!0},cssProps:{float:"cssFloat"},style:function(e,t,n,r){if(e&&3!==e.nodeType&&8!==e.nodeType&&e.style){var i,o,a,s=xe.camelCase(t),u=ht.test(t),c=e.style;return u||(t=R(s)),a=xe.cssHooks[t]||xe.cssHooks[s],void 0===n?a&&"get"in a&&void 0!==(i=a.get(e,!1,r))?i:c[t]:(o=typeof n,"string"===o&&(i=Ve.exec(n))&&i[1]&&(n=x(e,t,i),o="number"),null!=n&&n===n&&("number"===o&&(n+=i&&i[3]||(xe.cssNumber[s]?"":"px")),me.clearCloneStyle||""!==n||0!==t.indexOf("background")||(c[t]="inherit"),a&&"set"in a&&void 0===(n=a.set(e,n,r))||(u?c.setProperty(t,n):c[t]=n)),void 0)}},css:function(e,t,n,r){var i,o,a,s=xe.camelCase(t),u=ht.test(t);return u||(t=R(s)),a=xe.cssHooks[t]||xe.cssHooks[s],a&&"get"in a&&(i=a.get(e,!0,n)),void 0===i&&(i=F(e,t,r)),"normal"===i&&t in vt&&(i=vt[t]),""===n||n?(o=parseFloat(i),n===!0||isFinite(o)?o||0:i):i}}),xe.each(["height","width"],function(e,t){xe.cssHooks[t]={get:function(e,n,r){if(n)return!dt.test(xe.css(e,"display"))||e.getClientRects().length&&e.getBoundingClientRect().width?$(e,t,r):Qe(e,gt,function(){return $(e,t,r)})},set:function(e,n,r){var i,o=r&&pt(e),a=r&&W(e,t,r,"border-box"===xe.css(e,"boxSizing",!1,o),o);return a&&(i=Ve.exec(n))&&"px"!==(i[3]||"px")&&(e.style[t]=n,n=xe.css(e,t)),B(e,n,a)}}}),xe.cssHooks.marginLeft=I(me.reliableMarginLeft,function(e,t){if(t)return(parseFloat(F(e,"marginLeft"))||e.getBoundingClientRect().left-Qe(e,{marginLeft:0},function(){return e.getBoundingClientRect().left}))+"px"}),xe.each({margin:"",padding:"",border:"Width"},function(e,t){xe.cssHooks[e+t]={expand:function(n){for(var r=0,i={},o="string"==typeof n?n.split(" "):[n];r<4;r++)i[e+Ue[r]+t]=o[r]||o[r-2]||o[0];return i}},lt.test(e)||(xe.cssHooks[e+t].set=B)}),xe.fn.extend({css:function(e,t){return He(this,function(e,t,n){var r,i,o={},a=0;if(Array.isArray(t)){for(r=pt(e),i=t.length;a<i;a++)o[t[a]]=xe.css(e,t[a],!1,r);return o}return void 0!==n?xe.style(e,t,n):xe.css(e,t)},e,t,arguments.length>1)}}),xe.Tween=_,_.prototype={constructor:_,init:function(e,t,n,r,i,o){this.elem=e,this.prop=n,this.easing=i||xe.easing._default,this.options=t,this.start=this.now=this.cur(),this.end=r,this.unit=o||(xe.cssNumber[n]?"":"px")},cur:function(){var e=_.propHooks[this.prop];return e&&e.get?e.get(this):_.propHooks._default.get(this)},run:function(e){var t,n=_.propHooks[this.prop];return this.options.duration?this.pos=t=xe.easing[this.easing](e,this.options.duration*e,0,1,this.options.duration):this.pos=t=e,this.now=(this.end-this.start)*t+this.start,this.options.step&&this.options.step.call(this.elem,this.now,this),n&&n.set?n.set(this):_.propHooks._default.set(this),this}},_.prototype.init.prototype=_.prototype,_.propHooks={_default:{get:function(e){var t;return 1!==e.elem.nodeType||null!=e.elem[e.prop]&&null==e.elem.style[e.prop]?e.elem[e.prop]:(t=xe.css(e.elem,e.prop,""),t&&"auto"!==t?t:0)},set:function(e){xe.fx.step[e.prop]?xe.fx.step[e.prop](e):1!==e.elem.nodeType||null==e.elem.style[xe.cssProps[e.prop]]&&!xe.cssHooks[e.prop]?e.elem[e.prop]=e.now:xe.style(e.elem,e.prop,e.now+e.unit)}}},_.propHooks.scrollTop=_.propHooks.scrollLeft={set:function(e){e.elem.nodeType&&e.elem.parentNode&&(e.elem[e.prop]=e.now)}},xe.easing={linear:function(e){return e},swing:function(e){return.5-Math.cos(e*Math.PI)/2},_default:"swing"},xe.fx=_.prototype.init,xe.fx.step={};var xt,bt,wt=/^(?:toggle|show|hide)$/,Tt=/queueHooks$/;xe.Animation=xe.extend(Y,{tweeners:{"*":[function(e,t){var n=this.createTween(e,t);return x(n.elem,e,Ve.exec(t),n),n}]},tweener:function(e,t){xe.isFunction(e)?(t=e,e=["*"]):e=e.match(Pe);for(var n,r=0,i=e.length;r<i;r++)n=e[r],Y.tweeners[n]=Y.tweeners[n]||[],Y.tweeners[n].unshift(t)},prefilters:[Q],prefilter:function(e,t){t?Y.prefilters.unshift(e):Y.prefilters.push(e)}}),xe.speed=function(e,t,n){var r=e&&"object"==typeof e?xe.extend({},e):{complete:n||!n&&t||xe.isFunction(e)&&e,duration:e,easing:n&&t||t&&!xe.isFunction(t)&&t};return xe.fx.off?r.duration=0:"number"!=typeof r.duration&&(r.duration in xe.fx.speeds?r.duration=xe.fx.speeds[r.duration]:r.duration=xe.fx.speeds._default),null!=r.queue&&r.queue!==!0||(r.queue="fx"),r.old=r.complete,r.complete=function(){xe.isFunction(r.old)&&r.old.call(this),r.queue&&xe.dequeue(this,r.queue)},r},xe.fn.extend({fadeTo:function(e,t,n,r){return this.filter(Xe).css("opacity",0).show().end().animate({opacity:t},e,n,r)},animate:function(e,t,n,r){var i=xe.isEmptyObject(e),o=xe.speed(t,n,r),a=function(){var t=Y(this,xe.extend({},e),o);(i||Be.get(this,"finish"))&&t.stop(!0)};return a.finish=a,i||o.queue===!1?this.each(a):this.queue(o.queue,a)},stop:function(e,t,n){var r=function(e){var t=e.stop;delete e.stop,t(n)};return"string"!=typeof e&&(n=t,t=e,e=void 0),t&&e!==!1&&this.queue(e||"fx",[]),this.each(function(){var t=!0,i=null!=e&&e+"queueHooks",o=xe.timers,a=Be.get(this);if(i)a[i]&&a[i].stop&&r(a[i]);else for(i in a)a[i]&&a[i].stop&&Tt.test(i)&&r(a[i]);for(i=o.length;i--;)o[i].elem!==this||null!=e&&o[i].queue!==e||(o[i].anim.stop(n),t=!1,o.splice(i,1));!t&&n||xe.dequeue(this,e)})},finish:function(e){return e!==!1&&(e=e||"fx"),this.each(function(){var t,n=Be.get(this),r=n[e+"queue"],i=n[e+"queueHooks"],o=xe.timers,a=r?r.length:0;for(n.finish=!0,xe.queue(this,e,[]),i&&i.stop&&i.stop.call(this,!0),t=o.length;t--;)o[t].elem===this&&o[t].queue===e&&(o[t].anim.stop(!0),o.splice(t,1));for(t=0;t<a;t++)r[t]&&r[t].finish&&r[t].finish.call(this);delete n.finish})}}),xe.each(["toggle","show","hide"],function(e,t){var n=xe.fn[t];xe.fn[t]=function(e,r,i){return null==e||"boolean"==typeof e?n.apply(this,arguments):this.animate(U(t,!0),e,r,i)}}),xe.each({slideDown:U("show"),slideUp:U("hide"),slideToggle:U("toggle"),fadeIn:{opacity:"show"},fadeOut:{opacity:"hide"},fadeToggle:{opacity:"toggle"}},function(e,t){xe.fn[e]=function(e,n,r){return this.animate(t,e,n,r)}}),xe.timers=[],xe.fx.tick=function(){var e,t=0,n=xe.timers;for(xt=xe.now();t<n.length;t++)e=n[t],e()||n[t]!==e||n.splice(t--,1);n.length||xe.fx.stop(),xt=void 0},xe.fx.timer=function(e){xe.timers.push(e),xe.fx.start()},xe.fx.interval=13,xe.fx.start=function(){bt||(bt=!0,z())},xe.fx.stop=function(){bt=null},xe.fx.speeds={slow:600,fast:200,_default:400},xe.fn.delay=function(e,t){return e=xe.fx?xe.fx.speeds[e]||e:e,t=t||"fx",this.queue(t,function(t,r){var i=n.setTimeout(t,e);r.stop=function(){n.clearTimeout(i)}})},function(){var e=ae.createElement("input"),t=ae.createElement("select"),n=t.appendChild(ae.createElement("option"));e.type="checkbox",me.checkOn=""!==e.value,me.optSelected=n.selected,e=ae.createElement("input"),e.value="t",e.type="radio",me.radioValue="t"===e.value}();var Ct,kt=xe.expr.attrHandle;xe.fn.extend({attr:function(e,t){return He(this,xe.attr,e,t,arguments.length>1)},removeAttr:function(e){return this.each(function(){xe.removeAttr(this,e)})}}),xe.extend({attr:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return"undefined"==typeof e.getAttribute?xe.prop(e,t,n):(1===o&&xe.isXMLDoc(e)||(i=xe.attrHooks[t.toLowerCase()]||(xe.expr.match.bool.test(t)?Ct:void 0)),void 0!==n?null===n?void xe.removeAttr(e,t):i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:(e.setAttribute(t,n+""),n):i&&"get"in i&&null!==(r=i.get(e,t))?r:(r=xe.find.attr(e,t),null==r?void 0:r))},attrHooks:{type:{set:function(e,t){if(!me.radioValue&&"radio"===t&&u(e,"input")){var n=e.value;return e.setAttribute("type",t),n&&(e.value=n),t}}}},removeAttr:function(e,t){var n,r=0,i=t&&t.match(Pe);if(i&&1===e.nodeType)for(;n=i[r++];)e.removeAttribute(n)}}),Ct={set:function(e,t,n){return t===!1?xe.removeAttr(e,n):e.setAttribute(n,n),n}},xe.each(xe.expr.match.bool.source.match(/\w+/g),function(e,t){var n=kt[t]||xe.find.attr;kt[t]=function(e,t,r){var i,o,a=t.toLowerCase();return r||(o=kt[a],kt[a]=i,i=null!=n(e,t,r)?a:null,kt[a]=o),i}});var St=/^(?:input|select|textarea|button)$/i,Et=/^(?:a|area)$/i;xe.fn.extend({prop:function(e,t){return He(this,xe.prop,e,t,arguments.length>1)},removeProp:function(e){return this.each(function(){delete this[xe.propFix[e]||e]})}}),xe.extend({prop:function(e,t,n){var r,i,o=e.nodeType;if(3!==o&&8!==o&&2!==o)return 1===o&&xe.isXMLDoc(e)||(t=xe.propFix[t]||t,i=xe.propHooks[t]),void 0!==n?i&&"set"in i&&void 0!==(r=i.set(e,n,t))?r:e[t]=n:i&&"get"in i&&null!==(r=i.get(e,t))?r:e[t]},propHooks:{tabIndex:{get:function(e){var t=xe.find.attr(e,"tabindex");return t?parseInt(t,10):St.test(e.nodeName)||Et.test(e.nodeName)&&e.href?0:-1}}},propFix:{for:"htmlFor",class:"className"}}),me.optSelected||(xe.propHooks.selected={get:function(e){var t=e.parentNode;return t&&t.parentNode&&t.parentNode.selectedIndex,null},set:function(e){var t=e.parentNode;t&&(t.selectedIndex,t.parentNode&&t.parentNode.selectedIndex)}}),xe.each(["tabIndex","readOnly","maxLength","cellSpacing","cellPadding","rowSpan","colSpan","useMap","frameBorder","contentEditable"],function(){xe.propFix[this.toLowerCase()]=this}),xe.fn.extend({addClass:function(e){var t,n,r,i,o,a,s,u=0;if(xe.isFunction(e))return this.each(function(t){xe(this).addClass(e.call(this,t,K(this)))});if("string"==typeof e&&e)for(t=e.match(Pe)||[];n=this[u++];)if(i=K(n),r=1===n.nodeType&&" "+J(i)+" "){for(a=0;o=t[a++];)r.indexOf(" "+o+" ")<0&&(r+=o+" ");s=J(r),i!==s&&n.setAttribute("class",s)}return this},removeClass:function(e){var t,n,r,i,o,a,s,u=0;if(xe.isFunction(e))return this.each(function(t){xe(this).removeClass(e.call(this,t,K(this)))});if(!arguments.length)return this.attr("class","");if("string"==typeof e&&e)for(t=e.match(Pe)||[];n=this[u++];)if(i=K(n),r=1===n.nodeType&&" "+J(i)+" "){for(a=0;o=t[a++];)for(;r.indexOf(" "+o+" ")>-1;)r=r.replace(" "+o+" "," ");s=J(r),i!==s&&n.setAttribute("class",s)}return this},toggleClass:function(e,t){var n=typeof e;return"boolean"==typeof t&&"string"===n?t?this.addClass(e):this.removeClass(e):xe.isFunction(e)?this.each(function(n){xe(this).toggleClass(e.call(this,n,K(this),t),t)}):this.each(function(){var t,r,i,o;if("string"===n)for(r=0,i=xe(this),o=e.match(Pe)||[];t=o[r++];)i.hasClass(t)?i.removeClass(t):i.addClass(t);else void 0!==e&&"boolean"!==n||(t=K(this),t&&Be.set(this,"__className__",t),this.setAttribute&&this.setAttribute("class",t||e===!1?"":Be.get(this,"__className__")||""))})},hasClass:function(e){var t,n,r=0;for(t=" "+e+" ";n=this[r++];)if(1===n.nodeType&&(" "+J(K(n))+" ").indexOf(t)>-1)return!0;return!1}});var Nt=/\r/g;xe.fn.extend({val:function(e){var t,n,r,i=this[0];{if(arguments.length)return r=xe.isFunction(e),this.each(function(n){var i;1===this.nodeType&&(i=r?e.call(this,n,xe(this).val()):e,null==i?i="":"number"==typeof i?i+="":Array.isArray(i)&&(i=xe.map(i,function(e){return null==e?"":e+""})),t=xe.valHooks[this.type]||xe.valHooks[this.nodeName.toLowerCase()],t&&"set"in t&&void 0!==t.set(this,i,"value")||(this.value=i))});if(i)return t=xe.valHooks[i.type]||xe.valHooks[i.nodeName.toLowerCase()],t&&"get"in t&&void 0!==(n=t.get(i,"value"))?n:(n=i.value,"string"==typeof n?n.replace(Nt,""):null==n?"":n)}}}),xe.extend({valHooks:{option:{get:function(e){var t=xe.find.attr(e,"value");return null!=t?t:J(xe.text(e))}},select:{get:function(e){var t,n,r,i=e.options,o=e.selectedIndex,a="select-one"===e.type,s=a?null:[],c=a?o+1:i.length;for(r=o<0?c:a?o:0;r<c;r++)if(n=i[r],(n.selected||r===o)&&!n.disabled&&(!n.parentNode.disabled||!u(n.parentNode,"optgroup"))){if(t=xe(n).val(),a)return t;s.push(t)}return s},set:function(e,t){for(var n,r,i=e.options,o=xe.makeArray(t),a=i.length;a--;)r=i[a],(r.selected=xe.inArray(xe.valHooks.option.get(r),o)>-1)&&(n=!0);return n||(e.selectedIndex=-1),o}}}}),xe.each(["radio","checkbox"],function(){xe.valHooks[this]={set:function(e,t){if(Array.isArray(t))return e.checked=xe.inArray(xe(e).val(),t)>-1}},me.checkOn||(xe.valHooks[this].get=function(e){return null===e.getAttribute("value")?"on":e.value})});var At=/^(?:focusinfocus|focusoutblur)$/;xe.extend(xe.event,{trigger:function(e,t,r,i){var o,a,s,u,c,l,f,p=[r||ae],d=he.call(e,"type")?e.type:e,h=he.call(e,"namespace")?e.namespace.split("."):[];if(a=s=r=r||ae,3!==r.nodeType&&8!==r.nodeType&&!At.test(d+xe.event.triggered)&&(d.indexOf(".")>-1&&(h=d.split("."),d=h.shift(),h.sort()),c=d.indexOf(":")<0&&"on"+d,e=e[xe.expando]?e:new xe.Event(d,"object"==typeof e&&e),e.isTrigger=i?2:3,e.namespace=h.join("."),e.rnamespace=e.namespace?new RegExp("(^|\\.)"+h.join("\\.(?:.*\\.|)")+"(\\.|$)"):null,e.result=void 0,e.target||(e.target=r),t=null==t?[e]:xe.makeArray(t,[e]),f=xe.event.special[d]||{},i||!f.trigger||f.trigger.apply(r,t)!==!1)){if(!i&&!f.noBubble&&!xe.isWindow(r)){for(u=f.delegateType||d,At.test(u+d)||(a=a.parentNode);a;a=a.parentNode)p.push(a),s=a;s===(r.ownerDocument||ae)&&p.push(s.defaultView||s.parentWindow||n)}for(o=0;(a=p[o++])&&!e.isPropagationStopped();)e.type=o>1?u:f.bindType||d,l=(Be.get(a,"events")||{})[e.type]&&Be.get(a,"handle"),l&&l.apply(a,t),l=c&&a[c],l&&l.apply&&Re(a)&&(e.result=l.apply(a,t),e.result===!1&&e.preventDefault());return e.type=d,i||e.isDefaultPrevented()||f._default&&f._default.apply(p.pop(),t)!==!1||!Re(r)||c&&xe.isFunction(r[d])&&!xe.isWindow(r)&&(s=r[c],s&&(r[c]=null),xe.event.triggered=d,r[d](),xe.event.triggered=void 0,s&&(r[c]=s)),e.result}},simulate:function(e,t,n){var r=xe.extend(new xe.Event,n,{type:e,isSimulated:!0});xe.event.trigger(r,null,t)}}),xe.fn.extend({trigger:function(e,t){return this.each(function(){xe.event.trigger(e,t,this)})},triggerHandler:function(e,t){var n=this[0];if(n)return xe.event.trigger(e,t,n,!0)}}),xe.each("blur focus focusin focusout resize scroll click dblclick mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave change select submit keydown keypress keyup contextmenu".split(" "),function(e,t){xe.fn[t]=function(e,n){return arguments.length>0?this.on(t,null,e,n):this.trigger(t)}}),xe.fn.extend({hover:function(e,t){return this.mouseenter(e).mouseleave(t||e)}}),me.focusin="onfocusin"in n,me.focusin||xe.each({focus:"focusin",blur:"focusout"},function(e,t){var n=function(e){xe.event.simulate(t,e.target,xe.event.fix(e))};xe.event.special[t]={setup:function(){var r=this.ownerDocument||this,i=Be.access(r,t);i||r.addEventListener(e,n,!0),Be.access(r,t,(i||0)+1)},teardown:function(){var r=this.ownerDocument||this,i=Be.access(r,t)-1;i?Be.access(r,t,i):(r.removeEventListener(e,n,!0),Be.remove(r,t))}}});var jt=n.location,Dt=xe.now(),Mt=/\?/;xe.parseXML=function(e){var t;if(!e||"string"!=typeof e)return null;try{t=(new n.DOMParser).parseFromString(e,"text/xml")}catch(e){t=void 0}return t&&!t.getElementsByTagName("parsererror").length||xe.error("Invalid XML: "+e),t};var qt=/\[\]$/,Ot=/\r?\n/g,Lt=/^(?:submit|button|image|reset|file)$/i,Pt=/^(?:input|select|textarea|keygen)/i;xe.param=function(e,t){var n,r=[],i=function(e,t){var n=xe.isFunction(t)?t():t;r[r.length]=encodeURIComponent(e)+"="+encodeURIComponent(null==n?"":n)};if(Array.isArray(e)||e.jquery&&!xe.isPlainObject(e))xe.each(e,function(){i(this.name,this.value)});else for(n in e)Z(n,e[n],t,i);return r.join("&")},xe.fn.extend({serialize:function(){return xe.param(this.serializeArray())},serializeArray:function(){return this.map(function(){var e=xe.prop(this,"elements");return e?xe.makeArray(e):this}).filter(function(){var e=this.type;return this.name&&!xe(this).is(":disabled")&&Pt.test(this.nodeName)&&!Lt.test(e)&&(this.checked||!Ye.test(e))}).map(function(e,t){var n=xe(this).val();return null==n?null:Array.isArray(n)?xe.map(n,function(e){return{name:t.name,value:e.replace(Ot,"\r\n")}}):{name:t.name,value:n.replace(Ot,"\r\n")}}).get()}});var Ft=/%20/g,It=/#.*$/,Ht=/([?&])_=[^&]*/,Rt=/^(.*?):[ \t]*([^\r\n]*)$/gm,Bt=/^(?:about|app|app-storage|.+-extension|file|res|widget):$/,Wt=/^(?:GET|HEAD)$/,$t=/^\/\//,_t={},zt={},Vt="*/".concat("*"),Ut=ae.createElement("a");Ut.href=jt.href,xe.extend({active:0,lastModified:{},etag:{},ajaxSettings:{url:jt.href,type:"GET",isLocal:Bt.test(jt.protocol),global:!0,processData:!0,async:!0,contentType:"application/x-www-form-urlencoded; charset=UTF-8",accepts:{"*":Vt,text:"text/plain",html:"text/html",xml:"application/xml, text/xml",json:"application/json, text/javascript"},contents:{xml:/\bxml\b/,html:/\bhtml/,json:/\bjson\b/},responseFields:{xml:"responseXML",text:"responseText",json:"responseJSON"},converters:{"* text":String,"text html":!0,"text json":JSON.parse,"text xml":xe.parseXML},flatOptions:{url:!0,context:!0}},ajaxSetup:function(e,t){return t?ne(ne(e,xe.ajaxSettings),t):ne(xe.ajaxSettings,e)},ajaxPrefilter:ee(_t),ajaxTransport:ee(zt),ajax:function(e,t){function r(e,t,r,s){var c,p,d,b,w,T=t;l||(l=!0,u&&n.clearTimeout(u),i=void 0,a=s||"",C.readyState=e>0?4:0,c=e>=200&&e<300||304===e,r&&(b=re(h,C,r)),b=ie(h,b,C,c),c?(h.ifModified&&(w=C.getResponseHeader("Last-Modified"),w&&(xe.lastModified[o]=w),w=C.getResponseHeader("etag"),w&&(xe.etag[o]=w)),204===e||"HEAD"===h.type?T="nocontent":304===e?T="notmodified":(T=b.state,p=b.data,d=b.error,c=!d)):(d=T,!e&&T||(T="error",e<0&&(e=0))),C.status=e,C.statusText=(t||T)+"",c?m.resolveWith(g,[p,T,C]):m.rejectWith(g,[C,T,d]),C.statusCode(x),x=void 0,f&&v.trigger(c?"ajaxSuccess":"ajaxError",[C,h,c?p:d]),y.fireWith(g,[C,T]),f&&(v.trigger("ajaxComplete",[C,h]),--xe.active||xe.event.trigger("ajaxStop")))}"object"==typeof e&&(t=e,e=void 0),t=t||{};var i,o,a,s,u,c,l,f,p,d,h=xe.ajaxSetup({},t),g=h.context||h,v=h.context&&(g.nodeType||g.jquery)?xe(g):xe.event,m=xe.Deferred(),y=xe.Callbacks("once memory"),x=h.statusCode||{},b={},w={},T="canceled",C={readyState:0,getResponseHeader:function(e){var t;if(l){if(!s)for(s={};t=Rt.exec(a);)s[t[1].toLowerCase()]=t[2];t=s[e.toLowerCase()]}return null==t?null:t},getAllResponseHeaders:function(){return l?a:null},setRequestHeader:function(e,t){return null==l&&(e=w[e.toLowerCase()]=w[e.toLowerCase()]||e,b[e]=t),this},overrideMimeType:function(e){return null==l&&(h.mimeType=e),this},statusCode:function(e){var t;if(e)if(l)C.always(e[C.status]);else for(t in e)x[t]=[x[t],e[t]];return this},abort:function(e){var t=e||T;return i&&i.abort(t),r(0,t),this}};if(m.promise(C),h.url=((e||h.url||jt.href)+"").replace($t,jt.protocol+"//"),h.type=t.method||t.type||h.method||h.type,h.dataTypes=(h.dataType||"*").toLowerCase().match(Pe)||[""],null==h.crossDomain){c=ae.createElement("a");try{c.href=h.url,c.href=c.href,h.crossDomain=Ut.protocol+"//"+Ut.host!=c.protocol+"//"+c.host}catch(e){h.crossDomain=!0}}if(h.data&&h.processData&&"string"!=typeof h.data&&(h.data=xe.param(h.data,h.traditional)),te(_t,h,t,C),l)return C;f=xe.event&&h.global,f&&0===xe.active++&&xe.event.trigger("ajaxStart"),h.type=h.type.toUpperCase(),h.hasContent=!Wt.test(h.type),o=h.url.replace(It,""),h.hasContent?h.data&&h.processData&&0===(h.contentType||"").indexOf("application/x-www-form-urlencoded")&&(h.data=h.data.replace(Ft,"+")):(d=h.url.slice(o.length),h.data&&(o+=(Mt.test(o)?"&":"?")+h.data,delete h.data),h.cache===!1&&(o=o.replace(Ht,"$1"),d=(Mt.test(o)?"&":"?")+"_="+Dt++ +d),h.url=o+d),h.ifModified&&(xe.lastModified[o]&&C.setRequestHeader("If-Modified-Since",xe.lastModified[o]),xe.etag[o]&&C.setRequestHeader("If-None-Match",xe.etag[o])),(h.data&&h.hasContent&&h.contentType!==!1||t.contentType)&&C.setRequestHeader("Content-Type",h.contentType),C.setRequestHeader("Accept",h.dataTypes[0]&&h.accepts[h.dataTypes[0]]?h.accepts[h.dataTypes[0]]+("*"!==h.dataTypes[0]?", "+Vt+"; q=0.01":""):h.accepts["*"]);for(p in h.headers)C.setRequestHeader(p,h.headers[p]);if(h.beforeSend&&(h.beforeSend.call(g,C,h)===!1||l))return C.abort();if(T="abort",y.add(h.complete),C.done(h.success),C.fail(h.error),i=te(zt,h,t,C)){if(C.readyState=1,f&&v.trigger("ajaxSend",[C,h]),l)return C;h.async&&h.timeout>0&&(u=n.setTimeout(function(){C.abort("timeout")},h.timeout));try{l=!1,i.send(b,r)}catch(e){if(l)throw e;r(-1,e)}}else r(-1,"No Transport");return C},getJSON:function(e,t,n){return xe.get(e,t,n,"json")},getScript:function(e,t){return xe.get(e,void 0,t,"script")}}),xe.each(["get","post"],function(e,t){xe[t]=function(e,n,r,i){return xe.isFunction(n)&&(i=i||r,r=n,n=void 0),xe.ajax(xe.extend({url:e,type:t,dataType:i,data:n,success:r},xe.isPlainObject(e)&&e))}}),xe._evalUrl=function(e){return xe.ajax({url:e,type:"GET",dataType:"script",cache:!0,async:!1,global:!1,throws:!0})},xe.fn.extend({wrapAll:function(e){var t;return this[0]&&(xe.isFunction(e)&&(e=e.call(this[0])),t=xe(e,this[0].ownerDocument).eq(0).clone(!0),this[0].parentNode&&t.insertBefore(this[0]),t.map(function(){for(var e=this;e.firstElementChild;)e=e.firstElementChild;return e}).append(this)),this},wrapInner:function(e){return xe.isFunction(e)?this.each(function(t){xe(this).wrapInner(e.call(this,t))}):this.each(function(){var t=xe(this),n=t.contents();n.length?n.wrapAll(e):t.append(e)})},wrap:function(e){var t=xe.isFunction(e);return this.each(function(n){xe(this).wrapAll(t?e.call(this,n):e)})},unwrap:function(e){return this.parent(e).not("body").each(function(){xe(this).replaceWith(this.childNodes)}),this}}),xe.expr.pseudos.hidden=function(e){return!xe.expr.pseudos.visible(e)},xe.expr.pseudos.visible=function(e){return!!(e.offsetWidth||e.offsetHeight||e.getClientRects().length);
-},xe.ajaxSettings.xhr=function(){try{return new n.XMLHttpRequest}catch(e){}};var Xt={0:200,1223:204},Qt=xe.ajaxSettings.xhr();me.cors=!!Qt&&"withCredentials"in Qt,me.ajax=Qt=!!Qt,xe.ajaxTransport(function(e){var t,r;if(me.cors||Qt&&!e.crossDomain)return{send:function(i,o){var a,s=e.xhr();if(s.open(e.type,e.url,e.async,e.username,e.password),e.xhrFields)for(a in e.xhrFields)s[a]=e.xhrFields[a];e.mimeType&&s.overrideMimeType&&s.overrideMimeType(e.mimeType),e.crossDomain||i["X-Requested-With"]||(i["X-Requested-With"]="XMLHttpRequest");for(a in i)s.setRequestHeader(a,i[a]);t=function(e){return function(){t&&(t=r=s.onload=s.onerror=s.onabort=s.onreadystatechange=null,"abort"===e?s.abort():"error"===e?"number"!=typeof s.status?o(0,"error"):o(s.status,s.statusText):o(Xt[s.status]||s.status,s.statusText,"text"!==(s.responseType||"text")||"string"!=typeof s.responseText?{binary:s.response}:{text:s.responseText},s.getAllResponseHeaders()))}},s.onload=t(),r=s.onerror=t("error"),void 0!==s.onabort?s.onabort=r:s.onreadystatechange=function(){4===s.readyState&&n.setTimeout(function(){t&&r()})},t=t("abort");try{s.send(e.hasContent&&e.data||null)}catch(e){if(t)throw e}},abort:function(){t&&t()}}}),xe.ajaxPrefilter(function(e){e.crossDomain&&(e.contents.script=!1)}),xe.ajaxSetup({accepts:{script:"text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"},contents:{script:/\b(?:java|ecma)script\b/},converters:{"text script":function(e){return xe.globalEval(e),e}}}),xe.ajaxPrefilter("script",function(e){void 0===e.cache&&(e.cache=!1),e.crossDomain&&(e.type="GET")}),xe.ajaxTransport("script",function(e){if(e.crossDomain){var t,n;return{send:function(r,i){t=xe("<script>").prop({charset:e.scriptCharset,src:e.url}).on("load error",n=function(e){t.remove(),n=null,e&&i("error"===e.type?404:200,e.type)}),ae.head.appendChild(t[0])},abort:function(){n&&n()}}}});var Gt=[],Yt=/(=)\?(?=&|$)|\?\?/;xe.ajaxSetup({jsonp:"callback",jsonpCallback:function(){var e=Gt.pop()||xe.expando+"_"+Dt++;return this[e]=!0,e}}),xe.ajaxPrefilter("json jsonp",function(e,t,r){var i,o,a,s=e.jsonp!==!1&&(Yt.test(e.url)?"url":"string"==typeof e.data&&0===(e.contentType||"").indexOf("application/x-www-form-urlencoded")&&Yt.test(e.data)&&"data");if(s||"jsonp"===e.dataTypes[0])return i=e.jsonpCallback=xe.isFunction(e.jsonpCallback)?e.jsonpCallback():e.jsonpCallback,s?e[s]=e[s].replace(Yt,"$1"+i):e.jsonp!==!1&&(e.url+=(Mt.test(e.url)?"&":"?")+e.jsonp+"="+i),e.converters["script json"]=function(){return a||xe.error(i+" was not called"),a[0]},e.dataTypes[0]="json",o=n[i],n[i]=function(){a=arguments},r.always(function(){void 0===o?xe(n).removeProp(i):n[i]=o,e[i]&&(e.jsonpCallback=t.jsonpCallback,Gt.push(i)),a&&xe.isFunction(o)&&o(a[0]),a=o=void 0}),"script"}),me.createHTMLDocument=function(){var e=ae.implementation.createHTMLDocument("").body;return e.innerHTML="<form></form><form></form>",2===e.childNodes.length}(),xe.parseHTML=function(e,t,n){if("string"!=typeof e)return[];"boolean"==typeof t&&(n=t,t=!1);var r,i,o;return t||(me.createHTMLDocument?(t=ae.implementation.createHTMLDocument(""),r=t.createElement("base"),r.href=ae.location.href,t.head.appendChild(r)):t=ae),i=Ae.exec(e),o=!n&&[],i?[t.createElement(i[1])]:(i=k([e],t,o),o&&o.length&&xe(o).remove(),xe.merge([],i.childNodes))},xe.fn.load=function(e,t,n){var r,i,o,a=this,s=e.indexOf(" ");return s>-1&&(r=J(e.slice(s)),e=e.slice(0,s)),xe.isFunction(t)?(n=t,t=void 0):t&&"object"==typeof t&&(i="POST"),a.length>0&&xe.ajax({url:e,type:i||"GET",dataType:"html",data:t}).done(function(e){o=arguments,a.html(r?xe("<div>").append(xe.parseHTML(e)).find(r):e)}).always(n&&function(e,t){a.each(function(){n.apply(this,o||[e.responseText,t,e])})}),this},xe.each(["ajaxStart","ajaxStop","ajaxComplete","ajaxError","ajaxSuccess","ajaxSend"],function(e,t){xe.fn[t]=function(e){return this.on(t,e)}}),xe.expr.pseudos.animated=function(e){return xe.grep(xe.timers,function(t){return e===t.elem}).length},xe.offset={setOffset:function(e,t,n){var r,i,o,a,s,u,c,l=xe.css(e,"position"),f=xe(e),p={};"static"===l&&(e.style.position="relative"),s=f.offset(),o=xe.css(e,"top"),u=xe.css(e,"left"),c=("absolute"===l||"fixed"===l)&&(o+u).indexOf("auto")>-1,c?(r=f.position(),a=r.top,i=r.left):(a=parseFloat(o)||0,i=parseFloat(u)||0),xe.isFunction(t)&&(t=t.call(e,n,xe.extend({},s))),null!=t.top&&(p.top=t.top-s.top+a),null!=t.left&&(p.left=t.left-s.left+i),"using"in t?t.using.call(e,p):f.css(p)}},xe.fn.extend({offset:function(e){if(arguments.length)return void 0===e?this:this.each(function(t){xe.offset.setOffset(this,e,t)});var t,n,r,i,o=this[0];if(o)return o.getClientRects().length?(r=o.getBoundingClientRect(),t=o.ownerDocument,n=t.documentElement,i=t.defaultView,{top:r.top+i.pageYOffset-n.clientTop,left:r.left+i.pageXOffset-n.clientLeft}):{top:0,left:0}},position:function(){if(this[0]){var e,t,n=this[0],r={top:0,left:0};return"fixed"===xe.css(n,"position")?t=n.getBoundingClientRect():(e=this.offsetParent(),t=this.offset(),u(e[0],"html")||(r=e.offset()),r={top:r.top+xe.css(e[0],"borderTopWidth",!0),left:r.left+xe.css(e[0],"borderLeftWidth",!0)}),{top:t.top-r.top-xe.css(n,"marginTop",!0),left:t.left-r.left-xe.css(n,"marginLeft",!0)}}},offsetParent:function(){return this.map(function(){for(var e=this.offsetParent;e&&"static"===xe.css(e,"position");)e=e.offsetParent;return e||tt})}}),xe.each({scrollLeft:"pageXOffset",scrollTop:"pageYOffset"},function(e,t){var n="pageYOffset"===t;xe.fn[e]=function(r){return He(this,function(e,r,i){var o;return xe.isWindow(e)?o=e:9===e.nodeType&&(o=e.defaultView),void 0===i?o?o[t]:e[r]:void(o?o.scrollTo(n?o.pageXOffset:i,n?i:o.pageYOffset):e[r]=i)},e,r,arguments.length)}}),xe.each(["top","left"],function(e,t){xe.cssHooks[t]=I(me.pixelPosition,function(e,n){if(n)return n=F(e,t),ft.test(n)?xe(e).position()[t]+"px":n})}),xe.each({Height:"height",Width:"width"},function(e,t){xe.each({padding:"inner"+e,content:t,"":"outer"+e},function(n,r){xe.fn[r]=function(i,o){var a=arguments.length&&(n||"boolean"!=typeof i),s=n||(i===!0||o===!0?"margin":"border");return He(this,function(t,n,i){var o;return xe.isWindow(t)?0===r.indexOf("outer")?t["inner"+e]:t.document.documentElement["client"+e]:9===t.nodeType?(o=t.documentElement,Math.max(t.body["scroll"+e],o["scroll"+e],t.body["offset"+e],o["offset"+e],o["client"+e])):void 0===i?xe.css(t,n,s):xe.style(t,n,i,s)},t,a?i:void 0,a)}})}),xe.fn.extend({bind:function(e,t,n){return this.on(e,null,t,n)},unbind:function(e,t){return this.off(e,null,t)},delegate:function(e,t,n,r){return this.on(t,e,n,r)},undelegate:function(e,t,n){return 1===arguments.length?this.off(e,"**"):this.off(t,e||"**",n)}}),xe.holdReady=function(e){e?xe.readyWait++:xe.ready(!0)},xe.isArray=Array.isArray,xe.parseJSON=JSON.parse,xe.nodeName=u,r=[],i=function(){return xe}.apply(t,r),!(void 0!==i&&(e.exports=i));var Jt=n.jQuery,Kt=n.$;return xe.noConflict=function(e){return n.$===xe&&(n.$=Kt),e&&n.jQuery===xe&&(n.jQuery=Jt),xe},o||(n.jQuery=n.$=xe),xe})},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r=n(6);t.default={props:{progress:{type:Number,required:!0,default:.25},size:{type:Number,required:!1,default:150},startAngle:{type:Number},thickness:{type:Number},percentFontSize:{type:String,required:!1,default:function(){return(this.size/4).toString()+"px"}},animation:{required:!1,default:function(){return{duration:1200,easing:"circleProgressEasing"}},validator:function(e){return e instanceof Object||e===!1}},animationStartValue:{type:Number,required:!1,default:0},reverse:{type:Boolean,default:!1},lineCap:{type:String,default:"butt"},fill:{type:Object},emptyFill:{type:String},insertMode:{type:String},showPercent:{type:Boolean,default:!0}},mounted:function(){function e(e,n){n=n?n:t.progress,t.showPercent&&r(e).find("span.percent-text").html(Math.floor(100*n)+"%")}n(5);var t=this;r(t.$el).on("circle-inited",function(n){e(this,t.progress/100),t.$emit("vue-circle-init",n)}).circleProgress({value:this.convertedProgress(t.progress),size:t.size,startAngle:t.startAngle,reverse:t.reverse,lineCap:t.lineCap,fill:t.fill,emptyFill:t.emptyFill,animation:t.animation,animationStartValue:t.animationStartValue,insertMode:t.insertMode,thickness:t.thickness}).on("circle-animation-progress",function(n,r,i){e(this,i),t.$emit("vue-circle-progress",n,r,100*i)}).on("circle-animation-end",function(e){t.$emit("vue-circle-end",e)})},methods:{convertedProgress:function(e){return e/100},updateProgress:function(e){"number"===r.type(e)?r(this.$el).circleProgress("value",this.convertedProgress(e)):console.error("Passed Invalid Value. Number Expected. (Hint: use parseInt())")},updateFill:function(e){var t=r(this.$el).data("circle-progress");t.fill=e,t.initFill()}},beforeDestroy:function(){r(this.$el).remove()}}},function(e,t,n){t=e.exports=n(4)(),t.push([e.id,".circle[_v-31e92f67]{position:relative;display:inline-block}.circle-percent-text-body[_v-31e92f67]{position:absolute;width:100%;height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.percent-text[_v-31e92f67]{font-weight:700}",""])},function(e,t){e.exports=function(){var e=[];return e.toString=function(){for(var e=[],t=0;t<this.length;t++){var n=this[t];n[2]?e.push("@media "+n[2]+"{"+n[1]+"}"):e.push(n[1])}return e.join("")},e.i=function(t,n){"string"==typeof t&&(t=[[null,t,""]]);for(var r={},i=0;i<this.length;i++){var o=this[i][0];"number"==typeof o&&(r[o]=!0)}for(i=0;i<t.length;i++){var a=t[i];"number"==typeof a[0]&&r[a[0]]||(n&&!a[2]?a[2]=n:n&&(a[2]="("+a[2]+") and ("+n+")"),e.push(a))}},e}},function(e,t,n){var r,i,o;/**
-	 * jquery-circle-progress - jQuery Plugin to draw animated circular progress bars:
-	 * {@link http://kottenator.github.io/jquery-circle-progress/}
-	 *
-	 * @author Rostyslav Bryzgunov <kottenator@gmail.com>
-	 * @version 1.2.2
-	 * @licence MIT
-	 * @preserve
-	 */
-!function(a){i=[n(1)],r=a,o="function"==typeof r?r.apply(t,i):r,!(void 0!==o&&(e.exports=o))}(function(e){function t(e){this.init(e)}t.prototype={value:0,size:100,startAngle:-Math.PI,thickness:"auto",fill:{gradient:["#3aeabb","#fdd250"]},emptyFill:"rgba(0, 0, 0, .1)",animation:{duration:1200,easing:"circleProgressEasing"},animationStartValue:0,reverse:!1,lineCap:"butt",insertMode:"prepend",constructor:t,el:null,canvas:null,ctx:null,radius:0,arcFill:null,lastFrameValue:0,init:function(t){e.extend(this,t),this.radius=this.size/2,this.initWidget(),this.initFill(),this.draw(),this.el.trigger("circle-inited")},initWidget:function(){this.canvas||(this.canvas=e("<canvas>")["prepend"==this.insertMode?"prependTo":"appendTo"](this.el)[0]);var t=this.canvas;if(t.width=this.size,t.height=this.size,this.ctx=t.getContext("2d"),window.devicePixelRatio>1){var n=window.devicePixelRatio;t.style.width=t.style.height=this.size+"px",t.width=t.height=this.size*n,this.ctx.scale(n,n)}},initFill:function(){function t(){var t=e("<canvas>")[0];t.width=n.size,t.height=n.size,t.getContext("2d").drawImage(d,0,0,o,o),n.arcFill=n.ctx.createPattern(t,"no-repeat"),n.drawFrame(n.lastFrameValue)}var n=this,r=this.fill,i=this.ctx,o=this.size;if(!r)throw Error("The fill is not specified!");if("string"==typeof r&&(r={color:r}),r.color&&(this.arcFill=r.color),r.gradient){var a=r.gradient;if(1==a.length)this.arcFill=a[0];else if(a.length>1){for(var s=r.gradientAngle||0,u=r.gradientDirection||[o/2*(1-Math.cos(s)),o/2*(1+Math.sin(s)),o/2*(1+Math.cos(s)),o/2*(1-Math.sin(s))],c=i.createLinearGradient.apply(i,u),l=0;l<a.length;l++){var f=a[l],p=l/(a.length-1);e.isArray(f)&&(p=f[1],f=f[0]),c.addColorStop(p,f)}this.arcFill=c}}if(r.image){var d;r.image instanceof Image?d=r.image:(d=new Image,d.src=r.image),d.complete?t():d.onload=t}},draw:function(){this.animation?this.drawAnimated(this.value):this.drawFrame(this.value)},drawFrame:function(e){this.lastFrameValue=e,this.ctx.clearRect(0,0,this.size,this.size),this.drawEmptyArc(e),this.drawArc(e)},drawArc:function(e){if(0!==e){var t=this.ctx,n=this.radius,r=this.getThickness(),i=this.startAngle;t.save(),t.beginPath(),this.reverse?t.arc(n,n,n-r/2,i-2*Math.PI*e,i):t.arc(n,n,n-r/2,i,i+2*Math.PI*e),t.lineWidth=r,t.lineCap=this.lineCap,t.strokeStyle=this.arcFill,t.stroke(),t.restore()}},drawEmptyArc:function(e){var t=this.ctx,n=this.radius,r=this.getThickness(),i=this.startAngle;e<1&&(t.save(),t.beginPath(),e<=0?t.arc(n,n,n-r/2,0,2*Math.PI):this.reverse?t.arc(n,n,n-r/2,i,i-2*Math.PI*e):t.arc(n,n,n-r/2,i+2*Math.PI*e,i),t.lineWidth=r,t.strokeStyle=this.emptyFill,t.stroke(),t.restore())},drawAnimated:function(t){var n=this,r=this.el,i=e(this.canvas);i.stop(!0,!1),r.trigger("circle-animation-start"),i.css({animationProgress:0}).animate({animationProgress:1},e.extend({},this.animation,{step:function(e){var i=n.animationStartValue*(1-e)+t*e;n.drawFrame(i),r.trigger("circle-animation-progress",[e,i])}})).promise().always(function(){r.trigger("circle-animation-end")})},getThickness:function(){return e.isNumeric(this.thickness)?this.thickness:this.size/14},getValue:function(){return this.value},setValue:function(e){this.animation&&(this.animationStartValue=this.lastFrameValue),this.value=e,this.draw()}},e.circleProgress={defaults:t.prototype},e.easing.circleProgressEasing=function(e){return e<.5?(e*=2,.5*e*e*e):(e=2-2*e,1-.5*e*e*e)},e.fn.circleProgress=function(n,r){var i="circle-progress",o=this.data(i);if("widget"==n){if(!o)throw Error('Calling "widget" method on not initialized instance is forbidden');return o.canvas}if("value"==n){if(!o)throw Error('Calling "value" method on not initialized instance is forbidden');if("undefined"==typeof r)return o.getValue();var a=arguments[1];return this.each(function(){e(this).data(i).setValue(a)})}return this.each(function(){var r=e(this),o=r.data(i),a=e.isPlainObject(n)?n:{};if(o)o.init(a);else{var s=e.extend({},r.data());"string"==typeof s.fill&&(s.fill=JSON.parse(s.fill)),"string"==typeof s.animation&&(s.animation=JSON.parse(s.animation)),a=e.extend(s,a),a.el=r,o=new t(a),r.data(i,o)}})}})},function(e,t,n){var r,i;!function(o,a){r=[n(1)],i=function(e){return o.jQuery=a(e)}.apply(t,r),!(void 0!==i&&(e.exports=i))}(this,function(e){return e.easing.jswing=e.easing.swing,e.extend(e.easing,{def:"easeOutQuad",swing:function(t,n,r,i,o){return e.easing[e.easing.def](t,n,r,i,o)},easeInQuad:function(e,t,n,r,i){return r*(t/=i)*t+n},easeOutQuad:function(e,t,n,r,i){return-r*(t/=i)*(t-2)+n},easeInOutQuad:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t+n:-r/2*(--t*(t-2)-1)+n},easeInCubic:function(e,t,n,r,i){return r*(t/=i)*t*t+n},easeOutCubic:function(e,t,n,r,i){return r*((t=t/i-1)*t*t+1)+n},easeInOutCubic:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t+n:r/2*((t-=2)*t*t+2)+n},easeInQuart:function(e,t,n,r,i){return r*(t/=i)*t*t*t+n},easeOutQuart:function(e,t,n,r,i){return-r*((t=t/i-1)*t*t*t-1)+n},easeInOutQuart:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t*t+n:-r/2*((t-=2)*t*t*t-2)+n},easeInQuint:function(e,t,n,r,i){return r*(t/=i)*t*t*t*t+n},easeOutQuint:function(e,t,n,r,i){return r*((t=t/i-1)*t*t*t*t+1)+n},easeInOutQuint:function(e,t,n,r,i){return(t/=i/2)<1?r/2*t*t*t*t*t+n:r/2*((t-=2)*t*t*t*t+2)+n},easeInSine:function(e,t,n,r,i){return-r*Math.cos(t/i*(Math.PI/2))+r+n},easeOutSine:function(e,t,n,r,i){return r*Math.sin(t/i*(Math.PI/2))+n},easeInOutSine:function(e,t,n,r,i){return-r/2*(Math.cos(Math.PI*t/i)-1)+n},easeInExpo:function(e,t,n,r,i){return 0==t?n:r*Math.pow(2,10*(t/i-1))+n},easeOutExpo:function(e,t,n,r,i){return t==i?n+r:r*(-Math.pow(2,-10*t/i)+1)+n},easeInOutExpo:function(e,t,n,r,i){return 0==t?n:t==i?n+r:(t/=i/2)<1?r/2*Math.pow(2,10*(t-1))+n:r/2*(-Math.pow(2,-10*--t)+2)+n},easeInCirc:function(e,t,n,r,i){return-r*(Math.sqrt(1-(t/=i)*t)-1)+n},easeOutCirc:function(e,t,n,r,i){return r*Math.sqrt(1-(t=t/i-1)*t)+n},easeInOutCirc:function(e,t,n,r,i){return(t/=i/2)<1?-r/2*(Math.sqrt(1-t*t)-1)+n:r/2*(Math.sqrt(1-(t-=2)*t)+1)+n},easeInElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(1==(t/=i))return n+r;if(a||(a=.3*i),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return-(s*Math.pow(2,10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a))+n},easeOutElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(1==(t/=i))return n+r;if(a||(a=.3*i),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return s*Math.pow(2,-10*t)*Math.sin((t*i-o)*(2*Math.PI)/a)+r+n},easeInOutElastic:function(e,t,n,r,i){var o=1.70158,a=0,s=r;if(0==t)return n;if(2==(t/=i/2))return n+r;if(a||(a=i*(.3*1.5)),s<Math.abs(r)){s=r;var o=a/4}else var o=a/(2*Math.PI)*Math.asin(r/s);return t<1?-.5*(s*Math.pow(2,10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a))+n:s*Math.pow(2,-10*(t-=1))*Math.sin((t*i-o)*(2*Math.PI)/a)*.5+r+n},easeInBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),r*(t/=i)*t*((o+1)*t-o)+n},easeOutBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),r*((t=t/i-1)*t*((o+1)*t+o)+1)+n},easeInOutBack:function(e,t,n,r,i,o){return void 0==o&&(o=1.70158),(t/=i/2)<1?r/2*(t*t*(((o*=1.525)+1)*t-o))+n:r/2*((t-=2)*t*(((o*=1.525)+1)*t+o)+2)+n},easeInBounce:function(t,n,r,i,o){return i-e.easing.easeOutBounce(t,o-n,0,i,o)+r},easeOutBounce:function(e,t,n,r,i){return(t/=i)<1/2.75?r*(7.5625*t*t)+n:t<2/2.75?r*(7.5625*(t-=1.5/2.75)*t+.75)+n:t<2.5/2.75?r*(7.5625*(t-=2.25/2.75)*t+.9375)+n:r*(7.5625*(t-=2.625/2.75)*t+.984375)+n},easeInOutBounce:function(t,n,r,i,o){return n<o/2?.5*e.easing.easeInBounce(t,2*n,0,i,o)+r:.5*e.easing.easeOutBounce(t,2*n-o,0,i,o)+.5*i+r}}),e})},function(e,t){e.exports=' <div class=circle _v-31e92f67=""> <div class=circle-percent-text-body _v-31e92f67=""> <span class=percent-text :style="{ \'font-size\': percentFontSize }" _v-31e92f67=""></span> <slot _v-31e92f67=""></slot> </div> </div> '},function(e,t,n){function r(e,t){for(var n=0;n<e.length;n++){var r=e[n],i=f[r.id];if(i){i.refs++;for(var o=0;o<i.parts.length;o++)i.parts[o](r.parts[o]);for(;o<r.parts.length;o++)i.parts.push(u(r.parts[o],t))}else{for(var a=[],o=0;o<r.parts.length;o++)a.push(u(r.parts[o],t));f[r.id]={id:r.id,refs:1,parts:a}}}}function i(e){for(var t=[],n={},r=0;r<e.length;r++){var i=e[r],o=i[0],a=i[1],s=i[2],u=i[3],c={css:a,media:s,sourceMap:u};n[o]?n[o].parts.push(c):t.push(n[o]={id:o,parts:[c]})}return t}function o(e,t){var n=h(),r=m[m.length-1];if("top"===e.insertAt)r?r.nextSibling?n.insertBefore(t,r.nextSibling):n.appendChild(t):n.insertBefore(t,n.firstChild),m.push(t);else{if("bottom"!==e.insertAt)throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");n.appendChild(t)}}function a(e){e.parentNode.removeChild(e);var t=m.indexOf(e);t>=0&&m.splice(t,1)}function s(e){var t=document.createElement("style");return t.type="text/css",o(e,t),t}function u(e,t){var n,r,i;if(t.singleton){var o=v++;n=g||(g=s(t)),r=c.bind(null,n,o,!1),i=c.bind(null,n,o,!0)}else n=s(t),r=l.bind(null,n),i=function(){a(n)};return r(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;r(e=t)}else i()}}function c(e,t,n,r){var i=n?"":r.css;if(e.styleSheet)e.styleSheet.cssText=y(t,i);else{var o=document.createTextNode(i),a=e.childNodes;a[t]&&e.removeChild(a[t]),a.length?e.insertBefore(o,a[t]):e.appendChild(o)}}function l(e,t){var n=t.css,r=t.media,i=t.sourceMap;if(r&&e.setAttribute("media",r),i&&(n+="\n/*# sourceURL="+i.sources[0]+" */",n+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(i))))+" */"),e.styleSheet)e.styleSheet.cssText=n;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(n))}}var f={},p=function(e){var t;return function(){return"undefined"==typeof t&&(t=e.apply(this,arguments)),t}},d=p(function(){return/msie [6-9]\b/.test(window.navigator.userAgent.toLowerCase())}),h=p(function(){return document.head||document.getElementsByTagName("head")[0]}),g=null,v=0,m=[];e.exports=function(e,t){t=t||{},"undefined"==typeof t.singleton&&(t.singleton=d()),"undefined"==typeof t.insertAt&&(t.insertAt="bottom");var n=i(e);return r(n,t),function(e){for(var o=[],a=0;a<n.length;a++){var s=n[a],u=f[s.id];u.refs--,o.push(u)}if(e){var c=i(e);r(c,t)}for(var a=0;a<o.length;a++){var u=o[a];if(0===u.refs){for(var l=0;l<u.parts.length;l++)u.parts[l]();delete f[u.id]}}}};var y=function(){var e=[];return function(t,n){return e[t]=n,e.filter(Boolean).join("\n")}}()},function(e,t,n){var r=n(3);"string"==typeof r&&(r=[[e.id,r,""]]);n(8)(r,{});r.locals&&(e.exports=r.locals)}])});
-
-/***/ }),
-
-/***/ 83:
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(84);
-__webpack_require__(252);
-__webpack_require__(253);
-module.exports = __webpack_require__(254);
-
-
-/***/ }),
-
-/***/ 84:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(85);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash__ = __webpack_require__(93);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue__ = __webpack_require__(55);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue2_google_maps__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue2_google_maps__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_awesome_swiper__ = __webpack_require__(225);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue_awesome_swiper__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_swiper_dist_css_swiper_css__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_swiper_dist_css_swiper_css__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SearchInput_vue__ = __webpack_require__(231);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_SearchInput_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_SearchInput_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_OptionBox_vue__ = __webpack_require__(234);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_OptionBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_OptionBox_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_FactorCard_vue__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_FactorCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_FactorCard_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_WeatherCard_vue__ = __webpack_require__(242);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_WeatherCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_WeatherCard_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_SummaryCard_vue__ = __webpack_require__(247);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_SummaryCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_SummaryCard_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_axios__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_awesome_swiper__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue_awesome_swiper___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue_awesome_swiper__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_swiper_dist_css_swiper_css__ = __webpack_require__(253);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_swiper_dist_css_swiper_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_swiper_dist_css_swiper_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SearchInput_vue__ = __webpack_require__(257);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_SearchInput_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_SearchInput_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_OptionBox_vue__ = __webpack_require__(260);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_OptionBox_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_OptionBox_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FactorCard_vue__ = __webpack_require__(263);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_FactorCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_FactorCard_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_WeatherCard_vue__ = __webpack_require__(273);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_WeatherCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_WeatherCard_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_SummaryCard_vue__ = __webpack_require__(278);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_SummaryCard_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_SummaryCard_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_FactorTab_vue__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__components_FactorTab_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__components_FactorTab_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_FactorDetailModal_vue__ = __webpack_require__(295);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_FactorDetailModal_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__components_FactorDetailModal_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_js_modal__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_vue_js_modal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_vue_js_modal__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_tabs_component__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_vue_tabs_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_vue_tabs_component__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_slider_component__ = __webpack_require__(307);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_vue_slider_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_vue_slider_component__);
 //import './bootstrap';
 
 
@@ -9141,9 +832,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-//var SearchInput = require('./components/SearchInput.vue');
-//Vue.component('search-input', require('./components/SearchInput.vue'));
-__WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue2_google_maps__, {
+
+
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_13_vue_js_modal___default.a);
+__WEBPACK_IMPORTED_MODULE_2_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__, {
     load: {
         key: 'AIzaSyDaOfML_tYJo6Vi_6BKA0CKIyWmQTnAm1U',
         libraries: 'places' // This is required if you use the Autocomplete plugin
@@ -9152,12 +849,139 @@ __WEBPACK_IMPORTED_MODULE_1_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue2
         // (as you require)
     }
 });
-new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
+
+var google = __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__;
+console.log(google);
+
+new __WEBPACK_IMPORTED_MODULE_2_vue___default.a({
     el: '#root',
     data: {
         hasText: false,
+        windowHeight: window.innerHeight + "px",
         showDropdown: false,
         location: { lat: 25.0838492, lng: 121.5615529 },
+        queryConfig: {
+            safety: {
+                weight: 1,
+                details: [{
+                    name: '警察局',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '消防局',
+                    weight: 1,
+                    distance: 1
+                }, {
+                    name: '消防栓',
+                    weight: 1,
+                    distance: 0.02
+                }]
+            },
+            traffic: {
+                weight: 1,
+                details: [{
+                    name: '公車站',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '捷運站',
+                    weight: 1,
+                    distance: 1
+                }]
+            },
+            livelihood: {
+                weight: 1,
+                details: [{
+                    name: '便利商店',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '中華郵政',
+                    weight: 1,
+                    distance: 1
+                }, {
+                    name: '銀行',
+                    weight: 1,
+                    distance: 0.02
+                }, {
+                    name: '傳統市場',
+                    weight: 1,
+                    distance: 0.02
+                }]
+            },
+            medical: {
+                weight: 1,
+                details: [{
+                    name: '藥局',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '醫療單位',
+                    weight: 1,
+                    distance: 1
+                }]
+            },
+            leisure: {
+                weight: 1,
+                details: [{
+                    name: '河濱公園',
+                    weight: 1,
+                    distance: 0.5
+                }]
+            },
+            nimby: {
+                weight: 1,
+                details: [{
+                    name: '加油站',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '機場',
+                    weight: 1,
+                    distance: 1
+                }, {
+                    name: '工廠',
+                    weight: 1,
+                    distance: 0.02
+                }, {
+                    name: '垃圾焚化廠',
+                    weight: 1,
+                    distance: 0.02
+                }, {
+                    name: '廢棄物處理場',
+                    weight: 1,
+                    distance: 1
+                }, {
+                    name: '煤氣行',
+                    weight: 1,
+                    distance: 0.02
+                }, {
+                    name: '廟宇',
+                    weight: 1,
+                    distance: 0.02
+                }]
+            },
+            humanities: {
+                weight: 1,
+                details: [{
+                    name: '圖書館',
+                    weight: 1,
+                    distance: 0.5
+                }, {
+                    name: '博物館',
+                    weight: 1,
+                    distance: 1
+                }, {
+                    name: '宗教單位',
+                    weight: 1,
+                    distance: 0.02
+                }, {
+                    name: '學校',
+                    weight: 1,
+                    distance: 0.02
+                }]
+            }
+        },
         mapOptions: {
             mapTypeControl: false,
             styles: [{
@@ -9177,6 +1001,82 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }]
             }]
         },
+        sliderDistanceOptions: {
+            width: "100%",
+            height: 8,
+            dotSize: 20,
+            min: 0,
+            max: 5,
+            interval: 0.01,
+            disabled: false,
+            realTime: true,
+            lazy: true,
+            debug: true,
+            show: true,
+            tooltip: "always",
+            tooltipDir: ["bottom", "top"],
+            piecewise: false,
+            style: {
+                "marginBottom": "30px"
+            },
+            bgStyle: {
+                "backgroundColor": "#fff",
+                "boxShadow": "inset 0.5px 0.5px 3px 1px rgba(0,0,0,.36)"
+            },
+            sliderStyle: [{
+                "backgroundColor": "#f05b72"
+            }, {
+                "backgroundColor": "#3498db"
+            }],
+            tooltipStyle: [{
+                "backgroundColor": "#f05b72",
+                "borderColor": "#f05b72"
+            }, {
+                "backgroundColor": "#3498db",
+                "borderColor": "#3498db"
+            }],
+            processStyle: {
+                "backgroundImage": "-webkit-linear-gradient(left, #f05b72, #3498db)"
+            }
+        },
+        sliderWeightOptions: {
+            width: "100%",
+            height: 8,
+            dotSize: 20,
+            min: 0,
+            max: 3,
+            debug: true,
+            realTime: true,
+            lazy: true,
+            interval: 0.1,
+            disabled: false,
+            show: true,
+            tooltip: "always",
+            tooltipDir: ["bottom", "top"],
+            piecewise: false,
+            style: {
+                "marginBottom": "30px"
+            },
+            bgStyle: {
+                "backgroundColor": "#fff",
+                "boxShadow": "inset 0.5px 0.5px 3px 1px rgba(0,0,0,.36)"
+            },
+            sliderStyle: [{
+                "backgroundColor": "#f05b72"
+            }, {
+                "backgroundColor": "#3498db"
+            }],
+            tooltipStyle: [{
+                "backgroundColor": "#f05b72",
+                "borderColor": "#f05b72"
+            }, {
+                "backgroundColor": "#3498db",
+                "borderColor": "#3498db"
+            }],
+            processStyle: {
+                "backgroundImage": "-webkit-linear-gradient(left, #f05b72, #3498db)"
+            }
+        },
         analysisOptions: {
             data: [{
                 aspect: '居家安全',
@@ -9195,21 +1095,9 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 options: ['殯儀館', '垃圾場', '公墓', '大水溝', '焚化爐']
             }]
         },
-        factors: [{
-            name: '居家安全'
-        }, {
-            name: '交通分析'
-        }, {
-            name: '民生建築'
-        }, {
-            name: '醫療服務'
-        }, {
-            name: '娛樂場所'
-        }, {
-            name: '嫌惡設施'
-        }, {
-            name: '學習資源'
-        }],
+        factors: [],
+        summary: [],
+        tabsId: ['safety', 'traffic', 'livelihood', 'medical-resources', 'leisure', 'nimby', 'humanities'],
         swiperOption: {
             pagination: {
                 el: '.swiper-pagination',
@@ -9222,9 +1110,21 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
             slidesPerView: 4,
             slidesPerGroup: 4,
             spaceBetween: 20
+        },
+
+        icon: {
+            factory: {
+                url: './icons/factory.png',
+                scaledSize: { height: 30, width: 30 },
+                anchor: { x: 0, y: 0 },
+                origin: { x: 0, y: 0 }
+            },
+            default: ''
         }
+
     },
     computed: {
+        //google: VueGoogleMaps.gmapApi,
         dropdownAnimate: function dropdownAnimate() {
             var open = this.hasText;
             if (open) {
@@ -9235,13 +1135,52 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 }, 100);
             }
             return { animated: true, slideInDown: open, slideOutUp: !open };
+        },
+        markers: function markers() {
+            var result = [];
+            var that = this;
+            this.factors.forEach(function (factor) {
+                var type = factor.name || 'tt';
+                var details = factor.details;
+                if (!details) return;
+                details.forEach(function (detail) {
+                    var title = detail.title;
+                    var features = detail.features;
+                    features.forEach(function (feature) {
+                        var coordinates = feature.geometry.coordinates;
+                        var icon = that.icon.default;
+                        /*if(feature.properties.title == "工廠") {
+                            icon = that.icon.factory;
+                        }*/
+                        var marker = {
+                            position: { lng: coordinates[0], lat: coordinates[1] },
+                            title: feature.properties.title + ' ' + feature.properties.name,
+                            type: type,
+                            icon: icon
+                        };
+                        result.push(marker);
+                    });
+                });
+            });
+            return result;
         }
+
     },
     methods: {
+        showQueryConfig: function showQueryConfig(modal) {
+            this.$modal.show(modal);
+        },
         getCurrentLocation: function getCurrentLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(this.setCurrentLocation);
             }
+        },
+        refreshSli: function refreshSli(sli) {
+            var _this = this;
+
+            this.$nextTick(function () {
+                return _this.$refs.sli.refresh();
+            });
         },
         setCurrentLocation: function setCurrentLocation(position) {
             this.location = { lat: position.coords.latitude, lng: position.coords.longitude };
@@ -9257,12 +1196,28 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
             return { animated: true, slideInDown: val, slideOutUp: !val };
         },
         locatedOnMap: function locatedOnMap(place) {
+            var _this2 = this;
+
             //console.log(place);
             this.location = {
                 lat: place.geometry.location.lat(),
                 lng: place.geometry.location.lng()
             };
             this.hasText = true;
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/factors', {
+                params: {
+                    'x': this.location.lng,
+                    'y': this.location.lat,
+                    'config': this.queryConfig
+                }
+            }).then(function (response) {
+                _this2.factors = null;
+                _this2.summary = response.data;
+                _this2.factors = _this2.summary.factors;
+                console.log("HERE\n" + response.data);
+            }).catch(function (error) {
+                console.log("ERROR\n" + error);
+            });
         },
         usePlace: function usePlace(place) {
             if (this.place) {
@@ -9274,25 +1229,48 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
                 });
                 this.place = null;
             }
+        },
+        init: function init() {
+            var _this3 = this;
+
+            __WEBPACK_IMPORTED_MODULE_1_axios___default.a.get('/api/factors', {
+                params: {
+                    'x': this.location.lng,
+                    'y': this.location.lat,
+                    'config': this.queryConfig
+                }
+            }).then(function (response) {
+                console.log(response.data);
+                _this3.summary = response.data;
+                _this3.factors = _this3.summary.factors;
+            }).catch(function (error) {
+                console.log(error);
+            });
         }
     },
     created: function created() {
         this.getCurrentLocation();
+        this.init();
     },
     components: {
-        SearchInput: __WEBPACK_IMPORTED_MODULE_5__components_SearchInput_vue___default.a,
-        OptionBox: __WEBPACK_IMPORTED_MODULE_6__components_OptionBox_vue___default.a,
-        FactorCard: __WEBPACK_IMPORTED_MODULE_7__components_FactorCard_vue___default.a,
-        WeatherCard: __WEBPACK_IMPORTED_MODULE_8__components_WeatherCard_vue___default.a,
-        SummaryCard: __WEBPACK_IMPORTED_MODULE_9__components_SummaryCard_vue___default.a,
-        swiper: __WEBPACK_IMPORTED_MODULE_3_vue_awesome_swiper__["swiper"],
-        swiperSlide: __WEBPACK_IMPORTED_MODULE_3_vue_awesome_swiper__["swiperSlide"]
+        SearchInput: __WEBPACK_IMPORTED_MODULE_6__components_SearchInput_vue___default.a,
+        OptionBox: __WEBPACK_IMPORTED_MODULE_7__components_OptionBox_vue___default.a,
+        FactorCard: __WEBPACK_IMPORTED_MODULE_8__components_FactorCard_vue___default.a,
+        WeatherCard: __WEBPACK_IMPORTED_MODULE_9__components_WeatherCard_vue___default.a,
+        SummaryCard: __WEBPACK_IMPORTED_MODULE_10__components_SummaryCard_vue___default.a,
+        swiper: __WEBPACK_IMPORTED_MODULE_4_vue_awesome_swiper__["swiper"],
+        swiperSlide: __WEBPACK_IMPORTED_MODULE_4_vue_awesome_swiper__["swiperSlide"],
+        Tabs: __WEBPACK_IMPORTED_MODULE_14_vue_tabs_component__["Tabs"],
+        Tab: __WEBPACK_IMPORTED_MODULE_14_vue_tabs_component__["Tab"],
+        FactorTab: __WEBPACK_IMPORTED_MODULE_11__components_FactorTab_vue___default.a,
+        FactorDetailModal: __WEBPACK_IMPORTED_MODULE_12__components_FactorDetailModal_vue___default.a,
+        vueSlider: __WEBPACK_IMPORTED_MODULE_15_vue_slider_component___default.a,
+        'gmap-marker': __WEBPACK_IMPORTED_MODULE_3_vue2_google_maps__["Marker"]
     }
 });
 
 /***/ }),
-
-/***/ 85:
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -26394,8 +18372,12863 @@ new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(17), __webpack_require__(22)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(19), __webpack_require__(23)(module)))
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(95);
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var bind = __webpack_require__(57);
+var Axios = __webpack_require__(97);
+var defaults = __webpack_require__(31);
+
+/**
+ * Create an instance of Axios
+ *
+ * @param {Object} defaultConfig The default config for the instance
+ * @return {Axios} A new instance of Axios
+ */
+function createInstance(defaultConfig) {
+  var context = new Axios(defaultConfig);
+  var instance = bind(Axios.prototype.request, context);
+
+  // Copy axios.prototype to instance
+  utils.extend(instance, Axios.prototype, context);
+
+  // Copy context to instance
+  utils.extend(instance, context);
+
+  return instance;
+}
+
+// Create the default instance to be exported
+var axios = createInstance(defaults);
+
+// Expose Axios class to allow class inheritance
+axios.Axios = Axios;
+
+// Factory for creating new instances
+axios.create = function create(instanceConfig) {
+  return createInstance(utils.merge(defaults, instanceConfig));
+};
+
+// Expose Cancel & CancelToken
+axios.Cancel = __webpack_require__(62);
+axios.CancelToken = __webpack_require__(111);
+axios.isCancel = __webpack_require__(61);
+
+// Expose all/spread
+axios.all = function all(promises) {
+  return Promise.all(promises);
+};
+axios.spread = __webpack_require__(112);
+
+module.exports = axios;
+
+// Allow use of default import syntax in TypeScript
+module.exports.default = axios;
+
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+// The _isBuffer check is for Safari 5-7 support, because it's missing
+// Object.prototype.constructor. Remove this eventually
+module.exports = function (obj) {
+  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+}
+
+function isBuffer (obj) {
+  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
+// For Node v0.10 support. Remove this eventually.
+function isSlowBuffer (obj) {
+  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+}
+
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defaults = __webpack_require__(31);
+var utils = __webpack_require__(0);
+var InterceptorManager = __webpack_require__(106);
+var dispatchRequest = __webpack_require__(107);
+
+/**
+ * Create a new instance of Axios
+ *
+ * @param {Object} instanceConfig The default config for the instance
+ */
+function Axios(instanceConfig) {
+  this.defaults = instanceConfig;
+  this.interceptors = {
+    request: new InterceptorManager(),
+    response: new InterceptorManager()
+  };
+}
+
+/**
+ * Dispatch a request
+ *
+ * @param {Object} config The config specific for this request (merged with this.defaults)
+ */
+Axios.prototype.request = function request(config) {
+  /*eslint no-param-reassign:0*/
+  // Allow for axios('example/url'[, config]) a la fetch API
+  if (typeof config === 'string') {
+    config = utils.merge({
+      url: arguments[0]
+    }, arguments[1]);
+  }
+
+  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+  config.method = config.method.toLowerCase();
+
+  // Hook up interceptors middleware
+  var chain = [dispatchRequest, undefined];
+  var promise = Promise.resolve(config);
+
+  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+    chain.push(interceptor.fulfilled, interceptor.rejected);
+  });
+
+  while (chain.length) {
+    promise = promise.then(chain.shift(), chain.shift());
+  }
+
+  return promise;
+};
+
+// Provide aliases for supported request methods
+utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url
+    }));
+  };
+});
+
+utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+  /*eslint func-names:0*/
+  Axios.prototype[method] = function(url, data, config) {
+    return this.request(utils.merge(config || {}, {
+      method: method,
+      url: url,
+      data: data
+    }));
+  };
+});
+
+module.exports = Axios;
+
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = function normalizeHeaderName(headers, normalizedName) {
+  utils.forEach(headers, function processHeader(value, name) {
+    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+      headers[normalizedName] = value;
+      delete headers[name];
+    }
+  });
+};
+
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createError = __webpack_require__(60);
+
+/**
+ * Resolve or reject a Promise based on response status.
+ *
+ * @param {Function} resolve A function that resolves the promise.
+ * @param {Function} reject A function that rejects the promise.
+ * @param {object} response The response.
+ */
+module.exports = function settle(resolve, reject, response) {
+  var validateStatus = response.config.validateStatus;
+  // Note: status is not exposed by XDomainRequest
+  if (!response.status || !validateStatus || validateStatus(response.status)) {
+    resolve(response);
+  } else {
+    reject(createError(
+      'Request failed with status code ' + response.status,
+      response.config,
+      null,
+      response.request,
+      response
+    ));
+  }
+};
+
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Update an Error with the specified config, error code, and response.
+ *
+ * @param {Error} error The error to update.
+ * @param {Object} config The config.
+ * @param {string} [code] The error code (for example, 'ECONNABORTED').
+ * @param {Object} [request] The request.
+ * @param {Object} [response] The response.
+ * @returns {Error} The error.
+ */
+module.exports = function enhanceError(error, config, code, request, response) {
+  error.config = config;
+  if (code) {
+    error.code = code;
+  }
+  error.request = request;
+  error.response = response;
+  return error;
+};
+
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+function encode(val) {
+  return encodeURIComponent(val).
+    replace(/%40/gi, '@').
+    replace(/%3A/gi, ':').
+    replace(/%24/g, '$').
+    replace(/%2C/gi, ',').
+    replace(/%20/g, '+').
+    replace(/%5B/gi, '[').
+    replace(/%5D/gi, ']');
+}
+
+/**
+ * Build a URL by appending params to the end
+ *
+ * @param {string} url The base of the url (e.g., http://www.google.com)
+ * @param {object} [params] The params to be appended
+ * @returns {string} The formatted url
+ */
+module.exports = function buildURL(url, params, paramsSerializer) {
+  /*eslint no-param-reassign:0*/
+  if (!params) {
+    return url;
+  }
+
+  var serializedParams;
+  if (paramsSerializer) {
+    serializedParams = paramsSerializer(params);
+  } else if (utils.isURLSearchParams(params)) {
+    serializedParams = params.toString();
+  } else {
+    var parts = [];
+
+    utils.forEach(params, function serialize(val, key) {
+      if (val === null || typeof val === 'undefined') {
+        return;
+      }
+
+      if (utils.isArray(val)) {
+        key = key + '[]';
+      } else {
+        val = [val];
+      }
+
+      utils.forEach(val, function parseValue(v) {
+        if (utils.isDate(v)) {
+          v = v.toISOString();
+        } else if (utils.isObject(v)) {
+          v = JSON.stringify(v);
+        }
+        parts.push(encode(key) + '=' + encode(v));
+      });
+    });
+
+    serializedParams = parts.join('&');
+  }
+
+  if (serializedParams) {
+    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+  }
+
+  return url;
+};
+
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+// Headers whose duplicates are ignored by node
+// c.f. https://nodejs.org/api/http.html#http_message_headers
+var ignoreDuplicateOf = [
+  'age', 'authorization', 'content-length', 'content-type', 'etag',
+  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+  'referer', 'retry-after', 'user-agent'
+];
+
+/**
+ * Parse headers into an object
+ *
+ * ```
+ * Date: Wed, 27 Aug 2014 08:58:49 GMT
+ * Content-Type: application/json
+ * Connection: keep-alive
+ * Transfer-Encoding: chunked
+ * ```
+ *
+ * @param {String} headers Headers needing to be parsed
+ * @returns {Object} Headers parsed into an object
+ */
+module.exports = function parseHeaders(headers) {
+  var parsed = {};
+  var key;
+  var val;
+  var i;
+
+  if (!headers) { return parsed; }
+
+  utils.forEach(headers.split('\n'), function parser(line) {
+    i = line.indexOf(':');
+    key = utils.trim(line.substr(0, i)).toLowerCase();
+    val = utils.trim(line.substr(i + 1));
+
+    if (key) {
+      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+        return;
+      }
+      if (key === 'set-cookie') {
+        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+      } else {
+        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+      }
+    }
+  });
+
+  return parsed;
+};
+
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs have full support of the APIs needed to test
+  // whether the request URL is of the same origin as current location.
+  (function standardBrowserEnv() {
+    var msie = /(msie|trident)/i.test(navigator.userAgent);
+    var urlParsingNode = document.createElement('a');
+    var originURL;
+
+    /**
+    * Parse a URL to discover it's components
+    *
+    * @param {String} url The URL to be parsed
+    * @returns {Object}
+    */
+    function resolveURL(url) {
+      var href = url;
+
+      if (msie) {
+        // IE needs attribute set twice to normalize properties
+        urlParsingNode.setAttribute('href', href);
+        href = urlParsingNode.href;
+      }
+
+      urlParsingNode.setAttribute('href', href);
+
+      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+      return {
+        href: urlParsingNode.href,
+        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+        host: urlParsingNode.host,
+        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+        hostname: urlParsingNode.hostname,
+        port: urlParsingNode.port,
+        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+                  urlParsingNode.pathname :
+                  '/' + urlParsingNode.pathname
+      };
+    }
+
+    originURL = resolveURL(window.location.href);
+
+    /**
+    * Determine if a URL shares the same origin as the current location
+    *
+    * @param {String} requestURL The URL to test
+    * @returns {boolean} True if URL shares the same origin, otherwise false
+    */
+    return function isURLSameOrigin(requestURL) {
+      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+      return (parsed.protocol === originURL.protocol &&
+            parsed.host === originURL.host);
+    };
+  })() :
+
+  // Non standard browser envs (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return function isURLSameOrigin() {
+      return true;
+    };
+  })()
+);
+
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+function E() {
+  this.message = 'String contains an invalid character';
+}
+E.prototype = new Error;
+E.prototype.code = 5;
+E.prototype.name = 'InvalidCharacterError';
+
+function btoa(input) {
+  var str = String(input);
+  var output = '';
+  for (
+    // initialize result and counter
+    var block, charCode, idx = 0, map = chars;
+    // if the next str index does not exist:
+    //   change the mapping table to "="
+    //   check if d has no fractional digits
+    str.charAt(idx | 0) || (map = '=', idx % 1);
+    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+  ) {
+    charCode = str.charCodeAt(idx += 3 / 4);
+    if (charCode > 0xFF) {
+      throw new E();
+    }
+    block = block << 8 | charCode;
+  }
+  return output;
+}
+
+module.exports = btoa;
+
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+module.exports = (
+  utils.isStandardBrowserEnv() ?
+
+  // Standard browser envs support document.cookie
+  (function standardBrowserEnv() {
+    return {
+      write: function write(name, value, expires, path, domain, secure) {
+        var cookie = [];
+        cookie.push(name + '=' + encodeURIComponent(value));
+
+        if (utils.isNumber(expires)) {
+          cookie.push('expires=' + new Date(expires).toGMTString());
+        }
+
+        if (utils.isString(path)) {
+          cookie.push('path=' + path);
+        }
+
+        if (utils.isString(domain)) {
+          cookie.push('domain=' + domain);
+        }
+
+        if (secure === true) {
+          cookie.push('secure');
+        }
+
+        document.cookie = cookie.join('; ');
+      },
+
+      read: function read(name) {
+        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+        return (match ? decodeURIComponent(match[3]) : null);
+      },
+
+      remove: function remove(name) {
+        this.write(name, '', Date.now() - 86400000);
+      }
+    };
+  })() :
+
+  // Non standard browser env (web workers, react-native) lack needed support.
+  (function nonStandardBrowserEnv() {
+    return {
+      write: function write() {},
+      read: function read() { return null; },
+      remove: function remove() {}
+    };
+  })()
+);
+
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+function InterceptorManager() {
+  this.handlers = [];
+}
+
+/**
+ * Add a new interceptor to the stack
+ *
+ * @param {Function} fulfilled The function to handle `then` for a `Promise`
+ * @param {Function} rejected The function to handle `reject` for a `Promise`
+ *
+ * @return {Number} An ID used to remove interceptor later
+ */
+InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+  this.handlers.push({
+    fulfilled: fulfilled,
+    rejected: rejected
+  });
+  return this.handlers.length - 1;
+};
+
+/**
+ * Remove an interceptor from the stack
+ *
+ * @param {Number} id The ID that was returned by `use`
+ */
+InterceptorManager.prototype.eject = function eject(id) {
+  if (this.handlers[id]) {
+    this.handlers[id] = null;
+  }
+};
+
+/**
+ * Iterate over all the registered interceptors
+ *
+ * This method is particularly useful for skipping over any
+ * interceptors that may have become `null` calling `eject`.
+ *
+ * @param {Function} fn The function to call for each interceptor
+ */
+InterceptorManager.prototype.forEach = function forEach(fn) {
+  utils.forEach(this.handlers, function forEachHandler(h) {
+    if (h !== null) {
+      fn(h);
+    }
+  });
+};
+
+module.exports = InterceptorManager;
+
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+var transformData = __webpack_require__(108);
+var isCancel = __webpack_require__(61);
+var defaults = __webpack_require__(31);
+var isAbsoluteURL = __webpack_require__(109);
+var combineURLs = __webpack_require__(110);
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+function throwIfCancellationRequested(config) {
+  if (config.cancelToken) {
+    config.cancelToken.throwIfRequested();
+  }
+}
+
+/**
+ * Dispatch a request to the server using the configured adapter.
+ *
+ * @param {object} config The config that is to be used for the request
+ * @returns {Promise} The Promise to be fulfilled
+ */
+module.exports = function dispatchRequest(config) {
+  throwIfCancellationRequested(config);
+
+  // Support baseURL config
+  if (config.baseURL && !isAbsoluteURL(config.url)) {
+    config.url = combineURLs(config.baseURL, config.url);
+  }
+
+  // Ensure headers exist
+  config.headers = config.headers || {};
+
+  // Transform request data
+  config.data = transformData(
+    config.data,
+    config.headers,
+    config.transformRequest
+  );
+
+  // Flatten headers
+  config.headers = utils.merge(
+    config.headers.common || {},
+    config.headers[config.method] || {},
+    config.headers || {}
+  );
+
+  utils.forEach(
+    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+    function cleanHeaderConfig(method) {
+      delete config.headers[method];
+    }
+  );
+
+  var adapter = config.adapter || defaults.adapter;
+
+  return adapter(config).then(function onAdapterResolution(response) {
+    throwIfCancellationRequested(config);
+
+    // Transform response data
+    response.data = transformData(
+      response.data,
+      response.headers,
+      config.transformResponse
+    );
+
+    return response;
+  }, function onAdapterRejection(reason) {
+    if (!isCancel(reason)) {
+      throwIfCancellationRequested(config);
+
+      // Transform response data
+      if (reason && reason.response) {
+        reason.response.data = transformData(
+          reason.response.data,
+          reason.response.headers,
+          config.transformResponse
+        );
+      }
+    }
+
+    return Promise.reject(reason);
+  });
+};
+
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var utils = __webpack_require__(0);
+
+/**
+ * Transform the data for a request or a response
+ *
+ * @param {Object|String} data The data to be transformed
+ * @param {Array} headers The headers for the request or response
+ * @param {Array|Function} fns A single function or Array of functions
+ * @returns {*} The resulting transformed data
+ */
+module.exports = function transformData(data, headers, fns) {
+  /*eslint no-param-reassign:0*/
+  utils.forEach(fns, function transform(fn) {
+    data = fn(data, headers);
+  });
+
+  return data;
+};
+
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Determines whether the specified URL is absolute
+ *
+ * @param {string} url The URL to test
+ * @returns {boolean} True if the specified URL is absolute, otherwise false
+ */
+module.exports = function isAbsoluteURL(url) {
+  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+  // by any combination of letters, digits, plus, period, or hyphen.
+  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+};
+
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a new URL by combining the specified URLs
+ *
+ * @param {string} baseURL The base URL
+ * @param {string} relativeURL The relative URL
+ * @returns {string} The combined URL
+ */
+module.exports = function combineURLs(baseURL, relativeURL) {
+  return relativeURL
+    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+    : baseURL;
+};
+
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Cancel = __webpack_require__(62);
+
+/**
+ * A `CancelToken` is an object that can be used to request cancellation of an operation.
+ *
+ * @class
+ * @param {Function} executor The executor function.
+ */
+function CancelToken(executor) {
+  if (typeof executor !== 'function') {
+    throw new TypeError('executor must be a function.');
+  }
+
+  var resolvePromise;
+  this.promise = new Promise(function promiseExecutor(resolve) {
+    resolvePromise = resolve;
+  });
+
+  var token = this;
+  executor(function cancel(message) {
+    if (token.reason) {
+      // Cancellation has already been requested
+      return;
+    }
+
+    token.reason = new Cancel(message);
+    resolvePromise(token.reason);
+  });
+}
+
+/**
+ * Throws a `Cancel` if cancellation has been requested.
+ */
+CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+  if (this.reason) {
+    throw this.reason;
+  }
+};
+
+/**
+ * Returns an object that contains a new `CancelToken` and a function that, when called,
+ * cancels the `CancelToken`.
+ */
+CancelToken.source = function source() {
+  var cancel;
+  var token = new CancelToken(function executor(c) {
+    cancel = c;
+  });
+  return {
+    token: token,
+    cancel: cancel
+  };
+};
+
+module.exports = CancelToken;
+
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Syntactic sugar for invoking a function and expanding an array for arguments.
+ *
+ * Common use case would be to use `Function.prototype.apply`.
+ *
+ *  ```js
+ *  function f(x, y, z) {}
+ *  var args = [1, 2, 3];
+ *  f.apply(null, args);
+ *  ```
+ *
+ * With `spread` this example can be re-written.
+ *
+ *  ```js
+ *  spread(function(x, y, z) {})([1, 2, 3]);
+ *  ```
+ *
+ * @param {Function} callback
+ * @returns {Function}
+ */
+module.exports = function spread(callback) {
+  return function wrap(arr) {
+    return callback.apply(null, arr);
+  };
+};
+
+
+/***/ }),
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(e,t){ true?module.exports=t(__webpack_require__(252)):"function"==typeof define&&define.amd?define("VueAwesomeSwiper",["swiper"],t):"object"==typeof exports?exports.VueAwesomeSwiper=t(require("swiper/dist/js/swiper.js")):e.VueAwesomeSwiper=t(e.Swiper)}(this,function(e){return function(e){function t(i){if(n[i])return n[i].exports;var s=n[i]={i:i,l:!1,exports:{}};return e[i].call(s.exports,s,s.exports,t),s.l=!0,s.exports}var n={};return t.m=e,t.c=n,t.i=function(e){return e},t.d=function(e,n,i){t.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},t.p="/",t(t.s=4)}([function(t,n){t.exports=e},function(e,t){e.exports=function(e,t,n,i,s,r){var o,a=e=e||{},u=typeof e.default;"object"!==u&&"function"!==u||(o=e,a=e.default);var p="function"==typeof a?a.options:a;t&&(p.render=t.render,p.staticRenderFns=t.staticRenderFns,p._compiled=!0),n&&(p.functional=!0),s&&(p._scopeId=s);var l;if(r?(l=function(e){e=e||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext,e||"undefined"==typeof __VUE_SSR_CONTEXT__||(e=__VUE_SSR_CONTEXT__),i&&i.call(this,e),e&&e._registeredComponents&&e._registeredComponents.add(r)},p._ssrRegister=l):i&&(l=i),l){var c=p.functional,d=c?p.render:p.beforeCreate;c?(p._injectStyles=l,p.render=function(e,t){return l.call(t),d(e,t)}):p.beforeCreate=d?[].concat(d,l):[l]}return{esModule:o,exports:a,options:p}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(5),s=n.n(i),r=n(8),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(6),s=n.n(i),r=n(7),o=n(1),a=o(s.a,r.a,!1,null,null,null);t.default=a.exports},function(e,t,n){"use strict";function i(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(t,"__esModule",{value:!0}),t.install=t.swiperSlide=t.swiper=t.Swiper=void 0;var s=n(0),r=i(s),o=n(2),a=i(o),u=n(3),p=i(u),l=window.Swiper||r.default,c=p.default,d=a.default,f=function(e,t){t&&(p.default.props.globalOptions.default=function(){return t}),e.component(p.default.name,p.default),e.component(a.default.name,a.default)},h={Swiper:l,swiper:c,swiperSlide:d,install:f};t.default=h,t.Swiper=l,t.swiper=c,t.swiperSlide=d,t.install=f},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.default={name:"swiper-slide",data:function(){return{slideClass:"swiper-slide"}},ready:function(){this.update()},mounted:function(){this.update(),this.$parent&&this.$parent.options&&this.$parent.options.slideClass&&(this.slideClass=this.$parent.options.slideClass)},updated:function(){this.update()},attached:function(){this.update()},methods:{update:function(){this.$parent&&this.$parent.swiper&&this.$parent.update()}}}},function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i=n(0),s=function(e){return e&&e.__esModule?e:{default:e}}(i),r=window.Swiper||s.default;"function"!=typeof Object.assign&&Object.defineProperty(Object,"assign",{value:function(e,t){if(null==e)throw new TypeError("Cannot convert undefined or null to object");for(var n=Object(e),i=1;i<arguments.length;i++){var s=arguments[i];if(null!=s)for(var r in s)Object.prototype.hasOwnProperty.call(s,r)&&(n[r]=s[r])}return n},writable:!0,configurable:!0});var o=["beforeDestroy","slideChange","slideChangeTransitionStart","slideChangeTransitionEnd","slideNextTransitionStart","slideNextTransitionEnd","slidePrevTransitionStart","slidePrevTransitionEnd","transitionStart","transitionEnd","touchStart","touchMove","touchMoveOpposite","sliderMove","touchEnd","click","tap","doubleTap","imagesReady","progress","reachBeginning","reachEnd","fromEdge","setTranslate","setTransition","resize"];t.default={name:"swiper",props:{options:{type:Object,default:function(){return{}}},globalOptions:{type:Object,required:!1,default:function(){return{}}}},data:function(){return{swiper:null,classes:{wrapperClass:"swiper-wrapper"}}},ready:function(){this.swiper||this.mountInstance()},mounted:function(){if(!this.swiper){var e=!1;for(var t in this.classes)this.classes.hasOwnProperty(t)&&this.options[t]&&(e=!0,this.classes[t]=this.options[t]);e?this.$nextTick(this.mountInstance):this.mountInstance()}},activated:function(){this.update()},updated:function(){this.update()},beforeDestroy:function(){this.$nextTick(function(){this.swiper&&(this.swiper.destroy&&this.swiper.destroy(),delete this.swiper)})},methods:{update:function(){this.swiper&&(this.swiper.update&&this.swiper.update(),this.swiper.navigation&&this.swiper.navigation.update(),this.swiper.pagination&&this.swiper.pagination.render(),this.swiper.pagination&&this.swiper.pagination.update())},mountInstance:function(){var e=Object.assign({},this.globalOptions,this.options);this.swiper=new r(this.$el,e),this.bindEvents(),this.$emit("ready",this.swiper)},bindEvents:function(){var e=this,t=this;o.forEach(function(n){e.swiper.on(n,function(){t.$emit.apply(t,[n].concat(Array.prototype.slice.call(arguments))),t.$emit.apply(t,[n.replace(/([A-Z])/g,"-$1").toLowerCase()].concat(Array.prototype.slice.call(arguments)))})})}}}},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",{staticClass:"swiper-container"},[e._t("parallax-bg"),e._v(" "),n("div",{class:e.classes.wrapperClass},[e._t("default")],2),e._v(" "),e._t("pagination"),e._v(" "),e._t("button-prev"),e._v(" "),e._t("button-next"),e._v(" "),e._t("scrollbar")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r},function(e,t,n){"use strict";var i=function(){var e=this,t=e.$createElement;return(e._self._c||t)("div",{class:e.slideClass},[e._t("default")],2)},s=[],r={render:i,staticRenderFns:s};t.a=r}])});
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Swiper 4.2.6
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * http://www.idangero.us/swiper/
+ *
+ * Copyright 2014-2018 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: May 1, 2018
+ */
+
+(function (global, factory) {
+   true ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.Swiper = factory());
+}(this, (function () { 'use strict';
+
+  /**
+   * SSR Window 1.0.0
+   * Better handling for window object in SSR environment
+   * https://github.com/nolimits4web/ssr-window
+   *
+   * Copyright 2018, Vladimir Kharlampidi
+   *
+   * Licensed under MIT
+   *
+   * Released on: February 10, 2018
+   */
+  var d;
+  if (typeof document === 'undefined') {
+    d = {
+      body: {},
+      addEventListener: function addEventListener() {},
+      removeEventListener: function removeEventListener() {},
+      activeElement: {
+        blur: function blur() {},
+        nodeName: '',
+      },
+      querySelector: function querySelector() {
+        return null;
+      },
+      querySelectorAll: function querySelectorAll() {
+        return [];
+      },
+      getElementById: function getElementById() {
+        return null;
+      },
+      createEvent: function createEvent() {
+        return {
+          initEvent: function initEvent() {},
+        };
+      },
+      createElement: function createElement() {
+        return {
+          children: [],
+          childNodes: [],
+          style: {},
+          setAttribute: function setAttribute() {},
+          getElementsByTagName: function getElementsByTagName() {
+            return [];
+          },
+        };
+      },
+      location: { hash: '' },
+    };
+  } else {
+    // eslint-disable-next-line
+    d = document;
+  }
+
+  var doc = d;
+
+  var w;
+  if (typeof window === 'undefined') {
+    w = {
+      document: doc,
+      navigator: {
+        userAgent: '',
+      },
+      location: {},
+      history: {},
+      CustomEvent: function CustomEvent() {
+        return this;
+      },
+      addEventListener: function addEventListener() {},
+      removeEventListener: function removeEventListener() {},
+      getComputedStyle: function getComputedStyle() {
+        return {
+          getPropertyValue: function getPropertyValue() {
+            return '';
+          },
+        };
+      },
+      Image: function Image() {},
+      Date: function Date() {},
+      screen: {},
+      setTimeout: function setTimeout() {},
+      clearTimeout: function clearTimeout() {},
+    };
+  } else {
+    // eslint-disable-next-line
+    w = window;
+  }
+
+  var win = w;
+
+  /**
+   * Dom7 2.0.5
+   * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
+   * http://framework7.io/docs/dom.html
+   *
+   * Copyright 2018, Vladimir Kharlampidi
+   * The iDangero.us
+   * http://www.idangero.us/
+   *
+   * Licensed under MIT
+   *
+   * Released on: April 20, 2018
+   */
+
+  var Dom7 = function Dom7(arr) {
+    var self = this;
+    // Create array-like object
+    for (var i = 0; i < arr.length; i += 1) {
+      self[i] = arr[i];
+    }
+    self.length = arr.length;
+    // Return collection with methods
+    return this;
+  };
+
+  function $(selector, context) {
+    var arr = [];
+    var i = 0;
+    if (selector && !context) {
+      if (selector instanceof Dom7) {
+        return selector;
+      }
+    }
+    if (selector) {
+        // String
+      if (typeof selector === 'string') {
+        var els;
+        var tempParent;
+        var html = selector.trim();
+        if (html.indexOf('<') >= 0 && html.indexOf('>') >= 0) {
+          var toCreate = 'div';
+          if (html.indexOf('<li') === 0) { toCreate = 'ul'; }
+          if (html.indexOf('<tr') === 0) { toCreate = 'tbody'; }
+          if (html.indexOf('<td') === 0 || html.indexOf('<th') === 0) { toCreate = 'tr'; }
+          if (html.indexOf('<tbody') === 0) { toCreate = 'table'; }
+          if (html.indexOf('<option') === 0) { toCreate = 'select'; }
+          tempParent = doc.createElement(toCreate);
+          tempParent.innerHTML = html;
+          for (i = 0; i < tempParent.childNodes.length; i += 1) {
+            arr.push(tempParent.childNodes[i]);
+          }
+        } else {
+          if (!context && selector[0] === '#' && !selector.match(/[ .<>:~]/)) {
+            // Pure ID selector
+            els = [doc.getElementById(selector.trim().split('#')[1])];
+          } else {
+            // Other selectors
+            els = (context || doc).querySelectorAll(selector.trim());
+          }
+          for (i = 0; i < els.length; i += 1) {
+            if (els[i]) { arr.push(els[i]); }
+          }
+        }
+      } else if (selector.nodeType || selector === win || selector === doc) {
+        // Node/element
+        arr.push(selector);
+      } else if (selector.length > 0 && selector[0].nodeType) {
+        // Array of elements or instance of Dom
+        for (i = 0; i < selector.length; i += 1) {
+          arr.push(selector[i]);
+        }
+      }
+    }
+    return new Dom7(arr);
+  }
+
+  $.fn = Dom7.prototype;
+  $.Class = Dom7;
+  $.Dom7 = Dom7;
+
+  function unique(arr) {
+    var uniqueArray = [];
+    for (var i = 0; i < arr.length; i += 1) {
+      if (uniqueArray.indexOf(arr[i]) === -1) { uniqueArray.push(arr[i]); }
+    }
+    return uniqueArray;
+  }
+
+  // Classes and attributes
+  function addClass(className) {
+    var this$1 = this;
+
+    if (typeof className === 'undefined') {
+      return this;
+    }
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.add(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function removeClass(className) {
+    var this$1 = this;
+
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.remove(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function hasClass(className) {
+    if (!this[0]) { return false; }
+    return this[0].classList.contains(className);
+  }
+  function toggleClass(className) {
+    var this$1 = this;
+
+    var classes = className.split(' ');
+    for (var i = 0; i < classes.length; i += 1) {
+      for (var j = 0; j < this.length; j += 1) {
+        if (typeof this$1[j].classList !== 'undefined') { this$1[j].classList.toggle(classes[i]); }
+      }
+    }
+    return this;
+  }
+  function attr(attrs, value) {
+    var arguments$1 = arguments;
+    var this$1 = this;
+
+    if (arguments.length === 1 && typeof attrs === 'string') {
+      // Get attr
+      if (this[0]) { return this[0].getAttribute(attrs); }
+      return undefined;
+    }
+
+    // Set attrs
+    for (var i = 0; i < this.length; i += 1) {
+      if (arguments$1.length === 2) {
+        // String
+        this$1[i].setAttribute(attrs, value);
+      } else {
+        // Object
+        // eslint-disable-next-line
+        for (var attrName in attrs) {
+          this$1[i][attrName] = attrs[attrName];
+          this$1[i].setAttribute(attrName, attrs[attrName]);
+        }
+      }
+    }
+    return this;
+  }
+  // eslint-disable-next-line
+  function removeAttr(attr) {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].removeAttribute(attr);
+    }
+    return this;
+  }
+  function data(key, value) {
+    var this$1 = this;
+
+    var el;
+    if (typeof value === 'undefined') {
+      el = this[0];
+      // Get value
+      if (el) {
+        if (el.dom7ElementDataStorage && (key in el.dom7ElementDataStorage)) {
+          return el.dom7ElementDataStorage[key];
+        }
+
+        var dataKey = el.getAttribute(("data-" + key));
+        if (dataKey) {
+          return dataKey;
+        }
+        return undefined;
+      }
+      return undefined;
+    }
+
+    // Set value
+    for (var i = 0; i < this.length; i += 1) {
+      el = this$1[i];
+      if (!el.dom7ElementDataStorage) { el.dom7ElementDataStorage = {}; }
+      el.dom7ElementDataStorage[key] = value;
+    }
+    return this;
+  }
+  // Transforms
+  // eslint-disable-next-line
+  function transform(transform) {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      var elStyle = this$1[i].style;
+      elStyle.webkitTransform = transform;
+      elStyle.transform = transform;
+    }
+    return this;
+  }
+  function transition(duration) {
+    var this$1 = this;
+
+    if (typeof duration !== 'string') {
+      duration = duration + "ms"; // eslint-disable-line
+    }
+    for (var i = 0; i < this.length; i += 1) {
+      var elStyle = this$1[i].style;
+      elStyle.webkitTransitionDuration = duration;
+      elStyle.transitionDuration = duration;
+    }
+    return this;
+  }
+  // Events
+  function on() {
+    var this$1 = this;
+    var assign;
+
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+    var eventType = args[0];
+    var targetSelector = args[1];
+    var listener = args[2];
+    var capture = args[3];
+    if (typeof args[1] === 'function') {
+      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
+      targetSelector = undefined;
+    }
+    if (!capture) { capture = false; }
+
+    function handleLiveEvent(e) {
+      var target = e.target;
+      if (!target) { return; }
+      var eventData = e.target.dom7EventData || [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
+      }
+      if ($(target).is(targetSelector)) { listener.apply(target, eventData); }
+      else {
+        var parents = $(target).parents(); // eslint-disable-line
+        for (var k = 0; k < parents.length; k += 1) {
+          if ($(parents[k]).is(targetSelector)) { listener.apply(parents[k], eventData); }
+        }
+      }
+    }
+    function handleEvent(e) {
+      var eventData = e && e.target ? e.target.dom7EventData || [] : [];
+      if (eventData.indexOf(e) < 0) {
+        eventData.unshift(e);
+      }
+      listener.apply(this, eventData);
+    }
+    var events = eventType.split(' ');
+    var j;
+    for (var i = 0; i < this.length; i += 1) {
+      var el = this$1[i];
+      if (!targetSelector) {
+        for (j = 0; j < events.length; j += 1) {
+          var event = events[j];
+          if (!el.dom7Listeners) { el.dom7Listeners = {}; }
+          if (!el.dom7Listeners[event]) { el.dom7Listeners[event] = []; }
+          el.dom7Listeners[event].push({
+            listener: listener,
+            proxyListener: handleEvent,
+          });
+          el.addEventListener(event, handleEvent, capture);
+        }
+      } else {
+        // Live events
+        for (j = 0; j < events.length; j += 1) {
+          var event$1 = events[j];
+          if (!el.dom7LiveListeners) { el.dom7LiveListeners = {}; }
+          if (!el.dom7LiveListeners[event$1]) { el.dom7LiveListeners[event$1] = []; }
+          el.dom7LiveListeners[event$1].push({
+            listener: listener,
+            proxyListener: handleLiveEvent,
+          });
+          el.addEventListener(event$1, handleLiveEvent, capture);
+        }
+      }
+    }
+    return this;
+  }
+  function off() {
+    var this$1 = this;
+    var assign;
+
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+    var eventType = args[0];
+    var targetSelector = args[1];
+    var listener = args[2];
+    var capture = args[3];
+    if (typeof args[1] === 'function') {
+      (assign = args, eventType = assign[0], listener = assign[1], capture = assign[2]);
+      targetSelector = undefined;
+    }
+    if (!capture) { capture = false; }
+
+    var events = eventType.split(' ');
+    for (var i = 0; i < events.length; i += 1) {
+      var event = events[i];
+      for (var j = 0; j < this.length; j += 1) {
+        var el = this$1[j];
+        var handlers = (void 0);
+        if (!targetSelector && el.dom7Listeners) {
+          handlers = el.dom7Listeners[event];
+        } else if (targetSelector && el.dom7LiveListeners) {
+          handlers = el.dom7LiveListeners[event];
+        }
+        for (var k = handlers.length - 1; k >= 0; k -= 1) {
+          var handler = handlers[k];
+          if (listener && handler.listener === listener) {
+            el.removeEventListener(event, handler.proxyListener, capture);
+            handlers.splice(k, 1);
+          } else if (!listener) {
+            el.removeEventListener(event, handler.proxyListener, capture);
+            handlers.splice(k, 1);
+          }
+        }
+      }
+    }
+    return this;
+  }
+  function trigger() {
+    var this$1 = this;
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var events = args[0].split(' ');
+    var eventData = args[1];
+    for (var i = 0; i < events.length; i += 1) {
+      var event = events[i];
+      for (var j = 0; j < this.length; j += 1) {
+        var el = this$1[j];
+        var evt = (void 0);
+        try {
+          evt = new win.CustomEvent(event, {
+            detail: eventData,
+            bubbles: true,
+            cancelable: true,
+          });
+        } catch (e) {
+          evt = doc.createEvent('Event');
+          evt.initEvent(event, true, true);
+          evt.detail = eventData;
+        }
+        // eslint-disable-next-line
+        el.dom7EventData = args.filter(function (data, dataIndex) { return dataIndex > 0; });
+        el.dispatchEvent(evt);
+        el.dom7EventData = [];
+        delete el.dom7EventData;
+      }
+    }
+    return this;
+  }
+  function transitionEnd(callback) {
+    var events = ['webkitTransitionEnd', 'transitionend'];
+    var dom = this;
+    var i;
+    function fireCallBack(e) {
+      /* jshint validthis:true */
+      if (e.target !== this) { return; }
+      callback.call(this, e);
+      for (i = 0; i < events.length; i += 1) {
+        dom.off(events[i], fireCallBack);
+      }
+    }
+    if (callback) {
+      for (i = 0; i < events.length; i += 1) {
+        dom.on(events[i], fireCallBack);
+      }
+    }
+    return this;
+  }
+  function outerWidth(includeMargins) {
+    if (this.length > 0) {
+      if (includeMargins) {
+        // eslint-disable-next-line
+        var styles = this.styles();
+        return this[0].offsetWidth + parseFloat(styles.getPropertyValue('margin-right')) + parseFloat(styles.getPropertyValue('margin-left'));
+      }
+      return this[0].offsetWidth;
+    }
+    return null;
+  }
+  function outerHeight(includeMargins) {
+    if (this.length > 0) {
+      if (includeMargins) {
+        // eslint-disable-next-line
+        var styles = this.styles();
+        return this[0].offsetHeight + parseFloat(styles.getPropertyValue('margin-top')) + parseFloat(styles.getPropertyValue('margin-bottom'));
+      }
+      return this[0].offsetHeight;
+    }
+    return null;
+  }
+  function offset() {
+    if (this.length > 0) {
+      var el = this[0];
+      var box = el.getBoundingClientRect();
+      var body = doc.body;
+      var clientTop = el.clientTop || body.clientTop || 0;
+      var clientLeft = el.clientLeft || body.clientLeft || 0;
+      var scrollTop = el === win ? win.scrollY : el.scrollTop;
+      var scrollLeft = el === win ? win.scrollX : el.scrollLeft;
+      return {
+        top: (box.top + scrollTop) - clientTop,
+        left: (box.left + scrollLeft) - clientLeft,
+      };
+    }
+
+    return null;
+  }
+  function styles() {
+    if (this[0]) { return win.getComputedStyle(this[0], null); }
+    return {};
+  }
+  function css(props, value) {
+    var this$1 = this;
+
+    var i;
+    if (arguments.length === 1) {
+      if (typeof props === 'string') {
+        if (this[0]) { return win.getComputedStyle(this[0], null).getPropertyValue(props); }
+      } else {
+        for (i = 0; i < this.length; i += 1) {
+          // eslint-disable-next-line
+          for (var prop in props) {
+            this$1[i].style[prop] = props[prop];
+          }
+        }
+        return this;
+      }
+    }
+    if (arguments.length === 2 && typeof props === 'string') {
+      for (i = 0; i < this.length; i += 1) {
+        this$1[i].style[props] = value;
+      }
+      return this;
+    }
+    return this;
+  }
+  // Iterate over the collection passing elements to `callback`
+  function each(callback) {
+    var this$1 = this;
+
+    // Don't bother continuing without a callback
+    if (!callback) { return this; }
+    // Iterate over the current collection
+    for (var i = 0; i < this.length; i += 1) {
+      // If the callback returns false
+      if (callback.call(this$1[i], i, this$1[i]) === false) {
+        // End the loop early
+        return this$1;
+      }
+    }
+    // Return `this` to allow chained DOM operations
+    return this;
+  }
+  // eslint-disable-next-line
+  function html(html) {
+    var this$1 = this;
+
+    if (typeof html === 'undefined') {
+      return this[0] ? this[0].innerHTML : undefined;
+    }
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].innerHTML = html;
+    }
+    return this;
+  }
+  // eslint-disable-next-line
+  function text(text) {
+    var this$1 = this;
+
+    if (typeof text === 'undefined') {
+      if (this[0]) {
+        return this[0].textContent.trim();
+      }
+      return null;
+    }
+
+    for (var i = 0; i < this.length; i += 1) {
+      this$1[i].textContent = text;
+    }
+    return this;
+  }
+  function is(selector) {
+    var el = this[0];
+    var compareWith;
+    var i;
+    if (!el || typeof selector === 'undefined') { return false; }
+    if (typeof selector === 'string') {
+      if (el.matches) { return el.matches(selector); }
+      else if (el.webkitMatchesSelector) { return el.webkitMatchesSelector(selector); }
+      else if (el.msMatchesSelector) { return el.msMatchesSelector(selector); }
+
+      compareWith = $(selector);
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el) { return true; }
+      }
+      return false;
+    } else if (selector === doc) { return el === doc; }
+    else if (selector === win) { return el === win; }
+
+    if (selector.nodeType || selector instanceof Dom7) {
+      compareWith = selector.nodeType ? [selector] : selector;
+      for (i = 0; i < compareWith.length; i += 1) {
+        if (compareWith[i] === el) { return true; }
+      }
+      return false;
+    }
+    return false;
+  }
+  function index() {
+    var child = this[0];
+    var i;
+    if (child) {
+      i = 0;
+      // eslint-disable-next-line
+      while ((child = child.previousSibling) !== null) {
+        if (child.nodeType === 1) { i += 1; }
+      }
+      return i;
+    }
+    return undefined;
+  }
+  // eslint-disable-next-line
+  function eq(index) {
+    if (typeof index === 'undefined') { return this; }
+    var length = this.length;
+    var returnIndex;
+    if (index > length - 1) {
+      return new Dom7([]);
+    }
+    if (index < 0) {
+      returnIndex = length + index;
+      if (returnIndex < 0) { return new Dom7([]); }
+      return new Dom7([this[returnIndex]]);
+    }
+    return new Dom7([this[index]]);
+  }
+  function append() {
+    var this$1 = this;
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var newChild;
+
+    for (var k = 0; k < args.length; k += 1) {
+      newChild = args[k];
+      for (var i = 0; i < this.length; i += 1) {
+        if (typeof newChild === 'string') {
+          var tempDiv = doc.createElement('div');
+          tempDiv.innerHTML = newChild;
+          while (tempDiv.firstChild) {
+            this$1[i].appendChild(tempDiv.firstChild);
+          }
+        } else if (newChild instanceof Dom7) {
+          for (var j = 0; j < newChild.length; j += 1) {
+            this$1[i].appendChild(newChild[j]);
+          }
+        } else {
+          this$1[i].appendChild(newChild);
+        }
+      }
+    }
+
+    return this;
+  }
+  function prepend(newChild) {
+    var this$1 = this;
+
+    var i;
+    var j;
+    for (i = 0; i < this.length; i += 1) {
+      if (typeof newChild === 'string') {
+        var tempDiv = doc.createElement('div');
+        tempDiv.innerHTML = newChild;
+        for (j = tempDiv.childNodes.length - 1; j >= 0; j -= 1) {
+          this$1[i].insertBefore(tempDiv.childNodes[j], this$1[i].childNodes[0]);
+        }
+      } else if (newChild instanceof Dom7) {
+        for (j = 0; j < newChild.length; j += 1) {
+          this$1[i].insertBefore(newChild[j], this$1[i].childNodes[0]);
+        }
+      } else {
+        this$1[i].insertBefore(newChild, this$1[i].childNodes[0]);
+      }
+    }
+    return this;
+  }
+  function next(selector) {
+    if (this.length > 0) {
+      if (selector) {
+        if (this[0].nextElementSibling && $(this[0].nextElementSibling).is(selector)) {
+          return new Dom7([this[0].nextElementSibling]);
+        }
+        return new Dom7([]);
+      }
+
+      if (this[0].nextElementSibling) { return new Dom7([this[0].nextElementSibling]); }
+      return new Dom7([]);
+    }
+    return new Dom7([]);
+  }
+  function nextAll(selector) {
+    var nextEls = [];
+    var el = this[0];
+    if (!el) { return new Dom7([]); }
+    while (el.nextElementSibling) {
+      var next = el.nextElementSibling; // eslint-disable-line
+      if (selector) {
+        if ($(next).is(selector)) { nextEls.push(next); }
+      } else { nextEls.push(next); }
+      el = next;
+    }
+    return new Dom7(nextEls);
+  }
+  function prev(selector) {
+    if (this.length > 0) {
+      var el = this[0];
+      if (selector) {
+        if (el.previousElementSibling && $(el.previousElementSibling).is(selector)) {
+          return new Dom7([el.previousElementSibling]);
+        }
+        return new Dom7([]);
+      }
+
+      if (el.previousElementSibling) { return new Dom7([el.previousElementSibling]); }
+      return new Dom7([]);
+    }
+    return new Dom7([]);
+  }
+  function prevAll(selector) {
+    var prevEls = [];
+    var el = this[0];
+    if (!el) { return new Dom7([]); }
+    while (el.previousElementSibling) {
+      var prev = el.previousElementSibling; // eslint-disable-line
+      if (selector) {
+        if ($(prev).is(selector)) { prevEls.push(prev); }
+      } else { prevEls.push(prev); }
+      el = prev;
+    }
+    return new Dom7(prevEls);
+  }
+  function parent(selector) {
+    var this$1 = this;
+
+    var parents = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      if (this$1[i].parentNode !== null) {
+        if (selector) {
+          if ($(this$1[i].parentNode).is(selector)) { parents.push(this$1[i].parentNode); }
+        } else {
+          parents.push(this$1[i].parentNode);
+        }
+      }
+    }
+    return $(unique(parents));
+  }
+  function parents(selector) {
+    var this$1 = this;
+
+    var parents = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      var parent = this$1[i].parentNode; // eslint-disable-line
+      while (parent) {
+        if (selector) {
+          if ($(parent).is(selector)) { parents.push(parent); }
+        } else {
+          parents.push(parent);
+        }
+        parent = parent.parentNode;
+      }
+    }
+    return $(unique(parents));
+  }
+  function closest(selector) {
+    var closest = this; // eslint-disable-line
+    if (typeof selector === 'undefined') {
+      return new Dom7([]);
+    }
+    if (!closest.is(selector)) {
+      closest = closest.parents(selector).eq(0);
+    }
+    return closest;
+  }
+  function find(selector) {
+    var this$1 = this;
+
+    var foundElements = [];
+    for (var i = 0; i < this.length; i += 1) {
+      var found = this$1[i].querySelectorAll(selector);
+      for (var j = 0; j < found.length; j += 1) {
+        foundElements.push(found[j]);
+      }
+    }
+    return new Dom7(foundElements);
+  }
+  function children(selector) {
+    var this$1 = this;
+
+    var children = []; // eslint-disable-line
+    for (var i = 0; i < this.length; i += 1) {
+      var childNodes = this$1[i].childNodes;
+
+      for (var j = 0; j < childNodes.length; j += 1) {
+        if (!selector) {
+          if (childNodes[j].nodeType === 1) { children.push(childNodes[j]); }
+        } else if (childNodes[j].nodeType === 1 && $(childNodes[j]).is(selector)) {
+          children.push(childNodes[j]);
+        }
+      }
+    }
+    return new Dom7(unique(children));
+  }
+  function remove() {
+    var this$1 = this;
+
+    for (var i = 0; i < this.length; i += 1) {
+      if (this$1[i].parentNode) { this$1[i].parentNode.removeChild(this$1[i]); }
+    }
+    return this;
+  }
+  function add() {
+    var args = [], len = arguments.length;
+    while ( len-- ) args[ len ] = arguments[ len ];
+
+    var dom = this;
+    var i;
+    var j;
+    for (i = 0; i < args.length; i += 1) {
+      var toAdd = $(args[i]);
+      for (j = 0; j < toAdd.length; j += 1) {
+        dom[dom.length] = toAdd[j];
+        dom.length += 1;
+      }
+    }
+    return dom;
+  }
+
+  var Methods = {
+    addClass: addClass,
+    removeClass: removeClass,
+    hasClass: hasClass,
+    toggleClass: toggleClass,
+    attr: attr,
+    removeAttr: removeAttr,
+    data: data,
+    transform: transform,
+    transition: transition,
+    on: on,
+    off: off,
+    trigger: trigger,
+    transitionEnd: transitionEnd,
+    outerWidth: outerWidth,
+    outerHeight: outerHeight,
+    offset: offset,
+    css: css,
+    each: each,
+    html: html,
+    text: text,
+    is: is,
+    index: index,
+    eq: eq,
+    append: append,
+    prepend: prepend,
+    next: next,
+    nextAll: nextAll,
+    prev: prev,
+    prevAll: prevAll,
+    parent: parent,
+    parents: parents,
+    closest: closest,
+    find: find,
+    children: children,
+    remove: remove,
+    add: add,
+    styles: styles,
+  };
+
+  Object.keys(Methods).forEach(function (methodName) {
+    $.fn[methodName] = Methods[methodName];
+  });
+
+  var Utils = {
+    deleteProps: function deleteProps(obj) {
+      var object = obj;
+      Object.keys(object).forEach(function (key) {
+        try {
+          object[key] = null;
+        } catch (e) {
+          // no getter for object
+        }
+        try {
+          delete object[key];
+        } catch (e) {
+          // something got wrong
+        }
+      });
+    },
+    nextTick: function nextTick(callback, delay) {
+      if ( delay === void 0 ) delay = 0;
+
+      return setTimeout(callback, delay);
+    },
+    now: function now() {
+      return Date.now();
+    },
+    getTranslate: function getTranslate(el, axis) {
+      if ( axis === void 0 ) axis = 'x';
+
+      var matrix;
+      var curTransform;
+      var transformMatrix;
+
+      var curStyle = win.getComputedStyle(el, null);
+
+      if (win.WebKitCSSMatrix) {
+        curTransform = curStyle.transform || curStyle.webkitTransform;
+        if (curTransform.split(',').length > 6) {
+          curTransform = curTransform.split(', ').map(function (a) { return a.replace(',', '.'); }).join(', ');
+        }
+        // Some old versions of Webkit choke when 'none' is passed; pass
+        // empty string instead in this case
+        transformMatrix = new win.WebKitCSSMatrix(curTransform === 'none' ? '' : curTransform);
+      } else {
+        transformMatrix = curStyle.MozTransform || curStyle.OTransform || curStyle.MsTransform || curStyle.msTransform || curStyle.transform || curStyle.getPropertyValue('transform').replace('translate(', 'matrix(1, 0, 0, 1,');
+        matrix = transformMatrix.toString().split(',');
+      }
+
+      if (axis === 'x') {
+        // Latest Chrome and webkits Fix
+        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m41; }
+        // Crazy IE10 Matrix
+        else if (matrix.length === 16) { curTransform = parseFloat(matrix[12]); }
+        // Normal Browsers
+        else { curTransform = parseFloat(matrix[4]); }
+      }
+      if (axis === 'y') {
+        // Latest Chrome and webkits Fix
+        if (win.WebKitCSSMatrix) { curTransform = transformMatrix.m42; }
+        // Crazy IE10 Matrix
+        else if (matrix.length === 16) { curTransform = parseFloat(matrix[13]); }
+        // Normal Browsers
+        else { curTransform = parseFloat(matrix[5]); }
+      }
+      return curTransform || 0;
+    },
+    parseUrlQuery: function parseUrlQuery(url) {
+      var query = {};
+      var urlToParse = url || win.location.href;
+      var i;
+      var params;
+      var param;
+      var length;
+      if (typeof urlToParse === 'string' && urlToParse.length) {
+        urlToParse = urlToParse.indexOf('?') > -1 ? urlToParse.replace(/\S*\?/, '') : '';
+        params = urlToParse.split('&').filter(function (paramsPart) { return paramsPart !== ''; });
+        length = params.length;
+
+        for (i = 0; i < length; i += 1) {
+          param = params[i].replace(/#\S+/g, '').split('=');
+          query[decodeURIComponent(param[0])] = typeof param[1] === 'undefined' ? undefined : decodeURIComponent(param[1]) || '';
+        }
+      }
+      return query;
+    },
+    isObject: function isObject(o) {
+      return typeof o === 'object' && o !== null && o.constructor && o.constructor === Object;
+    },
+    extend: function extend() {
+      var args = [], len$1 = arguments.length;
+      while ( len$1-- ) args[ len$1 ] = arguments[ len$1 ];
+
+      var to = Object(args[0]);
+      for (var i = 1; i < args.length; i += 1) {
+        var nextSource = args[i];
+        if (nextSource !== undefined && nextSource !== null) {
+          var keysArray = Object.keys(Object(nextSource));
+          for (var nextIndex = 0, len = keysArray.length; nextIndex < len; nextIndex += 1) {
+            var nextKey = keysArray[nextIndex];
+            var desc = Object.getOwnPropertyDescriptor(nextSource, nextKey);
+            if (desc !== undefined && desc.enumerable) {
+              if (Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
+                Utils.extend(to[nextKey], nextSource[nextKey]);
+              } else if (!Utils.isObject(to[nextKey]) && Utils.isObject(nextSource[nextKey])) {
+                to[nextKey] = {};
+                Utils.extend(to[nextKey], nextSource[nextKey]);
+              } else {
+                to[nextKey] = nextSource[nextKey];
+              }
+            }
+          }
+        }
+      }
+      return to;
+    },
+  };
+
+  var Support = (function Support() {
+    var testDiv = doc.createElement('div');
+    return {
+      touch: (win.Modernizr && win.Modernizr.touch === true) || (function checkTouch() {
+        return !!(('ontouchstart' in win) || (win.DocumentTouch && doc instanceof win.DocumentTouch));
+      }()),
+
+      pointerEvents: !!(win.navigator.pointerEnabled || win.PointerEvent),
+      prefixedPointerEvents: !!win.navigator.msPointerEnabled,
+
+      transition: (function checkTransition() {
+        var style = testDiv.style;
+        return ('transition' in style || 'webkitTransition' in style || 'MozTransition' in style);
+      }()),
+      transforms3d: (win.Modernizr && win.Modernizr.csstransforms3d === true) || (function checkTransforms3d() {
+        var style = testDiv.style;
+        return ('webkitPerspective' in style || 'MozPerspective' in style || 'OPerspective' in style || 'MsPerspective' in style || 'perspective' in style);
+      }()),
+
+      flexbox: (function checkFlexbox() {
+        var style = testDiv.style;
+        var styles = ('alignItems webkitAlignItems webkitBoxAlign msFlexAlign mozBoxAlign webkitFlexDirection msFlexDirection mozBoxDirection mozBoxOrient webkitBoxDirection webkitBoxOrient').split(' ');
+        for (var i = 0; i < styles.length; i += 1) {
+          if (styles[i] in style) { return true; }
+        }
+        return false;
+      }()),
+
+      observer: (function checkObserver() {
+        return ('MutationObserver' in win || 'WebkitMutationObserver' in win);
+      }()),
+
+      passiveListener: (function checkPassiveListener() {
+        var supportsPassive = false;
+        try {
+          var opts = Object.defineProperty({}, 'passive', {
+            // eslint-disable-next-line
+            get: function get() {
+              supportsPassive = true;
+            },
+          });
+          win.addEventListener('testPassiveListener', null, opts);
+        } catch (e) {
+          // No support
+        }
+        return supportsPassive;
+      }()),
+
+      gestures: (function checkGestures() {
+        return 'ongesturestart' in win;
+      }()),
+    };
+  }());
+
+  var SwiperClass = function SwiperClass(params) {
+    if ( params === void 0 ) params = {};
+
+    var self = this;
+    self.params = params;
+
+    // Events
+    self.eventsListeners = {};
+
+    if (self.params && self.params.on) {
+      Object.keys(self.params.on).forEach(function (eventName) {
+        self.on(eventName, self.params.on[eventName]);
+      });
+    }
+  };
+
+  var staticAccessors = { components: { configurable: true } };
+  SwiperClass.prototype.on = function on (events, handler, priority) {
+    var self = this;
+    if (typeof handler !== 'function') { return self; }
+    var method = priority ? 'unshift' : 'push';
+    events.split(' ').forEach(function (event) {
+      if (!self.eventsListeners[event]) { self.eventsListeners[event] = []; }
+      self.eventsListeners[event][method](handler);
+    });
+    return self;
+  };
+  SwiperClass.prototype.once = function once (events, handler, priority) {
+    var self = this;
+    if (typeof handler !== 'function') { return self; }
+    function onceHandler() {
+        var args = [], len = arguments.length;
+        while ( len-- ) args[ len ] = arguments[ len ];
+
+      handler.apply(self, args);
+      self.off(events, onceHandler);
+    }
+    return self.on(events, onceHandler, priority);
+  };
+  SwiperClass.prototype.off = function off (events, handler) {
+    var self = this;
+    if (!self.eventsListeners) { return self; }
+    events.split(' ').forEach(function (event) {
+      if (typeof handler === 'undefined') {
+        self.eventsListeners[event] = [];
+      } else {
+        self.eventsListeners[event].forEach(function (eventHandler, index) {
+          if (eventHandler === handler) {
+            self.eventsListeners[event].splice(index, 1);
+          }
+        });
+      }
+    });
+    return self;
+  };
+  SwiperClass.prototype.emit = function emit () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+    var self = this;
+    if (!self.eventsListeners) { return self; }
+    var events;
+    var data;
+    var context;
+    if (typeof args[0] === 'string' || Array.isArray(args[0])) {
+      events = args[0];
+      data = args.slice(1, args.length);
+      context = self;
+    } else {
+      events = args[0].events;
+      data = args[0].data;
+      context = args[0].context || self;
+    }
+    var eventsArray = Array.isArray(events) ? events : events.split(' ');
+    eventsArray.forEach(function (event) {
+      if (self.eventsListeners && self.eventsListeners[event]) {
+        var handlers = [];
+        self.eventsListeners[event].forEach(function (eventHandler) {
+          handlers.push(eventHandler);
+        });
+        handlers.forEach(function (eventHandler) {
+          eventHandler.apply(context, data);
+        });
+      }
+    });
+    return self;
+  };
+  SwiperClass.prototype.useModulesParams = function useModulesParams (instanceParams) {
+    var instance = this;
+    if (!instance.modules) { return; }
+    Object.keys(instance.modules).forEach(function (moduleName) {
+      var module = instance.modules[moduleName];
+      // Extend params
+      if (module.params) {
+        Utils.extend(instanceParams, module.params);
+      }
+    });
+  };
+  SwiperClass.prototype.useModules = function useModules (modulesParams) {
+      if ( modulesParams === void 0 ) modulesParams = {};
+
+    var instance = this;
+    if (!instance.modules) { return; }
+    Object.keys(instance.modules).forEach(function (moduleName) {
+      var module = instance.modules[moduleName];
+      var moduleParams = modulesParams[moduleName] || {};
+      // Extend instance methods and props
+      if (module.instance) {
+        Object.keys(module.instance).forEach(function (modulePropName) {
+          var moduleProp = module.instance[modulePropName];
+          if (typeof moduleProp === 'function') {
+            instance[modulePropName] = moduleProp.bind(instance);
+          } else {
+            instance[modulePropName] = moduleProp;
+          }
+        });
+      }
+      // Add event listeners
+      if (module.on && instance.on) {
+        Object.keys(module.on).forEach(function (moduleEventName) {
+          instance.on(moduleEventName, module.on[moduleEventName]);
+        });
+      }
+
+      // Module create callback
+      if (module.create) {
+        module.create.bind(instance)(moduleParams);
+      }
+    });
+  };
+  staticAccessors.components.set = function (components) {
+    var Class = this;
+    if (!Class.use) { return; }
+    Class.use(components);
+  };
+  SwiperClass.installModule = function installModule (module) {
+      var params = [], len = arguments.length - 1;
+      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
+
+    var Class = this;
+    if (!Class.prototype.modules) { Class.prototype.modules = {}; }
+    var name = module.name || (((Object.keys(Class.prototype.modules).length) + "_" + (Utils.now())));
+    Class.prototype.modules[name] = module;
+    // Prototype
+    if (module.proto) {
+      Object.keys(module.proto).forEach(function (key) {
+        Class.prototype[key] = module.proto[key];
+      });
+    }
+    // Class
+    if (module.static) {
+      Object.keys(module.static).forEach(function (key) {
+        Class[key] = module.static[key];
+      });
+    }
+    // Callback
+    if (module.install) {
+      module.install.apply(Class, params);
+    }
+    return Class;
+  };
+  SwiperClass.use = function use (module) {
+      var params = [], len = arguments.length - 1;
+      while ( len-- > 0 ) params[ len ] = arguments[ len + 1 ];
+
+    var Class = this;
+    if (Array.isArray(module)) {
+      module.forEach(function (m) { return Class.installModule(m); });
+      return Class;
+    }
+    return Class.installModule.apply(Class, [ module ].concat( params ));
+  };
+
+  Object.defineProperties( SwiperClass, staticAccessors );
+
+  function updateSize () {
+    var swiper = this;
+    var width;
+    var height;
+    var $el = swiper.$el;
+    if (typeof swiper.params.width !== 'undefined') {
+      width = swiper.params.width;
+    } else {
+      width = $el[0].clientWidth;
+    }
+    if (typeof swiper.params.height !== 'undefined') {
+      height = swiper.params.height;
+    } else {
+      height = $el[0].clientHeight;
+    }
+    if ((width === 0 && swiper.isHorizontal()) || (height === 0 && swiper.isVertical())) {
+      return;
+    }
+
+    // Subtract paddings
+    width = width - parseInt($el.css('padding-left'), 10) - parseInt($el.css('padding-right'), 10);
+    height = height - parseInt($el.css('padding-top'), 10) - parseInt($el.css('padding-bottom'), 10);
+
+    Utils.extend(swiper, {
+      width: width,
+      height: height,
+      size: swiper.isHorizontal() ? width : height,
+    });
+  }
+
+  function updateSlides () {
+    var swiper = this;
+    var params = swiper.params;
+
+    var $wrapperEl = swiper.$wrapperEl;
+    var swiperSize = swiper.size;
+    var rtl = swiper.rtlTranslate;
+    var wrongRTL = swiper.wrongRTL;
+    var slides = $wrapperEl.children(("." + (swiper.params.slideClass)));
+    var isVirtual = swiper.virtual && params.virtual.enabled;
+    var slidesLength = isVirtual ? swiper.virtual.slides.length : slides.length;
+    var snapGrid = [];
+    var slidesGrid = [];
+    var slidesSizesGrid = [];
+
+    var offsetBefore = params.slidesOffsetBefore;
+    if (typeof offsetBefore === 'function') {
+      offsetBefore = params.slidesOffsetBefore.call(swiper);
+    }
+
+    var offsetAfter = params.slidesOffsetAfter;
+    if (typeof offsetAfter === 'function') {
+      offsetAfter = params.slidesOffsetAfter.call(swiper);
+    }
+
+    var previousSlidesLength = slidesLength;
+    var previousSnapGridLength = swiper.snapGrid.length;
+    var previousSlidesGridLength = swiper.snapGrid.length;
+
+    var spaceBetween = params.spaceBetween;
+    var slidePosition = -offsetBefore;
+    var prevSlideSize = 0;
+    var index = 0;
+    if (typeof swiperSize === 'undefined') {
+      return;
+    }
+    if (typeof spaceBetween === 'string' && spaceBetween.indexOf('%') >= 0) {
+      spaceBetween = (parseFloat(spaceBetween.replace('%', '')) / 100) * swiperSize;
+    }
+
+    swiper.virtualSize = -spaceBetween;
+
+    // reset margins
+    if (rtl) { slides.css({ marginLeft: '', marginTop: '' }); }
+    else { slides.css({ marginRight: '', marginBottom: '' }); }
+
+    var slidesNumberEvenToRows;
+    if (params.slidesPerColumn > 1) {
+      if (Math.floor(slidesLength / params.slidesPerColumn) === slidesLength / swiper.params.slidesPerColumn) {
+        slidesNumberEvenToRows = slidesLength;
+      } else {
+        slidesNumberEvenToRows = Math.ceil(slidesLength / params.slidesPerColumn) * params.slidesPerColumn;
+      }
+      if (params.slidesPerView !== 'auto' && params.slidesPerColumnFill === 'row') {
+        slidesNumberEvenToRows = Math.max(slidesNumberEvenToRows, params.slidesPerView * params.slidesPerColumn);
+      }
+    }
+
+    // Calc slides
+    var slideSize;
+    var slidesPerColumn = params.slidesPerColumn;
+    var slidesPerRow = slidesNumberEvenToRows / slidesPerColumn;
+    var numFullColumns = slidesPerRow - ((params.slidesPerColumn * slidesPerRow) - slidesLength);
+    for (var i = 0; i < slidesLength; i += 1) {
+      slideSize = 0;
+      var slide = slides.eq(i);
+      if (params.slidesPerColumn > 1) {
+        // Set slides order
+        var newSlideOrderIndex = (void 0);
+        var column = (void 0);
+        var row = (void 0);
+        if (params.slidesPerColumnFill === 'column') {
+          column = Math.floor(i / slidesPerColumn);
+          row = i - (column * slidesPerColumn);
+          if (column > numFullColumns || (column === numFullColumns && row === slidesPerColumn - 1)) {
+            row += 1;
+            if (row >= slidesPerColumn) {
+              row = 0;
+              column += 1;
+            }
+          }
+          newSlideOrderIndex = column + ((row * slidesNumberEvenToRows) / slidesPerColumn);
+          slide
+            .css({
+              '-webkit-box-ordinal-group': newSlideOrderIndex,
+              '-moz-box-ordinal-group': newSlideOrderIndex,
+              '-ms-flex-order': newSlideOrderIndex,
+              '-webkit-order': newSlideOrderIndex,
+              order: newSlideOrderIndex,
+            });
+        } else {
+          row = Math.floor(i / slidesPerRow);
+          column = i - (row * slidesPerRow);
+        }
+        slide
+          .css(
+            ("margin-" + (swiper.isHorizontal() ? 'top' : 'left')),
+            (row !== 0 && params.spaceBetween) && (((params.spaceBetween) + "px"))
+          )
+          .attr('data-swiper-column', column)
+          .attr('data-swiper-row', row);
+      }
+      if (slide.css('display') === 'none') { continue; } // eslint-disable-line
+
+      if (params.slidesPerView === 'auto') {
+        var slideStyles = win.getComputedStyle(slide[0], null);
+        var currentTransform = slide[0].style.transform;
+        if (currentTransform) {
+          slide[0].style.transform = 'none';
+        }
+        if (swiper.isHorizontal()) {
+          slideSize = slide[0].getBoundingClientRect().width +
+            parseFloat(slideStyles.getPropertyValue('margin-left')) +
+            parseFloat(slideStyles.getPropertyValue('margin-right'));
+        } else {
+          slideSize = slide[0].getBoundingClientRect().height +
+            parseFloat(slideStyles.getPropertyValue('margin-top')) +
+            parseFloat(slideStyles.getPropertyValue('margin-bottom'));
+        }
+        if (currentTransform) {
+          slide[0].style.transform = currentTransform;
+        }
+        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
+      } else {
+        slideSize = (swiperSize - ((params.slidesPerView - 1) * spaceBetween)) / params.slidesPerView;
+        if (params.roundLengths) { slideSize = Math.floor(slideSize); }
+
+        if (slides[i]) {
+          if (swiper.isHorizontal()) {
+            slides[i].style.width = slideSize + "px";
+          } else {
+            slides[i].style.height = slideSize + "px";
+          }
+        }
+      }
+      if (slides[i]) {
+        slides[i].swiperSlideSize = slideSize;
+      }
+      slidesSizesGrid.push(slideSize);
+
+
+      if (params.centeredSlides) {
+        slidePosition = slidePosition + (slideSize / 2) + (prevSlideSize / 2) + spaceBetween;
+        if (prevSlideSize === 0 && i !== 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
+        if (i === 0) { slidePosition = slidePosition - (swiperSize / 2) - spaceBetween; }
+        if (Math.abs(slidePosition) < 1 / 1000) { slidePosition = 0; }
+        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
+        slidesGrid.push(slidePosition);
+      } else {
+        if ((index) % params.slidesPerGroup === 0) { snapGrid.push(slidePosition); }
+        slidesGrid.push(slidePosition);
+        slidePosition = slidePosition + slideSize + spaceBetween;
+      }
+
+      swiper.virtualSize += slideSize + spaceBetween;
+
+      prevSlideSize = slideSize;
+
+      index += 1;
+    }
+    swiper.virtualSize = Math.max(swiper.virtualSize, swiperSize) + offsetAfter;
+    var newSlidesGrid;
+
+    if (
+      rtl && wrongRTL && (params.effect === 'slide' || params.effect === 'coverflow')) {
+      $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") });
+    }
+    if (!Support.flexbox || params.setWrapperSize) {
+      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+    }
+
+    if (params.slidesPerColumn > 1) {
+      swiper.virtualSize = (slideSize + params.spaceBetween) * slidesNumberEvenToRows;
+      swiper.virtualSize = Math.ceil(swiper.virtualSize / params.slidesPerColumn) - params.spaceBetween;
+      if (swiper.isHorizontal()) { $wrapperEl.css({ width: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      else { $wrapperEl.css({ height: ((swiper.virtualSize + params.spaceBetween) + "px") }); }
+      if (params.centeredSlides) {
+        newSlidesGrid = [];
+        for (var i$1 = 0; i$1 < snapGrid.length; i$1 += 1) {
+          if (snapGrid[i$1] < swiper.virtualSize + snapGrid[0]) { newSlidesGrid.push(snapGrid[i$1]); }
+        }
+        snapGrid = newSlidesGrid;
+      }
+    }
+
+    // Remove last grid elements depending on width
+    if (!params.centeredSlides) {
+      newSlidesGrid = [];
+      for (var i$2 = 0; i$2 < snapGrid.length; i$2 += 1) {
+        if (snapGrid[i$2] <= swiper.virtualSize - swiperSize) {
+          newSlidesGrid.push(snapGrid[i$2]);
+        }
+      }
+      snapGrid = newSlidesGrid;
+      if (Math.floor(swiper.virtualSize - swiperSize) - Math.floor(snapGrid[snapGrid.length - 1]) > 1) {
+        snapGrid.push(swiper.virtualSize - swiperSize);
+      }
+    }
+    if (snapGrid.length === 0) { snapGrid = [0]; }
+
+    if (params.spaceBetween !== 0) {
+      if (swiper.isHorizontal()) {
+        if (rtl) { slides.css({ marginLeft: (spaceBetween + "px") }); }
+        else { slides.css({ marginRight: (spaceBetween + "px") }); }
+      } else { slides.css({ marginBottom: (spaceBetween + "px") }); }
+    }
+
+    Utils.extend(swiper, {
+      slides: slides,
+      snapGrid: snapGrid,
+      slidesGrid: slidesGrid,
+      slidesSizesGrid: slidesSizesGrid,
+    });
+
+    if (slidesLength !== previousSlidesLength) {
+      swiper.emit('slidesLengthChange');
+    }
+    if (snapGrid.length !== previousSnapGridLength) {
+      if (swiper.params.watchOverflow) { swiper.checkOverflow(); }
+      swiper.emit('snapGridLengthChange');
+    }
+    if (slidesGrid.length !== previousSlidesGridLength) {
+      swiper.emit('slidesGridLengthChange');
+    }
+
+    if (params.watchSlidesProgress || params.watchSlidesVisibility) {
+      swiper.updateSlidesOffset();
+    }
+  }
+
+  function updateAutoHeight (speed) {
+    var swiper = this;
+    var activeSlides = [];
+    var newHeight = 0;
+    var i;
+    if (typeof speed === 'number') {
+      swiper.setTransition(speed);
+    } else if (speed === true) {
+      swiper.setTransition(swiper.params.speed);
+    }
+    // Find slides currently in view
+    if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
+      for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
+        var index = swiper.activeIndex + i;
+        if (index > swiper.slides.length) { break; }
+        activeSlides.push(swiper.slides.eq(index)[0]);
+      }
+    } else {
+      activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
+    }
+
+    // Find new height from highest slide in view
+    for (i = 0; i < activeSlides.length; i += 1) {
+      if (typeof activeSlides[i] !== 'undefined') {
+        var height = activeSlides[i].offsetHeight;
+        newHeight = height > newHeight ? height : newHeight;
+      }
+    }
+
+    // Update Height
+    if (newHeight) { swiper.$wrapperEl.css('height', (newHeight + "px")); }
+  }
+
+  function updateSlidesOffset () {
+    var swiper = this;
+    var slides = swiper.slides;
+    for (var i = 0; i < slides.length; i += 1) {
+      slides[i].swiperSlideOffset = swiper.isHorizontal() ? slides[i].offsetLeft : slides[i].offsetTop;
+    }
+  }
+
+  function updateSlidesProgress (translate) {
+    if ( translate === void 0 ) translate = (this && this.translate) || 0;
+
+    var swiper = this;
+    var params = swiper.params;
+
+    var slides = swiper.slides;
+    var rtl = swiper.rtlTranslate;
+
+    if (slides.length === 0) { return; }
+    if (typeof slides[0].swiperSlideOffset === 'undefined') { swiper.updateSlidesOffset(); }
+
+    var offsetCenter = -translate;
+    if (rtl) { offsetCenter = translate; }
+
+    // Visible Slides
+    slides.removeClass(params.slideVisibleClass);
+
+    for (var i = 0; i < slides.length; i += 1) {
+      var slide = slides[i];
+      var slideProgress =
+        (
+          (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
+        ) / (slide.swiperSlideSize + params.spaceBetween);
+      if (params.watchSlidesVisibility) {
+        var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
+        var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
+        var isVisible =
+                  (slideBefore >= 0 && slideBefore < swiper.size) ||
+                  (slideAfter > 0 && slideAfter <= swiper.size) ||
+                  (slideBefore <= 0 && slideAfter >= swiper.size);
+        if (isVisible) {
+          slides.eq(i).addClass(params.slideVisibleClass);
+        }
+      }
+      slide.progress = rtl ? -slideProgress : slideProgress;
+    }
+  }
+
+  function updateProgress (translate) {
+    if ( translate === void 0 ) translate = (this && this.translate) || 0;
+
+    var swiper = this;
+    var params = swiper.params;
+
+    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    var progress = swiper.progress;
+    var isBeginning = swiper.isBeginning;
+    var isEnd = swiper.isEnd;
+    var wasBeginning = isBeginning;
+    var wasEnd = isEnd;
+    if (translatesDiff === 0) {
+      progress = 0;
+      isBeginning = true;
+      isEnd = true;
+    } else {
+      progress = (translate - swiper.minTranslate()) / (translatesDiff);
+      isBeginning = progress <= 0;
+      isEnd = progress >= 1;
+    }
+    Utils.extend(swiper, {
+      progress: progress,
+      isBeginning: isBeginning,
+      isEnd: isEnd,
+    });
+
+    if (params.watchSlidesProgress || params.watchSlidesVisibility) { swiper.updateSlidesProgress(translate); }
+
+    if (isBeginning && !wasBeginning) {
+      swiper.emit('reachBeginning toEdge');
+    }
+    if (isEnd && !wasEnd) {
+      swiper.emit('reachEnd toEdge');
+    }
+    if ((wasBeginning && !isBeginning) || (wasEnd && !isEnd)) {
+      swiper.emit('fromEdge');
+    }
+
+    swiper.emit('progress', progress);
+  }
+
+  function updateSlidesClasses () {
+    var swiper = this;
+
+    var slides = swiper.slides;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+    var realIndex = swiper.realIndex;
+    var isVirtual = swiper.virtual && params.virtual.enabled;
+
+    slides.removeClass(((params.slideActiveClass) + " " + (params.slideNextClass) + " " + (params.slidePrevClass) + " " + (params.slideDuplicateActiveClass) + " " + (params.slideDuplicateNextClass) + " " + (params.slideDuplicatePrevClass)));
+
+    var activeSlide;
+    if (isVirtual) {
+      activeSlide = swiper.$wrapperEl.find(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + activeIndex + "\"]"));
+    } else {
+      activeSlide = slides.eq(activeIndex);
+    }
+
+    // Active classes
+    activeSlide.addClass(params.slideActiveClass);
+
+    if (params.loop) {
+      // Duplicate to all looped slides
+      if (activeSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + realIndex + "\"]"))
+          .addClass(params.slideDuplicateActiveClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]"))
+          .addClass(params.slideDuplicateActiveClass);
+      }
+    }
+    // Next Slide
+    var nextSlide = activeSlide.nextAll(("." + (params.slideClass))).eq(0).addClass(params.slideNextClass);
+    if (params.loop && nextSlide.length === 0) {
+      nextSlide = slides.eq(0);
+      nextSlide.addClass(params.slideNextClass);
+    }
+    // Prev Slide
+    var prevSlide = activeSlide.prevAll(("." + (params.slideClass))).eq(0).addClass(params.slidePrevClass);
+    if (params.loop && prevSlide.length === 0) {
+      prevSlide = slides.eq(-1);
+      prevSlide.addClass(params.slidePrevClass);
+    }
+    if (params.loop) {
+      // Duplicate to all looped slides
+      if (nextSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicateNextClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (nextSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicateNextClass);
+      }
+      if (prevSlide.hasClass(params.slideDuplicateClass)) {
+        $wrapperEl
+          .children(("." + (params.slideClass) + ":not(." + (params.slideDuplicateClass) + ")[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicatePrevClass);
+      } else {
+        $wrapperEl
+          .children(("." + (params.slideClass) + "." + (params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + (prevSlide.attr('data-swiper-slide-index')) + "\"]"))
+          .addClass(params.slideDuplicatePrevClass);
+      }
+    }
+  }
+
+  function updateActiveIndex (newActiveIndex) {
+    var swiper = this;
+    var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+    var slidesGrid = swiper.slidesGrid;
+    var snapGrid = swiper.snapGrid;
+    var params = swiper.params;
+    var previousIndex = swiper.activeIndex;
+    var previousRealIndex = swiper.realIndex;
+    var previousSnapIndex = swiper.snapIndex;
+    var activeIndex = newActiveIndex;
+    var snapIndex;
+    if (typeof activeIndex === 'undefined') {
+      for (var i = 0; i < slidesGrid.length; i += 1) {
+        if (typeof slidesGrid[i + 1] !== 'undefined') {
+          if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1] - ((slidesGrid[i + 1] - slidesGrid[i]) / 2)) {
+            activeIndex = i;
+          } else if (translate >= slidesGrid[i] && translate < slidesGrid[i + 1]) {
+            activeIndex = i + 1;
+          }
+        } else if (translate >= slidesGrid[i]) {
+          activeIndex = i;
+        }
+      }
+      // Normalize slideIndex
+      if (params.normalizeSlideIndex) {
+        if (activeIndex < 0 || typeof activeIndex === 'undefined') { activeIndex = 0; }
+      }
+    }
+    if (snapGrid.indexOf(translate) >= 0) {
+      snapIndex = snapGrid.indexOf(translate);
+    } else {
+      snapIndex = Math.floor(activeIndex / params.slidesPerGroup);
+    }
+    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
+    if (activeIndex === previousIndex) {
+      if (snapIndex !== previousSnapIndex) {
+        swiper.snapIndex = snapIndex;
+        swiper.emit('snapIndexChange');
+      }
+      return;
+    }
+
+    // Get real index
+    var realIndex = parseInt(swiper.slides.eq(activeIndex).attr('data-swiper-slide-index') || activeIndex, 10);
+
+    Utils.extend(swiper, {
+      snapIndex: snapIndex,
+      realIndex: realIndex,
+      previousIndex: previousIndex,
+      activeIndex: activeIndex,
+    });
+    swiper.emit('activeIndexChange');
+    swiper.emit('snapIndexChange');
+    if (previousRealIndex !== realIndex) {
+      swiper.emit('realIndexChange');
+    }
+    swiper.emit('slideChange');
+  }
+
+  function updateClickedSlide (e) {
+    var swiper = this;
+    var params = swiper.params;
+    var slide = $(e.target).closest(("." + (params.slideClass)))[0];
+    var slideFound = false;
+    if (slide) {
+      for (var i = 0; i < swiper.slides.length; i += 1) {
+        if (swiper.slides[i] === slide) { slideFound = true; }
+      }
+    }
+
+    if (slide && slideFound) {
+      swiper.clickedSlide = slide;
+      if (swiper.virtual && swiper.params.virtual.enabled) {
+        swiper.clickedIndex = parseInt($(slide).attr('data-swiper-slide-index'), 10);
+      } else {
+        swiper.clickedIndex = $(slide).index();
+      }
+    } else {
+      swiper.clickedSlide = undefined;
+      swiper.clickedIndex = undefined;
+      return;
+    }
+    if (params.slideToClickedSlide && swiper.clickedIndex !== undefined && swiper.clickedIndex !== swiper.activeIndex) {
+      swiper.slideToClickedSlide();
+    }
+  }
+
+  var update = {
+    updateSize: updateSize,
+    updateSlides: updateSlides,
+    updateAutoHeight: updateAutoHeight,
+    updateSlidesOffset: updateSlidesOffset,
+    updateSlidesProgress: updateSlidesProgress,
+    updateProgress: updateProgress,
+    updateSlidesClasses: updateSlidesClasses,
+    updateActiveIndex: updateActiveIndex,
+    updateClickedSlide: updateClickedSlide,
+  };
+
+  function getTranslate (axis) {
+    if ( axis === void 0 ) axis = this.isHorizontal() ? 'x' : 'y';
+
+    var swiper = this;
+
+    var params = swiper.params;
+    var rtl = swiper.rtlTranslate;
+    var translate = swiper.translate;
+    var $wrapperEl = swiper.$wrapperEl;
+
+    if (params.virtualTranslate) {
+      return rtl ? -translate : translate;
+    }
+
+    var currentTranslate = Utils.getTranslate($wrapperEl[0], axis);
+    if (rtl) { currentTranslate = -currentTranslate; }
+
+    return currentTranslate || 0;
+  }
+
+  function setTranslate (translate, byController) {
+    var swiper = this;
+    var rtl = swiper.rtlTranslate;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var progress = swiper.progress;
+    var x = 0;
+    var y = 0;
+    var z = 0;
+
+    if (swiper.isHorizontal()) {
+      x = rtl ? -translate : translate;
+    } else {
+      y = translate;
+    }
+
+    if (params.roundLengths) {
+      x = Math.floor(x);
+      y = Math.floor(y);
+    }
+
+    if (!params.virtualTranslate) {
+      if (Support.transforms3d) { $wrapperEl.transform(("translate3d(" + x + "px, " + y + "px, " + z + "px)")); }
+      else { $wrapperEl.transform(("translate(" + x + "px, " + y + "px)")); }
+    }
+
+    swiper.translate = swiper.isHorizontal() ? x : y;
+
+    // Check if we need to update progress
+    var newProgress;
+    var translatesDiff = swiper.maxTranslate() - swiper.minTranslate();
+    if (translatesDiff === 0) {
+      newProgress = 0;
+    } else {
+      newProgress = (translate - swiper.minTranslate()) / (translatesDiff);
+    }
+    if (newProgress !== progress) {
+      swiper.updateProgress(translate);
+    }
+
+    swiper.emit('setTranslate', swiper.translate, byController);
+  }
+
+  function minTranslate () {
+    return (-this.snapGrid[0]);
+  }
+
+  function maxTranslate () {
+    return (-this.snapGrid[this.snapGrid.length - 1]);
+  }
+
+  var translate = {
+    getTranslate: getTranslate,
+    setTranslate: setTranslate,
+    minTranslate: minTranslate,
+    maxTranslate: maxTranslate,
+  };
+
+  function setTransition (duration, byController) {
+    var swiper = this;
+
+    swiper.$wrapperEl.transition(duration);
+
+    swiper.emit('setTransition', duration, byController);
+  }
+
+  function transitionStart (runCallbacks, direction) {
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var params = swiper.params;
+    var previousIndex = swiper.previousIndex;
+    if (params.autoHeight) {
+      swiper.updateAutoHeight();
+    }
+
+    var dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) { dir = 'next'; }
+      else if (activeIndex < previousIndex) { dir = 'prev'; }
+      else { dir = 'reset'; }
+    }
+
+    swiper.emit('transitionStart');
+
+    if (runCallbacks && activeIndex !== previousIndex) {
+      if (dir === 'reset') {
+        swiper.emit('slideResetTransitionStart');
+        return;
+      }
+      swiper.emit('slideChangeTransitionStart');
+      if (dir === 'next') {
+        swiper.emit('slideNextTransitionStart');
+      } else {
+        swiper.emit('slidePrevTransitionStart');
+      }
+    }
+  }
+
+  function transitionEnd$1 (runCallbacks, direction) {
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var previousIndex = swiper.previousIndex;
+    swiper.animating = false;
+    swiper.setTransition(0);
+
+    var dir = direction;
+    if (!dir) {
+      if (activeIndex > previousIndex) { dir = 'next'; }
+      else if (activeIndex < previousIndex) { dir = 'prev'; }
+      else { dir = 'reset'; }
+    }
+
+    swiper.emit('transitionEnd');
+
+    if (runCallbacks && activeIndex !== previousIndex) {
+      if (dir === 'reset') {
+        swiper.emit('slideResetTransitionEnd');
+        return;
+      }
+      swiper.emit('slideChangeTransitionEnd');
+      if (dir === 'next') {
+        swiper.emit('slideNextTransitionEnd');
+      } else {
+        swiper.emit('slidePrevTransitionEnd');
+      }
+    }
+  }
+
+  var transition$1 = {
+    setTransition: setTransition,
+    transitionStart: transitionStart,
+    transitionEnd: transitionEnd$1,
+  };
+
+  function slideTo (index, speed, runCallbacks, internal) {
+    if ( index === void 0 ) index = 0;
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var slideIndex = index;
+    if (slideIndex < 0) { slideIndex = 0; }
+
+    var params = swiper.params;
+    var snapGrid = swiper.snapGrid;
+    var slidesGrid = swiper.slidesGrid;
+    var previousIndex = swiper.previousIndex;
+    var activeIndex = swiper.activeIndex;
+    var rtl = swiper.rtlTranslate;
+    if (swiper.animating && params.preventIntercationOnTransition) {
+      return false;
+    }
+
+    var snapIndex = Math.floor(slideIndex / params.slidesPerGroup);
+    if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
+
+    if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
+      swiper.emit('beforeSlideChangeStart');
+    }
+
+    var translate = -snapGrid[snapIndex];
+
+    // Update progress
+    swiper.updateProgress(translate);
+
+    // Normalize slideIndex
+    if (params.normalizeSlideIndex) {
+      for (var i = 0; i < slidesGrid.length; i += 1) {
+        if (-Math.floor(translate * 100) >= Math.floor(slidesGrid[i] * 100)) {
+          slideIndex = i;
+        }
+      }
+    }
+    // Directions locks
+    if (swiper.initialized && slideIndex !== activeIndex) {
+      if (!swiper.allowSlideNext && translate < swiper.translate && translate < swiper.minTranslate()) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && translate > swiper.translate && translate > swiper.maxTranslate()) {
+        if ((activeIndex || 0) !== slideIndex) { return false; }
+      }
+    }
+
+    var direction;
+    if (slideIndex > activeIndex) { direction = 'next'; }
+    else if (slideIndex < activeIndex) { direction = 'prev'; }
+    else { direction = 'reset'; }
+
+
+    // Update Index
+    if ((rtl && -translate === swiper.translate) || (!rtl && translate === swiper.translate)) {
+      swiper.updateActiveIndex(slideIndex);
+      // Update Height
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+      swiper.updateSlidesClasses();
+      if (params.effect !== 'slide') {
+        swiper.setTranslate(translate);
+      }
+      if (direction !== 'reset') {
+        swiper.transitionStart(runCallbacks, direction);
+        swiper.transitionEnd(runCallbacks, direction);
+      }
+      return false;
+    }
+
+    if (speed === 0 || !Support.transition) {
+      swiper.setTransition(0);
+      swiper.setTranslate(translate);
+      swiper.updateActiveIndex(slideIndex);
+      swiper.updateSlidesClasses();
+      swiper.emit('beforeTransitionStart', speed, internal);
+      swiper.transitionStart(runCallbacks, direction);
+      swiper.transitionEnd(runCallbacks, direction);
+    } else {
+      swiper.setTransition(speed);
+      swiper.setTranslate(translate);
+      swiper.updateActiveIndex(slideIndex);
+      swiper.updateSlidesClasses();
+      swiper.emit('beforeTransitionStart', speed, internal);
+      swiper.transitionStart(runCallbacks, direction);
+      if (!swiper.animating) {
+        swiper.animating = true;
+        if (!swiper.onSlideToWrapperTransitionEnd) {
+          swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
+            if (!swiper || swiper.destroyed) { return; }
+            if (e.target !== this) { return; }
+            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+            swiper.transitionEnd(runCallbacks, direction);
+          };
+        }
+        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+      }
+    }
+
+    return true;
+  }
+
+  function slideToLoop (index, speed, runCallbacks, internal) {
+    if ( index === void 0 ) index = 0;
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var newIndex = index;
+    if (swiper.params.loop) {
+      newIndex += swiper.loopedSlides;
+    }
+
+    return swiper.slideTo(newIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideNext (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var params = swiper.params;
+    var animating = swiper.animating;
+    if (params.loop) {
+      if (animating) { return false; }
+      swiper.loopFix();
+      // eslint-disable-next-line
+      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
+      return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
+    }
+    return swiper.slideTo(swiper.activeIndex + params.slidesPerGroup, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slidePrev (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var params = swiper.params;
+    var animating = swiper.animating;
+    var snapGrid = swiper.snapGrid;
+    var slidesGrid = swiper.slidesGrid;
+    var rtlTranslate = swiper.rtlTranslate;
+
+    if (params.loop) {
+      if (animating) { return false; }
+      swiper.loopFix();
+      // eslint-disable-next-line
+      swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
+    }
+    var translate = rtlTranslate ? swiper.translate : -swiper.translate;
+    var currentSnap = snapGrid[snapGrid.indexOf(translate)];
+    var prevSnap = snapGrid[snapGrid.indexOf(translate) - 1];
+    var prevIndex;
+
+    if (prevSnap) {
+      prevIndex = slidesGrid.indexOf(prevSnap);
+      if (prevIndex < 0) { prevIndex = swiper.activeIndex - 1; }
+    }
+    return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideReset (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    return swiper.slideTo(swiper.activeIndex, speed, runCallbacks, internal);
+  }
+
+  /* eslint no-unused-vars: "off" */
+  function slideToClosest (speed, runCallbacks, internal) {
+    if ( speed === void 0 ) speed = this.params.speed;
+    if ( runCallbacks === void 0 ) runCallbacks = true;
+
+    var swiper = this;
+    var index = swiper.activeIndex;
+    var snapIndex = Math.floor(index / swiper.params.slidesPerGroup);
+
+    if (snapIndex < swiper.snapGrid.length - 1) {
+      var translate = swiper.rtlTranslate ? swiper.translate : -swiper.translate;
+
+      var currentSnap = swiper.snapGrid[snapIndex];
+      var nextSnap = swiper.snapGrid[snapIndex + 1];
+
+      if ((translate - currentSnap) > (nextSnap - currentSnap) / 2) {
+        index = swiper.params.slidesPerGroup;
+      }
+    }
+
+    return swiper.slideTo(index, speed, runCallbacks, internal);
+  }
+
+  function slideToClickedSlide () {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+
+    var slidesPerView = params.slidesPerView === 'auto' ? swiper.slidesPerViewDynamic() : params.slidesPerView;
+    var slideToIndex = swiper.clickedIndex;
+    var realIndex;
+    if (params.loop) {
+      if (swiper.animating) { return; }
+      realIndex = parseInt($(swiper.clickedSlide).attr('data-swiper-slide-index'), 10);
+      if (params.centeredSlides) {
+        if (
+          (slideToIndex < swiper.loopedSlides - (slidesPerView / 2)) ||
+          (slideToIndex > (swiper.slides.length - swiper.loopedSlides) + (slidesPerView / 2))
+        ) {
+          swiper.loopFix();
+          slideToIndex = $wrapperEl
+            .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+            .eq(0)
+            .index();
+
+          Utils.nextTick(function () {
+            swiper.slideTo(slideToIndex);
+          });
+        } else {
+          swiper.slideTo(slideToIndex);
+        }
+      } else if (slideToIndex > swiper.slides.length - slidesPerView) {
+        swiper.loopFix();
+        slideToIndex = $wrapperEl
+          .children(("." + (params.slideClass) + "[data-swiper-slide-index=\"" + realIndex + "\"]:not(." + (params.slideDuplicateClass) + ")"))
+          .eq(0)
+          .index();
+
+        Utils.nextTick(function () {
+          swiper.slideTo(slideToIndex);
+        });
+      } else {
+        swiper.slideTo(slideToIndex);
+      }
+    } else {
+      swiper.slideTo(slideToIndex);
+    }
+  }
+
+  var slide = {
+    slideTo: slideTo,
+    slideToLoop: slideToLoop,
+    slideNext: slideNext,
+    slidePrev: slidePrev,
+    slideReset: slideReset,
+    slideToClosest: slideToClosest,
+    slideToClickedSlide: slideToClickedSlide,
+  };
+
+  function loopCreate () {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    // Remove duplicated slides
+    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
+
+    var slides = $wrapperEl.children(("." + (params.slideClass)));
+
+    if (params.loopFillGroupWithBlank) {
+      var blankSlidesNum = params.slidesPerGroup - (slides.length % params.slidesPerGroup);
+      if (blankSlidesNum !== params.slidesPerGroup) {
+        for (var i = 0; i < blankSlidesNum; i += 1) {
+          var blankNode = $(doc.createElement('div')).addClass(((params.slideClass) + " " + (params.slideBlankClass)));
+          $wrapperEl.append(blankNode);
+        }
+        slides = $wrapperEl.children(("." + (params.slideClass)));
+      }
+    }
+
+    if (params.slidesPerView === 'auto' && !params.loopedSlides) { params.loopedSlides = slides.length; }
+
+    swiper.loopedSlides = parseInt(params.loopedSlides || params.slidesPerView, 10);
+    swiper.loopedSlides += params.loopAdditionalSlides;
+    if (swiper.loopedSlides > slides.length) {
+      swiper.loopedSlides = slides.length;
+    }
+
+    var prependSlides = [];
+    var appendSlides = [];
+    slides.each(function (index, el) {
+      var slide = $(el);
+      if (index < swiper.loopedSlides) { appendSlides.push(el); }
+      if (index < slides.length && index >= slides.length - swiper.loopedSlides) { prependSlides.push(el); }
+      slide.attr('data-swiper-slide-index', index);
+    });
+    for (var i$1 = 0; i$1 < appendSlides.length; i$1 += 1) {
+      $wrapperEl.append($(appendSlides[i$1].cloneNode(true)).addClass(params.slideDuplicateClass));
+    }
+    for (var i$2 = prependSlides.length - 1; i$2 >= 0; i$2 -= 1) {
+      $wrapperEl.prepend($(prependSlides[i$2].cloneNode(true)).addClass(params.slideDuplicateClass));
+    }
+  }
+
+  function loopFix () {
+    var swiper = this;
+    var params = swiper.params;
+    var activeIndex = swiper.activeIndex;
+    var slides = swiper.slides;
+    var loopedSlides = swiper.loopedSlides;
+    var allowSlidePrev = swiper.allowSlidePrev;
+    var allowSlideNext = swiper.allowSlideNext;
+    var snapGrid = swiper.snapGrid;
+    var rtl = swiper.rtlTranslate;
+    var newIndex;
+    swiper.allowSlidePrev = true;
+    swiper.allowSlideNext = true;
+
+    var snapTranslate = -snapGrid[activeIndex];
+    var diff = snapTranslate - swiper.getTranslate();
+
+
+    // Fix For Negative Oversliding
+    if (activeIndex < loopedSlides) {
+      newIndex = (slides.length - (loopedSlides * 3)) + activeIndex;
+      newIndex += loopedSlides;
+      var slideChanged = swiper.slideTo(newIndex, 0, false, true);
+      if (slideChanged && diff !== 0) {
+        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+      }
+    } else if ((params.slidesPerView === 'auto' && activeIndex >= loopedSlides * 2) || (activeIndex > slides.length - (params.slidesPerView * 2))) {
+      // Fix For Positive Oversliding
+      newIndex = -slides.length + activeIndex + loopedSlides;
+      newIndex += loopedSlides;
+      var slideChanged$1 = swiper.slideTo(newIndex, 0, false, true);
+      if (slideChanged$1 && diff !== 0) {
+        swiper.setTranslate((rtl ? -swiper.translate : swiper.translate) - diff);
+      }
+    }
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+  }
+
+  function loopDestroy () {
+    var swiper = this;
+    var $wrapperEl = swiper.$wrapperEl;
+    var params = swiper.params;
+    var slides = swiper.slides;
+    $wrapperEl.children(("." + (params.slideClass) + "." + (params.slideDuplicateClass))).remove();
+    slides.removeAttr('data-swiper-slide-index');
+  }
+
+  var loop = {
+    loopCreate: loopCreate,
+    loopFix: loopFix,
+    loopDestroy: loopDestroy,
+  };
+
+  function setGrabCursor (moving) {
+    var swiper = this;
+    if (Support.touch || !swiper.params.simulateTouch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
+    var el = swiper.el;
+    el.style.cursor = 'move';
+    el.style.cursor = moving ? '-webkit-grabbing' : '-webkit-grab';
+    el.style.cursor = moving ? '-moz-grabbin' : '-moz-grab';
+    el.style.cursor = moving ? 'grabbing' : 'grab';
+  }
+
+  function unsetGrabCursor () {
+    var swiper = this;
+    if (Support.touch || (swiper.params.watchOverflow && swiper.isLocked)) { return; }
+    swiper.el.style.cursor = '';
+  }
+
+  var grabCursor = {
+    setGrabCursor: setGrabCursor,
+    unsetGrabCursor: unsetGrabCursor,
+  };
+
+  function appendSlide (slides) {
+    var swiper = this;
+    var $wrapperEl = swiper.$wrapperEl;
+    var params = swiper.params;
+    if (params.loop) {
+      swiper.loopDestroy();
+    }
+    if (typeof slides === 'object' && 'length' in slides) {
+      for (var i = 0; i < slides.length; i += 1) {
+        if (slides[i]) { $wrapperEl.append(slides[i]); }
+      }
+    } else {
+      $wrapperEl.append(slides);
+    }
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+  }
+
+  function prependSlide (slides) {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+
+    if (params.loop) {
+      swiper.loopDestroy();
+    }
+    var newActiveIndex = activeIndex + 1;
+    if (typeof slides === 'object' && 'length' in slides) {
+      for (var i = 0; i < slides.length; i += 1) {
+        if (slides[i]) { $wrapperEl.prepend(slides[i]); }
+      }
+      newActiveIndex = activeIndex + slides.length;
+    } else {
+      $wrapperEl.prepend(slides);
+    }
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+    swiper.slideTo(newActiveIndex, 0, false);
+  }
+
+  function removeSlide (slidesIndexes) {
+    var swiper = this;
+    var params = swiper.params;
+    var $wrapperEl = swiper.$wrapperEl;
+    var activeIndex = swiper.activeIndex;
+
+    if (params.loop) {
+      swiper.loopDestroy();
+      swiper.slides = $wrapperEl.children(("." + (params.slideClass)));
+    }
+    var newActiveIndex = activeIndex;
+    var indexToRemove;
+
+    if (typeof slidesIndexes === 'object' && 'length' in slidesIndexes) {
+      for (var i = 0; i < slidesIndexes.length; i += 1) {
+        indexToRemove = slidesIndexes[i];
+        if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
+        if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
+      }
+      newActiveIndex = Math.max(newActiveIndex, 0);
+    } else {
+      indexToRemove = slidesIndexes;
+      if (swiper.slides[indexToRemove]) { swiper.slides.eq(indexToRemove).remove(); }
+      if (indexToRemove < newActiveIndex) { newActiveIndex -= 1; }
+      newActiveIndex = Math.max(newActiveIndex, 0);
+    }
+
+    if (params.loop) {
+      swiper.loopCreate();
+    }
+
+    if (!(params.observer && Support.observer)) {
+      swiper.update();
+    }
+    if (params.loop) {
+      swiper.slideTo(newActiveIndex + swiper.loopedSlides, 0, false);
+    } else {
+      swiper.slideTo(newActiveIndex, 0, false);
+    }
+  }
+
+  function removeAllSlides () {
+    var swiper = this;
+
+    var slidesIndexes = [];
+    for (var i = 0; i < swiper.slides.length; i += 1) {
+      slidesIndexes.push(i);
+    }
+    swiper.removeSlide(slidesIndexes);
+  }
+
+  var manipulation = {
+    appendSlide: appendSlide,
+    prependSlide: prependSlide,
+    removeSlide: removeSlide,
+    removeAllSlides: removeAllSlides,
+  };
+
+  var Device = (function Device() {
+    var ua = win.navigator.userAgent;
+
+    var device = {
+      ios: false,
+      android: false,
+      androidChrome: false,
+      desktop: false,
+      windows: false,
+      iphone: false,
+      ipod: false,
+      ipad: false,
+      cordova: win.cordova || win.phonegap,
+      phonegap: win.cordova || win.phonegap,
+    };
+
+    var windows = ua.match(/(Windows Phone);?[\s\/]+([\d.]+)?/); // eslint-disable-line
+    var android = ua.match(/(Android);?[\s\/]+([\d.]+)?/); // eslint-disable-line
+    var ipad = ua.match(/(iPad).*OS\s([\d_]+)/);
+    var ipod = ua.match(/(iPod)(.*OS\s([\d_]+))?/);
+    var iphone = !ipad && ua.match(/(iPhone\sOS|iOS)\s([\d_]+)/);
+
+
+    // Windows
+    if (windows) {
+      device.os = 'windows';
+      device.osVersion = windows[2];
+      device.windows = true;
+    }
+    // Android
+    if (android && !windows) {
+      device.os = 'android';
+      device.osVersion = android[2];
+      device.android = true;
+      device.androidChrome = ua.toLowerCase().indexOf('chrome') >= 0;
+    }
+    if (ipad || iphone || ipod) {
+      device.os = 'ios';
+      device.ios = true;
+    }
+    // iOS
+    if (iphone && !ipod) {
+      device.osVersion = iphone[2].replace(/_/g, '.');
+      device.iphone = true;
+    }
+    if (ipad) {
+      device.osVersion = ipad[2].replace(/_/g, '.');
+      device.ipad = true;
+    }
+    if (ipod) {
+      device.osVersion = ipod[3] ? ipod[3].replace(/_/g, '.') : null;
+      device.iphone = true;
+    }
+    // iOS 8+ changed UA
+    if (device.ios && device.osVersion && ua.indexOf('Version/') >= 0) {
+      if (device.osVersion.split('.')[0] === '10') {
+        device.osVersion = ua.toLowerCase().split('version/')[1].split(' ')[0];
+      }
+    }
+
+    // Desktop
+    device.desktop = !(device.os || device.android || device.webView);
+
+    // Webview
+    device.webView = (iphone || ipad || ipod) && ua.match(/.*AppleWebKit(?!.*Safari)/i);
+
+    // Minimal UI
+    if (device.os && device.os === 'ios') {
+      var osVersionArr = device.osVersion.split('.');
+      var metaViewport = doc.querySelector('meta[name="viewport"]');
+      device.minimalUi =
+        !device.webView &&
+        (ipod || iphone) &&
+        (osVersionArr[0] * 1 === 7 ? osVersionArr[1] * 1 >= 1 : osVersionArr[0] * 1 > 7) &&
+        metaViewport && metaViewport.getAttribute('content').indexOf('minimal-ui') >= 0;
+    }
+
+    // Pixel Ratio
+    device.pixelRatio = win.devicePixelRatio || 1;
+
+    // Export object
+    return device;
+  }());
+
+  function onTouchStart (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+    var params = swiper.params;
+    var touches = swiper.touches;
+    if (swiper.animating && params.preventIntercationOnTransition) {
+      return;
+    }
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    data.isTouchEvent = e.type === 'touchstart';
+    if (!data.isTouchEvent && 'which' in e && e.which === 3) { return; }
+    if (data.isTouched && data.isMoved) { return; }
+    if (params.noSwiping && $(e.target).closest(params.noSwipingSelector ? params.noSwipingSelector : ("." + (params.noSwipingClass)))[0]) {
+      swiper.allowClick = true;
+      return;
+    }
+    if (params.swipeHandler) {
+      if (!$(e).closest(params.swipeHandler)[0]) { return; }
+    }
+
+    touches.currentX = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
+    touches.currentY = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
+    var startX = touches.currentX;
+    var startY = touches.currentY;
+
+    // Do NOT start if iOS edge swipe is detected. Otherwise iOS app (UIWebView) cannot swipe-to-go-back anymore
+
+    if (
+      Device.ios &&
+      !Device.cordova &&
+      params.iOSEdgeSwipeDetection &&
+      (startX <= params.iOSEdgeSwipeThreshold) &&
+      (startX >= win.screen.width - params.iOSEdgeSwipeThreshold)
+    ) {
+      return;
+    }
+
+    Utils.extend(data, {
+      isTouched: true,
+      isMoved: false,
+      allowTouchCallbacks: true,
+      isScrolling: undefined,
+      startMoving: undefined,
+    });
+
+    touches.startX = startX;
+    touches.startY = startY;
+    data.touchStartTime = Utils.now();
+    swiper.allowClick = true;
+    swiper.updateSize();
+    swiper.swipeDirection = undefined;
+    if (params.threshold > 0) { data.allowThresholdMove = false; }
+    if (e.type !== 'touchstart') {
+      var preventDefault = true;
+      if ($(e.target).is(data.formElements)) { preventDefault = false; }
+      if (
+        doc.activeElement &&
+        $(doc.activeElement).is(data.formElements) &&
+        doc.activeElement !== e.target
+      ) {
+        doc.activeElement.blur();
+      }
+      if (preventDefault && swiper.allowTouchMove) {
+        e.preventDefault();
+      }
+    }
+    swiper.emit('touchStart', e);
+  }
+
+  function onTouchMove (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+    var params = swiper.params;
+    var touches = swiper.touches;
+    var rtl = swiper.rtlTranslate;
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    if (!data.isTouched) {
+      if (data.startMoving && data.isScrolling) {
+        swiper.emit('touchMoveOpposite', e);
+      }
+      return;
+    }
+    if (data.isTouchEvent && e.type === 'mousemove') { return; }
+    var pageX = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
+    var pageY = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+    if (e.preventedByNestedSwiper) {
+      touches.startX = pageX;
+      touches.startY = pageY;
+      return;
+    }
+    if (!swiper.allowTouchMove) {
+      // isMoved = true;
+      swiper.allowClick = false;
+      if (data.isTouched) {
+        Utils.extend(touches, {
+          startX: pageX,
+          startY: pageY,
+          currentX: pageX,
+          currentY: pageY,
+        });
+        data.touchStartTime = Utils.now();
+      }
+      return;
+    }
+    if (data.isTouchEvent && params.touchReleaseOnEdges && !params.loop) {
+      if (swiper.isVertical()) {
+        // Vertical
+        if (
+          (pageY < touches.startY && swiper.translate <= swiper.maxTranslate()) ||
+          (pageY > touches.startY && swiper.translate >= swiper.minTranslate())
+        ) {
+          data.isTouched = false;
+          data.isMoved = false;
+          return;
+        }
+      } else if (
+        (pageX < touches.startX && swiper.translate <= swiper.maxTranslate()) ||
+        (pageX > touches.startX && swiper.translate >= swiper.minTranslate())
+      ) {
+        return;
+      }
+    }
+    if (data.isTouchEvent && doc.activeElement) {
+      if (e.target === doc.activeElement && $(e.target).is(data.formElements)) {
+        data.isMoved = true;
+        swiper.allowClick = false;
+        return;
+      }
+    }
+    if (data.allowTouchCallbacks) {
+      swiper.emit('touchMove', e);
+    }
+    if (e.targetTouches && e.targetTouches.length > 1) { return; }
+
+    touches.currentX = pageX;
+    touches.currentY = pageY;
+
+    var diffX = touches.currentX - touches.startX;
+    var diffY = touches.currentY - touches.startY;
+
+    if (typeof data.isScrolling === 'undefined') {
+      var touchAngle;
+      if ((swiper.isHorizontal() && touches.currentY === touches.startY) || (swiper.isVertical() && touches.currentX === touches.startX)) {
+        data.isScrolling = false;
+      } else {
+        // eslint-disable-next-line
+        if ((diffX * diffX) + (diffY * diffY) >= 25) {
+          touchAngle = (Math.atan2(Math.abs(diffY), Math.abs(diffX)) * 180) / Math.PI;
+          data.isScrolling = swiper.isHorizontal() ? touchAngle > params.touchAngle : (90 - touchAngle > params.touchAngle);
+        }
+      }
+    }
+    if (data.isScrolling) {
+      swiper.emit('touchMoveOpposite', e);
+    }
+    if (typeof startMoving === 'undefined') {
+      if (touches.currentX !== touches.startX || touches.currentY !== touches.startY) {
+        data.startMoving = true;
+      }
+    }
+    if (data.isScrolling) {
+      data.isTouched = false;
+      return;
+    }
+    if (!data.startMoving) {
+      return;
+    }
+    swiper.allowClick = false;
+    e.preventDefault();
+    if (params.touchMoveStopPropagation && !params.nested) {
+      e.stopPropagation();
+    }
+
+    if (!data.isMoved) {
+      if (params.loop) {
+        swiper.loopFix();
+      }
+      data.startTranslate = swiper.getTranslate();
+      swiper.setTransition(0);
+      if (swiper.animating) {
+        swiper.$wrapperEl.trigger('webkitTransitionEnd transitionend');
+      }
+      data.allowMomentumBounce = false;
+      // Grab Cursor
+      if (params.grabCursor && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+        swiper.setGrabCursor(true);
+      }
+      swiper.emit('sliderFirstMove', e);
+    }
+    swiper.emit('sliderMove', e);
+    data.isMoved = true;
+
+    var diff = swiper.isHorizontal() ? diffX : diffY;
+    touches.diff = diff;
+
+    diff *= params.touchRatio;
+    if (rtl) { diff = -diff; }
+
+    swiper.swipeDirection = diff > 0 ? 'prev' : 'next';
+    data.currentTranslate = diff + data.startTranslate;
+
+    var disableParentSwiper = true;
+    var resistanceRatio = params.resistanceRatio;
+    if (params.touchReleaseOnEdges) {
+      resistanceRatio = 0;
+    }
+    if ((diff > 0 && data.currentTranslate > swiper.minTranslate())) {
+      disableParentSwiper = false;
+      if (params.resistance) { data.currentTranslate = (swiper.minTranslate() - 1) + (Math.pow( (-swiper.minTranslate() + data.startTranslate + diff), resistanceRatio )); }
+    } else if (diff < 0 && data.currentTranslate < swiper.maxTranslate()) {
+      disableParentSwiper = false;
+      if (params.resistance) { data.currentTranslate = (swiper.maxTranslate() + 1) - (Math.pow( (swiper.maxTranslate() - data.startTranslate - diff), resistanceRatio )); }
+    }
+
+    if (disableParentSwiper) {
+      e.preventedByNestedSwiper = true;
+    }
+
+    // Directions locks
+    if (!swiper.allowSlideNext && swiper.swipeDirection === 'next' && data.currentTranslate < data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+    if (!swiper.allowSlidePrev && swiper.swipeDirection === 'prev' && data.currentTranslate > data.startTranslate) {
+      data.currentTranslate = data.startTranslate;
+    }
+
+
+    // Threshold
+    if (params.threshold > 0) {
+      if (Math.abs(diff) > params.threshold || data.allowThresholdMove) {
+        if (!data.allowThresholdMove) {
+          data.allowThresholdMove = true;
+          touches.startX = touches.currentX;
+          touches.startY = touches.currentY;
+          data.currentTranslate = data.startTranslate;
+          touches.diff = swiper.isHorizontal() ? touches.currentX - touches.startX : touches.currentY - touches.startY;
+          return;
+        }
+      } else {
+        data.currentTranslate = data.startTranslate;
+        return;
+      }
+    }
+
+    if (!params.followFinger) { return; }
+
+    // Update active index in free mode
+    if (params.freeMode || params.watchSlidesProgress || params.watchSlidesVisibility) {
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    }
+    if (params.freeMode) {
+      // Velocity
+      if (data.velocities.length === 0) {
+        data.velocities.push({
+          position: touches[swiper.isHorizontal() ? 'startX' : 'startY'],
+          time: data.touchStartTime,
+        });
+      }
+      data.velocities.push({
+        position: touches[swiper.isHorizontal() ? 'currentX' : 'currentY'],
+        time: Utils.now(),
+      });
+    }
+    // Update progress
+    swiper.updateProgress(data.currentTranslate);
+    // Update translate
+    swiper.setTranslate(data.currentTranslate);
+  }
+
+  function onTouchEnd (event) {
+    var swiper = this;
+    var data = swiper.touchEventsData;
+
+    var params = swiper.params;
+    var touches = swiper.touches;
+    var rtl = swiper.rtlTranslate;
+    var $wrapperEl = swiper.$wrapperEl;
+    var slidesGrid = swiper.slidesGrid;
+    var snapGrid = swiper.snapGrid;
+    var e = event;
+    if (e.originalEvent) { e = e.originalEvent; }
+    if (data.allowTouchCallbacks) {
+      swiper.emit('touchEnd', e);
+    }
+    data.allowTouchCallbacks = false;
+    if (!data.isTouched) {
+      if (data.isMoved && params.grabCursor) {
+        swiper.setGrabCursor(false);
+      }
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    // Return Grab Cursor
+    if (params.grabCursor && data.isMoved && data.isTouched && (swiper.allowSlideNext === true || swiper.allowSlidePrev === true)) {
+      swiper.setGrabCursor(false);
+    }
+
+    // Time diff
+    var touchEndTime = Utils.now();
+    var timeDiff = touchEndTime - data.touchStartTime;
+
+    // Tap, doubleTap, Click
+    if (swiper.allowClick) {
+      swiper.updateClickedSlide(e);
+      swiper.emit('tap', e);
+      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) > 300) {
+        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
+        data.clickTimeout = Utils.nextTick(function () {
+          if (!swiper || swiper.destroyed) { return; }
+          swiper.emit('click', e);
+        }, 300);
+      }
+      if (timeDiff < 300 && (touchEndTime - data.lastClickTime) < 300) {
+        if (data.clickTimeout) { clearTimeout(data.clickTimeout); }
+        swiper.emit('doubleTap', e);
+      }
+    }
+
+    data.lastClickTime = Utils.now();
+    Utils.nextTick(function () {
+      if (!swiper.destroyed) { swiper.allowClick = true; }
+    });
+
+    if (!data.isTouched || !data.isMoved || !swiper.swipeDirection || touches.diff === 0 || data.currentTranslate === data.startTranslate) {
+      data.isTouched = false;
+      data.isMoved = false;
+      data.startMoving = false;
+      return;
+    }
+    data.isTouched = false;
+    data.isMoved = false;
+    data.startMoving = false;
+
+    var currentPos;
+    if (params.followFinger) {
+      currentPos = rtl ? swiper.translate : -swiper.translate;
+    } else {
+      currentPos = -data.currentTranslate;
+    }
+
+    if (params.freeMode) {
+      if (currentPos < -swiper.minTranslate()) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      } else if (currentPos > -swiper.maxTranslate()) {
+        if (swiper.slides.length < snapGrid.length) {
+          swiper.slideTo(snapGrid.length - 1);
+        } else {
+          swiper.slideTo(swiper.slides.length - 1);
+        }
+        return;
+      }
+
+      if (params.freeModeMomentum) {
+        if (data.velocities.length > 1) {
+          var lastMoveEvent = data.velocities.pop();
+          var velocityEvent = data.velocities.pop();
+
+          var distance = lastMoveEvent.position - velocityEvent.position;
+          var time = lastMoveEvent.time - velocityEvent.time;
+          swiper.velocity = distance / time;
+          swiper.velocity /= 2;
+          if (Math.abs(swiper.velocity) < params.freeModeMinimumVelocity) {
+            swiper.velocity = 0;
+          }
+          // this implies that the user stopped moving a finger then released.
+          // There would be no events with distance zero, so the last event is stale.
+          if (time > 150 || (Utils.now() - lastMoveEvent.time) > 300) {
+            swiper.velocity = 0;
+          }
+        } else {
+          swiper.velocity = 0;
+        }
+        swiper.velocity *= params.freeModeMomentumVelocityRatio;
+
+        data.velocities.length = 0;
+        var momentumDuration = 1000 * params.freeModeMomentumRatio;
+        var momentumDistance = swiper.velocity * momentumDuration;
+
+        var newPosition = swiper.translate + momentumDistance;
+        if (rtl) { newPosition = -newPosition; }
+
+        var doBounce = false;
+        var afterBouncePosition;
+        var bounceAmount = Math.abs(swiper.velocity) * 20 * params.freeModeMomentumBounceRatio;
+        var needsLoopFix;
+        if (newPosition < swiper.maxTranslate()) {
+          if (params.freeModeMomentumBounce) {
+            if (newPosition + swiper.maxTranslate() < -bounceAmount) {
+              newPosition = swiper.maxTranslate() - bounceAmount;
+            }
+            afterBouncePosition = swiper.maxTranslate();
+            doBounce = true;
+            data.allowMomentumBounce = true;
+          } else {
+            newPosition = swiper.maxTranslate();
+          }
+          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
+        } else if (newPosition > swiper.minTranslate()) {
+          if (params.freeModeMomentumBounce) {
+            if (newPosition - swiper.minTranslate() > bounceAmount) {
+              newPosition = swiper.minTranslate() + bounceAmount;
+            }
+            afterBouncePosition = swiper.minTranslate();
+            doBounce = true;
+            data.allowMomentumBounce = true;
+          } else {
+            newPosition = swiper.minTranslate();
+          }
+          if (params.loop && params.centeredSlides) { needsLoopFix = true; }
+        } else if (params.freeModeSticky) {
+          var nextSlide;
+          for (var j = 0; j < snapGrid.length; j += 1) {
+            if (snapGrid[j] > -newPosition) {
+              nextSlide = j;
+              break;
+            }
+          }
+
+          if (Math.abs(snapGrid[nextSlide] - newPosition) < Math.abs(snapGrid[nextSlide - 1] - newPosition) || swiper.swipeDirection === 'next') {
+            newPosition = snapGrid[nextSlide];
+          } else {
+            newPosition = snapGrid[nextSlide - 1];
+          }
+          newPosition = -newPosition;
+        }
+        if (needsLoopFix) {
+          swiper.once('transitionEnd', function () {
+            swiper.loopFix();
+          });
+        }
+        // Fix duration
+        if (swiper.velocity !== 0) {
+          if (rtl) {
+            momentumDuration = Math.abs((-newPosition - swiper.translate) / swiper.velocity);
+          } else {
+            momentumDuration = Math.abs((newPosition - swiper.translate) / swiper.velocity);
+          }
+        } else if (params.freeModeSticky) {
+          swiper.slideToClosest();
+          return;
+        }
+
+        if (params.freeModeMomentumBounce && doBounce) {
+          swiper.updateProgress(afterBouncePosition);
+          swiper.setTransition(momentumDuration);
+          swiper.setTranslate(newPosition);
+          swiper.transitionStart(true, swiper.swipeDirection);
+          swiper.animating = true;
+          $wrapperEl.transitionEnd(function () {
+            if (!swiper || swiper.destroyed || !data.allowMomentumBounce) { return; }
+            swiper.emit('momentumBounce');
+
+            swiper.setTransition(params.speed);
+            swiper.setTranslate(afterBouncePosition);
+            $wrapperEl.transitionEnd(function () {
+              if (!swiper || swiper.destroyed) { return; }
+              swiper.transitionEnd();
+            });
+          });
+        } else if (swiper.velocity) {
+          swiper.updateProgress(newPosition);
+          swiper.setTransition(momentumDuration);
+          swiper.setTranslate(newPosition);
+          swiper.transitionStart(true, swiper.swipeDirection);
+          if (!swiper.animating) {
+            swiper.animating = true;
+            $wrapperEl.transitionEnd(function () {
+              if (!swiper || swiper.destroyed) { return; }
+              swiper.transitionEnd();
+            });
+          }
+        } else {
+          swiper.updateProgress(newPosition);
+        }
+
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      } else if (params.freeModeSticky) {
+        swiper.slideToClosest();
+        return;
+      }
+
+      if (!params.freeModeMomentum || timeDiff >= params.longSwipesMs) {
+        swiper.updateProgress();
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      return;
+    }
+
+    // Find current slide
+    var stopIndex = 0;
+    var groupSize = swiper.slidesSizesGrid[0];
+    for (var i = 0; i < slidesGrid.length; i += params.slidesPerGroup) {
+      if (typeof slidesGrid[i + params.slidesPerGroup] !== 'undefined') {
+        if (currentPos >= slidesGrid[i] && currentPos < slidesGrid[i + params.slidesPerGroup]) {
+          stopIndex = i;
+          groupSize = slidesGrid[i + params.slidesPerGroup] - slidesGrid[i];
+        }
+      } else if (currentPos >= slidesGrid[i]) {
+        stopIndex = i;
+        groupSize = slidesGrid[slidesGrid.length - 1] - slidesGrid[slidesGrid.length - 2];
+      }
+    }
+
+    // Find current slide size
+    var ratio = (currentPos - slidesGrid[stopIndex]) / groupSize;
+
+    if (timeDiff > params.longSwipesMs) {
+      // Long touches
+      if (!params.longSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === 'next') {
+        if (ratio >= params.longSwipesRatio) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
+        else { swiper.slideTo(stopIndex); }
+      }
+      if (swiper.swipeDirection === 'prev') {
+        if (ratio > (1 - params.longSwipesRatio)) { swiper.slideTo(stopIndex + params.slidesPerGroup); }
+        else { swiper.slideTo(stopIndex); }
+      }
+    } else {
+      // Short swipes
+      if (!params.shortSwipes) {
+        swiper.slideTo(swiper.activeIndex);
+        return;
+      }
+      if (swiper.swipeDirection === 'next') {
+        swiper.slideTo(stopIndex + params.slidesPerGroup);
+      }
+      if (swiper.swipeDirection === 'prev') {
+        swiper.slideTo(stopIndex);
+      }
+    }
+  }
+
+  function onResize () {
+    var swiper = this;
+
+    var params = swiper.params;
+    var el = swiper.el;
+
+    if (el && el.offsetWidth === 0) { return; }
+
+    // Breakpoints
+    if (params.breakpoints) {
+      swiper.setBreakpoint();
+    }
+
+    // Save locks
+    var allowSlideNext = swiper.allowSlideNext;
+    var allowSlidePrev = swiper.allowSlidePrev;
+    var snapGrid = swiper.snapGrid;
+
+    // Disable locks on resize
+    swiper.allowSlideNext = true;
+    swiper.allowSlidePrev = true;
+
+    swiper.updateSize();
+    swiper.updateSlides();
+
+    if (params.freeMode) {
+      var newTranslate = Math.min(Math.max(swiper.translate, swiper.maxTranslate()), swiper.minTranslate());
+      swiper.setTranslate(newTranslate);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+
+      if (params.autoHeight) {
+        swiper.updateAutoHeight();
+      }
+    } else {
+      swiper.updateSlidesClasses();
+      if ((params.slidesPerView === 'auto' || params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
+        swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+      } else {
+        swiper.slideTo(swiper.activeIndex, 0, false, true);
+      }
+    }
+    // Return locks after resize
+    swiper.allowSlidePrev = allowSlidePrev;
+    swiper.allowSlideNext = allowSlideNext;
+
+    if (swiper.params.watchOverflow && snapGrid !== swiper.snapGrid) {
+      swiper.checkOverflow();
+    }
+  }
+
+  function onClick (e) {
+    var swiper = this;
+    if (!swiper.allowClick) {
+      if (swiper.params.preventClicks) { e.preventDefault(); }
+      if (swiper.params.preventClicksPropagation && swiper.animating) {
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+      }
+    }
+  }
+
+  function attachEvents() {
+    var swiper = this;
+    var params = swiper.params;
+    var touchEvents = swiper.touchEvents;
+    var el = swiper.el;
+    var wrapperEl = swiper.wrapperEl;
+
+    {
+      swiper.onTouchStart = onTouchStart.bind(swiper);
+      swiper.onTouchMove = onTouchMove.bind(swiper);
+      swiper.onTouchEnd = onTouchEnd.bind(swiper);
+    }
+
+    swiper.onClick = onClick.bind(swiper);
+
+    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
+    var capture = !!params.nested;
+
+    // Touch Events
+    {
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.addEventListener(touchEvents.start, swiper.onTouchStart, false);
+        doc.addEventListener(touchEvents.move, swiper.onTouchMove, capture);
+        doc.addEventListener(touchEvents.end, swiper.onTouchEnd, false);
+      } else {
+        if (Support.touch) {
+          var passiveListener = touchEvents.start === 'touchstart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
+          target.addEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
+          target.addEventListener(touchEvents.move, swiper.onTouchMove, Support.passiveListener ? { passive: false, capture: capture } : capture);
+          target.addEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.addEventListener('mousedown', swiper.onTouchStart, false);
+          doc.addEventListener('mousemove', swiper.onTouchMove, capture);
+          doc.addEventListener('mouseup', swiper.onTouchEnd, false);
+        }
+      }
+      // Prevent Links Clicks
+      if (params.preventClicks || params.preventClicksPropagation) {
+        target.addEventListener('click', swiper.onClick, true);
+      }
+    }
+
+    // Resize handler
+    swiper.on('resize observerUpdate', onResize, true);
+  }
+
+  function detachEvents() {
+    var swiper = this;
+
+    var params = swiper.params;
+    var touchEvents = swiper.touchEvents;
+    var el = swiper.el;
+    var wrapperEl = swiper.wrapperEl;
+
+    var target = params.touchEventsTarget === 'container' ? el : wrapperEl;
+    var capture = !!params.nested;
+
+    // Touch Events
+    {
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.removeEventListener(touchEvents.start, swiper.onTouchStart, false);
+        doc.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
+        doc.removeEventListener(touchEvents.end, swiper.onTouchEnd, false);
+      } else {
+        if (Support.touch) {
+          var passiveListener = touchEvents.start === 'onTouchStart' && Support.passiveListener && params.passiveListeners ? { passive: true, capture: false } : false;
+          target.removeEventListener(touchEvents.start, swiper.onTouchStart, passiveListener);
+          target.removeEventListener(touchEvents.move, swiper.onTouchMove, capture);
+          target.removeEventListener(touchEvents.end, swiper.onTouchEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.removeEventListener('mousedown', swiper.onTouchStart, false);
+          doc.removeEventListener('mousemove', swiper.onTouchMove, capture);
+          doc.removeEventListener('mouseup', swiper.onTouchEnd, false);
+        }
+      }
+      // Prevent Links Clicks
+      if (params.preventClicks || params.preventClicksPropagation) {
+        target.removeEventListener('click', swiper.onClick, true);
+      }
+    }
+
+    // Resize handler
+    swiper.off('resize observerUpdate', onResize);
+  }
+
+  var events = {
+    attachEvents: attachEvents,
+    detachEvents: detachEvents,
+  };
+
+  function setBreakpoint () {
+    var swiper = this;
+    var activeIndex = swiper.activeIndex;
+    var initialized = swiper.initialized;
+    var loopedSlides = swiper.loopedSlides; if ( loopedSlides === void 0 ) loopedSlides = 0;
+    var params = swiper.params;
+    var breakpoints = params.breakpoints;
+    if (!breakpoints || (breakpoints && Object.keys(breakpoints).length === 0)) { return; }
+    // Set breakpoint for window width and update parameters
+    var breakpoint = swiper.getBreakpoint(breakpoints);
+    if (breakpoint && swiper.currentBreakpoint !== breakpoint) {
+      var breakPointsParams = breakpoint in breakpoints ? breakpoints[breakpoint] : swiper.originalParams;
+      var needsReLoop = params.loop && (breakPointsParams.slidesPerView !== params.slidesPerView);
+
+      Utils.extend(swiper.params, breakPointsParams);
+
+      Utils.extend(swiper, {
+        allowTouchMove: swiper.params.allowTouchMove,
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+      });
+
+      swiper.currentBreakpoint = breakpoint;
+
+      if (needsReLoop && initialized) {
+        swiper.loopDestroy();
+        swiper.loopCreate();
+        swiper.updateSlides();
+        swiper.slideTo((activeIndex - loopedSlides) + swiper.loopedSlides, 0, false);
+      }
+      swiper.emit('breakpoint', breakPointsParams);
+    }
+  }
+
+  function getBreakpoint (breakpoints) {
+    // Get breakpoint for window width
+    if (!breakpoints) { return undefined; }
+    var breakpoint = false;
+    var points = [];
+    Object.keys(breakpoints).forEach(function (point) {
+      points.push(point);
+    });
+    points.sort(function (a, b) { return parseInt(a, 10) - parseInt(b, 10); });
+    for (var i = 0; i < points.length; i += 1) {
+      var point = points[i];
+      if (point >= win.innerWidth && !breakpoint) {
+        breakpoint = point;
+      }
+    }
+    return breakpoint || 'max';
+  }
+
+  var breakpoints = { setBreakpoint: setBreakpoint, getBreakpoint: getBreakpoint };
+
+  var Browser = (function Browser() {
+    function isSafari() {
+      var ua = win.navigator.userAgent.toLowerCase();
+      return (ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0);
+    }
+    return {
+      isIE: !!win.navigator.userAgent.match(/Trident/g) || !!win.navigator.userAgent.match(/MSIE/g),
+      isSafari: isSafari(),
+      isUiWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(win.navigator.userAgent),
+    };
+  }());
+
+  function addClasses () {
+    var swiper = this;
+    var classNames = swiper.classNames;
+    var params = swiper.params;
+    var rtl = swiper.rtl;
+    var $el = swiper.$el;
+    var suffixes = [];
+
+    suffixes.push(params.direction);
+
+    if (params.freeMode) {
+      suffixes.push('free-mode');
+    }
+    if (!Support.flexbox) {
+      suffixes.push('no-flexbox');
+    }
+    if (params.autoHeight) {
+      suffixes.push('autoheight');
+    }
+    if (rtl) {
+      suffixes.push('rtl');
+    }
+    if (params.slidesPerColumn > 1) {
+      suffixes.push('multirow');
+    }
+    if (Device.android) {
+      suffixes.push('android');
+    }
+    if (Device.ios) {
+      suffixes.push('ios');
+    }
+    // WP8 Touch Events Fix
+    if (Browser.isIE && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+      suffixes.push(("wp8-" + (params.direction)));
+    }
+
+    suffixes.forEach(function (suffix) {
+      classNames.push(params.containerModifierClass + suffix);
+    });
+
+    $el.addClass(classNames.join(' '));
+  }
+
+  function removeClasses () {
+    var swiper = this;
+    var $el = swiper.$el;
+    var classNames = swiper.classNames;
+
+    $el.removeClass(classNames.join(' '));
+  }
+
+  var classes = { addClasses: addClasses, removeClasses: removeClasses };
+
+  function loadImage (imageEl, src, srcset, sizes, checkForComplete, callback) {
+    var image;
+    function onReady() {
+      if (callback) { callback(); }
+    }
+    if (!imageEl.complete || !checkForComplete) {
+      if (src) {
+        image = new win.Image();
+        image.onload = onReady;
+        image.onerror = onReady;
+        if (sizes) {
+          image.sizes = sizes;
+        }
+        if (srcset) {
+          image.srcset = srcset;
+        }
+        if (src) {
+          image.src = src;
+        }
+      } else {
+        onReady();
+      }
+    } else {
+      // image already loaded...
+      onReady();
+    }
+  }
+
+  function preloadImages () {
+    var swiper = this;
+    swiper.imagesToLoad = swiper.$el.find('img');
+    function onReady() {
+      if (typeof swiper === 'undefined' || swiper === null || !swiper || swiper.destroyed) { return; }
+      if (swiper.imagesLoaded !== undefined) { swiper.imagesLoaded += 1; }
+      if (swiper.imagesLoaded === swiper.imagesToLoad.length) {
+        if (swiper.params.updateOnImagesReady) { swiper.update(); }
+        swiper.emit('imagesReady');
+      }
+    }
+    for (var i = 0; i < swiper.imagesToLoad.length; i += 1) {
+      var imageEl = swiper.imagesToLoad[i];
+      swiper.loadImage(
+        imageEl,
+        imageEl.currentSrc || imageEl.getAttribute('src'),
+        imageEl.srcset || imageEl.getAttribute('srcset'),
+        imageEl.sizes || imageEl.getAttribute('sizes'),
+        true,
+        onReady
+      );
+    }
+  }
+
+  var images = {
+    loadImage: loadImage,
+    preloadImages: preloadImages,
+  };
+
+  function checkOverflow() {
+    var swiper = this;
+    var wasLocked = swiper.isLocked;
+
+    swiper.isLocked = swiper.snapGrid.length === 1;
+    swiper.allowSlideNext = !swiper.isLocked;
+    swiper.allowSlidePrev = !swiper.isLocked;
+
+    // events
+    if (wasLocked !== swiper.isLocked) { swiper.emit(swiper.isLocked ? 'lock' : 'unlock'); }
+
+    if (wasLocked && wasLocked !== swiper.isLocked) {
+      swiper.isEnd = false;
+      swiper.navigation.update();
+    }
+  }
+
+  var checkOverflow$1 = { checkOverflow: checkOverflow };
+
+  var defaults = {
+    init: true,
+    direction: 'horizontal',
+    touchEventsTarget: 'container',
+    initialSlide: 0,
+    speed: 300,
+    //
+    preventIntercationOnTransition: false,
+
+    // To support iOS's swipe-to-go-back gesture (when being used in-app, with UIWebView).
+    iOSEdgeSwipeDetection: false,
+    iOSEdgeSwipeThreshold: 20,
+
+    // Free mode
+    freeMode: false,
+    freeModeMomentum: true,
+    freeModeMomentumRatio: 1,
+    freeModeMomentumBounce: true,
+    freeModeMomentumBounceRatio: 1,
+    freeModeMomentumVelocityRatio: 1,
+    freeModeSticky: false,
+    freeModeMinimumVelocity: 0.02,
+
+    // Autoheight
+    autoHeight: false,
+
+    // Set wrapper width
+    setWrapperSize: false,
+
+    // Virtual Translate
+    virtualTranslate: false,
+
+    // Effects
+    effect: 'slide', // 'slide' or 'fade' or 'cube' or 'coverflow' or 'flip'
+
+    // Breakpoints
+    breakpoints: undefined,
+
+    // Slides grid
+    spaceBetween: 0,
+    slidesPerView: 1,
+    slidesPerColumn: 1,
+    slidesPerColumnFill: 'column',
+    slidesPerGroup: 1,
+    centeredSlides: false,
+    slidesOffsetBefore: 0, // in px
+    slidesOffsetAfter: 0, // in px
+    normalizeSlideIndex: true,
+
+    // Disable swiper and hide navigation when container not overflow
+    watchOverflow: false,
+
+    // Round length
+    roundLengths: false,
+
+    // Touches
+    touchRatio: 1,
+    touchAngle: 45,
+    simulateTouch: true,
+    shortSwipes: true,
+    longSwipes: true,
+    longSwipesRatio: 0.5,
+    longSwipesMs: 300,
+    followFinger: true,
+    allowTouchMove: true,
+    threshold: 0,
+    touchMoveStopPropagation: true,
+    touchReleaseOnEdges: false,
+
+    // Unique Navigation Elements
+    uniqueNavElements: true,
+
+    // Resistance
+    resistance: true,
+    resistanceRatio: 0.85,
+
+    // Progress
+    watchSlidesProgress: false,
+    watchSlidesVisibility: false,
+
+    // Cursor
+    grabCursor: false,
+
+    // Clicks
+    preventClicks: true,
+    preventClicksPropagation: true,
+    slideToClickedSlide: false,
+
+    // Images
+    preloadImages: true,
+    updateOnImagesReady: true,
+
+    // loop
+    loop: false,
+    loopAdditionalSlides: 0,
+    loopedSlides: null,
+    loopFillGroupWithBlank: false,
+
+    // Swiping/no swiping
+    allowSlidePrev: true,
+    allowSlideNext: true,
+    swipeHandler: null, // '.swipe-handler',
+    noSwiping: true,
+    noSwipingClass: 'swiper-no-swiping',
+    noSwipingSelector: null,
+
+    // Passive Listeners
+    passiveListeners: true,
+
+    // NS
+    containerModifierClass: 'swiper-container-', // NEW
+    slideClass: 'swiper-slide',
+    slideBlankClass: 'swiper-slide-invisible-blank',
+    slideActiveClass: 'swiper-slide-active',
+    slideDuplicateActiveClass: 'swiper-slide-duplicate-active',
+    slideVisibleClass: 'swiper-slide-visible',
+    slideDuplicateClass: 'swiper-slide-duplicate',
+    slideNextClass: 'swiper-slide-next',
+    slideDuplicateNextClass: 'swiper-slide-duplicate-next',
+    slidePrevClass: 'swiper-slide-prev',
+    slideDuplicatePrevClass: 'swiper-slide-duplicate-prev',
+    wrapperClass: 'swiper-wrapper',
+
+    // Callbacks
+    runCallbacksOnInit: true,
+  };
+
+  var prototypes = {
+    update: update,
+    translate: translate,
+    transition: transition$1,
+    slide: slide,
+    loop: loop,
+    grabCursor: grabCursor,
+    manipulation: manipulation,
+    events: events,
+    breakpoints: breakpoints,
+    checkOverflow: checkOverflow$1,
+    classes: classes,
+    images: images,
+  };
+
+  var extendedDefaults = {};
+
+  var Swiper = (function (SwiperClass$$1) {
+    function Swiper() {
+      var assign;
+
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+      var el;
+      var params;
+      if (args.length === 1 && args[0].constructor && args[0].constructor === Object) {
+        params = args[0];
+      } else {
+        (assign = args, el = assign[0], params = assign[1]);
+      }
+      if (!params) { params = {}; }
+
+      params = Utils.extend({}, params);
+      if (el && !params.el) { params.el = el; }
+
+      SwiperClass$$1.call(this, params);
+
+      Object.keys(prototypes).forEach(function (prototypeGroup) {
+        Object.keys(prototypes[prototypeGroup]).forEach(function (protoMethod) {
+          if (!Swiper.prototype[protoMethod]) {
+            Swiper.prototype[protoMethod] = prototypes[prototypeGroup][protoMethod];
+          }
+        });
+      });
+
+      // Swiper Instance
+      var swiper = this;
+      if (typeof swiper.modules === 'undefined') {
+        swiper.modules = {};
+      }
+      Object.keys(swiper.modules).forEach(function (moduleName) {
+        var module = swiper.modules[moduleName];
+        if (module.params) {
+          var moduleParamName = Object.keys(module.params)[0];
+          var moduleParams = module.params[moduleParamName];
+          if (typeof moduleParams !== 'object') { return; }
+          if (!(moduleParamName in params && 'enabled' in moduleParams)) { return; }
+          if (params[moduleParamName] === true) {
+            params[moduleParamName] = { enabled: true };
+          }
+          if (
+            typeof params[moduleParamName] === 'object' &&
+            !('enabled' in params[moduleParamName])
+          ) {
+            params[moduleParamName].enabled = true;
+          }
+          if (!params[moduleParamName]) { params[moduleParamName] = { enabled: false }; }
+        }
+      });
+
+      // Extend defaults with modules params
+      var swiperParams = Utils.extend({}, defaults);
+      swiper.useModulesParams(swiperParams);
+
+      // Extend defaults with passed params
+      swiper.params = Utils.extend({}, swiperParams, extendedDefaults, params);
+      swiper.originalParams = Utils.extend({}, swiper.params);
+      swiper.passedParams = Utils.extend({}, params);
+
+      // Save Dom lib
+      swiper.$ = $;
+
+      // Find el
+      var $el = $(swiper.params.el);
+      el = $el[0];
+
+      if (!el) {
+        return undefined;
+      }
+
+      if ($el.length > 1) {
+        var swipers = [];
+        $el.each(function (index, containerEl) {
+          var newParams = Utils.extend({}, params, { el: containerEl });
+          swipers.push(new Swiper(newParams));
+        });
+        return swipers;
+      }
+
+      el.swiper = swiper;
+      $el.data('swiper', swiper);
+
+      // Find Wrapper
+      var $wrapperEl = $el.children(("." + (swiper.params.wrapperClass)));
+
+      // Extend Swiper
+      Utils.extend(swiper, {
+        $el: $el,
+        el: el,
+        $wrapperEl: $wrapperEl,
+        wrapperEl: $wrapperEl[0],
+
+        // Classes
+        classNames: [],
+
+        // Slides
+        slides: $(),
+        slidesGrid: [],
+        snapGrid: [],
+        slidesSizesGrid: [],
+
+        // isDirection
+        isHorizontal: function isHorizontal() {
+          return swiper.params.direction === 'horizontal';
+        },
+        isVertical: function isVertical() {
+          return swiper.params.direction === 'vertical';
+        },
+        // RTL
+        rtl: (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
+        rtlTranslate: swiper.params.direction === 'horizontal' && (el.dir.toLowerCase() === 'rtl' || $el.css('direction') === 'rtl'),
+        wrongRTL: $wrapperEl.css('display') === '-webkit-box',
+
+        // Indexes
+        activeIndex: 0,
+        realIndex: 0,
+
+        //
+        isBeginning: true,
+        isEnd: false,
+
+        // Props
+        translate: 0,
+        progress: 0,
+        velocity: 0,
+        animating: false,
+
+        // Locks
+        allowSlideNext: swiper.params.allowSlideNext,
+        allowSlidePrev: swiper.params.allowSlidePrev,
+
+        // Touch Events
+        touchEvents: (function touchEvents() {
+          var touch = ['touchstart', 'touchmove', 'touchend'];
+          var desktop = ['mousedown', 'mousemove', 'mouseup'];
+          if (Support.pointerEvents) {
+            desktop = ['pointerdown', 'pointermove', 'pointerup'];
+          } else if (Support.prefixedPointerEvents) {
+            desktop = ['MSPointerDown', 'MSPointerMove', 'MSPointerUp'];
+          }
+          swiper.touchEventsTouch = {
+            start: touch[0],
+            move: touch[1],
+            end: touch[2],
+          };
+          swiper.touchEventsDesktop = {
+            start: desktop[0],
+            move: desktop[1],
+            end: desktop[2],
+          };
+          return Support.touch || !swiper.params.simulateTouch ? swiper.touchEventsTouch : swiper.touchEventsDesktop;
+        }()),
+        touchEventsData: {
+          isTouched: undefined,
+          isMoved: undefined,
+          allowTouchCallbacks: undefined,
+          touchStartTime: undefined,
+          isScrolling: undefined,
+          currentTranslate: undefined,
+          startTranslate: undefined,
+          allowThresholdMove: undefined,
+          // Form elements to match
+          formElements: 'input, select, option, textarea, button, video',
+          // Last click time
+          lastClickTime: Utils.now(),
+          clickTimeout: undefined,
+          // Velocities
+          velocities: [],
+          allowMomentumBounce: undefined,
+          isTouchEvent: undefined,
+          startMoving: undefined,
+        },
+
+        // Clicks
+        allowClick: true,
+
+        // Touches
+        allowTouchMove: swiper.params.allowTouchMove,
+
+        touches: {
+          startX: 0,
+          startY: 0,
+          currentX: 0,
+          currentY: 0,
+          diff: 0,
+        },
+
+        // Images
+        imagesToLoad: [],
+        imagesLoaded: 0,
+
+      });
+
+      // Install Modules
+      swiper.useModules();
+
+      // Init
+      if (swiper.params.init) {
+        swiper.init();
+      }
+
+      // Return app instance
+      return swiper;
+    }
+
+    if ( SwiperClass$$1 ) Swiper.__proto__ = SwiperClass$$1;
+    Swiper.prototype = Object.create( SwiperClass$$1 && SwiperClass$$1.prototype );
+    Swiper.prototype.constructor = Swiper;
+
+    var staticAccessors = { extendedDefaults: { configurable: true },defaults: { configurable: true },Class: { configurable: true },$: { configurable: true } };
+    Swiper.prototype.slidesPerViewDynamic = function slidesPerViewDynamic () {
+      var swiper = this;
+      var params = swiper.params;
+      var slides = swiper.slides;
+      var slidesGrid = swiper.slidesGrid;
+      var swiperSize = swiper.size;
+      var activeIndex = swiper.activeIndex;
+      var spv = 1;
+      if (params.centeredSlides) {
+        var slideSize = slides[activeIndex].swiperSlideSize;
+        var breakLoop;
+        for (var i = activeIndex + 1; i < slides.length; i += 1) {
+          if (slides[i] && !breakLoop) {
+            slideSize += slides[i].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) { breakLoop = true; }
+          }
+        }
+        for (var i$1 = activeIndex - 1; i$1 >= 0; i$1 -= 1) {
+          if (slides[i$1] && !breakLoop) {
+            slideSize += slides[i$1].swiperSlideSize;
+            spv += 1;
+            if (slideSize > swiperSize) { breakLoop = true; }
+          }
+        }
+      } else {
+        for (var i$2 = activeIndex + 1; i$2 < slides.length; i$2 += 1) {
+          if (slidesGrid[i$2] - slidesGrid[activeIndex] < swiperSize) {
+            spv += 1;
+          }
+        }
+      }
+      return spv;
+    };
+    Swiper.prototype.update = function update$$1 () {
+      var swiper = this;
+      if (!swiper || swiper.destroyed) { return; }
+      var snapGrid = swiper.snapGrid;
+      var params = swiper.params;
+      // Breakpoints
+      if (params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+      swiper.updateSize();
+      swiper.updateSlides();
+      swiper.updateProgress();
+      swiper.updateSlidesClasses();
+
+      function setTranslate() {
+        var translateValue = swiper.rtlTranslate ? swiper.translate * -1 : swiper.translate;
+        var newTranslate = Math.min(Math.max(translateValue, swiper.maxTranslate()), swiper.minTranslate());
+        swiper.setTranslate(newTranslate);
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+      }
+      var translated;
+      if (swiper.params.freeMode) {
+        setTranslate();
+        if (swiper.params.autoHeight) {
+          swiper.updateAutoHeight();
+        }
+      } else {
+        if ((swiper.params.slidesPerView === 'auto' || swiper.params.slidesPerView > 1) && swiper.isEnd && !swiper.params.centeredSlides) {
+          translated = swiper.slideTo(swiper.slides.length - 1, 0, false, true);
+        } else {
+          translated = swiper.slideTo(swiper.activeIndex, 0, false, true);
+        }
+        if (!translated) {
+          setTranslate();
+        }
+      }
+      if (params.watchOverflow && snapGrid !== swiper.snapGrid) {
+        swiper.checkOverflow();
+      }
+      swiper.emit('update');
+    };
+    Swiper.prototype.init = function init () {
+      var swiper = this;
+      if (swiper.initialized) { return; }
+
+      swiper.emit('beforeInit');
+
+      // Set breakpoint
+      if (swiper.params.breakpoints) {
+        swiper.setBreakpoint();
+      }
+
+      // Add Classes
+      swiper.addClasses();
+
+      // Create loop
+      if (swiper.params.loop) {
+        swiper.loopCreate();
+      }
+
+      // Update size
+      swiper.updateSize();
+
+      // Update slides
+      swiper.updateSlides();
+
+      if (swiper.params.watchOverflow) {
+        swiper.checkOverflow();
+      }
+
+      // Set Grab Cursor
+      if (swiper.params.grabCursor) {
+        swiper.setGrabCursor();
+      }
+
+      if (swiper.params.preloadImages) {
+        swiper.preloadImages();
+      }
+
+      // Slide To Initial Slide
+      if (swiper.params.loop) {
+        swiper.slideTo(swiper.params.initialSlide + swiper.loopedSlides, 0, swiper.params.runCallbacksOnInit);
+      } else {
+        swiper.slideTo(swiper.params.initialSlide, 0, swiper.params.runCallbacksOnInit);
+      }
+
+      // Attach events
+      swiper.attachEvents();
+
+      // Init Flag
+      swiper.initialized = true;
+
+      // Emit
+      swiper.emit('init');
+    };
+    Swiper.prototype.destroy = function destroy (deleteInstance, cleanStyles) {
+      if ( deleteInstance === void 0 ) deleteInstance = true;
+      if ( cleanStyles === void 0 ) cleanStyles = true;
+
+      var swiper = this;
+      var params = swiper.params;
+      var $el = swiper.$el;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slides = swiper.slides;
+
+      if (typeof swiper.params === 'undefined' || swiper.destroyed) {
+        return null;
+      }
+
+      swiper.emit('beforeDestroy');
+
+      // Init Flag
+      swiper.initialized = false;
+
+      // Detach events
+      swiper.detachEvents();
+
+      // Destroy loop
+      if (params.loop) {
+        swiper.loopDestroy();
+      }
+
+      // Cleanup styles
+      if (cleanStyles) {
+        swiper.removeClasses();
+        $el.removeAttr('style');
+        $wrapperEl.removeAttr('style');
+        if (slides && slides.length) {
+          slides
+            .removeClass([
+              params.slideVisibleClass,
+              params.slideActiveClass,
+              params.slideNextClass,
+              params.slidePrevClass ].join(' '))
+            .removeAttr('style')
+            .removeAttr('data-swiper-slide-index')
+            .removeAttr('data-swiper-column')
+            .removeAttr('data-swiper-row');
+        }
+      }
+
+      swiper.emit('destroy');
+
+      // Detach emitter events
+      Object.keys(swiper.eventsListeners).forEach(function (eventName) {
+        swiper.off(eventName);
+      });
+
+      if (deleteInstance !== false) {
+        swiper.$el[0].swiper = null;
+        swiper.$el.data('swiper', null);
+        Utils.deleteProps(swiper);
+      }
+      swiper.destroyed = true;
+
+      return null;
+    };
+    Swiper.extendDefaults = function extendDefaults (newDefaults) {
+      Utils.extend(extendedDefaults, newDefaults);
+    };
+    staticAccessors.extendedDefaults.get = function () {
+      return extendedDefaults;
+    };
+    staticAccessors.defaults.get = function () {
+      return defaults;
+    };
+    staticAccessors.Class.get = function () {
+      return SwiperClass$$1;
+    };
+    staticAccessors.$.get = function () {
+      return $;
+    };
+
+    Object.defineProperties( Swiper, staticAccessors );
+
+    return Swiper;
+  }(SwiperClass));
+
+  var Device$1 = {
+    name: 'device',
+    proto: {
+      device: Device,
+    },
+    static: {
+      device: Device,
+    },
+  };
+
+  var Support$1 = {
+    name: 'support',
+    proto: {
+      support: Support,
+    },
+    static: {
+      support: Support,
+    },
+  };
+
+  var Browser$1 = {
+    name: 'browser',
+    proto: {
+      browser: Browser,
+    },
+    static: {
+      browser: Browser,
+    },
+  };
+
+  var Resize = {
+    name: 'resize',
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        resize: {
+          resizeHandler: function resizeHandler() {
+            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
+            swiper.emit('beforeResize');
+            swiper.emit('resize');
+          },
+          orientationChangeHandler: function orientationChangeHandler() {
+            if (!swiper || swiper.destroyed || !swiper.initialized) { return; }
+            swiper.emit('orientationchange');
+          },
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        // Emit resize
+        win.addEventListener('resize', swiper.resize.resizeHandler);
+
+        // Emit orientationchange
+        win.addEventListener('orientationchange', swiper.resize.orientationChangeHandler);
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        win.removeEventListener('resize', swiper.resize.resizeHandler);
+        win.removeEventListener('orientationchange', swiper.resize.orientationChangeHandler);
+      },
+    },
+  };
+
+  var Observer = {
+    func: win.MutationObserver || win.WebkitMutationObserver,
+    attach: function attach(target, options) {
+      if ( options === void 0 ) options = {};
+
+      var swiper = this;
+
+      var ObserverFunc = Observer.func;
+      var observer = new ObserverFunc(function (mutations) {
+        mutations.forEach(function (mutation) {
+          swiper.emit('observerUpdate', mutation);
+        });
+      });
+
+      observer.observe(target, {
+        attributes: typeof options.attributes === 'undefined' ? true : options.attributes,
+        childList: typeof options.childList === 'undefined' ? true : options.childList,
+        characterData: typeof options.characterData === 'undefined' ? true : options.characterData,
+      });
+
+      swiper.observer.observers.push(observer);
+    },
+    init: function init() {
+      var swiper = this;
+      if (!Support.observer || !swiper.params.observer) { return; }
+      if (swiper.params.observeParents) {
+        var containerParents = swiper.$el.parents();
+        for (var i = 0; i < containerParents.length; i += 1) {
+          swiper.observer.attach(containerParents[i]);
+        }
+      }
+      // Observe container
+      swiper.observer.attach(swiper.$el[0], { childList: false });
+
+      // Observe wrapper
+      swiper.observer.attach(swiper.$wrapperEl[0], { attributes: false });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      swiper.observer.observers.forEach(function (observer) {
+        observer.disconnect();
+      });
+      swiper.observer.observers = [];
+    },
+  };
+
+  var Observer$1 = {
+    name: 'observer',
+    params: {
+      observer: false,
+      observeParents: false,
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        observer: {
+          init: Observer.init.bind(swiper),
+          attach: Observer.attach.bind(swiper),
+          destroy: Observer.destroy.bind(swiper),
+          observers: [],
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.observer.init();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.observer.destroy();
+      },
+    },
+  };
+
+  var Virtual = {
+    update: function update(force) {
+      var swiper = this;
+      var ref = swiper.params;
+      var slidesPerView = ref.slidesPerView;
+      var slidesPerGroup = ref.slidesPerGroup;
+      var centeredSlides = ref.centeredSlides;
+      var ref$1 = swiper.virtual;
+      var previousFrom = ref$1.from;
+      var previousTo = ref$1.to;
+      var slides = ref$1.slides;
+      var previousSlidesGrid = ref$1.slidesGrid;
+      var renderSlide = ref$1.renderSlide;
+      var previousOffset = ref$1.offset;
+      swiper.updateActiveIndex();
+      var activeIndex = swiper.activeIndex || 0;
+
+      var offsetProp;
+      if (swiper.rtlTranslate) { offsetProp = 'right'; }
+      else { offsetProp = swiper.isHorizontal() ? 'left' : 'top'; }
+
+      var slidesAfter;
+      var slidesBefore;
+      if (centeredSlides) {
+        slidesAfter = Math.floor(slidesPerView / 2) + slidesPerGroup;
+        slidesBefore = Math.floor(slidesPerView / 2) + slidesPerGroup;
+      } else {
+        slidesAfter = slidesPerView + (slidesPerGroup - 1);
+        slidesBefore = slidesPerGroup;
+      }
+      var from = Math.max((activeIndex || 0) - slidesBefore, 0);
+      var to = Math.min((activeIndex || 0) + slidesAfter, slides.length - 1);
+      var offset = (swiper.slidesGrid[from] || 0) - (swiper.slidesGrid[0] || 0);
+
+      Utils.extend(swiper.virtual, {
+        from: from,
+        to: to,
+        offset: offset,
+        slidesGrid: swiper.slidesGrid,
+      });
+
+      function onRendered() {
+        swiper.updateSlides();
+        swiper.updateProgress();
+        swiper.updateSlidesClasses();
+        if (swiper.lazy && swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      }
+
+      if (previousFrom === from && previousTo === to && !force) {
+        if (swiper.slidesGrid !== previousSlidesGrid && offset !== previousOffset) {
+          swiper.slides.css(offsetProp, (offset + "px"));
+        }
+        swiper.updateProgress();
+        return;
+      }
+      if (swiper.params.virtual.renderExternal) {
+        swiper.params.virtual.renderExternal.call(swiper, {
+          offset: offset,
+          from: from,
+          to: to,
+          slides: (function getSlides() {
+            var slidesToRender = [];
+            for (var i = from; i <= to; i += 1) {
+              slidesToRender.push(slides[i]);
+            }
+            return slidesToRender;
+          }()),
+        });
+        onRendered();
+        return;
+      }
+      var prependIndexes = [];
+      var appendIndexes = [];
+      if (force) {
+        swiper.$wrapperEl.find(("." + (swiper.params.slideClass))).remove();
+      } else {
+        for (var i = previousFrom; i <= previousTo; i += 1) {
+          if (i < from || i > to) {
+            swiper.$wrapperEl.find(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + i + "\"]")).remove();
+          }
+        }
+      }
+      for (var i$1 = 0; i$1 < slides.length; i$1 += 1) {
+        if (i$1 >= from && i$1 <= to) {
+          if (typeof previousTo === 'undefined' || force) {
+            appendIndexes.push(i$1);
+          } else {
+            if (i$1 > previousTo) { appendIndexes.push(i$1); }
+            if (i$1 < previousFrom) { prependIndexes.push(i$1); }
+          }
+        }
+      }
+      appendIndexes.forEach(function (index) {
+        swiper.$wrapperEl.append(renderSlide(slides[index], index));
+      });
+      prependIndexes.sort(function (a, b) { return a < b; }).forEach(function (index) {
+        swiper.$wrapperEl.prepend(renderSlide(slides[index], index));
+      });
+      swiper.$wrapperEl.children('.swiper-slide').css(offsetProp, (offset + "px"));
+      onRendered();
+    },
+    renderSlide: function renderSlide(slide, index) {
+      var swiper = this;
+      var params = swiper.params.virtual;
+      if (params.cache && swiper.virtual.cache[index]) {
+        return swiper.virtual.cache[index];
+      }
+      var $slideEl = params.renderSlide
+        ? $(params.renderSlide.call(swiper, slide, index))
+        : $(("<div class=\"" + (swiper.params.slideClass) + "\" data-swiper-slide-index=\"" + index + "\">" + slide + "</div>"));
+      if (!$slideEl.attr('data-swiper-slide-index')) { $slideEl.attr('data-swiper-slide-index', index); }
+      if (params.cache) { swiper.virtual.cache[index] = $slideEl; }
+      return $slideEl;
+    },
+    appendSlide: function appendSlide(slide) {
+      var swiper = this;
+      swiper.virtual.slides.push(slide);
+      swiper.virtual.update(true);
+    },
+    prependSlide: function prependSlide(slide) {
+      var swiper = this;
+      swiper.virtual.slides.unshift(slide);
+      if (swiper.params.virtual.cache) {
+        var cache = swiper.virtual.cache;
+        var newCache = {};
+        Object.keys(cache).forEach(function (cachedIndex) {
+          newCache[cachedIndex + 1] = cache[cachedIndex];
+        });
+        swiper.virtual.cache = newCache;
+      }
+      swiper.virtual.update(true);
+      swiper.slideNext(0);
+    },
+  };
+
+  var Virtual$1 = {
+    name: 'virtual',
+    params: {
+      virtual: {
+        enabled: false,
+        slides: [],
+        cache: true,
+        renderSlide: null,
+        renderExternal: null,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        virtual: {
+          update: Virtual.update.bind(swiper),
+          appendSlide: Virtual.appendSlide.bind(swiper),
+          prependSlide: Virtual.prependSlide.bind(swiper),
+          renderSlide: Virtual.renderSlide.bind(swiper),
+          slides: swiper.params.virtual.slides,
+          cache: {},
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (!swiper.params.virtual.enabled) { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "virtual"));
+        var overwriteParams = {
+          watchSlidesProgress: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+
+        swiper.virtual.update();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (!swiper.params.virtual.enabled) { return; }
+        swiper.virtual.update();
+      },
+    },
+  };
+
+  var Keyboard = {
+    handle: function handle(event) {
+      var swiper = this;
+      var rtl = swiper.rtlTranslate;
+      var e = event;
+      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
+      var kc = e.keyCode || e.charCode;
+      // Directions locks
+      if (!swiper.allowSlideNext && ((swiper.isHorizontal() && kc === 39) || (swiper.isVertical() && kc === 40))) {
+        return false;
+      }
+      if (!swiper.allowSlidePrev && ((swiper.isHorizontal() && kc === 37) || (swiper.isVertical() && kc === 38))) {
+        return false;
+      }
+      if (e.shiftKey || e.altKey || e.ctrlKey || e.metaKey) {
+        return undefined;
+      }
+      if (doc.activeElement && doc.activeElement.nodeName && (doc.activeElement.nodeName.toLowerCase() === 'input' || doc.activeElement.nodeName.toLowerCase() === 'textarea')) {
+        return undefined;
+      }
+      if (swiper.params.keyboard.onlyInViewport && (kc === 37 || kc === 39 || kc === 38 || kc === 40)) {
+        var inView = false;
+        // Check that swiper should be inside of visible area of window
+        if (swiper.$el.parents(("." + (swiper.params.slideClass))).length > 0 && swiper.$el.parents(("." + (swiper.params.slideActiveClass))).length === 0) {
+          return undefined;
+        }
+        var windowWidth = win.innerWidth;
+        var windowHeight = win.innerHeight;
+        var swiperOffset = swiper.$el.offset();
+        if (rtl) { swiperOffset.left -= swiper.$el[0].scrollLeft; }
+        var swiperCoord = [
+          [swiperOffset.left, swiperOffset.top],
+          [swiperOffset.left + swiper.width, swiperOffset.top],
+          [swiperOffset.left, swiperOffset.top + swiper.height],
+          [swiperOffset.left + swiper.width, swiperOffset.top + swiper.height] ];
+        for (var i = 0; i < swiperCoord.length; i += 1) {
+          var point = swiperCoord[i];
+          if (
+            point[0] >= 0 && point[0] <= windowWidth &&
+            point[1] >= 0 && point[1] <= windowHeight
+          ) {
+            inView = true;
+          }
+        }
+        if (!inView) { return undefined; }
+      }
+      if (swiper.isHorizontal()) {
+        if (kc === 37 || kc === 39) {
+          if (e.preventDefault) { e.preventDefault(); }
+          else { e.returnValue = false; }
+        }
+        if ((kc === 39 && !rtl) || (kc === 37 && rtl)) { swiper.slideNext(); }
+        if ((kc === 37 && !rtl) || (kc === 39 && rtl)) { swiper.slidePrev(); }
+      } else {
+        if (kc === 38 || kc === 40) {
+          if (e.preventDefault) { e.preventDefault(); }
+          else { e.returnValue = false; }
+        }
+        if (kc === 40) { swiper.slideNext(); }
+        if (kc === 38) { swiper.slidePrev(); }
+      }
+      swiper.emit('keyPress', kc);
+      return undefined;
+    },
+    enable: function enable() {
+      var swiper = this;
+      if (swiper.keyboard.enabled) { return; }
+      $(doc).on('keydown', swiper.keyboard.handle);
+      swiper.keyboard.enabled = true;
+    },
+    disable: function disable() {
+      var swiper = this;
+      if (!swiper.keyboard.enabled) { return; }
+      $(doc).off('keydown', swiper.keyboard.handle);
+      swiper.keyboard.enabled = false;
+    },
+  };
+
+  var Keyboard$1 = {
+    name: 'keyboard',
+    params: {
+      keyboard: {
+        enabled: false,
+        onlyInViewport: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        keyboard: {
+          enabled: false,
+          enable: Keyboard.enable.bind(swiper),
+          disable: Keyboard.disable.bind(swiper),
+          handle: Keyboard.handle.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.keyboard.enabled) {
+          swiper.keyboard.enable();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.keyboard.enabled) {
+          swiper.keyboard.disable();
+        }
+      },
+    },
+  };
+
+  function isEventSupported() {
+    var eventName = 'onwheel';
+    var isSupported = eventName in doc;
+
+    if (!isSupported) {
+      var element = doc.createElement('div');
+      element.setAttribute(eventName, 'return;');
+      isSupported = typeof element[eventName] === 'function';
+    }
+
+    if (!isSupported &&
+      doc.implementation &&
+      doc.implementation.hasFeature &&
+      // always returns true in newer browsers as per the standard.
+      // @see http://dom.spec.whatwg.org/#dom-domimplementation-hasfeature
+      doc.implementation.hasFeature('', '') !== true
+    ) {
+      // This is the only way to test support for the `wheel` event in IE9+.
+      isSupported = doc.implementation.hasFeature('Events.wheel', '3.0');
+    }
+
+    return isSupported;
+  }
+  var Mousewheel = {
+    lastScrollTime: Utils.now(),
+    event: (function getEvent() {
+      if (win.navigator.userAgent.indexOf('firefox') > -1) { return 'DOMMouseScroll'; }
+      return isEventSupported() ? 'wheel' : 'mousewheel';
+    }()),
+    normalize: function normalize(e) {
+      // Reasonable defaults
+      var PIXEL_STEP = 10;
+      var LINE_HEIGHT = 40;
+      var PAGE_HEIGHT = 800;
+
+      var sX = 0;
+      var sY = 0; // spinX, spinY
+      var pX = 0;
+      var pY = 0; // pixelX, pixelY
+
+      // Legacy
+      if ('detail' in e) {
+        sY = e.detail;
+      }
+      if ('wheelDelta' in e) {
+        sY = -e.wheelDelta / 120;
+      }
+      if ('wheelDeltaY' in e) {
+        sY = -e.wheelDeltaY / 120;
+      }
+      if ('wheelDeltaX' in e) {
+        sX = -e.wheelDeltaX / 120;
+      }
+
+      // side scrolling on FF with DOMMouseScroll
+      if ('axis' in e && e.axis === e.HORIZONTAL_AXIS) {
+        sX = sY;
+        sY = 0;
+      }
+
+      pX = sX * PIXEL_STEP;
+      pY = sY * PIXEL_STEP;
+
+      if ('deltaY' in e) {
+        pY = e.deltaY;
+      }
+      if ('deltaX' in e) {
+        pX = e.deltaX;
+      }
+
+      if ((pX || pY) && e.deltaMode) {
+        if (e.deltaMode === 1) { // delta in LINE units
+          pX *= LINE_HEIGHT;
+          pY *= LINE_HEIGHT;
+        } else { // delta in PAGE units
+          pX *= PAGE_HEIGHT;
+          pY *= PAGE_HEIGHT;
+        }
+      }
+
+      // Fall-back if spin cannot be determined
+      if (pX && !sX) {
+        sX = (pX < 1) ? -1 : 1;
+      }
+      if (pY && !sY) {
+        sY = (pY < 1) ? -1 : 1;
+      }
+
+      return {
+        spinX: sX,
+        spinY: sY,
+        pixelX: pX,
+        pixelY: pY,
+      };
+    },
+    handleMouseEnter: function handleMouseEnter() {
+      var swiper = this;
+      swiper.mouseEntered = true;
+    },
+    handleMouseLeave: function handleMouseLeave() {
+      var swiper = this;
+      swiper.mouseEntered = false;
+    },
+    handle: function handle(event) {
+      var e = event;
+      var swiper = this;
+      var params = swiper.params.mousewheel;
+
+      if (!swiper.mouseEntered && !params.releaseOnEdges) { return true; }
+
+      if (e.originalEvent) { e = e.originalEvent; } // jquery fix
+      var delta = 0;
+      var rtlFactor = swiper.rtlTranslate ? -1 : 1;
+
+      var data = Mousewheel.normalize(e);
+
+      if (params.forceToAxis) {
+        if (swiper.isHorizontal()) {
+          if (Math.abs(data.pixelX) > Math.abs(data.pixelY)) { delta = data.pixelX * rtlFactor; }
+          else { return true; }
+        } else if (Math.abs(data.pixelY) > Math.abs(data.pixelX)) { delta = data.pixelY; }
+        else { return true; }
+      } else {
+        delta = Math.abs(data.pixelX) > Math.abs(data.pixelY) ? -data.pixelX * rtlFactor : -data.pixelY;
+      }
+
+      if (delta === 0) { return true; }
+
+      if (params.invert) { delta = -delta; }
+
+      if (!swiper.params.freeMode) {
+        if (Utils.now() - swiper.mousewheel.lastScrollTime > 60) {
+          if (delta < 0) {
+            if ((!swiper.isEnd || swiper.params.loop) && !swiper.animating) {
+              swiper.slideNext();
+              swiper.emit('scroll', e);
+            } else if (params.releaseOnEdges) { return true; }
+          } else if ((!swiper.isBeginning || swiper.params.loop) && !swiper.animating) {
+            swiper.slidePrev();
+            swiper.emit('scroll', e);
+          } else if (params.releaseOnEdges) { return true; }
+        }
+        swiper.mousewheel.lastScrollTime = (new win.Date()).getTime();
+      } else {
+        // Freemode or scrollContainer:
+        if (swiper.params.loop) {
+          swiper.loopFix();
+        }
+        var position = swiper.getTranslate() + (delta * params.sensitivity);
+        var wasBeginning = swiper.isBeginning;
+        var wasEnd = swiper.isEnd;
+
+        if (position >= swiper.minTranslate()) { position = swiper.minTranslate(); }
+        if (position <= swiper.maxTranslate()) { position = swiper.maxTranslate(); }
+
+        swiper.setTransition(0);
+        swiper.setTranslate(position);
+        swiper.updateProgress();
+        swiper.updateActiveIndex();
+        swiper.updateSlidesClasses();
+
+        if ((!wasBeginning && swiper.isBeginning) || (!wasEnd && swiper.isEnd)) {
+          swiper.updateSlidesClasses();
+        }
+
+        if (swiper.params.freeModeSticky) {
+          clearTimeout(swiper.mousewheel.timeout);
+          swiper.mousewheel.timeout = Utils.nextTick(function () {
+            swiper.slideToClosest();
+          }, 300);
+        }
+        // Emit event
+        swiper.emit('scroll', e);
+
+        // Stop autoplay
+        if (swiper.params.autoplay && swiper.params.autoplayDisableOnInteraction) { swiper.stopAutoplay(); }
+        // Return page scroll on edge positions
+        if (position === swiper.minTranslate() || position === swiper.maxTranslate()) { return true; }
+      }
+
+      if (e.preventDefault) { e.preventDefault(); }
+      else { e.returnValue = false; }
+      return false;
+    },
+    enable: function enable() {
+      var swiper = this;
+      if (!Mousewheel.event) { return false; }
+      if (swiper.mousewheel.enabled) { return false; }
+      var target = swiper.$el;
+      if (swiper.params.mousewheel.eventsTarged !== 'container') {
+        target = $(swiper.params.mousewheel.eventsTarged);
+      }
+      target.on('mouseenter', swiper.mousewheel.handleMouseEnter);
+      target.on('mouseleave', swiper.mousewheel.handleMouseLeave);
+      target.on(Mousewheel.event, swiper.mousewheel.handle);
+      swiper.mousewheel.enabled = true;
+      return true;
+    },
+    disable: function disable() {
+      var swiper = this;
+      if (!Mousewheel.event) { return false; }
+      if (!swiper.mousewheel.enabled) { return false; }
+      var target = swiper.$el;
+      if (swiper.params.mousewheel.eventsTarged !== 'container') {
+        target = $(swiper.params.mousewheel.eventsTarged);
+      }
+      target.off(Mousewheel.event, swiper.mousewheel.handle);
+      swiper.mousewheel.enabled = false;
+      return true;
+    },
+  };
+
+  var Mousewheel$1 = {
+    name: 'mousewheel',
+    params: {
+      mousewheel: {
+        enabled: false,
+        releaseOnEdges: false,
+        invert: false,
+        forceToAxis: false,
+        sensitivity: 1,
+        eventsTarged: 'container',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        mousewheel: {
+          enabled: false,
+          enable: Mousewheel.enable.bind(swiper),
+          disable: Mousewheel.disable.bind(swiper),
+          handle: Mousewheel.handle.bind(swiper),
+          handleMouseEnter: Mousewheel.handleMouseEnter.bind(swiper),
+          handleMouseLeave: Mousewheel.handleMouseLeave.bind(swiper),
+          lastScrollTime: Utils.now(),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.mousewheel.enabled) { swiper.mousewheel.enable(); }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.mousewheel.enabled) { swiper.mousewheel.disable(); }
+      },
+    },
+  };
+
+  var Navigation = {
+    update: function update() {
+      // Update Navigation Buttons
+      var swiper = this;
+      var params = swiper.params.navigation;
+
+      if (swiper.params.loop) { return; }
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+
+      if ($prevEl && $prevEl.length > 0) {
+        if (swiper.isBeginning) {
+          $prevEl.addClass(params.disabledClass);
+        } else {
+          $prevEl.removeClass(params.disabledClass);
+        }
+        $prevEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+      }
+      if ($nextEl && $nextEl.length > 0) {
+        if (swiper.isEnd) {
+          $nextEl.addClass(params.disabledClass);
+        } else {
+          $nextEl.removeClass(params.disabledClass);
+        }
+        $nextEl[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      var params = swiper.params.navigation;
+      if (!(params.nextEl || params.prevEl)) { return; }
+
+      var $nextEl;
+      var $prevEl;
+      if (params.nextEl) {
+        $nextEl = $(params.nextEl);
+        if (
+          swiper.params.uniqueNavElements &&
+          typeof params.nextEl === 'string' &&
+          $nextEl.length > 1 &&
+          swiper.$el.find(params.nextEl).length === 1
+        ) {
+          $nextEl = swiper.$el.find(params.nextEl);
+        }
+      }
+      if (params.prevEl) {
+        $prevEl = $(params.prevEl);
+        if (
+          swiper.params.uniqueNavElements &&
+          typeof params.prevEl === 'string' &&
+          $prevEl.length > 1 &&
+          swiper.$el.find(params.prevEl).length === 1
+        ) {
+          $prevEl = swiper.$el.find(params.prevEl);
+        }
+      }
+
+      if ($nextEl && $nextEl.length > 0) {
+        $nextEl.on('click', function (e) {
+          e.preventDefault();
+          if (swiper.isEnd && !swiper.params.loop) { return; }
+          swiper.slideNext();
+        });
+      }
+      if ($prevEl && $prevEl.length > 0) {
+        $prevEl.on('click', function (e) {
+          e.preventDefault();
+          if (swiper.isBeginning && !swiper.params.loop) { return; }
+          swiper.slidePrev();
+        });
+      }
+
+      Utils.extend(swiper.navigation, {
+        $nextEl: $nextEl,
+        nextEl: $nextEl && $nextEl[0],
+        $prevEl: $prevEl,
+        prevEl: $prevEl && $prevEl[0],
+      });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+      if ($nextEl && $nextEl.length) {
+        $nextEl.off('click');
+        $nextEl.removeClass(swiper.params.navigation.disabledClass);
+      }
+      if ($prevEl && $prevEl.length) {
+        $prevEl.off('click');
+        $prevEl.removeClass(swiper.params.navigation.disabledClass);
+      }
+    },
+  };
+
+  var Navigation$1 = {
+    name: 'navigation',
+    params: {
+      navigation: {
+        nextEl: null,
+        prevEl: null,
+
+        hideOnClick: false,
+        disabledClass: 'swiper-button-disabled',
+        hiddenClass: 'swiper-button-hidden',
+        lockClass: 'swiper-button-lock',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        navigation: {
+          init: Navigation.init.bind(swiper),
+          update: Navigation.update.bind(swiper),
+          destroy: Navigation.destroy.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.navigation.init();
+        swiper.navigation.update();
+      },
+      toEdge: function toEdge() {
+        var swiper = this;
+        swiper.navigation.update();
+      },
+      fromEdge: function fromEdge() {
+        var swiper = this;
+        swiper.navigation.update();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.navigation.destroy();
+      },
+      click: function click(e) {
+        var swiper = this;
+        var ref = swiper.navigation;
+        var $nextEl = ref.$nextEl;
+        var $prevEl = ref.$prevEl;
+        if (
+          swiper.params.navigation.hideOnClick &&
+          !$(e.target).is($prevEl) &&
+          !$(e.target).is($nextEl)
+        ) {
+          if ($nextEl) { $nextEl.toggleClass(swiper.params.navigation.hiddenClass); }
+          if ($prevEl) { $prevEl.toggleClass(swiper.params.navigation.hiddenClass); }
+        }
+      },
+    },
+  };
+
+  var Pagination = {
+    update: function update() {
+      // Render || Update Pagination bullets/items
+      var swiper = this;
+      var rtl = swiper.rtl;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+      var $el = swiper.pagination.$el;
+      // Current/Total
+      var current;
+      var total = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+      if (swiper.params.loop) {
+        current = Math.ceil((swiper.activeIndex - swiper.loopedSlides) / swiper.params.slidesPerGroup);
+        if (current > slidesLength - 1 - (swiper.loopedSlides * 2)) {
+          current -= (slidesLength - (swiper.loopedSlides * 2));
+        }
+        if (current > total - 1) { current -= total; }
+        if (current < 0 && swiper.params.paginationType !== 'bullets') { current = total + current; }
+      } else if (typeof swiper.snapIndex !== 'undefined') {
+        current = swiper.snapIndex;
+      } else {
+        current = swiper.activeIndex || 0;
+      }
+      // Types
+      if (params.type === 'bullets' && swiper.pagination.bullets && swiper.pagination.bullets.length > 0) {
+        var bullets = swiper.pagination.bullets;
+        var firstIndex;
+        var lastIndex;
+        var midIndex;
+        if (params.dynamicBullets) {
+          swiper.pagination.bulletSize = bullets.eq(0)[swiper.isHorizontal() ? 'outerWidth' : 'outerHeight'](true);
+          $el.css(swiper.isHorizontal() ? 'width' : 'height', ((swiper.pagination.bulletSize * (params.dynamicMainBullets + 4)) + "px"));
+          if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
+            swiper.pagination.dynamicBulletIndex += (current - swiper.previousIndex);
+            if (swiper.pagination.dynamicBulletIndex > (params.dynamicMainBullets - 1)) {
+              swiper.pagination.dynamicBulletIndex = params.dynamicMainBullets - 1;
+            } else if (swiper.pagination.dynamicBulletIndex < 0) {
+              swiper.pagination.dynamicBulletIndex = 0;
+            }
+          }
+          firstIndex = current - swiper.pagination.dynamicBulletIndex;
+          lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
+          midIndex = (lastIndex + firstIndex) / 2;
+        }
+        bullets.removeClass(((params.bulletActiveClass) + " " + (params.bulletActiveClass) + "-next " + (params.bulletActiveClass) + "-next-next " + (params.bulletActiveClass) + "-prev " + (params.bulletActiveClass) + "-prev-prev " + (params.bulletActiveClass) + "-main"));
+        if ($el.length > 1) {
+          bullets.each(function (index, bullet) {
+            var $bullet = $(bullet);
+            var bulletIndex = $bullet.index();
+            if (bulletIndex === current) {
+              $bullet.addClass(params.bulletActiveClass);
+            }
+            if (params.dynamicBullets) {
+              if (bulletIndex >= firstIndex && bulletIndex <= lastIndex) {
+                $bullet.addClass(((params.bulletActiveClass) + "-main"));
+              }
+              if (bulletIndex === firstIndex) {
+                $bullet
+                  .prev()
+                  .addClass(((params.bulletActiveClass) + "-prev"))
+                  .prev()
+                  .addClass(((params.bulletActiveClass) + "-prev-prev"));
+              }
+              if (bulletIndex === lastIndex) {
+                $bullet
+                  .next()
+                  .addClass(((params.bulletActiveClass) + "-next"))
+                  .next()
+                  .addClass(((params.bulletActiveClass) + "-next-next"));
+              }
+            }
+          });
+        } else {
+          var $bullet = bullets.eq(current);
+          $bullet.addClass(params.bulletActiveClass);
+          if (params.dynamicBullets) {
+            var $firstDisplayedBullet = bullets.eq(firstIndex);
+            var $lastDisplayedBullet = bullets.eq(lastIndex);
+            for (var i = firstIndex; i <= lastIndex; i += 1) {
+              bullets.eq(i).addClass(((params.bulletActiveClass) + "-main"));
+            }
+            $firstDisplayedBullet
+              .prev()
+              .addClass(((params.bulletActiveClass) + "-prev"))
+              .prev()
+              .addClass(((params.bulletActiveClass) + "-prev-prev"));
+            $lastDisplayedBullet
+              .next()
+              .addClass(((params.bulletActiveClass) + "-next"))
+              .next()
+              .addClass(((params.bulletActiveClass) + "-next-next"));
+          }
+        }
+        if (params.dynamicBullets) {
+          var dynamicBulletsLength = Math.min(bullets.length, params.dynamicMainBullets + 4);
+          var bulletsOffset = (((swiper.pagination.bulletSize * dynamicBulletsLength) - (swiper.pagination.bulletSize)) / 2) - (midIndex * swiper.pagination.bulletSize);
+          var offsetProp = rtl ? 'right' : 'left';
+          bullets.css(swiper.isHorizontal() ? offsetProp : 'top', (bulletsOffset + "px"));
+        }
+      }
+      if (params.type === 'fraction') {
+        $el.find(("." + (params.currentClass))).text(current + 1);
+        $el.find(("." + (params.totalClass))).text(total);
+      }
+      if (params.type === 'progressbar') {
+        var progressbarDirection;
+        if (params.progressbarOpposite) {
+          progressbarDirection = swiper.isHorizontal() ? 'vertical' : 'horizontal';
+        } else {
+          progressbarDirection = swiper.isHorizontal() ? 'horizontal' : 'vertical';
+        }
+        var scale = (current + 1) / total;
+        var scaleX = 1;
+        var scaleY = 1;
+        if (progressbarDirection === 'horizontal') {
+          scaleX = scale;
+        } else {
+          scaleY = scale;
+        }
+        $el.find(("." + (params.progressbarFillClass))).transform(("translate3d(0,0,0) scaleX(" + scaleX + ") scaleY(" + scaleY + ")")).transition(swiper.params.speed);
+      }
+      if (params.type === 'custom' && params.renderCustom) {
+        $el.html(params.renderCustom(swiper, current + 1, total));
+        swiper.emit('paginationRender', swiper, $el[0]);
+      } else {
+        swiper.emit('paginationUpdate', swiper, $el[0]);
+      }
+      $el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](params.lockClass);
+    },
+    render: function render() {
+      // Render Container
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var slidesLength = swiper.virtual && swiper.params.virtual.enabled ? swiper.virtual.slides.length : swiper.slides.length;
+
+      var $el = swiper.pagination.$el;
+      var paginationHTML = '';
+      if (params.type === 'bullets') {
+        var numberOfBullets = swiper.params.loop ? Math.ceil((slidesLength - (swiper.loopedSlides * 2)) / swiper.params.slidesPerGroup) : swiper.snapGrid.length;
+        for (var i = 0; i < numberOfBullets; i += 1) {
+          if (params.renderBullet) {
+            paginationHTML += params.renderBullet.call(swiper, i, params.bulletClass);
+          } else {
+            paginationHTML += "<" + (params.bulletElement) + " class=\"" + (params.bulletClass) + "\"></" + (params.bulletElement) + ">";
+          }
+        }
+        $el.html(paginationHTML);
+        swiper.pagination.bullets = $el.find(("." + (params.bulletClass)));
+      }
+      if (params.type === 'fraction') {
+        if (params.renderFraction) {
+          paginationHTML = params.renderFraction.call(swiper, params.currentClass, params.totalClass);
+        } else {
+          paginationHTML =
+          "<span class=\"" + (params.currentClass) + "\"></span>" +
+          ' / ' +
+          "<span class=\"" + (params.totalClass) + "\"></span>";
+        }
+        $el.html(paginationHTML);
+      }
+      if (params.type === 'progressbar') {
+        if (params.renderProgressbar) {
+          paginationHTML = params.renderProgressbar.call(swiper, params.progressbarFillClass);
+        } else {
+          paginationHTML = "<span class=\"" + (params.progressbarFillClass) + "\"></span>";
+        }
+        $el.html(paginationHTML);
+      }
+      if (params.type !== 'custom') {
+        swiper.emit('paginationRender', swiper.pagination.$el[0]);
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el) { return; }
+
+      var $el = $(params.el);
+      if ($el.length === 0) { return; }
+
+      if (
+        swiper.params.uniqueNavElements &&
+        typeof params.el === 'string' &&
+        $el.length > 1 &&
+        swiper.$el.find(params.el).length === 1
+      ) {
+        $el = swiper.$el.find(params.el);
+      }
+
+      if (params.type === 'bullets' && params.clickable) {
+        $el.addClass(params.clickableClass);
+      }
+
+      $el.addClass(params.modifierClass + params.type);
+
+      if (params.type === 'bullets' && params.dynamicBullets) {
+        $el.addClass(("" + (params.modifierClass) + (params.type) + "-dynamic"));
+        swiper.pagination.dynamicBulletIndex = 0;
+        if (params.dynamicMainBullets < 1) {
+          params.dynamicMainBullets = 1;
+        }
+      }
+      if (params.type === 'progressbar' && params.progressbarOpposite) {
+        $el.addClass(params.progressbarOppositeClass);
+      }
+
+      if (params.clickable) {
+        $el.on('click', ("." + (params.bulletClass)), function onClick(e) {
+          e.preventDefault();
+          var index = $(this).index() * swiper.params.slidesPerGroup;
+          if (swiper.params.loop) { index += swiper.loopedSlides; }
+          swiper.slideTo(index);
+        });
+      }
+
+      Utils.extend(swiper.pagination, {
+        $el: $el,
+        el: $el[0],
+      });
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      var params = swiper.params.pagination;
+      if (!params.el || !swiper.pagination.el || !swiper.pagination.$el || swiper.pagination.$el.length === 0) { return; }
+      var $el = swiper.pagination.$el;
+
+      $el.removeClass(params.hiddenClass);
+      $el.removeClass(params.modifierClass + params.type);
+      if (swiper.pagination.bullets) { swiper.pagination.bullets.removeClass(params.bulletActiveClass); }
+      if (params.clickable) {
+        $el.off('click', ("." + (params.bulletClass)));
+      }
+    },
+  };
+
+  var Pagination$1 = {
+    name: 'pagination',
+    params: {
+      pagination: {
+        el: null,
+        bulletElement: 'span',
+        clickable: false,
+        hideOnClick: false,
+        renderBullet: null,
+        renderProgressbar: null,
+        renderFraction: null,
+        renderCustom: null,
+        progressbarOpposite: false,
+        type: 'bullets', // 'bullets' or 'progressbar' or 'fraction' or 'custom'
+        dynamicBullets: false,
+        dynamicMainBullets: 1,
+        bulletClass: 'swiper-pagination-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active',
+        modifierClass: 'swiper-pagination-', // NEW
+        currentClass: 'swiper-pagination-current',
+        totalClass: 'swiper-pagination-total',
+        hiddenClass: 'swiper-pagination-hidden',
+        progressbarFillClass: 'swiper-pagination-progressbar-fill',
+        progressbarOppositeClass: 'swiper-pagination-progressbar-opposite',
+        clickableClass: 'swiper-pagination-clickable', // NEW
+        lockClass: 'swiper-pagination-lock',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        pagination: {
+          init: Pagination.init.bind(swiper),
+          render: Pagination.render.bind(swiper),
+          update: Pagination.update.bind(swiper),
+          destroy: Pagination.destroy.bind(swiper),
+          dynamicBulletIndex: 0,
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.pagination.init();
+        swiper.pagination.render();
+        swiper.pagination.update();
+      },
+      activeIndexChange: function activeIndexChange() {
+        var swiper = this;
+        if (swiper.params.loop) {
+          swiper.pagination.update();
+        } else if (typeof swiper.snapIndex === 'undefined') {
+          swiper.pagination.update();
+        }
+      },
+      snapIndexChange: function snapIndexChange() {
+        var swiper = this;
+        if (!swiper.params.loop) {
+          swiper.pagination.update();
+        }
+      },
+      slidesLengthChange: function slidesLengthChange() {
+        var swiper = this;
+        if (swiper.params.loop) {
+          swiper.pagination.render();
+          swiper.pagination.update();
+        }
+      },
+      snapGridLengthChange: function snapGridLengthChange() {
+        var swiper = this;
+        if (!swiper.params.loop) {
+          swiper.pagination.render();
+          swiper.pagination.update();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.pagination.destroy();
+      },
+      click: function click(e) {
+        var swiper = this;
+        if (
+          swiper.params.pagination.el &&
+          swiper.params.pagination.hideOnClick &&
+          swiper.pagination.$el.length > 0 &&
+          !$(e.target).hasClass(swiper.params.pagination.bulletClass)
+        ) {
+          swiper.pagination.$el.toggleClass(swiper.params.pagination.hiddenClass);
+        }
+      },
+    },
+  };
+
+  var Scrollbar = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var rtl = swiper.rtlTranslate;
+      var progress = swiper.progress;
+      var dragSize = scrollbar.dragSize;
+      var trackSize = scrollbar.trackSize;
+      var $dragEl = scrollbar.$dragEl;
+      var $el = scrollbar.$el;
+      var params = swiper.params.scrollbar;
+
+      var newSize = dragSize;
+      var newPos = (trackSize - dragSize) * progress;
+      if (rtl) {
+        newPos = -newPos;
+        if (newPos > 0) {
+          newSize = dragSize - newPos;
+          newPos = 0;
+        } else if (-newPos + dragSize > trackSize) {
+          newSize = trackSize + newPos;
+        }
+      } else if (newPos < 0) {
+        newSize = dragSize + newPos;
+        newPos = 0;
+      } else if (newPos + dragSize > trackSize) {
+        newSize = trackSize - newPos;
+      }
+      if (swiper.isHorizontal()) {
+        if (Support.transforms3d) {
+          $dragEl.transform(("translate3d(" + newPos + "px, 0, 0)"));
+        } else {
+          $dragEl.transform(("translateX(" + newPos + "px)"));
+        }
+        $dragEl[0].style.width = newSize + "px";
+      } else {
+        if (Support.transforms3d) {
+          $dragEl.transform(("translate3d(0px, " + newPos + "px, 0)"));
+        } else {
+          $dragEl.transform(("translateY(" + newPos + "px)"));
+        }
+        $dragEl[0].style.height = newSize + "px";
+      }
+      if (params.hide) {
+        clearTimeout(swiper.scrollbar.timeout);
+        $el[0].style.opacity = 1;
+        swiper.scrollbar.timeout = setTimeout(function () {
+          $el[0].style.opacity = 0;
+          $el.transition(400);
+        }, 1000);
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+      swiper.scrollbar.$dragEl.transition(duration);
+    },
+    updateSize: function updateSize() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) { return; }
+
+      var scrollbar = swiper.scrollbar;
+      var $dragEl = scrollbar.$dragEl;
+      var $el = scrollbar.$el;
+
+      $dragEl[0].style.width = '';
+      $dragEl[0].style.height = '';
+      var trackSize = swiper.isHorizontal() ? $el[0].offsetWidth : $el[0].offsetHeight;
+
+      var divider = swiper.size / swiper.virtualSize;
+      var moveDivider = divider * (trackSize / swiper.size);
+      var dragSize;
+      if (swiper.params.scrollbar.dragSize === 'auto') {
+        dragSize = trackSize * divider;
+      } else {
+        dragSize = parseInt(swiper.params.scrollbar.dragSize, 10);
+      }
+
+      if (swiper.isHorizontal()) {
+        $dragEl[0].style.width = dragSize + "px";
+      } else {
+        $dragEl[0].style.height = dragSize + "px";
+      }
+
+      if (divider >= 1) {
+        $el[0].style.display = 'none';
+      } else {
+        $el[0].style.display = '';
+      }
+      if (swiper.params.scrollbarHide) {
+        $el[0].style.opacity = 0;
+      }
+      Utils.extend(scrollbar, {
+        trackSize: trackSize,
+        divider: divider,
+        moveDivider: moveDivider,
+        dragSize: dragSize,
+      });
+      scrollbar.$el[swiper.params.watchOverflow && swiper.isLocked ? 'addClass' : 'removeClass'](swiper.params.scrollbar.lockClass);
+    },
+    setDragPosition: function setDragPosition(e) {
+      var swiper = this;
+      var scrollbar = swiper.scrollbar;
+      var rtl = swiper.rtlTranslate;
+      var $el = scrollbar.$el;
+      var dragSize = scrollbar.dragSize;
+      var trackSize = scrollbar.trackSize;
+
+      var pointerPosition;
+      if (swiper.isHorizontal()) {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageX : e.pageX || e.clientX);
+      } else {
+        pointerPosition = ((e.type === 'touchstart' || e.type === 'touchmove') ? e.targetTouches[0].pageY : e.pageY || e.clientY);
+      }
+      var positionRatio;
+      positionRatio = ((pointerPosition) - $el.offset()[swiper.isHorizontal() ? 'left' : 'top'] - (dragSize / 2)) / (trackSize - dragSize);
+      positionRatio = Math.max(Math.min(positionRatio, 1), 0);
+      if (rtl) {
+        positionRatio = 1 - positionRatio;
+      }
+
+      var position = swiper.minTranslate() + ((swiper.maxTranslate() - swiper.minTranslate()) * positionRatio);
+
+      swiper.updateProgress(position);
+      swiper.setTranslate(position);
+      swiper.updateActiveIndex();
+      swiper.updateSlidesClasses();
+    },
+    onDragStart: function onDragStart(e) {
+      var swiper = this;
+      var params = swiper.params.scrollbar;
+      var scrollbar = swiper.scrollbar;
+      var $wrapperEl = swiper.$wrapperEl;
+      var $el = scrollbar.$el;
+      var $dragEl = scrollbar.$dragEl;
+      swiper.scrollbar.isTouched = true;
+      e.preventDefault();
+      e.stopPropagation();
+
+      $wrapperEl.transition(100);
+      $dragEl.transition(100);
+      scrollbar.setDragPosition(e);
+
+      clearTimeout(swiper.scrollbar.dragTimeout);
+
+      $el.transition(0);
+      if (params.hide) {
+        $el.css('opacity', 1);
+      }
+      swiper.emit('scrollbarDragStart', e);
+    },
+    onDragMove: function onDragMove(e) {
+      var swiper = this;
+      var scrollbar = swiper.scrollbar;
+      var $wrapperEl = swiper.$wrapperEl;
+      var $el = scrollbar.$el;
+      var $dragEl = scrollbar.$dragEl;
+
+      if (!swiper.scrollbar.isTouched) { return; }
+      if (e.preventDefault) { e.preventDefault(); }
+      else { e.returnValue = false; }
+      scrollbar.setDragPosition(e);
+      $wrapperEl.transition(0);
+      $el.transition(0);
+      $dragEl.transition(0);
+      swiper.emit('scrollbarDragMove', e);
+    },
+    onDragEnd: function onDragEnd(e) {
+      var swiper = this;
+
+      var params = swiper.params.scrollbar;
+      var scrollbar = swiper.scrollbar;
+      var $el = scrollbar.$el;
+
+      if (!swiper.scrollbar.isTouched) { return; }
+      swiper.scrollbar.isTouched = false;
+      if (params.hide) {
+        clearTimeout(swiper.scrollbar.dragTimeout);
+        swiper.scrollbar.dragTimeout = Utils.nextTick(function () {
+          $el.css('opacity', 0);
+          $el.transition(400);
+        }, 1000);
+      }
+      swiper.emit('scrollbarDragEnd', e);
+      if (params.snapOnRelease) {
+        swiper.slideToClosest();
+      }
+    },
+    enableDraggable: function enableDraggable() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var touchEvents = swiper.touchEvents;
+      var touchEventsDesktop = swiper.touchEventsDesktop;
+      var params = swiper.params;
+      var $el = scrollbar.$el;
+      var target = $el[0];
+      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
+      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.addEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
+        doc.addEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
+        doc.addEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
+      } else {
+        if (Support.touch) {
+          target.addEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
+          target.addEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
+          target.addEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.addEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
+          doc.addEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
+          doc.addEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
+        }
+      }
+    },
+    disableDraggable: function disableDraggable() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var touchEvents = swiper.touchEvents;
+      var touchEventsDesktop = swiper.touchEventsDesktop;
+      var params = swiper.params;
+      var $el = scrollbar.$el;
+      var target = $el[0];
+      var activeListener = Support.passiveListener && params.passiveListener ? { passive: false, capture: false } : false;
+      var passiveListener = Support.passiveListener && params.passiveListener ? { passive: true, capture: false } : false;
+      if (!Support.touch && (Support.pointerEvents || Support.prefixedPointerEvents)) {
+        target.removeEventListener(touchEventsDesktop.start, swiper.scrollbar.onDragStart, activeListener);
+        doc.removeEventListener(touchEventsDesktop.move, swiper.scrollbar.onDragMove, activeListener);
+        doc.removeEventListener(touchEventsDesktop.end, swiper.scrollbar.onDragEnd, passiveListener);
+      } else {
+        if (Support.touch) {
+          target.removeEventListener(touchEvents.start, swiper.scrollbar.onDragStart, activeListener);
+          target.removeEventListener(touchEvents.move, swiper.scrollbar.onDragMove, activeListener);
+          target.removeEventListener(touchEvents.end, swiper.scrollbar.onDragEnd, passiveListener);
+        }
+        if ((params.simulateTouch && !Device.ios && !Device.android) || (params.simulateTouch && !Support.touch && Device.ios)) {
+          target.removeEventListener('mousedown', swiper.scrollbar.onDragStart, activeListener);
+          doc.removeEventListener('mousemove', swiper.scrollbar.onDragMove, activeListener);
+          doc.removeEventListener('mouseup', swiper.scrollbar.onDragEnd, passiveListener);
+        }
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.scrollbar.el) { return; }
+      var scrollbar = swiper.scrollbar;
+      var $swiperEl = swiper.$el;
+      var params = swiper.params.scrollbar;
+
+      var $el = $(params.el);
+      if (swiper.params.uniqueNavElements && typeof params.el === 'string' && $el.length > 1 && $swiperEl.find(params.el).length === 1) {
+        $el = $swiperEl.find(params.el);
+      }
+
+      var $dragEl = $el.find(("." + (swiper.params.scrollbar.dragClass)));
+      if ($dragEl.length === 0) {
+        $dragEl = $(("<div class=\"" + (swiper.params.scrollbar.dragClass) + "\"></div>"));
+        $el.append($dragEl);
+      }
+
+      Utils.extend(scrollbar, {
+        $el: $el,
+        el: $el[0],
+        $dragEl: $dragEl,
+        dragEl: $dragEl[0],
+      });
+
+      if (params.draggable) {
+        scrollbar.enableDraggable();
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      swiper.scrollbar.disableDraggable();
+    },
+  };
+
+  var Scrollbar$1 = {
+    name: 'scrollbar',
+    params: {
+      scrollbar: {
+        el: null,
+        dragSize: 'auto',
+        hide: false,
+        draggable: false,
+        snapOnRelease: true,
+        lockClass: 'swiper-scrollbar-lock',
+        dragClass: 'swiper-scrollbar-drag',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        scrollbar: {
+          init: Scrollbar.init.bind(swiper),
+          destroy: Scrollbar.destroy.bind(swiper),
+          updateSize: Scrollbar.updateSize.bind(swiper),
+          setTranslate: Scrollbar.setTranslate.bind(swiper),
+          setTransition: Scrollbar.setTransition.bind(swiper),
+          enableDraggable: Scrollbar.enableDraggable.bind(swiper),
+          disableDraggable: Scrollbar.disableDraggable.bind(swiper),
+          setDragPosition: Scrollbar.setDragPosition.bind(swiper),
+          onDragStart: Scrollbar.onDragStart.bind(swiper),
+          onDragMove: Scrollbar.onDragMove.bind(swiper),
+          onDragEnd: Scrollbar.onDragEnd.bind(swiper),
+          isTouched: false,
+          timeout: null,
+          dragTimeout: null,
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        swiper.scrollbar.init();
+        swiper.scrollbar.updateSize();
+        swiper.scrollbar.setTranslate();
+      },
+      update: function update() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      resize: function resize() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      observerUpdate: function observerUpdate() {
+        var swiper = this;
+        swiper.scrollbar.updateSize();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        swiper.scrollbar.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        swiper.scrollbar.setTransition(duration);
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.scrollbar.destroy();
+      },
+    },
+  };
+
+  var Parallax = {
+    setTransform: function setTransform(el, progress) {
+      var swiper = this;
+      var rtl = swiper.rtl;
+
+      var $el = $(el);
+      var rtlFactor = rtl ? -1 : 1;
+
+      var p = $el.attr('data-swiper-parallax') || '0';
+      var x = $el.attr('data-swiper-parallax-x');
+      var y = $el.attr('data-swiper-parallax-y');
+      var scale = $el.attr('data-swiper-parallax-scale');
+      var opacity = $el.attr('data-swiper-parallax-opacity');
+
+      if (x || y) {
+        x = x || '0';
+        y = y || '0';
+      } else if (swiper.isHorizontal()) {
+        x = p;
+        y = '0';
+      } else {
+        y = p;
+        x = '0';
+      }
+
+      if ((x).indexOf('%') >= 0) {
+        x = (parseInt(x, 10) * progress * rtlFactor) + "%";
+      } else {
+        x = (x * progress * rtlFactor) + "px";
+      }
+      if ((y).indexOf('%') >= 0) {
+        y = (parseInt(y, 10) * progress) + "%";
+      } else {
+        y = (y * progress) + "px";
+      }
+
+      if (typeof opacity !== 'undefined' && opacity !== null) {
+        var currentOpacity = opacity - ((opacity - 1) * (1 - Math.abs(progress)));
+        $el[0].style.opacity = currentOpacity;
+      }
+      if (typeof scale === 'undefined' || scale === null) {
+        $el.transform(("translate3d(" + x + ", " + y + ", 0px)"));
+      } else {
+        var currentScale = scale - ((scale - 1) * (1 - Math.abs(progress)));
+        $el.transform(("translate3d(" + x + ", " + y + ", 0px) scale(" + currentScale + ")"));
+      }
+    },
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var $el = swiper.$el;
+      var slides = swiper.slides;
+      var progress = swiper.progress;
+      var snapGrid = swiper.snapGrid;
+      $el.children('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+        .each(function (index, el) {
+          swiper.parallax.setTransform(el, progress);
+        });
+      slides.each(function (slideIndex, slideEl) {
+        var slideProgress = slideEl.progress;
+        if (swiper.params.slidesPerGroup > 1 && swiper.params.slidesPerView !== 'auto') {
+          slideProgress += Math.ceil(slideIndex / 2) - (progress * (snapGrid.length - 1));
+        }
+        slideProgress = Math.min(Math.max(slideProgress, -1), 1);
+        $(slideEl).find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+          .each(function (index, el) {
+            swiper.parallax.setTransform(el, slideProgress);
+          });
+      });
+    },
+    setTransition: function setTransition(duration) {
+      if ( duration === void 0 ) duration = this.params.speed;
+
+      var swiper = this;
+      var $el = swiper.$el;
+      $el.find('[data-swiper-parallax], [data-swiper-parallax-x], [data-swiper-parallax-y]')
+        .each(function (index, parallaxEl) {
+          var $parallaxEl = $(parallaxEl);
+          var parallaxDuration = parseInt($parallaxEl.attr('data-swiper-parallax-duration'), 10) || duration;
+          if (duration === 0) { parallaxDuration = 0; }
+          $parallaxEl.transition(parallaxDuration);
+        });
+    },
+  };
+
+  var Parallax$1 = {
+    name: 'parallax',
+    params: {
+      parallax: {
+        enabled: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        parallax: {
+          setTransform: Parallax.setTransform.bind(swiper),
+          setTranslate: Parallax.setTranslate.bind(swiper),
+          setTransition: Parallax.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (!swiper.params.parallax.enabled) { return; }
+        swiper.params.watchSlidesProgress = true;
+      },
+      init: function init() {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTranslate();
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (!swiper.params.parallax) { return; }
+        swiper.parallax.setTransition(duration);
+      },
+    },
+  };
+
+  var Zoom = {
+    // Calc Scale From Multi-touches
+    getDistanceBetweenTouches: function getDistanceBetweenTouches(e) {
+      if (e.targetTouches.length < 2) { return 1; }
+      var x1 = e.targetTouches[0].pageX;
+      var y1 = e.targetTouches[0].pageY;
+      var x2 = e.targetTouches[1].pageX;
+      var y2 = e.targetTouches[1].pageY;
+      var distance = Math.sqrt((Math.pow( (x2 - x1), 2 )) + (Math.pow( (y2 - y1), 2 )));
+      return distance;
+    },
+    // Events
+    onGestureStart: function onGestureStart(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      zoom.fakeGestureTouched = false;
+      zoom.fakeGestureMoved = false;
+      if (!Support.gestures) {
+        if (e.type !== 'touchstart' || (e.type === 'touchstart' && e.targetTouches.length < 2)) {
+          return;
+        }
+        zoom.fakeGestureTouched = true;
+        gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
+      }
+      if (!gesture.$slideEl || !gesture.$slideEl.length) {
+        gesture.$slideEl = $(e.target).closest('.swiper-slide');
+        if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+        gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+        if (gesture.$imageWrapEl.length === 0) {
+          gesture.$imageEl = undefined;
+          return;
+        }
+      }
+      gesture.$imageEl.transition(0);
+      swiper.zoom.isScaling = true;
+    },
+    onGestureChange: function onGestureChange(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (!Support.gestures) {
+        if (e.type !== 'touchmove' || (e.type === 'touchmove' && e.targetTouches.length < 2)) {
+          return;
+        }
+        zoom.fakeGestureMoved = true;
+        gesture.scaleMove = Zoom.getDistanceBetweenTouches(e);
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (Support.gestures) {
+        swiper.zoom.scale = e.scale * zoom.currentScale;
+      } else {
+        zoom.scale = (gesture.scaleMove / gesture.scaleStart) * zoom.currentScale;
+      }
+      if (zoom.scale > gesture.maxRatio) {
+        zoom.scale = (gesture.maxRatio - 1) + (Math.pow( ((zoom.scale - gesture.maxRatio) + 1), 0.5 ));
+      }
+      if (zoom.scale < params.minRatio) {
+        zoom.scale = (params.minRatio + 1) - (Math.pow( ((params.minRatio - zoom.scale) + 1), 0.5 ));
+      }
+      gesture.$imageEl.transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+    },
+    onGestureEnd: function onGestureEnd(e) {
+      var swiper = this;
+      var params = swiper.params.zoom;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (!Support.gestures) {
+        if (!zoom.fakeGestureTouched || !zoom.fakeGestureMoved) {
+          return;
+        }
+        if (e.type !== 'touchend' || (e.type === 'touchend' && e.changedTouches.length < 2 && !Device.android)) {
+          return;
+        }
+        zoom.fakeGestureTouched = false;
+        zoom.fakeGestureMoved = false;
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      zoom.scale = Math.max(Math.min(zoom.scale, gesture.maxRatio), params.minRatio);
+      gesture.$imageEl.transition(swiper.params.speed).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+      zoom.currentScale = zoom.scale;
+      zoom.isScaling = false;
+      if (zoom.scale === 1) { gesture.$slideEl = undefined; }
+    },
+    onTouchStart: function onTouchStart(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (image.isTouched) { return; }
+      if (Device.android) { e.preventDefault(); }
+      image.isTouched = true;
+      image.touchesStart.x = e.type === 'touchstart' ? e.targetTouches[0].pageX : e.pageX;
+      image.touchesStart.y = e.type === 'touchstart' ? e.targetTouches[0].pageY : e.pageY;
+    },
+    onTouchMove: function onTouchMove(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      var velocity = zoom.velocity;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      swiper.allowClick = false;
+      if (!image.isTouched || !gesture.$slideEl) { return; }
+
+      if (!image.isMoved) {
+        image.width = gesture.$imageEl[0].offsetWidth;
+        image.height = gesture.$imageEl[0].offsetHeight;
+        image.startX = Utils.getTranslate(gesture.$imageWrapEl[0], 'x') || 0;
+        image.startY = Utils.getTranslate(gesture.$imageWrapEl[0], 'y') || 0;
+        gesture.slideWidth = gesture.$slideEl[0].offsetWidth;
+        gesture.slideHeight = gesture.$slideEl[0].offsetHeight;
+        gesture.$imageWrapEl.transition(0);
+        if (swiper.rtl) {
+          image.startX = -image.startX;
+          image.startY = -image.startY;
+        }
+      }
+      // Define if we need image drag
+      var scaledWidth = image.width * zoom.scale;
+      var scaledHeight = image.height * zoom.scale;
+
+      if (scaledWidth < gesture.slideWidth && scaledHeight < gesture.slideHeight) { return; }
+
+      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
+      image.maxX = -image.minX;
+      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
+      image.maxY = -image.minY;
+
+      image.touchesCurrent.x = e.type === 'touchmove' ? e.targetTouches[0].pageX : e.pageX;
+      image.touchesCurrent.y = e.type === 'touchmove' ? e.targetTouches[0].pageY : e.pageY;
+
+      if (!image.isMoved && !zoom.isScaling) {
+        if (
+          swiper.isHorizontal() &&
+          (
+            (Math.floor(image.minX) === Math.floor(image.startX) && image.touchesCurrent.x < image.touchesStart.x) ||
+            (Math.floor(image.maxX) === Math.floor(image.startX) && image.touchesCurrent.x > image.touchesStart.x)
+          )
+        ) {
+          image.isTouched = false;
+          return;
+        } else if (
+          !swiper.isHorizontal() &&
+          (
+            (Math.floor(image.minY) === Math.floor(image.startY) && image.touchesCurrent.y < image.touchesStart.y) ||
+            (Math.floor(image.maxY) === Math.floor(image.startY) && image.touchesCurrent.y > image.touchesStart.y)
+          )
+        ) {
+          image.isTouched = false;
+          return;
+        }
+      }
+      e.preventDefault();
+      e.stopPropagation();
+
+      image.isMoved = true;
+      image.currentX = (image.touchesCurrent.x - image.touchesStart.x) + image.startX;
+      image.currentY = (image.touchesCurrent.y - image.touchesStart.y) + image.startY;
+
+      if (image.currentX < image.minX) {
+        image.currentX = (image.minX + 1) - (Math.pow( ((image.minX - image.currentX) + 1), 0.8 ));
+      }
+      if (image.currentX > image.maxX) {
+        image.currentX = (image.maxX - 1) + (Math.pow( ((image.currentX - image.maxX) + 1), 0.8 ));
+      }
+
+      if (image.currentY < image.minY) {
+        image.currentY = (image.minY + 1) - (Math.pow( ((image.minY - image.currentY) + 1), 0.8 ));
+      }
+      if (image.currentY > image.maxY) {
+        image.currentY = (image.maxY - 1) + (Math.pow( ((image.currentY - image.maxY) + 1), 0.8 ));
+      }
+
+      // Velocity
+      if (!velocity.prevPositionX) { velocity.prevPositionX = image.touchesCurrent.x; }
+      if (!velocity.prevPositionY) { velocity.prevPositionY = image.touchesCurrent.y; }
+      if (!velocity.prevTime) { velocity.prevTime = Date.now(); }
+      velocity.x = (image.touchesCurrent.x - velocity.prevPositionX) / (Date.now() - velocity.prevTime) / 2;
+      velocity.y = (image.touchesCurrent.y - velocity.prevPositionY) / (Date.now() - velocity.prevTime) / 2;
+      if (Math.abs(image.touchesCurrent.x - velocity.prevPositionX) < 2) { velocity.x = 0; }
+      if (Math.abs(image.touchesCurrent.y - velocity.prevPositionY) < 2) { velocity.y = 0; }
+      velocity.prevPositionX = image.touchesCurrent.x;
+      velocity.prevPositionY = image.touchesCurrent.y;
+      velocity.prevTime = Date.now();
+
+      gesture.$imageWrapEl.transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
+    },
+    onTouchEnd: function onTouchEnd() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+      var velocity = zoom.velocity;
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+      if (!image.isTouched || !image.isMoved) {
+        image.isTouched = false;
+        image.isMoved = false;
+        return;
+      }
+      image.isTouched = false;
+      image.isMoved = false;
+      var momentumDurationX = 300;
+      var momentumDurationY = 300;
+      var momentumDistanceX = velocity.x * momentumDurationX;
+      var newPositionX = image.currentX + momentumDistanceX;
+      var momentumDistanceY = velocity.y * momentumDurationY;
+      var newPositionY = image.currentY + momentumDistanceY;
+
+      // Fix duration
+      if (velocity.x !== 0) { momentumDurationX = Math.abs((newPositionX - image.currentX) / velocity.x); }
+      if (velocity.y !== 0) { momentumDurationY = Math.abs((newPositionY - image.currentY) / velocity.y); }
+      var momentumDuration = Math.max(momentumDurationX, momentumDurationY);
+
+      image.currentX = newPositionX;
+      image.currentY = newPositionY;
+
+      // Define if we need image drag
+      var scaledWidth = image.width * zoom.scale;
+      var scaledHeight = image.height * zoom.scale;
+      image.minX = Math.min(((gesture.slideWidth / 2) - (scaledWidth / 2)), 0);
+      image.maxX = -image.minX;
+      image.minY = Math.min(((gesture.slideHeight / 2) - (scaledHeight / 2)), 0);
+      image.maxY = -image.minY;
+      image.currentX = Math.max(Math.min(image.currentX, image.maxX), image.minX);
+      image.currentY = Math.max(Math.min(image.currentY, image.maxY), image.minY);
+
+      gesture.$imageWrapEl.transition(momentumDuration).transform(("translate3d(" + (image.currentX) + "px, " + (image.currentY) + "px,0)"));
+    },
+    onTransitionEnd: function onTransitionEnd() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      var gesture = zoom.gesture;
+      if (gesture.$slideEl && swiper.previousIndex !== swiper.activeIndex) {
+        gesture.$imageEl.transform('translate3d(0,0,0) scale(1)');
+        gesture.$imageWrapEl.transform('translate3d(0,0,0)');
+        gesture.$slideEl = undefined;
+        gesture.$imageEl = undefined;
+        gesture.$imageWrapEl = undefined;
+
+        zoom.scale = 1;
+        zoom.currentScale = 1;
+      }
+    },
+    // Toggle Zoom
+    toggle: function toggle(e) {
+      var swiper = this;
+      var zoom = swiper.zoom;
+
+      if (zoom.scale && zoom.scale !== 1) {
+        // Zoom Out
+        zoom.out();
+      } else {
+        // Zoom In
+        zoom.in(e);
+      }
+    },
+    in: function in$1(e) {
+      var swiper = this;
+
+      var zoom = swiper.zoom;
+      var params = swiper.params.zoom;
+      var gesture = zoom.gesture;
+      var image = zoom.image;
+
+      if (!gesture.$slideEl) {
+        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+
+      gesture.$slideEl.addClass(("" + (params.zoomedSlideClass)));
+
+      var touchX;
+      var touchY;
+      var offsetX;
+      var offsetY;
+      var diffX;
+      var diffY;
+      var translateX;
+      var translateY;
+      var imageWidth;
+      var imageHeight;
+      var scaledWidth;
+      var scaledHeight;
+      var translateMinX;
+      var translateMinY;
+      var translateMaxX;
+      var translateMaxY;
+      var slideWidth;
+      var slideHeight;
+
+      if (typeof image.touchesStart.x === 'undefined' && e) {
+        touchX = e.type === 'touchend' ? e.changedTouches[0].pageX : e.pageX;
+        touchY = e.type === 'touchend' ? e.changedTouches[0].pageY : e.pageY;
+      } else {
+        touchX = image.touchesStart.x;
+        touchY = image.touchesStart.y;
+      }
+
+      zoom.scale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+      zoom.currentScale = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
+      if (e) {
+        slideWidth = gesture.$slideEl[0].offsetWidth;
+        slideHeight = gesture.$slideEl[0].offsetHeight;
+        offsetX = gesture.$slideEl.offset().left;
+        offsetY = gesture.$slideEl.offset().top;
+        diffX = (offsetX + (slideWidth / 2)) - touchX;
+        diffY = (offsetY + (slideHeight / 2)) - touchY;
+
+        imageWidth = gesture.$imageEl[0].offsetWidth;
+        imageHeight = gesture.$imageEl[0].offsetHeight;
+        scaledWidth = imageWidth * zoom.scale;
+        scaledHeight = imageHeight * zoom.scale;
+
+        translateMinX = Math.min(((slideWidth / 2) - (scaledWidth / 2)), 0);
+        translateMinY = Math.min(((slideHeight / 2) - (scaledHeight / 2)), 0);
+        translateMaxX = -translateMinX;
+        translateMaxY = -translateMinY;
+
+        translateX = diffX * zoom.scale;
+        translateY = diffY * zoom.scale;
+
+        if (translateX < translateMinX) {
+          translateX = translateMinX;
+        }
+        if (translateX > translateMaxX) {
+          translateX = translateMaxX;
+        }
+
+        if (translateY < translateMinY) {
+          translateY = translateMinY;
+        }
+        if (translateY > translateMaxY) {
+          translateY = translateMaxY;
+        }
+      } else {
+        translateX = 0;
+        translateY = 0;
+      }
+      gesture.$imageWrapEl.transition(300).transform(("translate3d(" + translateX + "px, " + translateY + "px,0)"));
+      gesture.$imageEl.transition(300).transform(("translate3d(0,0,0) scale(" + (zoom.scale) + ")"));
+    },
+    out: function out() {
+      var swiper = this;
+
+      var zoom = swiper.zoom;
+      var params = swiper.params.zoom;
+      var gesture = zoom.gesture;
+
+      if (!gesture.$slideEl) {
+        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
+        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
+        gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
+      }
+      if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
+
+      zoom.scale = 1;
+      zoom.currentScale = 1;
+      gesture.$imageWrapEl.transition(300).transform('translate3d(0,0,0)');
+      gesture.$imageEl.transition(300).transform('translate3d(0,0,0) scale(1)');
+      gesture.$slideEl.removeClass(("" + (params.zoomedSlideClass)));
+      gesture.$slideEl = undefined;
+    },
+    // Attach/Detach Events
+    enable: function enable() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      if (zoom.enabled) { return; }
+      zoom.enabled = true;
+
+      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
+
+      // Scale image
+      if (Support.gestures) {
+        swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      } else if (swiper.touchEvents.start === 'touchstart') {
+        swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      }
+
+      // Move image
+      swiper.$wrapperEl.on(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
+    },
+    disable: function disable() {
+      var swiper = this;
+      var zoom = swiper.zoom;
+      if (!zoom.enabled) { return; }
+
+      swiper.zoom.enabled = false;
+
+      var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
+
+      // Scale image
+      if (Support.gestures) {
+        swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      } else if (swiper.touchEvents.start === 'touchstart') {
+        swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
+        swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, passiveListener);
+        swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
+      }
+
+      // Move image
+      swiper.$wrapperEl.off(swiper.touchEvents.move, ("." + (swiper.params.zoom.containerClass)), zoom.onTouchMove);
+    },
+  };
+
+  var Zoom$1 = {
+    name: 'zoom',
+    params: {
+      zoom: {
+        enabled: false,
+        maxRatio: 3,
+        minRatio: 1,
+        toggle: true,
+        containerClass: 'swiper-zoom-container',
+        zoomedSlideClass: 'swiper-slide-zoomed',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      var zoom = {
+        enabled: false,
+        scale: 1,
+        currentScale: 1,
+        isScaling: false,
+        gesture: {
+          $slideEl: undefined,
+          slideWidth: undefined,
+          slideHeight: undefined,
+          $imageEl: undefined,
+          $imageWrapEl: undefined,
+          maxRatio: 3,
+        },
+        image: {
+          isTouched: undefined,
+          isMoved: undefined,
+          currentX: undefined,
+          currentY: undefined,
+          minX: undefined,
+          minY: undefined,
+          maxX: undefined,
+          maxY: undefined,
+          width: undefined,
+          height: undefined,
+          startX: undefined,
+          startY: undefined,
+          touchesStart: {},
+          touchesCurrent: {},
+        },
+        velocity: {
+          x: undefined,
+          y: undefined,
+          prevPositionX: undefined,
+          prevPositionY: undefined,
+          prevTime: undefined,
+        },
+      };
+      ('onGestureStart onGestureChange onGestureEnd onTouchStart onTouchMove onTouchEnd onTransitionEnd toggle enable disable in out').split(' ').forEach(function (methodName) {
+        zoom[methodName] = Zoom[methodName].bind(swiper);
+      });
+      Utils.extend(swiper, {
+        zoom: zoom,
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.zoom.enabled) {
+          swiper.zoom.enable();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        swiper.zoom.disable();
+      },
+      touchStart: function touchStart(e) {
+        var swiper = this;
+        if (!swiper.zoom.enabled) { return; }
+        swiper.zoom.onTouchStart(e);
+      },
+      touchEnd: function touchEnd(e) {
+        var swiper = this;
+        if (!swiper.zoom.enabled) { return; }
+        swiper.zoom.onTouchEnd(e);
+      },
+      doubleTap: function doubleTap(e) {
+        var swiper = this;
+        if (swiper.params.zoom.enabled && swiper.zoom.enabled && swiper.params.zoom.toggle) {
+          swiper.zoom.toggle(e);
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.zoom.enabled && swiper.params.zoom.enabled) {
+          swiper.zoom.onTransitionEnd();
+        }
+      },
+    },
+  };
+
+  var Lazy = {
+    loadInSlide: function loadInSlide(index, loadInDuplicate) {
+      if ( loadInDuplicate === void 0 ) loadInDuplicate = true;
+
+      var swiper = this;
+      var params = swiper.params.lazy;
+      if (typeof index === 'undefined') { return; }
+      if (swiper.slides.length === 0) { return; }
+      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+
+      var $slideEl = isVirtual
+        ? swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]"))
+        : swiper.slides.eq(index);
+
+      var $images = $slideEl.find(("." + (params.elementClass) + ":not(." + (params.loadedClass) + "):not(." + (params.loadingClass) + ")"));
+      if ($slideEl.hasClass(params.elementClass) && !$slideEl.hasClass(params.loadedClass) && !$slideEl.hasClass(params.loadingClass)) {
+        $images = $images.add($slideEl[0]);
+      }
+      if ($images.length === 0) { return; }
+
+      $images.each(function (imageIndex, imageEl) {
+        var $imageEl = $(imageEl);
+        $imageEl.addClass(params.loadingClass);
+
+        var background = $imageEl.attr('data-background');
+        var src = $imageEl.attr('data-src');
+        var srcset = $imageEl.attr('data-srcset');
+        var sizes = $imageEl.attr('data-sizes');
+
+        swiper.loadImage($imageEl[0], (src || background), srcset, sizes, false, function () {
+          if (typeof swiper === 'undefined' || swiper === null || !swiper || (swiper && !swiper.params) || swiper.destroyed) { return; }
+          if (background) {
+            $imageEl.css('background-image', ("url(\"" + background + "\")"));
+            $imageEl.removeAttr('data-background');
+          } else {
+            if (srcset) {
+              $imageEl.attr('srcset', srcset);
+              $imageEl.removeAttr('data-srcset');
+            }
+            if (sizes) {
+              $imageEl.attr('sizes', sizes);
+              $imageEl.removeAttr('data-sizes');
+            }
+            if (src) {
+              $imageEl.attr('src', src);
+              $imageEl.removeAttr('data-src');
+            }
+          }
+
+          $imageEl.addClass(params.loadedClass).removeClass(params.loadingClass);
+          $slideEl.find(("." + (params.preloaderClass))).remove();
+          if (swiper.params.loop && loadInDuplicate) {
+            var slideOriginalIndex = $slideEl.attr('data-swiper-slide-index');
+            if ($slideEl.hasClass(swiper.params.slideDuplicateClass)) {
+              var originalSlide = swiper.$wrapperEl.children(("[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]:not(." + (swiper.params.slideDuplicateClass) + ")"));
+              swiper.lazy.loadInSlide(originalSlide.index(), false);
+            } else {
+              var duplicatedSlide = swiper.$wrapperEl.children(("." + (swiper.params.slideDuplicateClass) + "[data-swiper-slide-index=\"" + slideOriginalIndex + "\"]"));
+              swiper.lazy.loadInSlide(duplicatedSlide.index(), false);
+            }
+          }
+          swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
+        });
+
+        swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
+      });
+    },
+    load: function load() {
+      var swiper = this;
+      var $wrapperEl = swiper.$wrapperEl;
+      var swiperParams = swiper.params;
+      var slides = swiper.slides;
+      var activeIndex = swiper.activeIndex;
+      var isVirtual = swiper.virtual && swiperParams.virtual.enabled;
+      var params = swiperParams.lazy;
+
+      var slidesPerView = swiperParams.slidesPerView;
+      if (slidesPerView === 'auto') {
+        slidesPerView = 0;
+      }
+
+      function slideExist(index) {
+        if (isVirtual) {
+          if ($wrapperEl.children(("." + (swiperParams.slideClass) + "[data-swiper-slide-index=\"" + index + "\"]")).length) {
+            return true;
+          }
+        } else if (slides[index]) { return true; }
+        return false;
+      }
+      function slideIndex(slideEl) {
+        if (isVirtual) {
+          return $(slideEl).attr('data-swiper-slide-index');
+        }
+        return $(slideEl).index();
+      }
+
+      if (!swiper.lazy.initialImageLoaded) { swiper.lazy.initialImageLoaded = true; }
+      if (swiper.params.watchSlidesVisibility) {
+        $wrapperEl.children(("." + (swiperParams.slideVisibleClass))).each(function (elIndex, slideEl) {
+          var index = isVirtual ? $(slideEl).attr('data-swiper-slide-index') : $(slideEl).index();
+          swiper.lazy.loadInSlide(index);
+        });
+      } else if (slidesPerView > 1) {
+        for (var i = activeIndex; i < activeIndex + slidesPerView; i += 1) {
+          if (slideExist(i)) { swiper.lazy.loadInSlide(i); }
+        }
+      } else {
+        swiper.lazy.loadInSlide(activeIndex);
+      }
+      if (params.loadPrevNext) {
+        if (slidesPerView > 1 || (params.loadPrevNextAmount && params.loadPrevNextAmount > 1)) {
+          var amount = params.loadPrevNextAmount;
+          var spv = slidesPerView;
+          var maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
+          var minIndex = Math.max(activeIndex - Math.max(spv, amount), 0);
+          // Next Slides
+          for (var i$1 = activeIndex + slidesPerView; i$1 < maxIndex; i$1 += 1) {
+            if (slideExist(i$1)) { swiper.lazy.loadInSlide(i$1); }
+          }
+          // Prev Slides
+          for (var i$2 = minIndex; i$2 < activeIndex; i$2 += 1) {
+            if (slideExist(i$2)) { swiper.lazy.loadInSlide(i$2); }
+          }
+        } else {
+          var nextSlide = $wrapperEl.children(("." + (swiperParams.slideNextClass)));
+          if (nextSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(nextSlide)); }
+
+          var prevSlide = $wrapperEl.children(("." + (swiperParams.slidePrevClass)));
+          if (prevSlide.length > 0) { swiper.lazy.loadInSlide(slideIndex(prevSlide)); }
+        }
+      }
+    },
+  };
+
+  var Lazy$1 = {
+    name: 'lazy',
+    params: {
+      lazy: {
+        enabled: false,
+        loadPrevNext: false,
+        loadPrevNextAmount: 1,
+        loadOnTransitionStart: false,
+
+        elementClass: 'swiper-lazy',
+        loadingClass: 'swiper-lazy-loading',
+        loadedClass: 'swiper-lazy-loaded',
+        preloaderClass: 'swiper-lazy-preloader',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        lazy: {
+          initialImageLoaded: false,
+          load: Lazy.load.bind(swiper),
+          loadInSlide: Lazy.loadInSlide.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && swiper.params.preloadImages) {
+          swiper.params.preloadImages = false;
+        }
+      },
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && !swiper.params.loop && swiper.params.initialSlide === 0) {
+          swiper.lazy.load();
+        }
+      },
+      scroll: function scroll() {
+        var swiper = this;
+        if (swiper.params.freeMode && !swiper.params.freeModeSticky) {
+          swiper.lazy.load();
+        }
+      },
+      resize: function resize() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      },
+      scrollbarDragMove: function scrollbarDragMove() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          swiper.lazy.load();
+        }
+      },
+      transitionStart: function transitionStart() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled) {
+          if (swiper.params.lazy.loadOnTransitionStart || (!swiper.params.lazy.loadOnTransitionStart && !swiper.lazy.initialImageLoaded)) {
+            swiper.lazy.load();
+          }
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.params.lazy.enabled && !swiper.params.lazy.loadOnTransitionStart) {
+          swiper.lazy.load();
+        }
+      },
+    },
+  };
+
+  /* eslint no-bitwise: ["error", { "allow": [">>"] }] */
+
+  var Controller = {
+    LinearSpline: function LinearSpline(x, y) {
+      var binarySearch = (function search() {
+        var maxIndex;
+        var minIndex;
+        var guess;
+        return function (array, val) {
+          minIndex = -1;
+          maxIndex = array.length;
+          while (maxIndex - minIndex > 1) {
+            guess = maxIndex + minIndex >> 1;
+            if (array[guess] <= val) {
+              minIndex = guess;
+            } else {
+              maxIndex = guess;
+            }
+          }
+          return maxIndex;
+        };
+      }());
+      this.x = x;
+      this.y = y;
+      this.lastIndex = x.length - 1;
+      // Given an x value (x2), return the expected y2 value:
+      // (x1,y1) is the known point before given value,
+      // (x3,y3) is the known point after given value.
+      var i1;
+      var i3;
+
+      this.interpolate = function interpolate(x2) {
+        if (!x2) { return 0; }
+
+        // Get the indexes of x1 and x3 (the array indexes before and after given x2):
+        i3 = binarySearch(this.x, x2);
+        i1 = i3 - 1;
+
+        // We have our indexes i1 & i3, so we can calculate already:
+        // y2 := ((x2−x1) × (y3−y1)) ÷ (x3−x1) + y1
+        return (((x2 - this.x[i1]) * (this.y[i3] - this.y[i1])) / (this.x[i3] - this.x[i1])) + this.y[i1];
+      };
+      return this;
+    },
+    // xxx: for now i will just save one spline function to to
+    getInterpolateFunction: function getInterpolateFunction(c) {
+      var swiper = this;
+      if (!swiper.controller.spline) {
+        swiper.controller.spline = swiper.params.loop ?
+          new Controller.LinearSpline(swiper.slidesGrid, c.slidesGrid) :
+          new Controller.LinearSpline(swiper.snapGrid, c.snapGrid);
+      }
+    },
+    setTranslate: function setTranslate(setTranslate$1, byController) {
+      var swiper = this;
+      var controlled = swiper.controller.control;
+      var multiplier;
+      var controlledTranslate;
+      function setControlledTranslate(c) {
+        // this will create an Interpolate function based on the snapGrids
+        // x is the Grid of the scrolled scroller and y will be the controlled scroller
+        // it makes sense to create this only once and recall it for the interpolation
+        // the function does a lot of value caching for performance
+        var translate = swiper.rtlTranslate ? -swiper.translate : swiper.translate;
+        if (swiper.params.controller.by === 'slide') {
+          swiper.controller.getInterpolateFunction(c);
+          // i am not sure why the values have to be multiplicated this way, tried to invert the snapGrid
+          // but it did not work out
+          controlledTranslate = -swiper.controller.spline.interpolate(-translate);
+        }
+
+        if (!controlledTranslate || swiper.params.controller.by === 'container') {
+          multiplier = (c.maxTranslate() - c.minTranslate()) / (swiper.maxTranslate() - swiper.minTranslate());
+          controlledTranslate = ((translate - swiper.minTranslate()) * multiplier) + c.minTranslate();
+        }
+
+        if (swiper.params.controller.inverse) {
+          controlledTranslate = c.maxTranslate() - controlledTranslate;
+        }
+        c.updateProgress(controlledTranslate);
+        c.setTranslate(controlledTranslate, swiper);
+        c.updateActiveIndex();
+        c.updateSlidesClasses();
+      }
+      if (Array.isArray(controlled)) {
+        for (var i = 0; i < controlled.length; i += 1) {
+          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
+            setControlledTranslate(controlled[i]);
+          }
+        }
+      } else if (controlled instanceof Swiper && byController !== controlled) {
+        setControlledTranslate(controlled);
+      }
+    },
+    setTransition: function setTransition(duration, byController) {
+      var swiper = this;
+      var controlled = swiper.controller.control;
+      var i;
+      function setControlledTransition(c) {
+        c.setTransition(duration, swiper);
+        if (duration !== 0) {
+          c.transitionStart();
+          c.$wrapperEl.transitionEnd(function () {
+            if (!controlled) { return; }
+            if (c.params.loop && swiper.params.controller.by === 'slide') {
+              c.loopFix();
+            }
+            c.transitionEnd();
+          });
+        }
+      }
+      if (Array.isArray(controlled)) {
+        for (i = 0; i < controlled.length; i += 1) {
+          if (controlled[i] !== byController && controlled[i] instanceof Swiper) {
+            setControlledTransition(controlled[i]);
+          }
+        }
+      } else if (controlled instanceof Swiper && byController !== controlled) {
+        setControlledTransition(controlled);
+      }
+    },
+  };
+  var Controller$1 = {
+    name: 'controller',
+    params: {
+      controller: {
+        control: undefined,
+        inverse: false,
+        by: 'slide', // or 'container'
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        controller: {
+          control: swiper.params.controller.control,
+          getInterpolateFunction: Controller.getInterpolateFunction.bind(swiper),
+          setTranslate: Controller.setTranslate.bind(swiper),
+          setTransition: Controller.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      update: function update() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      resize: function resize() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      observerUpdate: function observerUpdate() {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        if (swiper.controller.spline) {
+          swiper.controller.spline = undefined;
+          delete swiper.controller.spline;
+        }
+      },
+      setTranslate: function setTranslate(translate, byController) {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        swiper.controller.setTranslate(translate, byController);
+      },
+      setTransition: function setTransition(duration, byController) {
+        var swiper = this;
+        if (!swiper.controller.control) { return; }
+        swiper.controller.setTransition(duration, byController);
+      },
+    },
+  };
+
+  var a11y = {
+    makeElFocusable: function makeElFocusable($el) {
+      $el.attr('tabIndex', '0');
+      return $el;
+    },
+    addElRole: function addElRole($el, role) {
+      $el.attr('role', role);
+      return $el;
+    },
+    addElLabel: function addElLabel($el, label) {
+      $el.attr('aria-label', label);
+      return $el;
+    },
+    disableEl: function disableEl($el) {
+      $el.attr('aria-disabled', true);
+      return $el;
+    },
+    enableEl: function enableEl($el) {
+      $el.attr('aria-disabled', false);
+      return $el;
+    },
+    onEnterKey: function onEnterKey(e) {
+      var swiper = this;
+      var params = swiper.params.a11y;
+      if (e.keyCode !== 13) { return; }
+      var $targetEl = $(e.target);
+      if (swiper.navigation && swiper.navigation.$nextEl && $targetEl.is(swiper.navigation.$nextEl)) {
+        if (!(swiper.isEnd && !swiper.params.loop)) {
+          swiper.slideNext();
+        }
+        if (swiper.isEnd) {
+          swiper.a11y.notify(params.lastSlideMessage);
+        } else {
+          swiper.a11y.notify(params.nextSlideMessage);
+        }
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl && $targetEl.is(swiper.navigation.$prevEl)) {
+        if (!(swiper.isBeginning && !swiper.params.loop)) {
+          swiper.slidePrev();
+        }
+        if (swiper.isBeginning) {
+          swiper.a11y.notify(params.firstSlideMessage);
+        } else {
+          swiper.a11y.notify(params.prevSlideMessage);
+        }
+      }
+      if (swiper.pagination && $targetEl.is(("." + (swiper.params.pagination.bulletClass)))) {
+        $targetEl[0].click();
+      }
+    },
+    notify: function notify(message) {
+      var swiper = this;
+      var notification = swiper.a11y.liveRegion;
+      if (notification.length === 0) { return; }
+      notification.html('');
+      notification.html(message);
+    },
+    updateNavigation: function updateNavigation() {
+      var swiper = this;
+
+      if (swiper.params.loop) { return; }
+      var ref = swiper.navigation;
+      var $nextEl = ref.$nextEl;
+      var $prevEl = ref.$prevEl;
+
+      if ($prevEl && $prevEl.length > 0) {
+        if (swiper.isBeginning) {
+          swiper.a11y.disableEl($prevEl);
+        } else {
+          swiper.a11y.enableEl($prevEl);
+        }
+      }
+      if ($nextEl && $nextEl.length > 0) {
+        if (swiper.isEnd) {
+          swiper.a11y.disableEl($nextEl);
+        } else {
+          swiper.a11y.enableEl($nextEl);
+        }
+      }
+    },
+    updatePagination: function updatePagination() {
+      var swiper = this;
+      var params = swiper.params.a11y;
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.bullets.each(function (bulletIndex, bulletEl) {
+          var $bulletEl = $(bulletEl);
+          swiper.a11y.makeElFocusable($bulletEl);
+          swiper.a11y.addElRole($bulletEl, 'button');
+          swiper.a11y.addElLabel($bulletEl, params.paginationBulletMessage.replace(/{{index}}/, $bulletEl.index() + 1));
+        });
+      }
+    },
+    init: function init() {
+      var swiper = this;
+
+      swiper.$el.append(swiper.a11y.liveRegion);
+
+      // Navigation
+      var params = swiper.params.a11y;
+      var $nextEl;
+      var $prevEl;
+      if (swiper.navigation && swiper.navigation.$nextEl) {
+        $nextEl = swiper.navigation.$nextEl;
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl) {
+        $prevEl = swiper.navigation.$prevEl;
+      }
+      if ($nextEl) {
+        swiper.a11y.makeElFocusable($nextEl);
+        swiper.a11y.addElRole($nextEl, 'button');
+        swiper.a11y.addElLabel($nextEl, params.nextSlideMessage);
+        $nextEl.on('keydown', swiper.a11y.onEnterKey);
+      }
+      if ($prevEl) {
+        swiper.a11y.makeElFocusable($prevEl);
+        swiper.a11y.addElRole($prevEl, 'button');
+        swiper.a11y.addElLabel($prevEl, params.prevSlideMessage);
+        $prevEl.on('keydown', swiper.a11y.onEnterKey);
+      }
+
+      // Pagination
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.$el.on('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (swiper.a11y.liveRegion && swiper.a11y.liveRegion.length > 0) { swiper.a11y.liveRegion.remove(); }
+
+      var $nextEl;
+      var $prevEl;
+      if (swiper.navigation && swiper.navigation.$nextEl) {
+        $nextEl = swiper.navigation.$nextEl;
+      }
+      if (swiper.navigation && swiper.navigation.$prevEl) {
+        $prevEl = swiper.navigation.$prevEl;
+      }
+      if ($nextEl) {
+        $nextEl.off('keydown', swiper.a11y.onEnterKey);
+      }
+      if ($prevEl) {
+        $prevEl.off('keydown', swiper.a11y.onEnterKey);
+      }
+
+      // Pagination
+      if (swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length) {
+        swiper.pagination.$el.off('keydown', ("." + (swiper.params.pagination.bulletClass)), swiper.a11y.onEnterKey);
+      }
+    },
+  };
+  var A11y = {
+    name: 'a11y',
+    params: {
+      a11y: {
+        enabled: true,
+        notificationClass: 'swiper-notification',
+        prevSlideMessage: 'Previous slide',
+        nextSlideMessage: 'Next slide',
+        firstSlideMessage: 'This is the first slide',
+        lastSlideMessage: 'This is the last slide',
+        paginationBulletMessage: 'Go to slide {{index}}',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        a11y: {
+          liveRegion: $(("<span class=\"" + (swiper.params.a11y.notificationClass) + "\" aria-live=\"assertive\" aria-atomic=\"true\"></span>")),
+        },
+      });
+      Object.keys(a11y).forEach(function (methodName) {
+        swiper.a11y[methodName] = a11y[methodName].bind(swiper);
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.init();
+        swiper.a11y.updateNavigation();
+      },
+      toEdge: function toEdge() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updateNavigation();
+      },
+      fromEdge: function fromEdge() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updateNavigation();
+      },
+      paginationUpdate: function paginationUpdate() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.updatePagination();
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (!swiper.params.a11y.enabled) { return; }
+        swiper.a11y.destroy();
+      },
+    },
+  };
+
+  var History = {
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.history) { return; }
+      if (!win.history || !win.history.pushState) {
+        swiper.params.history.enabled = false;
+        swiper.params.hashNavigation.enabled = true;
+        return;
+      }
+      var history = swiper.history;
+      history.initialized = true;
+      history.paths = History.getPathValues();
+      if (!history.paths.key && !history.paths.value) { return; }
+      history.scrollToSlide(0, history.paths.value, swiper.params.runCallbacksOnInit);
+      if (!swiper.params.history.replaceState) {
+        win.addEventListener('popstate', swiper.history.setHistoryPopState);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (!swiper.params.history.replaceState) {
+        win.removeEventListener('popstate', swiper.history.setHistoryPopState);
+      }
+    },
+    setHistoryPopState: function setHistoryPopState() {
+      var swiper = this;
+      swiper.history.paths = History.getPathValues();
+      swiper.history.scrollToSlide(swiper.params.speed, swiper.history.paths.value, false);
+    },
+    getPathValues: function getPathValues() {
+      var pathArray = win.location.pathname.slice(1).split('/').filter(function (part) { return part !== ''; });
+      var total = pathArray.length;
+      var key = pathArray[total - 2];
+      var value = pathArray[total - 1];
+      return { key: key, value: value };
+    },
+    setHistory: function setHistory(key, index) {
+      var swiper = this;
+      if (!swiper.history.initialized || !swiper.params.history.enabled) { return; }
+      var slide = swiper.slides.eq(index);
+      var value = History.slugify(slide.attr('data-history'));
+      if (!win.location.pathname.includes(key)) {
+        value = key + "/" + value;
+      }
+      var currentState = win.history.state;
+      if (currentState && currentState.value === value) {
+        return;
+      }
+      if (swiper.params.history.replaceState) {
+        win.history.replaceState({ value: value }, null, value);
+      } else {
+        win.history.pushState({ value: value }, null, value);
+      }
+    },
+    slugify: function slugify(text) {
+      return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '')
+        .replace(/--+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+    },
+    scrollToSlide: function scrollToSlide(speed, value, runCallbacks) {
+      var swiper = this;
+      if (value) {
+        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
+          var slide = swiper.slides.eq(i);
+          var slideHistory = History.slugify(slide.attr('data-history'));
+          if (slideHistory === value && !slide.hasClass(swiper.params.slideDuplicateClass)) {
+            var index = slide.index();
+            swiper.slideTo(index, speed, runCallbacks);
+          }
+        }
+      } else {
+        swiper.slideTo(0, speed, runCallbacks);
+      }
+    },
+  };
+
+  var History$1 = {
+    name: 'history',
+    params: {
+      history: {
+        enabled: false,
+        replaceState: false,
+        key: 'slides',
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        history: {
+          init: History.init.bind(swiper),
+          setHistory: History.setHistory.bind(swiper),
+          setHistoryPopState: History.setHistoryPopState.bind(swiper),
+          scrollToSlide: History.scrollToSlide.bind(swiper),
+          destroy: History.destroy.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.history.enabled) {
+          swiper.history.init();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.params.history.enabled) {
+          swiper.history.destroy();
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.history.initialized) {
+          swiper.history.setHistory(swiper.params.history.key, swiper.activeIndex);
+        }
+      },
+    },
+  };
+
+  var HashNavigation = {
+    onHashCange: function onHashCange() {
+      var swiper = this;
+      var newHash = doc.location.hash.replace('#', '');
+      var activeSlideHash = swiper.slides.eq(swiper.activeIndex).attr('data-hash');
+      if (newHash !== activeSlideHash) {
+        swiper.slideTo(swiper.$wrapperEl.children(("." + (swiper.params.slideClass) + "[data-hash=\"" + newHash + "\"]")).index());
+      }
+    },
+    setHash: function setHash() {
+      var swiper = this;
+      if (!swiper.hashNavigation.initialized || !swiper.params.hashNavigation.enabled) { return; }
+      if (swiper.params.hashNavigation.replaceState && win.history && win.history.replaceState) {
+        win.history.replaceState(null, null, (("#" + (swiper.slides.eq(swiper.activeIndex).attr('data-hash'))) || ''));
+      } else {
+        var slide = swiper.slides.eq(swiper.activeIndex);
+        var hash = slide.attr('data-hash') || slide.attr('data-history');
+        doc.location.hash = hash || '';
+      }
+    },
+    init: function init() {
+      var swiper = this;
+      if (!swiper.params.hashNavigation.enabled || (swiper.params.history && swiper.params.history.enabled)) { return; }
+      swiper.hashNavigation.initialized = true;
+      var hash = doc.location.hash.replace('#', '');
+      if (hash) {
+        var speed = 0;
+        for (var i = 0, length = swiper.slides.length; i < length; i += 1) {
+          var slide = swiper.slides.eq(i);
+          var slideHash = slide.attr('data-hash') || slide.attr('data-history');
+          if (slideHash === hash && !slide.hasClass(swiper.params.slideDuplicateClass)) {
+            var index = slide.index();
+            swiper.slideTo(index, speed, swiper.params.runCallbacksOnInit, true);
+          }
+        }
+      }
+      if (swiper.params.hashNavigation.watchState) {
+        $(win).on('hashchange', swiper.hashNavigation.onHashCange);
+      }
+    },
+    destroy: function destroy() {
+      var swiper = this;
+      if (swiper.params.hashNavigation.watchState) {
+        $(win).off('hashchange', swiper.hashNavigation.onHashCange);
+      }
+    },
+  };
+  var HashNavigation$1 = {
+    name: 'hash-navigation',
+    params: {
+      hashNavigation: {
+        enabled: false,
+        replaceState: false,
+        watchState: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        hashNavigation: {
+          initialized: false,
+          init: HashNavigation.init.bind(swiper),
+          destroy: HashNavigation.destroy.bind(swiper),
+          setHash: HashNavigation.setHash.bind(swiper),
+          onHashCange: HashNavigation.onHashCange.bind(swiper),
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.hashNavigation.enabled) {
+          swiper.hashNavigation.init();
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.params.hashNavigation.enabled) {
+          swiper.hashNavigation.destroy();
+        }
+      },
+      transitionEnd: function transitionEnd() {
+        var swiper = this;
+        if (swiper.hashNavigation.initialized) {
+          swiper.hashNavigation.setHash();
+        }
+      },
+    },
+  };
+
+  /* eslint no-underscore-dangle: "off" */
+
+  var Autoplay = {
+    run: function run() {
+      var swiper = this;
+      var $activeSlideEl = swiper.slides.eq(swiper.activeIndex);
+      var delay = swiper.params.autoplay.delay;
+      if ($activeSlideEl.attr('data-swiper-autoplay')) {
+        delay = $activeSlideEl.attr('data-swiper-autoplay') || swiper.params.autoplay.delay;
+      }
+      swiper.autoplay.timeout = Utils.nextTick(function () {
+        if (swiper.params.autoplay.reverseDirection) {
+          if (swiper.params.loop) {
+            swiper.loopFix();
+            swiper.slidePrev(swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else if (!swiper.isBeginning) {
+            swiper.slidePrev(swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else if (!swiper.params.autoplay.stopOnLastSlide) {
+            swiper.slideTo(swiper.slides.length - 1, swiper.params.speed, true, true);
+            swiper.emit('autoplay');
+          } else {
+            swiper.autoplay.stop();
+          }
+        } else if (swiper.params.loop) {
+          swiper.loopFix();
+          swiper.slideNext(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.isEnd) {
+          swiper.slideNext(swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else if (!swiper.params.autoplay.stopOnLastSlide) {
+          swiper.slideTo(0, swiper.params.speed, true, true);
+          swiper.emit('autoplay');
+        } else {
+          swiper.autoplay.stop();
+        }
+      }, delay);
+    },
+    start: function start() {
+      var swiper = this;
+      if (typeof swiper.autoplay.timeout !== 'undefined') { return false; }
+      if (swiper.autoplay.running) { return false; }
+      swiper.autoplay.running = true;
+      swiper.emit('autoplayStart');
+      swiper.autoplay.run();
+      return true;
+    },
+    stop: function stop() {
+      var swiper = this;
+      if (!swiper.autoplay.running) { return false; }
+      if (typeof swiper.autoplay.timeout === 'undefined') { return false; }
+
+      if (swiper.autoplay.timeout) {
+        clearTimeout(swiper.autoplay.timeout);
+        swiper.autoplay.timeout = undefined;
+      }
+      swiper.autoplay.running = false;
+      swiper.emit('autoplayStop');
+      return true;
+    },
+    pause: function pause(speed) {
+      var swiper = this;
+      if (!swiper.autoplay.running) { return; }
+      if (swiper.autoplay.paused) { return; }
+      if (swiper.autoplay.timeout) { clearTimeout(swiper.autoplay.timeout); }
+      swiper.autoplay.paused = true;
+      if (speed === 0 || !swiper.params.autoplay.waitForTransition) {
+        swiper.autoplay.paused = false;
+        swiper.autoplay.run();
+      } else {
+        swiper.$wrapperEl[0].addEventListener('transitionend', swiper.autoplay.onTransitionEnd);
+        swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
+      }
+    },
+  };
+
+  var Autoplay$1 = {
+    name: 'autoplay',
+    params: {
+      autoplay: {
+        enabled: false,
+        delay: 3000,
+        waitForTransition: true,
+        disableOnInteraction: true,
+        stopOnLastSlide: false,
+        reverseDirection: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        autoplay: {
+          running: false,
+          paused: false,
+          run: Autoplay.run.bind(swiper),
+          start: Autoplay.start.bind(swiper),
+          stop: Autoplay.stop.bind(swiper),
+          pause: Autoplay.pause.bind(swiper),
+          onTransitionEnd: function onTransitionEnd(e) {
+            if (!swiper || swiper.destroyed || !swiper.$wrapperEl) { return; }
+            if (e.target !== this) { return; }
+            swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.autoplay.onTransitionEnd);
+            swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.autoplay.onTransitionEnd);
+            swiper.autoplay.paused = false;
+            if (!swiper.autoplay.running) {
+              swiper.autoplay.stop();
+            } else {
+              swiper.autoplay.run();
+            }
+          },
+        },
+      });
+    },
+    on: {
+      init: function init() {
+        var swiper = this;
+        if (swiper.params.autoplay.enabled) {
+          swiper.autoplay.start();
+        }
+      },
+      beforeTransitionStart: function beforeTransitionStart(speed, internal) {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          if (internal || !swiper.params.autoplay.disableOnInteraction) {
+            swiper.autoplay.pause(speed);
+          } else {
+            swiper.autoplay.stop();
+          }
+        }
+      },
+      sliderFirstMove: function sliderFirstMove() {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          if (swiper.params.autoplay.disableOnInteraction) {
+            swiper.autoplay.stop();
+          } else {
+            swiper.autoplay.pause();
+          }
+        }
+      },
+      destroy: function destroy() {
+        var swiper = this;
+        if (swiper.autoplay.running) {
+          swiper.autoplay.stop();
+        }
+      },
+    },
+  };
+
+  var Fade = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var slides = swiper.slides;
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = swiper.slides.eq(i);
+        var offset = $slideEl[0].swiperSlideOffset;
+        var tx = -offset;
+        if (!swiper.params.virtualTranslate) { tx -= swiper.translate; }
+        var ty = 0;
+        if (!swiper.isHorizontal()) {
+          ty = tx;
+          tx = 0;
+        }
+        var slideOpacity = swiper.params.fadeEffect.crossFade ?
+          Math.max(1 - Math.abs($slideEl[0].progress), 0) :
+          1 + Math.min(Math.max($slideEl[0].progress, -1), 0);
+        $slideEl
+          .css({
+            opacity: slideOpacity,
+          })
+          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px)"));
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var slides = swiper.slides;
+      var $wrapperEl = swiper.$wrapperEl;
+      slides.transition(duration);
+      if (swiper.params.virtualTranslate && duration !== 0) {
+        var eventTriggered = false;
+        slides.transitionEnd(function () {
+          if (eventTriggered) { return; }
+          if (!swiper || swiper.destroyed) { return; }
+          eventTriggered = true;
+          swiper.animating = false;
+          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
+          for (var i = 0; i < triggerEvents.length; i += 1) {
+            $wrapperEl.trigger(triggerEvents[i]);
+          }
+        });
+      }
+    },
+  };
+
+  var EffectFade = {
+    name: 'effect-fade',
+    params: {
+      fadeEffect: {
+        crossFade: false,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        fadeEffect: {
+          setTranslate: Fade.setTranslate.bind(swiper),
+          setTransition: Fade.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "fade"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          spaceBetween: 0,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.fadeEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'fade') { return; }
+        swiper.fadeEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Cube = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var $el = swiper.$el;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slides = swiper.slides;
+      var swiperWidth = swiper.width;
+      var swiperHeight = swiper.height;
+      var rtl = swiper.rtlTranslate;
+      var swiperSize = swiper.size;
+      var params = swiper.params.cubeEffect;
+      var isHorizontal = swiper.isHorizontal();
+      var isVirtual = swiper.virtual && swiper.params.virtual.enabled;
+      var wrapperRotate = 0;
+      var $cubeShadowEl;
+      if (params.shadow) {
+        if (isHorizontal) {
+          $cubeShadowEl = $wrapperEl.find('.swiper-cube-shadow');
+          if ($cubeShadowEl.length === 0) {
+            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
+            $wrapperEl.append($cubeShadowEl);
+          }
+          $cubeShadowEl.css({ height: (swiperWidth + "px") });
+        } else {
+          $cubeShadowEl = $el.find('.swiper-cube-shadow');
+          if ($cubeShadowEl.length === 0) {
+            $cubeShadowEl = $('<div class="swiper-cube-shadow"></div>');
+            $el.append($cubeShadowEl);
+          }
+        }
+      }
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var slideIndex = i;
+        if (isVirtual) {
+          slideIndex = parseInt($slideEl.attr('data-swiper-slide-index'), 10);
+        }
+        var slideAngle = slideIndex * 90;
+        var round = Math.floor(slideAngle / 360);
+        if (rtl) {
+          slideAngle = -slideAngle;
+          round = Math.floor(-slideAngle / 360);
+        }
+        var progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
+        var tx = 0;
+        var ty = 0;
+        var tz = 0;
+        if (slideIndex % 4 === 0) {
+          tx = -round * 4 * swiperSize;
+          tz = 0;
+        } else if ((slideIndex - 1) % 4 === 0) {
+          tx = 0;
+          tz = -round * 4 * swiperSize;
+        } else if ((slideIndex - 2) % 4 === 0) {
+          tx = swiperSize + (round * 4 * swiperSize);
+          tz = swiperSize;
+        } else if ((slideIndex - 3) % 4 === 0) {
+          tx = -swiperSize;
+          tz = (3 * swiperSize) + (swiperSize * 4 * round);
+        }
+        if (rtl) {
+          tx = -tx;
+        }
+
+        if (!isHorizontal) {
+          ty = tx;
+          tx = 0;
+        }
+
+        var transform = "rotateX(" + (isHorizontal ? 0 : -slideAngle) + "deg) rotateY(" + (isHorizontal ? slideAngle : 0) + "deg) translate3d(" + tx + "px, " + ty + "px, " + tz + "px)";
+        if (progress <= 1 && progress > -1) {
+          wrapperRotate = (slideIndex * 90) + (progress * 90);
+          if (rtl) { wrapperRotate = (-slideIndex * 90) - (progress * 90); }
+        }
+        $slideEl.transform(transform);
+        if (params.slideShadows) {
+          // Set shadows
+          var shadowBefore = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var shadowAfter = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if (shadowBefore.length === 0) {
+            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append(shadowBefore);
+          }
+          if (shadowAfter.length === 0) {
+            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append(shadowAfter);
+          }
+          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
+          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
+        }
+      }
+      $wrapperEl.css({
+        '-webkit-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        '-moz-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        '-ms-transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+        'transform-origin': ("50% 50% -" + (swiperSize / 2) + "px"),
+      });
+
+      if (params.shadow) {
+        if (isHorizontal) {
+          $cubeShadowEl.transform(("translate3d(0px, " + ((swiperWidth / 2) + params.shadowOffset) + "px, " + (-swiperWidth / 2) + "px) rotateX(90deg) rotateZ(0deg) scale(" + (params.shadowScale) + ")"));
+        } else {
+          var shadowAngle = Math.abs(wrapperRotate) - (Math.floor(Math.abs(wrapperRotate) / 90) * 90);
+          var multiplier = 1.5 - (
+            (Math.sin((shadowAngle * 2 * Math.PI) / 360) / 2) +
+            (Math.cos((shadowAngle * 2 * Math.PI) / 360) / 2)
+          );
+          var scale1 = params.shadowScale;
+          var scale2 = params.shadowScale / multiplier;
+          var offset = params.shadowOffset;
+          $cubeShadowEl.transform(("scale3d(" + scale1 + ", 1, " + scale2 + ") translate3d(0px, " + ((swiperHeight / 2) + offset) + "px, " + (-swiperHeight / 2 / scale2) + "px) rotateX(-90deg)"));
+        }
+      }
+      var zFactor = (Browser.isSafari || Browser.isUiWebView) ? (-swiperSize / 2) : 0;
+      $wrapperEl
+        .transform(("translate3d(0px,0," + zFactor + "px) rotateX(" + (swiper.isHorizontal() ? 0 : wrapperRotate) + "deg) rotateY(" + (swiper.isHorizontal() ? -wrapperRotate : 0) + "deg)"));
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var $el = swiper.$el;
+      var slides = swiper.slides;
+      slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+      if (swiper.params.cubeEffect.shadow && !swiper.isHorizontal()) {
+        $el.find('.swiper-cube-shadow').transition(duration);
+      }
+    },
+  };
+
+  var EffectCube = {
+    name: 'effect-cube',
+    params: {
+      cubeEffect: {
+        slideShadows: true,
+        shadow: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        cubeEffect: {
+          setTranslate: Cube.setTranslate.bind(swiper),
+          setTransition: Cube.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "cube"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          resistanceRatio: 0,
+          spaceBetween: 0,
+          centeredSlides: false,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.cubeEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'cube') { return; }
+        swiper.cubeEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Flip = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var slides = swiper.slides;
+      var rtl = swiper.rtlTranslate;
+      for (var i = 0; i < slides.length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var progress = $slideEl[0].progress;
+        if (swiper.params.flipEffect.limitRotation) {
+          progress = Math.max(Math.min($slideEl[0].progress, 1), -1);
+        }
+        var offset = $slideEl[0].swiperSlideOffset;
+        var rotate = -180 * progress;
+        var rotateY = rotate;
+        var rotateX = 0;
+        var tx = -offset;
+        var ty = 0;
+        if (!swiper.isHorizontal()) {
+          ty = tx;
+          tx = 0;
+          rotateX = -rotateY;
+          rotateY = 0;
+        } else if (rtl) {
+          rotateY = -rotateY;
+        }
+
+        $slideEl[0].style.zIndex = -Math.abs(Math.round(progress)) + slides.length;
+
+        if (swiper.params.flipEffect.slideShadows) {
+          // Set shadows
+          var shadowBefore = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var shadowAfter = swiper.isHorizontal() ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if (shadowBefore.length === 0) {
+            shadowBefore = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append(shadowBefore);
+          }
+          if (shadowAfter.length === 0) {
+            shadowAfter = $(("<div class=\"swiper-slide-shadow-" + (swiper.isHorizontal() ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append(shadowAfter);
+          }
+          if (shadowBefore.length) { shadowBefore[0].style.opacity = Math.max(-progress, 0); }
+          if (shadowAfter.length) { shadowAfter[0].style.opacity = Math.max(progress, 0); }
+        }
+        $slideEl
+          .transform(("translate3d(" + tx + "px, " + ty + "px, 0px) rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)"));
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      var slides = swiper.slides;
+      var activeIndex = swiper.activeIndex;
+      var $wrapperEl = swiper.$wrapperEl;
+      slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+      if (swiper.params.virtualTranslate && duration !== 0) {
+        var eventTriggered = false;
+        // eslint-disable-next-line
+        slides.eq(activeIndex).transitionEnd(function onTransitionEnd() {
+          if (eventTriggered) { return; }
+          if (!swiper || swiper.destroyed) { return; }
+          // if (!$(this).hasClass(swiper.params.slideActiveClass)) return;
+          eventTriggered = true;
+          swiper.animating = false;
+          var triggerEvents = ['webkitTransitionEnd', 'transitionend'];
+          for (var i = 0; i < triggerEvents.length; i += 1) {
+            $wrapperEl.trigger(triggerEvents[i]);
+          }
+        });
+      }
+    },
+  };
+
+  var EffectFlip = {
+    name: 'effect-flip',
+    params: {
+      flipEffect: {
+        slideShadows: true,
+        limitRotation: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        flipEffect: {
+          setTranslate: Flip.setTranslate.bind(swiper),
+          setTransition: Flip.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "flip"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+        var overwriteParams = {
+          slidesPerView: 1,
+          slidesPerColumn: 1,
+          slidesPerGroup: 1,
+          watchSlidesProgress: true,
+          spaceBetween: 0,
+          virtualTranslate: true,
+        };
+        Utils.extend(swiper.params, overwriteParams);
+        Utils.extend(swiper.originalParams, overwriteParams);
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.flipEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'flip') { return; }
+        swiper.flipEffect.setTransition(duration);
+      },
+    },
+  };
+
+  var Coverflow = {
+    setTranslate: function setTranslate() {
+      var swiper = this;
+      var swiperWidth = swiper.width;
+      var swiperHeight = swiper.height;
+      var slides = swiper.slides;
+      var $wrapperEl = swiper.$wrapperEl;
+      var slidesSizesGrid = swiper.slidesSizesGrid;
+      var params = swiper.params.coverflowEffect;
+      var isHorizontal = swiper.isHorizontal();
+      var transform = swiper.translate;
+      var center = isHorizontal ? -transform + (swiperWidth / 2) : -transform + (swiperHeight / 2);
+      var rotate = isHorizontal ? params.rotate : -params.rotate;
+      var translate = params.depth;
+      // Each slide offset from center
+      for (var i = 0, length = slides.length; i < length; i += 1) {
+        var $slideEl = slides.eq(i);
+        var slideSize = slidesSizesGrid[i];
+        var slideOffset = $slideEl[0].swiperSlideOffset;
+        var offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
+
+        var rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
+        var rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
+        // var rotateZ = 0
+        var translateZ = -translate * Math.abs(offsetMultiplier);
+
+        var translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
+        var translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
+
+        // Fix for ultra small values
+        if (Math.abs(translateX) < 0.001) { translateX = 0; }
+        if (Math.abs(translateY) < 0.001) { translateY = 0; }
+        if (Math.abs(translateZ) < 0.001) { translateZ = 0; }
+        if (Math.abs(rotateY) < 0.001) { rotateY = 0; }
+        if (Math.abs(rotateX) < 0.001) { rotateX = 0; }
+
+        var slideTransform = "translate3d(" + translateX + "px," + translateY + "px," + translateZ + "px)  rotateX(" + rotateX + "deg) rotateY(" + rotateY + "deg)";
+
+        $slideEl.transform(slideTransform);
+        $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
+        if (params.slideShadows) {
+          // Set shadows
+          var $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
+          var $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
+          if ($shadowBeforeEl.length === 0) {
+            $shadowBeforeEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'left' : 'top') + "\"></div>"));
+            $slideEl.append($shadowBeforeEl);
+          }
+          if ($shadowAfterEl.length === 0) {
+            $shadowAfterEl = $(("<div class=\"swiper-slide-shadow-" + (isHorizontal ? 'right' : 'bottom') + "\"></div>"));
+            $slideEl.append($shadowAfterEl);
+          }
+          if ($shadowBeforeEl.length) { $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0; }
+          if ($shadowAfterEl.length) { $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0; }
+        }
+      }
+
+      // Set correct perspective for IE10
+      if (Support.pointerEvents || Support.prefixedPointerEvents) {
+        var ws = $wrapperEl[0].style;
+        ws.perspectiveOrigin = center + "px 50%";
+      }
+    },
+    setTransition: function setTransition(duration) {
+      var swiper = this;
+      swiper.slides
+        .transition(duration)
+        .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+        .transition(duration);
+    },
+  };
+
+  var EffectCoverflow = {
+    name: 'effect-coverflow',
+    params: {
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+    },
+    create: function create() {
+      var swiper = this;
+      Utils.extend(swiper, {
+        coverflowEffect: {
+          setTranslate: Coverflow.setTranslate.bind(swiper),
+          setTransition: Coverflow.setTransition.bind(swiper),
+        },
+      });
+    },
+    on: {
+      beforeInit: function beforeInit() {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "coverflow"));
+        swiper.classNames.push(((swiper.params.containerModifierClass) + "3d"));
+
+        swiper.params.watchSlidesProgress = true;
+        swiper.originalParams.watchSlidesProgress = true;
+      },
+      setTranslate: function setTranslate() {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+        swiper.coverflowEffect.setTranslate();
+      },
+      setTransition: function setTransition(duration) {
+        var swiper = this;
+        if (swiper.params.effect !== 'coverflow') { return; }
+        swiper.coverflowEffect.setTransition(duration);
+      },
+    },
+  };
+
+  // Swiper Class
+
+  var components = [
+    Device$1,
+    Support$1,
+    Browser$1,
+    Resize,
+    Observer$1,
+    Virtual$1,
+    Keyboard$1,
+    Mousewheel$1,
+    Navigation$1,
+    Pagination$1,
+    Scrollbar$1,
+    Parallax$1,
+    Zoom$1,
+    Lazy$1,
+    Controller$1,
+    A11y,
+    History$1,
+    HashNavigation$1,
+    Autoplay$1,
+    EffectFade,
+    EffectCube,
+    EffectFlip,
+    EffectCoverflow
+  ];
+
+  if (typeof Swiper.use === 'undefined') {
+    Swiper.use = Swiper.Class.use;
+    Swiper.installModule = Swiper.Class.installModule;
+  }
+
+  Swiper.use(components);
+
+  return Swiper;
+
+})));
+
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(254);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(255)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../css-loader/index.js!./swiper.css", function() {
+			var newContent = require("!!../../../css-loader/index.js!./swiper.css");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/**\n * Swiper 4.2.6\n * Most modern mobile touch slider and framework with hardware accelerated transitions\n * http://www.idangero.us/swiper/\n *\n * Copyright 2014-2018 Vladimir Kharlampidi\n *\n * Released under the MIT License\n *\n * Released on: May 1, 2018\n */\n.swiper-container {\n  margin: 0 auto;\n  position: relative;\n  overflow: hidden;\n  list-style: none;\n  padding: 0;\n  /* Fix of Webkit flickering */\n  z-index: 1;\n}\n.swiper-container-no-flexbox .swiper-slide {\n  float: left;\n}\n.swiper-container-vertical > .swiper-wrapper {\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: column;\n  -ms-flex-direction: column;\n  flex-direction: column;\n}\n.swiper-wrapper {\n  position: relative;\n  width: 100%;\n  height: 100%;\n  z-index: 1;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n  -webkit-box-sizing: content-box;\n  box-sizing: content-box;\n}\n.swiper-container-android .swiper-slide,\n.swiper-wrapper {\n  -webkit-transform: translate3d(0px, 0, 0);\n  transform: translate3d(0px, 0, 0);\n}\n.swiper-container-multirow > .swiper-wrapper {\n  -webkit-flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  flex-wrap: wrap;\n}\n.swiper-container-free-mode > .swiper-wrapper {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n  margin: 0 auto;\n}\n.swiper-slide {\n  -webkit-flex-shrink: 0;\n  -ms-flex-negative: 0;\n  flex-shrink: 0;\n  width: 100%;\n  height: 100%;\n  position: relative;\n  -webkit-transition-property: -webkit-transform;\n  transition-property: -webkit-transform;\n  -o-transition-property: transform;\n  transition-property: transform;\n  transition-property: transform, -webkit-transform;\n}\n.swiper-invisible-blank-slide {\n  visibility: hidden;\n}\n/* Auto Height */\n.swiper-container-autoheight,\n.swiper-container-autoheight .swiper-slide {\n  height: auto;\n}\n.swiper-container-autoheight .swiper-wrapper {\n  -webkit-box-align: start;\n  -webkit-align-items: flex-start;\n  -ms-flex-align: start;\n  align-items: flex-start;\n  -webkit-transition-property: height, -webkit-transform;\n  transition-property: height, -webkit-transform;\n  -o-transition-property: transform, height;\n  transition-property: transform, height;\n  transition-property: transform, height, -webkit-transform;\n}\n/* 3D Effects */\n.swiper-container-3d {\n  -webkit-perspective: 1200px;\n  perspective: 1200px;\n}\n.swiper-container-3d .swiper-wrapper,\n.swiper-container-3d .swiper-slide,\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom,\n.swiper-container-3d .swiper-cube-shadow {\n  -webkit-transform-style: preserve-3d;\n  transform-style: preserve-3d;\n}\n.swiper-container-3d .swiper-slide-shadow-left,\n.swiper-container-3d .swiper-slide-shadow-right,\n.swiper-container-3d .swiper-slide-shadow-top,\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  pointer-events: none;\n  z-index: 10;\n}\n.swiper-container-3d .swiper-slide-shadow-left {\n  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-right {\n  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-top {\n  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n.swiper-container-3d .swiper-slide-shadow-bottom {\n  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));\n  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));\n}\n/* IE10 Windows Phone 8 Fixes */\n.swiper-container-wp8-horizontal,\n.swiper-container-wp8-horizontal > .swiper-wrapper {\n  -ms-touch-action: pan-y;\n  touch-action: pan-y;\n}\n.swiper-container-wp8-vertical,\n.swiper-container-wp8-vertical > .swiper-wrapper {\n  -ms-touch-action: pan-x;\n  touch-action: pan-x;\n}\n.swiper-button-prev,\n.swiper-button-next {\n  position: absolute;\n  top: 50%;\n  width: 27px;\n  height: 44px;\n  margin-top: -22px;\n  z-index: 10;\n  cursor: pointer;\n  background-size: 27px 44px;\n  background-position: center;\n  background-repeat: no-repeat;\n}\n.swiper-button-prev.swiper-button-disabled,\n.swiper-button-next.swiper-button-disabled {\n  opacity: 0.35;\n  cursor: auto;\n  pointer-events: none;\n}\n.swiper-button-prev,\n.swiper-container-rtl .swiper-button-next {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  left: 10px;\n  right: auto;\n}\n.swiper-button-next,\n.swiper-container-rtl .swiper-button-prev {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E\");\n  right: 10px;\n  left: auto;\n}\n.swiper-button-prev.swiper-button-white,\n.swiper-container-rtl .swiper-button-next.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-white,\n.swiper-container-rtl .swiper-button-prev.swiper-button-white {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-prev.swiper-button-black,\n.swiper-container-rtl .swiper-button-next.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-next.swiper-button-black,\n.swiper-container-rtl .swiper-button-prev.swiper-button-black {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23000000'%2F%3E%3C%2Fsvg%3E\");\n}\n.swiper-button-lock {\n  display: none;\n}\n.swiper-pagination {\n  position: absolute;\n  text-align: center;\n  -webkit-transition: 300ms opacity;\n  -o-transition: 300ms opacity;\n  transition: 300ms opacity;\n  -webkit-transform: translate3d(0, 0, 0);\n  transform: translate3d(0, 0, 0);\n  z-index: 10;\n}\n.swiper-pagination.swiper-pagination-hidden {\n  opacity: 0;\n}\n/* Common Styles */\n.swiper-pagination-fraction,\n.swiper-pagination-custom,\n.swiper-container-horizontal > .swiper-pagination-bullets {\n  bottom: 10px;\n  left: 0;\n  width: 100%;\n}\n/* Bullets */\n.swiper-pagination-bullets-dynamic {\n  overflow: hidden;\n  font-size: 0;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n  position: relative;\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {\n  -webkit-transform: scale(1);\n  -ms-transform: scale(1);\n  transform: scale(1);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {\n  -webkit-transform: scale(0.66);\n  -ms-transform: scale(0.66);\n  transform: scale(0.66);\n}\n.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {\n  -webkit-transform: scale(0.33);\n  -ms-transform: scale(0.33);\n  transform: scale(0.33);\n}\n.swiper-pagination-bullet {\n  width: 8px;\n  height: 8px;\n  display: inline-block;\n  border-radius: 100%;\n  background: #000;\n  opacity: 0.2;\n}\nbutton.swiper-pagination-bullet {\n  border: none;\n  margin: 0;\n  padding: 0;\n  -webkit-box-shadow: none;\n  box-shadow: none;\n  -webkit-appearance: none;\n  -moz-appearance: none;\n  appearance: none;\n}\n.swiper-pagination-clickable .swiper-pagination-bullet {\n  cursor: pointer;\n}\n.swiper-pagination-bullet-active {\n  opacity: 1;\n  background: #007aff;\n}\n.swiper-container-vertical > .swiper-pagination-bullets {\n  right: 10px;\n  top: 50%;\n  -webkit-transform: translate3d(0px, -50%, 0);\n  transform: translate3d(0px, -50%, 0);\n}\n.swiper-container-vertical > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 6px 0;\n  display: block;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  top: 50%;\n  -webkit-transform: translateY(-50%);\n  -ms-transform: translateY(-50%);\n  transform: translateY(-50%);\n  width: 8px;\n}\n.swiper-container-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  display: inline-block;\n  -webkit-transition: 200ms top, 200ms -webkit-transform;\n  transition: 200ms top, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top;\n  transition: 200ms transform, 200ms top, 200ms -webkit-transform;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet {\n  margin: 0 4px;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic {\n  left: 50%;\n  -webkit-transform: translateX(-50%);\n  -ms-transform: translateX(-50%);\n  transform: translateX(-50%);\n  white-space: nowrap;\n}\n.swiper-container-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms left, 200ms -webkit-transform;\n  transition: 200ms left, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left;\n  transition: 200ms transform, 200ms left, 200ms -webkit-transform;\n}\n.swiper-container-horizontal.swiper-container-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {\n  -webkit-transition: 200ms right, 200ms -webkit-transform;\n  transition: 200ms right, 200ms -webkit-transform;\n  -o-transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right;\n  transition: 200ms transform, 200ms right, 200ms -webkit-transform;\n}\n/* Progress */\n.swiper-pagination-progressbar {\n  background: rgba(0, 0, 0, 0.25);\n  position: absolute;\n}\n.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  background: #007aff;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  -webkit-transform: scale(0);\n  -ms-transform: scale(0);\n  transform: scale(0);\n  -webkit-transform-origin: left top;\n  -ms-transform-origin: left top;\n  transform-origin: left top;\n}\n.swiper-container-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {\n  -webkit-transform-origin: right top;\n  -ms-transform-origin: right top;\n  transform-origin: right top;\n}\n.swiper-container-horizontal > .swiper-pagination-progressbar,\n.swiper-container-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 100%;\n  height: 4px;\n  left: 0;\n  top: 0;\n}\n.swiper-container-vertical > .swiper-pagination-progressbar,\n.swiper-container-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite {\n  width: 4px;\n  height: 100%;\n  left: 0;\n  top: 0;\n}\n.swiper-pagination-white .swiper-pagination-bullet-active {\n  background: #ffffff;\n}\n.swiper-pagination-progressbar.swiper-pagination-white {\n  background: rgba(255, 255, 255, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-white .swiper-pagination-progressbar-fill {\n  background: #ffffff;\n}\n.swiper-pagination-black .swiper-pagination-bullet-active {\n  background: #000000;\n}\n.swiper-pagination-progressbar.swiper-pagination-black {\n  background: rgba(0, 0, 0, 0.25);\n}\n.swiper-pagination-progressbar.swiper-pagination-black .swiper-pagination-progressbar-fill {\n  background: #000000;\n}\n.swiper-pagination-lock {\n  display: none;\n}\n/* Scrollbar */\n.swiper-scrollbar {\n  border-radius: 10px;\n  position: relative;\n  -ms-touch-action: none;\n  background: rgba(0, 0, 0, 0.1);\n}\n.swiper-container-horizontal > .swiper-scrollbar {\n  position: absolute;\n  left: 1%;\n  bottom: 3px;\n  z-index: 50;\n  height: 5px;\n  width: 98%;\n}\n.swiper-container-vertical > .swiper-scrollbar {\n  position: absolute;\n  right: 3px;\n  top: 1%;\n  z-index: 50;\n  width: 5px;\n  height: 98%;\n}\n.swiper-scrollbar-drag {\n  height: 100%;\n  width: 100%;\n  position: relative;\n  background: rgba(0, 0, 0, 0.5);\n  border-radius: 10px;\n  left: 0;\n  top: 0;\n}\n.swiper-scrollbar-cursor-drag {\n  cursor: move;\n}\n.swiper-scrollbar-lock {\n  display: none;\n}\n.swiper-zoom-container {\n  width: 100%;\n  height: 100%;\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n  -webkit-justify-content: center;\n  -ms-flex-pack: center;\n  justify-content: center;\n  -webkit-box-align: center;\n  -webkit-align-items: center;\n  -ms-flex-align: center;\n  align-items: center;\n  text-align: center;\n}\n.swiper-zoom-container > img,\n.swiper-zoom-container > svg,\n.swiper-zoom-container > canvas {\n  max-width: 100%;\n  max-height: 100%;\n  -o-object-fit: contain;\n  object-fit: contain;\n}\n.swiper-slide-zoomed {\n  cursor: move;\n}\n/* Preloader */\n.swiper-lazy-preloader {\n  width: 42px;\n  height: 42px;\n  position: absolute;\n  left: 50%;\n  top: 50%;\n  margin-left: -21px;\n  margin-top: -21px;\n  z-index: 10;\n  -webkit-transform-origin: 50%;\n  -ms-transform-origin: 50%;\n  transform-origin: 50%;\n  -webkit-animation: swiper-preloader-spin 1s steps(12, end) infinite;\n  animation: swiper-preloader-spin 1s steps(12, end) infinite;\n}\n.swiper-lazy-preloader:after {\n  display: block;\n  content: '';\n  width: 100%;\n  height: 100%;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%236c6c6c'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n  background-position: 50%;\n  background-size: 100%;\n  background-repeat: no-repeat;\n}\n.swiper-lazy-preloader-white:after {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20viewBox%3D'0%200%20120%20120'%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20xmlns%3Axlink%3D'http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink'%3E%3Cdefs%3E%3Cline%20id%3D'l'%20x1%3D'60'%20x2%3D'60'%20y1%3D'7'%20y2%3D'27'%20stroke%3D'%23fff'%20stroke-width%3D'11'%20stroke-linecap%3D'round'%2F%3E%3C%2Fdefs%3E%3Cg%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(30%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(60%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(90%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(120%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.27'%20transform%3D'rotate(150%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.37'%20transform%3D'rotate(180%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.46'%20transform%3D'rotate(210%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.56'%20transform%3D'rotate(240%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.66'%20transform%3D'rotate(270%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.75'%20transform%3D'rotate(300%2060%2C60)'%2F%3E%3Cuse%20xlink%3Ahref%3D'%23l'%20opacity%3D'.85'%20transform%3D'rotate(330%2060%2C60)'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E\");\n}\n@-webkit-keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n@keyframes swiper-preloader-spin {\n  100% {\n    -webkit-transform: rotate(360deg);\n    transform: rotate(360deg);\n  }\n}\n/* a11y */\n.swiper-container .swiper-notification {\n  position: absolute;\n  left: 0;\n  top: 0;\n  pointer-events: none;\n  opacity: 0;\n  z-index: -1000;\n}\n.swiper-container-fade.swiper-container-free-mode .swiper-slide {\n  -webkit-transition-timing-function: ease-out;\n  -o-transition-timing-function: ease-out;\n  transition-timing-function: ease-out;\n}\n.swiper-container-fade .swiper-slide {\n  pointer-events: none;\n  -webkit-transition-property: opacity;\n  -o-transition-property: opacity;\n  transition-property: opacity;\n}\n.swiper-container-fade .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-fade .swiper-slide-active,\n.swiper-container-fade .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube {\n  overflow: visible;\n}\n.swiper-container-cube .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n  visibility: hidden;\n  -webkit-transform-origin: 0 0;\n  -ms-transform-origin: 0 0;\n  transform-origin: 0 0;\n  width: 100%;\n  height: 100%;\n}\n.swiper-container-cube .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-cube.swiper-container-rtl .swiper-slide {\n  -webkit-transform-origin: 100% 0;\n  -ms-transform-origin: 100% 0;\n  transform-origin: 100% 0;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-cube .swiper-slide-active,\n.swiper-container-cube .swiper-slide-next,\n.swiper-container-cube .swiper-slide-prev,\n.swiper-container-cube .swiper-slide-next + .swiper-slide {\n  pointer-events: auto;\n  visibility: visible;\n}\n.swiper-container-cube .swiper-slide-shadow-top,\n.swiper-container-cube .swiper-slide-shadow-bottom,\n.swiper-container-cube .swiper-slide-shadow-left,\n.swiper-container-cube .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-cube .swiper-cube-shadow {\n  position: absolute;\n  left: 0;\n  bottom: 0px;\n  width: 100%;\n  height: 100%;\n  background: #000;\n  opacity: 0.6;\n  -webkit-filter: blur(50px);\n  filter: blur(50px);\n  z-index: 0;\n}\n.swiper-container-flip {\n  overflow: visible;\n}\n.swiper-container-flip .swiper-slide {\n  pointer-events: none;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n  z-index: 1;\n}\n.swiper-container-flip .swiper-slide .swiper-slide {\n  pointer-events: none;\n}\n.swiper-container-flip .swiper-slide-active,\n.swiper-container-flip .swiper-slide-active .swiper-slide-active {\n  pointer-events: auto;\n}\n.swiper-container-flip .swiper-slide-shadow-top,\n.swiper-container-flip .swiper-slide-shadow-bottom,\n.swiper-container-flip .swiper-slide-shadow-left,\n.swiper-container-flip .swiper-slide-shadow-right {\n  z-index: 0;\n  -webkit-backface-visibility: hidden;\n  backface-visibility: hidden;\n}\n.swiper-container-coverflow .swiper-wrapper {\n  /* Windows 8 IE 10 fix */\n  -ms-perspective: 1200px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+
+var stylesInDom = {};
+
+var	memoize = function (fn) {
+	var memo;
+
+	return function () {
+		if (typeof memo === "undefined") memo = fn.apply(this, arguments);
+		return memo;
+	};
+};
+
+var isOldIE = memoize(function () {
+	// Test for IE <= 9 as proposed by Browserhacks
+	// @see http://browserhacks.com/#hack-e71d8692f65334173fee715c222cb805
+	// Tests for existence of standard globals is to allow style-loader
+	// to operate correctly into non-standard environments
+	// @see https://github.com/webpack-contrib/style-loader/issues/177
+	return window && document && document.all && !window.atob;
+});
+
+var getElement = (function (fn) {
+	var memo = {};
+
+	return function(selector) {
+		if (typeof memo[selector] === "undefined") {
+			memo[selector] = fn.call(this, selector);
+		}
+
+		return memo[selector]
+	};
+})(function (target) {
+	return document.querySelector(target)
+});
+
+var singleton = null;
+var	singletonCounter = 0;
+var	stylesInsertedAtTop = [];
+
+var	fixUrls = __webpack_require__(256);
+
+module.exports = function(list, options) {
+	if (typeof DEBUG !== "undefined" && DEBUG) {
+		if (typeof document !== "object") throw new Error("The style-loader cannot be used in a non-browser environment");
+	}
+
+	options = options || {};
+
+	options.attrs = typeof options.attrs === "object" ? options.attrs : {};
+
+	// Force single-tag solution on IE6-9, which has a hard limit on the # of <style>
+	// tags it will allow on a page
+	if (!options.singleton) options.singleton = isOldIE();
+
+	// By default, add <style> tags to the <head> element
+	if (!options.insertInto) options.insertInto = "head";
+
+	// By default, add <style> tags to the bottom of the target
+	if (!options.insertAt) options.insertAt = "bottom";
+
+	var styles = listToStyles(list, options);
+
+	addStylesToDom(styles, options);
+
+	return function update (newList) {
+		var mayRemove = [];
+
+		for (var i = 0; i < styles.length; i++) {
+			var item = styles[i];
+			var domStyle = stylesInDom[item.id];
+
+			domStyle.refs--;
+			mayRemove.push(domStyle);
+		}
+
+		if(newList) {
+			var newStyles = listToStyles(newList, options);
+			addStylesToDom(newStyles, options);
+		}
+
+		for (var i = 0; i < mayRemove.length; i++) {
+			var domStyle = mayRemove[i];
+
+			if(domStyle.refs === 0) {
+				for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+
+				delete stylesInDom[domStyle.id];
+			}
+		}
+	};
+};
+
+function addStylesToDom (styles, options) {
+	for (var i = 0; i < styles.length; i++) {
+		var item = styles[i];
+		var domStyle = stylesInDom[item.id];
+
+		if(domStyle) {
+			domStyle.refs++;
+
+			for(var j = 0; j < domStyle.parts.length; j++) {
+				domStyle.parts[j](item.parts[j]);
+			}
+
+			for(; j < item.parts.length; j++) {
+				domStyle.parts.push(addStyle(item.parts[j], options));
+			}
+		} else {
+			var parts = [];
+
+			for(var j = 0; j < item.parts.length; j++) {
+				parts.push(addStyle(item.parts[j], options));
+			}
+
+			stylesInDom[item.id] = {id: item.id, refs: 1, parts: parts};
+		}
+	}
+}
+
+function listToStyles (list, options) {
+	var styles = [];
+	var newStyles = {};
+
+	for (var i = 0; i < list.length; i++) {
+		var item = list[i];
+		var id = options.base ? item[0] + options.base : item[0];
+		var css = item[1];
+		var media = item[2];
+		var sourceMap = item[3];
+		var part = {css: css, media: media, sourceMap: sourceMap};
+
+		if(!newStyles[id]) styles.push(newStyles[id] = {id: id, parts: [part]});
+		else newStyles[id].parts.push(part);
+	}
+
+	return styles;
+}
+
+function insertStyleElement (options, style) {
+	var target = getElement(options.insertInto)
+
+	if (!target) {
+		throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");
+	}
+
+	var lastStyleElementInsertedAtTop = stylesInsertedAtTop[stylesInsertedAtTop.length - 1];
+
+	if (options.insertAt === "top") {
+		if (!lastStyleElementInsertedAtTop) {
+			target.insertBefore(style, target.firstChild);
+		} else if (lastStyleElementInsertedAtTop.nextSibling) {
+			target.insertBefore(style, lastStyleElementInsertedAtTop.nextSibling);
+		} else {
+			target.appendChild(style);
+		}
+		stylesInsertedAtTop.push(style);
+	} else if (options.insertAt === "bottom") {
+		target.appendChild(style);
+	} else {
+		throw new Error("Invalid value for parameter 'insertAt'. Must be 'top' or 'bottom'.");
+	}
+}
+
+function removeStyleElement (style) {
+	if (style.parentNode === null) return false;
+	style.parentNode.removeChild(style);
+
+	var idx = stylesInsertedAtTop.indexOf(style);
+	if(idx >= 0) {
+		stylesInsertedAtTop.splice(idx, 1);
+	}
+}
+
+function createStyleElement (options) {
+	var style = document.createElement("style");
+
+	options.attrs.type = "text/css";
+
+	addAttrs(style, options.attrs);
+	insertStyleElement(options, style);
+
+	return style;
+}
+
+function createLinkElement (options) {
+	var link = document.createElement("link");
+
+	options.attrs.type = "text/css";
+	options.attrs.rel = "stylesheet";
+
+	addAttrs(link, options.attrs);
+	insertStyleElement(options, link);
+
+	return link;
+}
+
+function addAttrs (el, attrs) {
+	Object.keys(attrs).forEach(function (key) {
+		el.setAttribute(key, attrs[key]);
+	});
+}
+
+function addStyle (obj, options) {
+	var style, update, remove, result;
+
+	// If a transform function was defined, run it on the css
+	if (options.transform && obj.css) {
+	    result = options.transform(obj.css);
+
+	    if (result) {
+	    	// If transform returns a value, use that instead of the original css.
+	    	// This allows running runtime transformations on the css.
+	    	obj.css = result;
+	    } else {
+	    	// If the transform function returns a falsy value, don't add this css.
+	    	// This allows conditional loading of css
+	    	return function() {
+	    		// noop
+	    	};
+	    }
+	}
+
+	if (options.singleton) {
+		var styleIndex = singletonCounter++;
+
+		style = singleton || (singleton = createStyleElement(options));
+
+		update = applyToSingletonTag.bind(null, style, styleIndex, false);
+		remove = applyToSingletonTag.bind(null, style, styleIndex, true);
+
+	} else if (
+		obj.sourceMap &&
+		typeof URL === "function" &&
+		typeof URL.createObjectURL === "function" &&
+		typeof URL.revokeObjectURL === "function" &&
+		typeof Blob === "function" &&
+		typeof btoa === "function"
+	) {
+		style = createLinkElement(options);
+		update = updateLink.bind(null, style, options);
+		remove = function () {
+			removeStyleElement(style);
+
+			if(style.href) URL.revokeObjectURL(style.href);
+		};
+	} else {
+		style = createStyleElement(options);
+		update = applyToTag.bind(null, style);
+		remove = function () {
+			removeStyleElement(style);
+		};
+	}
+
+	update(obj);
+
+	return function updateStyle (newObj) {
+		if (newObj) {
+			if (
+				newObj.css === obj.css &&
+				newObj.media === obj.media &&
+				newObj.sourceMap === obj.sourceMap
+			) {
+				return;
+			}
+
+			update(obj = newObj);
+		} else {
+			remove();
+		}
+	};
+}
+
+var replaceText = (function () {
+	var textStore = [];
+
+	return function (index, replacement) {
+		textStore[index] = replacement;
+
+		return textStore.filter(Boolean).join('\n');
+	};
+})();
+
+function applyToSingletonTag (style, index, remove, obj) {
+	var css = remove ? "" : obj.css;
+
+	if (style.styleSheet) {
+		style.styleSheet.cssText = replaceText(index, css);
+	} else {
+		var cssNode = document.createTextNode(css);
+		var childNodes = style.childNodes;
+
+		if (childNodes[index]) style.removeChild(childNodes[index]);
+
+		if (childNodes.length) {
+			style.insertBefore(cssNode, childNodes[index]);
+		} else {
+			style.appendChild(cssNode);
+		}
+	}
+}
+
+function applyToTag (style, obj) {
+	var css = obj.css;
+	var media = obj.media;
+
+	if(media) {
+		style.setAttribute("media", media)
+	}
+
+	if(style.styleSheet) {
+		style.styleSheet.cssText = css;
+	} else {
+		while(style.firstChild) {
+			style.removeChild(style.firstChild);
+		}
+
+		style.appendChild(document.createTextNode(css));
+	}
+}
+
+function updateLink (link, options, obj) {
+	var css = obj.css;
+	var sourceMap = obj.sourceMap;
+
+	/*
+		If convertToAbsoluteUrls isn't defined, but sourcemaps are enabled
+		and there is no publicPath defined then lets turn convertToAbsoluteUrls
+		on by default.  Otherwise default to the convertToAbsoluteUrls option
+		directly
+	*/
+	var autoFixUrls = options.convertToAbsoluteUrls === undefined && sourceMap;
+
+	if (options.convertToAbsoluteUrls || autoFixUrls) {
+		css = fixUrls(css);
+	}
+
+	if (sourceMap) {
+		// http://stackoverflow.com/a/26603875
+		css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */";
+	}
+
+	var blob = new Blob([css], { type: "text/css" });
+
+	var oldSrc = link.href;
+
+	link.href = URL.createObjectURL(blob);
+
+	if(oldSrc) URL.revokeObjectURL(oldSrc);
+}
+
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+  // get current location
+  var location = typeof window !== "undefined" && window.location;
+
+  if (!location) {
+    throw new Error("fixUrls requires window.location");
+  }
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+	  return css;
+  }
+
+  var baseUrl = location.protocol + "//" + location.host;
+  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+	This regular expression is just a way to recursively match brackets within
+	a string.
+
+	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+	   (  = Start a capturing group
+	     (?:  = Start a non-capturing group
+	         [^)(]  = Match anything that isn't a parentheses
+	         |  = OR
+	         \(  = Match a start parentheses
+	             (?:  = Start another non-capturing groups
+	                 [^)(]+  = Match anything that isn't a parentheses
+	                 |  = OR
+	                 \(  = Match a start parentheses
+	                     [^)(]*  = Match anything that isn't a parentheses
+	                 \)  = Match a end parentheses
+	             )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+	 \)  = Match a close parens
+
+	 /gi  = Get all matches, not the first.  Be case insensitive.
+	 */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl
+			.trim()
+			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
+			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+		  return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+		  	//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+
+/***/ }),
+/* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(258)
+/* template */
+var __vue_template__ = __webpack_require__(259)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SearchInput.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-fa6524ca", Component.options)
+  } else {
+    hotAPI.reload("data-v-fa6524ca", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 258 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            inputHint: "請輸入欲搜尋地點…",
+            address: ''
+        };
+    },
+    watch: {
+        /*address: function() {
+            this.findLocation();
+        }*/
+    },
+    methods: {
+        findLocation: _.debounce(function () {
+            if (this.address.length > 0) {
+                this.$emit('located');
+            } else {
+                this.$emit('cleared');
+            }
+        }, 500),
+        setPlace: function setPlace(place) {
+            this.$emit('located', place);
+        }
+    }
+});
+
+/***/ }),
+/* 259 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "col-md-12 search d-flex justify-content-between" },
+    [
+      _c(
+        "div",
+        { staticClass: "location d-flex" },
+        [
+          _c("GmapAutocomplete", {
+            attrs: { placeholder: _vm.inputHint, value: _vm.address },
+            on: { place_changed: _vm.setPlace }
+          }),
+          _vm._v(" "),
+          _c("img", {
+            staticClass: "align-self-center",
+            attrs: { src: "icons/icon.png" }
+          })
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("a", { attrs: { href: "#" } }, [
+      _c("img", {
+        staticClass: "search-btn",
+        attrs: { src: "icons/search.png", alt: "" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-fa6524ca", module.exports)
+  }
+}
+
+/***/ }),
+/* 260 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(261)
+/* template */
+var __vue_template__ = __webpack_require__(262)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/OptionBox.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0f4ff1ef", Component.options)
+  } else {
+    hotAPI.reload("data-v-0f4ff1ef", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 261 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['item']
+});
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "box" }, [
+    _c("div", { staticClass: "title" }, [
+      _c("input", { attrs: { type: "checkbox" } }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "" } }, [_vm._v(_vm._s(_vm.item.aspect))])
+    ]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "d-flex flex-wrap" },
+      _vm._l(_vm.item.options, function(option) {
+        return _c("li", [
+          _c("input", { attrs: { type: "checkbox" } }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "" } }, [_vm._v(_vm._s(option))])
+        ])
+      })
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0f4ff1ef", module.exports)
+  }
+}
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(264)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(266)
+/* template */
+var __vue_template__ = __webpack_require__(272)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-bf994214"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FactorCard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-bf994214", Component.options)
+  } else {
+    hotAPI.reload("data-v-bf994214", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(265);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("cc748438", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf994214\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorCard.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bf994214\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorCard.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 265 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card[data-v-bf994214] {\n  padding: 0;\n  background: #dbf3bf;\n  border-color: #b9d08c;\n  border-style: solid;\n  border-radius: 0.5rem;\n  color: #4f6228;\n  font-weight: bold;\n}\n.card .title[data-v-bf994214] {\n    font-size: 1.2rem;\n    color: #4f6228;\n}\n.card .info[data-v-bf994214] {\n    width: 100%;\n}\n.card .info .title[data-v-bf994214] {\n      font-size: 1.4rem;\n      background: #bce986;\n}\n.card .info .content[data-v-bf994214] {\n      max-height: 6rem;\n      min-height: 5rem;\n      overflow-y: auto;\n      font-size: 1rem;\n      list-style-type: none;\n      padding: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 266 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_radial_progress__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            tabId: '/#' + (this.factor.enName || 'safety')
+        };
+    },
+    computed: {
+        contents: function contents() {
+            var have = [];
+            var notHave = [];
+            var result = [];
+            var fc = this.factor;
+            for (var i = 0; i < fc.details.length; i++) {
+                if (fc.details[i].features.length <= 0) {
+                    notHave.push('附近無 ' + fc.details[i].title);
+                } else {
+                    var feature = fc.details[i].features[0];
+                    var s = '近 ' + feature.properties.title + ' ' + feature.properties.name;
+                    have.push(s);
+                }
+            }
+            return have.concat(notHave) || ['查無資料'];
+        },
+        score: function score() {
+            var fs = parseInt(this.factor.score);
+            return fs;
+        }
+    },
+    methods: {
+        show: function show(modal) {
+            this.$modal.show(modal);
+        }
+    },
+    components: {
+        RadialProgressBar: __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress___default.a
+    },
+    props: {
+        factor: {
+            type: Object,
+            default: function _default() {
+                return {
+                    name: 'factor',
+                    score: 0,
+                    details: null,
+                    enName: 'safety'
+                };
+            }
+        },
+        modal: {
+            type: String,
+            default: function _default() {
+                return "factors-detail";
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(268)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(270)
+/* template */
+var __vue_template__ = __webpack_require__(271)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "node_modules/vue-radial-progress/src/RadialProgressBar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3e2ff9ec", Component.options)
+  } else {
+    hotAPI.reload("data-v-3e2ff9ec", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(269);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("6bad0303", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../css-loader/index.js!../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3e2ff9ec\",\"scoped\":false,\"hasInlineConfig\":true}!../../vue-loader/lib/selector.js?type=styles&index=0!./RadialProgressBar.vue", function() {
+     var newContent = require("!!../../css-loader/index.js!../../vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-3e2ff9ec\",\"scoped\":false,\"hasInlineConfig\":true}!../../vue-loader/lib/selector.js?type=styles&index=0!./RadialProgressBar.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.radial-progress-container {\r\n  position: relative;\n}\n.radial-progress-inner {\r\n  position: absolute;\r\n  top: 0; right: 0; bottom: 0; left: 0;\r\n  position: absolute;\r\n  border-radius: 50%;\r\n  margin: 0 auto;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-orient: vertical;\r\n  -webkit-box-direction: normal;\r\n      -ms-flex-direction: column;\r\n          flex-direction: column;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  props: {
+    diameter: {
+      type: Number,
+      required: false,
+      default: 200
+    },
+    totalSteps: {
+      type: Number,
+      required: true,
+      default: 10
+    },
+    completedSteps: {
+      type: Number,
+      required: true,
+      default: 0
+    },
+    startColor: {
+      type: String,
+      required: false,
+      default: '#bbff42'
+    },
+    stopColor: {
+      type: String,
+      required: false,
+      default: '#429321'
+    },
+    strokeWidth: {
+      type: Number,
+      required: false,
+      default: 10
+    },
+    animateSpeed: {
+      type: Number,
+      required: false,
+      default: 1000
+    },
+    innerStrokeColor: {
+      type: String,
+      required: false,
+      default: '#323232'
+    },
+    fps: {
+      type: Number,
+      required: false,
+      default: 60
+    },
+    timingFunc: {
+      type: String,
+      required: false,
+      default: 'linear'
+    }
+  },
+
+  data: function data() {
+    return {
+      gradient: {
+        fx: 0.99,
+        fy: 0.5,
+        cx: 0.5,
+        cy: 0.5,
+        r: 0.65
+      },
+      gradientAnimation: null,
+      currentAngle: 0,
+      strokeDashoffset: 0
+    };
+  },
+
+
+  computed: {
+    radius: function radius() {
+      return this.diameter / 2;
+    },
+    circumference: function circumference() {
+      return Math.PI * this.innerCircleDiameter;
+    },
+    stepSize: function stepSize() {
+      if (this.totalSteps === 0) {
+        return 0;
+      }
+
+      return 100 / this.totalSteps;
+    },
+    finishedPercentage: function finishedPercentage() {
+      return this.stepSize * this.completedSteps;
+    },
+    circleSlice: function circleSlice() {
+      return 2 * Math.PI / this.totalSteps;
+    },
+    animateSlice: function animateSlice() {
+      return this.circleSlice / this.totalPoints;
+    },
+    innerCircleDiameter: function innerCircleDiameter() {
+      return this.diameter - this.strokeWidth * 2;
+    },
+    innerCircleRadius: function innerCircleRadius() {
+      return this.innerCircleDiameter / 2;
+    },
+    totalPoints: function totalPoints() {
+      return this.animateSpeed / this.animationIncrements;
+    },
+    animationIncrements: function animationIncrements() {
+      return 1000 / this.fps;
+    },
+    hasGradient: function hasGradient() {
+      return this.startColor !== this.stopColor;
+    },
+    containerStyle: function containerStyle() {
+      return {
+        height: this.diameter + 'px',
+        width: this.diameter + 'px'
+      };
+    },
+    progressStyle: function progressStyle() {
+      return {
+        height: this.diameter + 'px',
+        width: this.diameter + 'px',
+        strokeWidth: this.strokeWidth + 'px',
+        strokeDashoffset: this.strokeDashoffset,
+        transition: 'stroke-dashoffset ' + this.animateSpeed + 'ms ' + this.timingFunc
+      };
+    },
+    strokeStyle: function strokeStyle() {
+      return {
+        height: this.diameter + 'px',
+        width: this.diameter + 'px',
+        strokeWidth: this.strokeWidth + 'px'
+      };
+    },
+    innerCircleStyle: function innerCircleStyle() {
+      return {
+        width: this.innerCircleDiameter + 'px'
+      };
+    }
+  },
+
+  methods: {
+    getStopPointsOfCircle: function getStopPointsOfCircle(steps) {
+      var points = [];
+
+      for (var i = 0; i < steps; i++) {
+        var angle = this.circleSlice * i;
+        points.push(this.getPointOfCircle(angle));
+      }
+
+      return points;
+    },
+    getPointOfCircle: function getPointOfCircle(angle) {
+      var radius = 0.5;
+
+      var x = radius + radius * Math.cos(angle);
+      var y = radius + radius * Math.sin(angle);
+
+      return { x: x, y: y };
+    },
+    gotoPoint: function gotoPoint() {
+      var point = this.getPointOfCircle(this.currentAngle);
+
+      this.gradient.fx = point.x;
+      this.gradient.fy = point.y;
+    },
+    changeProgress: function changeProgress(_ref) {
+      var _this = this;
+
+      var _ref$isAnimate = _ref.isAnimate,
+          isAnimate = _ref$isAnimate === undefined ? true : _ref$isAnimate;
+
+      this.strokeDashoffset = (100 - this.finishedPercentage) / 100 * this.circumference;
+
+      if (this.gradientAnimation) {
+        clearInterval(this.gradientAnimation);
+      }
+
+      if (!isAnimate) {
+        this.gotoNextStep();
+        return;
+      }
+
+      var angleOffset = (this.completedSteps - 1) * this.circleSlice;
+      var i = (this.currentAngle - angleOffset) / this.animateSlice;
+      var incrementer = Math.abs(i - this.totalPoints) / this.totalPoints;
+      var isMoveForward = i < this.totalPoints;
+
+      this.gradientAnimation = setInterval(function () {
+        if (isMoveForward && i >= _this.totalPoints || !isMoveForward && i < _this.totalPoints) {
+          clearInterval(_this.gradientAnimation);
+          return;
+        }
+
+        _this.currentAngle = angleOffset + _this.animateSlice * i;
+        _this.gotoPoint();
+
+        i += isMoveForward ? incrementer : -incrementer;
+      }, this.animationIncrements);
+    },
+    gotoNextStep: function gotoNextStep() {
+      this.currentAngle = this.completedSteps * this.circleSlice;
+      this.gotoPoint();
+    }
+  },
+
+  watch: {
+    totalSteps: function totalSteps() {
+      this.changeProgress({ isAnimate: true });
+    },
+    completedSteps: function completedSteps() {
+      this.changeProgress({ isAnimate: true });
+    },
+    diameter: function diameter() {
+      this.changeProgress({ isAnimate: true });
+    },
+    strokeWidth: function strokeWidth() {
+      this.changeProgress({ isAnimate: true });
+    }
+  },
+
+  created: function created() {
+    this.changeProgress({ isAnimate: false });
+  }
+};
+
+/***/ }),
+/* 271 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "radial-progress-container", style: _vm.containerStyle },
+    [
+      _c(
+        "div",
+        { staticClass: "radial-progress-inner", style: _vm.innerCircleStyle },
+        [_vm._t("default")],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "svg",
+        {
+          staticClass: "radial-progress-bar",
+          attrs: {
+            width: _vm.diameter,
+            height: _vm.diameter,
+            version: "1.1",
+            xmlns: "http://www.w3.org/2000/svg"
+          }
+        },
+        [
+          _c(
+            "defs",
+            [
+              _c(
+                "radialGradient",
+                {
+                  attrs: {
+                    id: "radial-gradient" + _vm._uid,
+                    fx: _vm.gradient.fx,
+                    fy: _vm.gradient.fy,
+                    cx: _vm.gradient.cx,
+                    cy: _vm.gradient.cy,
+                    r: _vm.gradient.r
+                  }
+                },
+                [
+                  _c("stop", {
+                    attrs: { offset: "30%", "stop-color": _vm.startColor }
+                  }),
+                  _vm._v(" "),
+                  _c("stop", {
+                    attrs: { offset: "100%", "stop-color": _vm.stopColor }
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("circle", {
+            style: _vm.strokeStyle,
+            attrs: {
+              r: _vm.innerCircleRadius,
+              cx: _vm.radius,
+              cy: _vm.radius,
+              fill: "transparent",
+              stroke: _vm.innerStrokeColor,
+              "stroke-dasharray": _vm.circumference,
+              "stroke-dashoffset": "0",
+              "stroke-linecap": "round"
+            }
+          }),
+          _vm._v(" "),
+          _c("circle", {
+            style: _vm.progressStyle,
+            attrs: {
+              transform: "rotate(270, " + _vm.radius + "," + _vm.radius + ")",
+              r: _vm.innerCircleRadius,
+              cx: _vm.radius,
+              cy: _vm.radius,
+              fill: "transparent",
+              stroke: "url(#radial-gradient" + _vm._uid + ")",
+              "stroke-dasharray": _vm.circumference,
+              "stroke-dashoffset": _vm.circumference,
+              "stroke-linecap": "round"
+            }
+          })
+        ]
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3e2ff9ec", module.exports)
+  }
+}
+
+/***/ }),
+/* 272 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "card d-flex flex-column align-items-center" },
+    [
+      _c(
+        "a",
+        {
+          staticClass: "title",
+          attrs: { href: _vm.tabId },
+          on: {
+            click: function($event) {
+              _vm.show(_vm.modal)
+            }
+          }
+        },
+        [_vm._v(_vm._s(_vm.factor.name))]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "score" },
+        [
+          _c(
+            "radial-progress-bar",
+            {
+              attrs: {
+                diameter: 120,
+                "completed-steps": _vm.score,
+                "total-steps": 100,
+                innerStrokeColor: "#c2d6d6",
+                startColor: "#00cc00",
+                stopColor: "#0099ff"
+              }
+            },
+            [
+              _c(
+                "p",
+                {
+                  staticStyle: { "font-size": "1.2rem", "font-weight": "bold" }
+                },
+                [_vm._v(_vm._s((_vm.score / 10).toFixed(1)) + " / 10")]
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "info d-inline" }, [
+        _c("div", { staticClass: "title text-center" }, [_vm._v("優劣分析")]),
+        _vm._v(" "),
+        _c(
+          "ul",
+          { staticClass: "content" },
+          _vm._l(_vm.contents, function(li, index) {
+            return _c("li", { key: index }, [_vm._v(_vm._s(li))])
+          })
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-bf994214", module.exports)
+  }
+}
+
+/***/ }),
+/* 273 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(274)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(276)
+/* template */
+var __vue_template__ = __webpack_require__(277)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-31df4ebd"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/WeatherCard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-31df4ebd", Component.options)
+  } else {
+    hotAPI.reload("data-v-31df4ebd", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(275);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("1f524b84", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31df4ebd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WeatherCard.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31df4ebd\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./WeatherCard.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 275 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.weather-card[data-v-31df4ebd] {\n  width: 100%;\n  padding: 0;\n  background: #9db9d9;\n  border-radius: 0.5rem;\n  color: white;\n  font-size: 1rem;\n  font-weight: bold;\n}\n.weather-card .title[data-v-31df4ebd] {\n    font-size: 1.4rem;\n    padding: 0.5rem 0;\n    border-bottom-style: dotted;\n    border-color: #638fc4;\n}\n.weather-card .content[data-v-31df4ebd] {\n    list-style-type: none;\n    padding: 10%;\n}\n.text-center[data-v-31df4ebd] {\n  text-align: center;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 276 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            summerAvgTemp: 28.1,
+            winterAvgTemp: 15.8,
+            annualRainfall: 2094.9
+        };
+    },
+    watch: {
+        /*address: function() {
+            this.findLocation();
+        }*/
+    },
+    methods: {},
+    props: ['weatherData']
+});
+
+/***/ }),
+/* 277 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "weather-card align-items-center" }, [
+    _c("div", { staticClass: "title text-center" }, [_vm._v("地區氣候")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "d-flex" }, [
+      _c("ul", { staticClass: "content d-inline" }, [
+        _c("li", [_vm._v("夏季均溫：" + _vm._s(_vm.summerAvgTemp) + " °C")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("冬季均溫：" + _vm._s(_vm.winterAvgTemp) + " °C")]),
+        _vm._v(" "),
+        _c("li", [_vm._v("年降雨量：" + _vm._s(_vm.annualRainfall) + " 毫米")])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-31df4ebd", module.exports)
+  }
+}
+
+/***/ }),
+/* 278 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(279)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(281)
+/* template */
+var __vue_template__ = __webpack_require__(282)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-43efec6f"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/SummaryCard.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-43efec6f", Component.options)
+  } else {
+    hotAPI.reload("data-v-43efec6f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 279 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(280);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("6a918b99", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43efec6f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SummaryCard.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-43efec6f\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SummaryCard.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 280 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.summary-card[data-v-43efec6f] {\n  padding: 0;\n  background: rgba(248, 214, 214, 0.45);\n  border-radius: 0.5rem;\n  color: #cf2323;\n  font-weight: bold;\n}\n.summary-card .title[data-v-43efec6f] {\n    font-size: 1.2rem;\n}\n.summary-card .info[data-v-43efec6f] {\n    width: 100%;\n}\n.summary-card .info .title[data-v-43efec6f] {\n      font-size: 1.4rem;\n      background: rgba(239, 163, 163, 0.4);\n}\n.summary-card .info .content[data-v-43efec6f] {\n      max-height: 6rem;\n      min-height: 5rem;\n      overflow-x: hidden;\n      font-size: 1rem;\n      list-style-type: none;\n      padding: 1rem;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 281 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress__ = __webpack_require__(90);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_radial_progress__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            //score: 77 / 10
+        };
+    },
+    computed: {
+        score: function score() {
+            var fs = parseInt(this.summary.score);
+            return fs;
+        },
+        landCurrentValue: function landCurrentValue() {
+            var value = this.summary.pracel.landCurrentValue / 0.3025 / 10000; //m^2 => 坪
+            return value.toFixed(2);
+        },
+        declaredValue: function declaredValue() {
+            var value = this.summary.pracel.declaredValue / 0.3025 / 10000; //m^2 => 坪
+            return value.toFixed(2);
+        }
+    },
+    watch: {
+        /*address: function() {
+            this.findLocation();
+        }*/
+    },
+    methods: {},
+    components: {
+        RadialProgressBar: __WEBPACK_IMPORTED_MODULE_0_vue_radial_progress___default.a
+    },
+    props: {
+        summary: {
+            type: [Array, Object],
+            default: function _default() {
+                return {
+                    name: 'summary',
+                    score: 0
+                };
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 282 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "summary-card d-flex flex-column align-items-center" },
+    [
+      _c("div", { staticClass: "title" }, [_vm._v("綜合分數")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "score" },
+        [
+          _c(
+            "radial-progress-bar",
+            {
+              attrs: {
+                diameter: 120,
+                "completed-steps": _vm.score,
+                "total-steps": 100,
+                innerStrokeColor: "#c2d6d6",
+                startColor: "#ff3300",
+                stopColor: "#ff9933"
+              }
+            },
+            [
+              _c(
+                "p",
+                {
+                  staticStyle: { "font-size": "1.2rem", "font-weight": "bold" }
+                },
+                [_vm._v(_vm._s((_vm.score / 10).toFixed(1)) + " / 10")]
+              )
+            ]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "info d-inline" }, [
+        _c("div", { staticClass: "title text-center" }, [_vm._v("房屋簡歷")]),
+        _vm._v(" "),
+        _c("ul", { staticClass: "content" }, [
+          _c("li", [
+            _vm._v("土地現值：" + _vm._s(_vm.landCurrentValue) + "萬 / 坪")
+          ]),
+          _vm._v(" "),
+          _c("li", [_vm._v("地價：" + _vm._s(_vm.declaredValue) + "萬 / 坪")])
+        ])
+      ])
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-43efec6f", module.exports)
+  }
+}
+
+/***/ }),
+/* 283 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(root, factory) {
+     true ? module.exports = factory() : "function" == typeof define && define.amd ? define([], factory) : "object" == typeof exports ? exports["vue-js-modal"] = factory() : root["vue-js-modal"] = factory();
+}(this, function() {
+    return function(modules) {
+        function __webpack_require__(moduleId) {
+            if (installedModules[moduleId]) return installedModules[moduleId].exports;
+            var module = installedModules[moduleId] = {
+                i: moduleId,
+                l: !1,
+                exports: {}
+            };
+            return modules[moduleId].call(module.exports, module, module.exports, __webpack_require__), 
+            module.l = !0, module.exports;
+        }
+        var installedModules = {};
+        return __webpack_require__.m = modules, __webpack_require__.c = installedModules, 
+        __webpack_require__.i = function(value) {
+            return value;
+        }, __webpack_require__.d = function(exports, name, getter) {
+            __webpack_require__.o(exports, name) || Object.defineProperty(exports, name, {
+                configurable: !1,
+                enumerable: !0,
+                get: getter
+            });
+        }, __webpack_require__.n = function(module) {
+            var getter = module && module.__esModule ? function() {
+                return module.default;
+            } : function() {
+                return module;
+            };
+            return __webpack_require__.d(getter, "a", getter), getter;
+        }, __webpack_require__.o = function(object, property) {
+            return Object.prototype.hasOwnProperty.call(object, property);
+        }, __webpack_require__.p = "/dist/", __webpack_require__(__webpack_require__.s = 3);
+    }([ function(module, exports) {
+        module.exports = function(rawScriptExports, compiledTemplate, scopeId, cssModules) {
+            var esModule, scriptExports = rawScriptExports = rawScriptExports || {}, type = typeof rawScriptExports.default;
+            "object" !== type && "function" !== type || (esModule = rawScriptExports, scriptExports = rawScriptExports.default);
+            var options = "function" == typeof scriptExports ? scriptExports.options : scriptExports;
+            if (compiledTemplate && (options.render = compiledTemplate.render, options.staticRenderFns = compiledTemplate.staticRenderFns), 
+            scopeId && (options._scopeId = scopeId), cssModules) {
+                var computed = options.computed || (options.computed = {});
+                Object.keys(cssModules).forEach(function(key) {
+                    var module = cssModules[key];
+                    computed[key] = function() {
+                        return module;
+                    };
+                });
+            }
+            return {
+                esModule: esModule,
+                exports: scriptExports,
+                options: options
+            };
+        };
+    }, function(module, exports) {
+        module.exports = function() {
+            var list = [];
+            return list.toString = function() {
+                for (var result = [], i = 0; i < this.length; i++) {
+                    var item = this[i];
+                    item[2] ? result.push("@media " + item[2] + "{" + item[1] + "}") : result.push(item[1]);
+                }
+                return result.join("");
+            }, list.i = function(modules, mediaQuery) {
+                "string" == typeof modules && (modules = [ [ null, modules, "" ] ]);
+                for (var alreadyImportedModules = {}, i = 0; i < this.length; i++) {
+                    var id = this[i][0];
+                    "number" == typeof id && (alreadyImportedModules[id] = !0);
+                }
+                for (i = 0; i < modules.length; i++) {
+                    var item = modules[i];
+                    "number" == typeof item[0] && alreadyImportedModules[item[0]] || (mediaQuery && !item[2] ? item[2] = mediaQuery : mediaQuery && (item[2] = "(" + item[2] + ") and (" + mediaQuery + ")"), 
+                    list.push(item));
+                }
+            }, list;
+        };
+    }, function(module, exports, __webpack_require__) {
+        function addStylesToDom(styles) {
+            for (var i = 0; i < styles.length; i++) {
+                var item = styles[i], domStyle = stylesInDom[item.id];
+                if (domStyle) {
+                    domStyle.refs++;
+                    for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j](item.parts[j]);
+                    for (;j < item.parts.length; j++) domStyle.parts.push(addStyle(item.parts[j]));
+                    domStyle.parts.length > item.parts.length && (domStyle.parts.length = item.parts.length);
+                } else {
+                    for (var parts = [], j = 0; j < item.parts.length; j++) parts.push(addStyle(item.parts[j]));
+                    stylesInDom[item.id] = {
+                        id: item.id,
+                        refs: 1,
+                        parts: parts
+                    };
+                }
+            }
+        }
+        function createStyleElement() {
+            var styleElement = document.createElement("style");
+            return styleElement.type = "text/css", head.appendChild(styleElement), styleElement;
+        }
+        function addStyle(obj) {
+            var update, remove, styleElement = document.querySelector('style[data-vue-ssr-id~="' + obj.id + '"]');
+            if (styleElement) {
+                if (isProduction) return noop;
+                styleElement.parentNode.removeChild(styleElement);
+            }
+            if (isOldIE) {
+                var styleIndex = singletonCounter++;
+                styleElement = singletonElement || (singletonElement = createStyleElement()), update = applyToSingletonTag.bind(null, styleElement, styleIndex, !1), 
+                remove = applyToSingletonTag.bind(null, styleElement, styleIndex, !0);
+            } else styleElement = createStyleElement(), update = applyToTag.bind(null, styleElement), 
+            remove = function() {
+                styleElement.parentNode.removeChild(styleElement);
+            };
+            return update(obj), function(newObj) {
+                if (newObj) {
+                    if (newObj.css === obj.css && newObj.media === obj.media && newObj.sourceMap === obj.sourceMap) return;
+                    update(obj = newObj);
+                } else remove();
+            };
+        }
+        function applyToSingletonTag(styleElement, index, remove, obj) {
+            var css = remove ? "" : obj.css;
+            if (styleElement.styleSheet) styleElement.styleSheet.cssText = replaceText(index, css); else {
+                var cssNode = document.createTextNode(css), childNodes = styleElement.childNodes;
+                childNodes[index] && styleElement.removeChild(childNodes[index]), childNodes.length ? styleElement.insertBefore(cssNode, childNodes[index]) : styleElement.appendChild(cssNode);
+            }
+        }
+        function applyToTag(styleElement, obj) {
+            var css = obj.css, media = obj.media, sourceMap = obj.sourceMap;
+            if (media && styleElement.setAttribute("media", media), sourceMap && (css += "\n/*# sourceURL=" + sourceMap.sources[0] + " */", 
+            css += "\n/*# sourceMappingURL=data:application/json;base64," + btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap)))) + " */"), 
+            styleElement.styleSheet) styleElement.styleSheet.cssText = css; else {
+                for (;styleElement.firstChild; ) styleElement.removeChild(styleElement.firstChild);
+                styleElement.appendChild(document.createTextNode(css));
+            }
+        }
+        var hasDocument = "undefined" != typeof document;
+        if ("undefined" != typeof DEBUG && DEBUG && !hasDocument) throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");
+        var listToStyles = __webpack_require__(24), stylesInDom = {}, head = hasDocument && (document.head || document.getElementsByTagName("head")[0]), singletonElement = null, singletonCounter = 0, isProduction = !1, noop = function() {}, isOldIE = "undefined" != typeof navigator && /msie [6-9]\b/.test(navigator.userAgent.toLowerCase());
+        module.exports = function(parentId, list, _isProduction) {
+            isProduction = _isProduction;
+            var styles = listToStyles(parentId, list);
+            return addStylesToDom(styles), function(newList) {
+                for (var mayRemove = [], i = 0; i < styles.length; i++) {
+                    var item = styles[i], domStyle = stylesInDom[item.id];
+                    domStyle.refs--, mayRemove.push(domStyle);
+                }
+                newList ? (styles = listToStyles(parentId, newList), addStylesToDom(styles)) : styles = [];
+                for (var i = 0; i < mayRemove.length; i++) {
+                    var domStyle = mayRemove[i];
+                    if (0 === domStyle.refs) {
+                        for (var j = 0; j < domStyle.parts.length; j++) domStyle.parts[j]();
+                        delete stylesInDom[domStyle.id];
+                    }
+                }
+            };
+        };
+        var replaceText = function() {
+            var textStore = [];
+            return function(index, replacement) {
+                return textStore[index] = replacement, textStore.filter(Boolean).join("\n");
+            };
+        }();
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        function _interopRequireDefault(obj) {
+            return obj && obj.__esModule ? obj : {
+                default: obj
+            };
+        }
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        });
+        var _Modal = __webpack_require__(6), _Modal2 = _interopRequireDefault(_Modal), _Dialog = __webpack_require__(5), _Dialog2 = _interopRequireDefault(_Dialog), _ModalsContainer = __webpack_require__(7), _ModalsContainer2 = _interopRequireDefault(_ModalsContainer), Plugin = {
+            install: function(Vue) {
+                var options = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : {};
+                this.installed || (this.installed = !0, this.event = new Vue(), this.dynamicContainer = null, 
+                this.componentName = options.componentName || "modal", Vue.prototype.$modal = {
+                    _setDynamicContainer: function(dynamicContainer) {
+                        Plugin.dynamicContainer = dynamicContainer;
+                    },
+                    show: function(modal, paramsOrProps, params) {
+                        var events = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : {};
+                        "string" == typeof modal ? Plugin.event.$emit("toggle", modal, !0, paramsOrProps) : null === Plugin.dynamicContainer ? console.warn("[vue-js-modal] In order to render dynamic modals, a <modals-container> component must be present on the page") : Plugin.dynamicContainer.add(modal, paramsOrProps, params, events);
+                    },
+                    hide: function(name, params) {
+                        Plugin.event.$emit("toggle", name, !1, params);
+                    },
+                    toggle: function(name, params) {
+                        Plugin.event.$emit("toggle", name, void 0, params);
+                    }
+                }, Vue.component(this.componentName, _Modal2.default), options.dialog && Vue.component("v-dialog", _Dialog2.default), 
+                options.dynamic && Vue.component("modals-container", _ModalsContainer2.default));
+            }
+        };
+        exports.default = Plugin;
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        });
+        var inRange = exports.inRange = function(from, to, value) {
+            return value < from ? from : value > to ? to : value;
+        };
+        exports.default = {
+            inRange: inRange
+        };
+    }, function(module, exports, __webpack_require__) {
+        __webpack_require__(21);
+        var Component = __webpack_require__(0)(__webpack_require__(8), __webpack_require__(18), null, null);
+        Component.options.__file = "D:\\Projects\\vue\\vue-js-modal\\src\\Dialog.vue", Component.esModule && Object.keys(Component.esModule).some(function(key) {
+            return "default" !== key && "__esModule" !== key;
+        }) && console.error("named exports are not supported in *.vue files."), Component.options.functional && console.error("[vue-loader] Dialog.vue: functional components are not supported with templates, they should use render functions."), 
+        module.exports = Component.exports;
+    }, function(module, exports, __webpack_require__) {
+        __webpack_require__(22);
+        var Component = __webpack_require__(0)(__webpack_require__(9), __webpack_require__(19), null, null);
+        Component.options.__file = "D:\\Projects\\vue\\vue-js-modal\\src\\Modal.vue", Component.esModule && Object.keys(Component.esModule).some(function(key) {
+            return "default" !== key && "__esModule" !== key;
+        }) && console.error("named exports are not supported in *.vue files."), Component.options.functional && console.error("[vue-loader] Modal.vue: functional components are not supported with templates, they should use render functions."), 
+        module.exports = Component.exports;
+    }, function(module, exports, __webpack_require__) {
+        var Component = __webpack_require__(0)(__webpack_require__(10), __webpack_require__(17), null, null);
+        Component.options.__file = "D:\\Projects\\vue\\vue-js-modal\\src\\ModalsContainer.vue", 
+        Component.esModule && Object.keys(Component.esModule).some(function(key) {
+            return "default" !== key && "__esModule" !== key;
+        }) && console.error("named exports are not supported in *.vue files."), Component.options.functional && console.error("[vue-loader] ModalsContainer.vue: functional components are not supported with templates, they should use render functions."), 
+        module.exports = Component.exports;
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        }), exports.default = {
+            name: "VueJsDialog",
+            props: {
+                width: {
+                    type: [ Number, String ],
+                    default: 400
+                },
+                clickToClose: {
+                    type: Boolean,
+                    default: !0
+                },
+                transition: {
+                    type: String,
+                    default: "fade"
+                }
+            },
+            data: function() {
+                return {
+                    params: {},
+                    defaultButtons: [ {
+                        title: "CLOSE"
+                    } ]
+                };
+            },
+            computed: {
+                buttons: function() {
+                    return this.params.buttons || this.defaultButtons;
+                },
+                buttonStyle: function() {
+                    return {
+                        flex: "1 1 " + 100 / this.buttons.length + "%"
+                    };
+                }
+            },
+            methods: {
+                beforeOpened: function(event) {
+                    window.addEventListener("keyup", this.onKeyUp), this.params = event.params || {}, 
+                    this.$emit("before-opened", event);
+                },
+                beforeClosed: function(event) {
+                    window.removeEventListener("keyup", this.onKeyUp), this.params = {}, this.$emit("before-closed", event);
+                },
+                click: function(i, event) {
+                    var source = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : "click", button = this.buttons[i];
+                    button && "function" == typeof button.handler ? button.handler(i, event, {
+                        source: source
+                    }) : this.$modal.hide("dialog");
+                },
+                onKeyUp: function(event) {
+                    if (13 === event.which && this.buttons.length > 0) {
+                        var buttonIndex = 1 === this.buttons.length ? 0 : this.buttons.findIndex(function(button) {
+                            return button.default;
+                        });
+                        -1 !== buttonIndex && this.click(buttonIndex, event, "keypress");
+                    }
+                }
+            }
+        };
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        function _interopRequireDefault(obj) {
+            return obj && obj.__esModule ? obj : {
+                default: obj
+            };
+        }
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        });
+        var _index = __webpack_require__(3), _index2 = _interopRequireDefault(_index), _Resizer = __webpack_require__(16), _Resizer2 = _interopRequireDefault(_Resizer), _util = __webpack_require__(4), _parser = __webpack_require__(12), _parser2 = _interopRequireDefault(_parser);
+        exports.default = {
+            name: "VueJsModal",
+            props: {
+                name: {
+                    required: !0,
+                    type: String
+                },
+                delay: {
+                    type: Number,
+                    default: 0
+                },
+                resizable: {
+                    type: Boolean,
+                    default: !1
+                },
+                adaptive: {
+                    type: Boolean,
+                    default: !1
+                },
+                draggable: {
+                    type: [ Boolean, String ],
+                    default: !1
+                },
+                scrollable: {
+                    type: Boolean,
+                    default: !1
+                },
+                reset: {
+                    type: Boolean,
+                    default: !1
+                },
+                transition: {
+                    type: String
+                },
+                clickToClose: {
+                    type: Boolean,
+                    default: !0
+                },
+                classes: {
+                    type: [ String, Array ],
+                    default: "v--modal"
+                },
+                minWidth: {
+                    type: Number,
+                    default: 0,
+                    validator: function(value) {
+                        return value >= 0;
+                    }
+                },
+                minHeight: {
+                    type: Number,
+                    default: 0,
+                    validator: function(value) {
+                        return value >= 0;
+                    }
+                },
+                maxWidth: {
+                    type: Number,
+                    default: 1 / 0
+                },
+                maxHeight: {
+                    type: Number,
+                    default: 1 / 0
+                },
+                width: {
+                    type: [ Number, String ],
+                    default: 600,
+                    validator: function(value) {
+                        if ("string" == typeof value) {
+                            var width = (0, _parser2.default)(value);
+                            return ("%" === width.type || "px" === width.type) && width.value > 0;
+                        }
+                        return value >= 0;
+                    }
+                },
+                height: {
+                    type: [ Number, String ],
+                    default: 300,
+                    validator: function(value) {
+                        if ("string" == typeof value) {
+                            if ("auto" === value) return !0;
+                            var height = (0, _parser2.default)(value);
+                            return ("%" === height.type || "px" === height.type) && height.value > 0;
+                        }
+                        return value >= 0;
+                    }
+                },
+                pivotX: {
+                    type: Number,
+                    default: .5,
+                    validator: function(value) {
+                        return value >= 0 && value <= 1;
+                    }
+                },
+                pivotY: {
+                    type: Number,
+                    default: .5,
+                    validator: function(value) {
+                        return value >= 0 && value <= 1;
+                    }
+                }
+            },
+            components: {
+                Resizer: _Resizer2.default
+            },
+            data: function() {
+                return {
+                    visible: !1,
+                    visibility: {
+                        modal: !1,
+                        overlay: !1
+                    },
+                    shift: {
+                        left: 0,
+                        top: 0
+                    },
+                    modal: {
+                        width: 0,
+                        widthType: "px",
+                        height: 0,
+                        heightType: "px",
+                        renderedHeight: 0
+                    },
+                    window: {
+                        width: 0,
+                        height: 0
+                    },
+                    mutationObserver: null
+                };
+            },
+            watch: {
+                visible: function(value) {
+                    var _this = this;
+                    value ? (this.visibility.overlay = !0, setTimeout(function() {
+                        _this.visibility.modal = !0, _this.$nextTick(function() {
+                            _this.addDraggableListeners(), _this.callAfterEvent(!0);
+                        });
+                    }, this.delay)) : (this.visibility.modal = !1, setTimeout(function() {
+                        _this.visibility.overlay = !1, _this.$nextTick(function() {
+                            _this.removeDraggableListeners(), _this.callAfterEvent(!1);
+                        });
+                    }, this.delay));
+                }
+            },
+            created: function() {
+                this.setInitialSize();
+            },
+            beforeMount: function() {
+                var _this2 = this;
+                if (_index2.default.event.$on("toggle", function(name, state, params) {
+                    name === _this2.name && (void 0 === state && (state = !_this2.visible), _this2.toggle(state, params));
+                }), window.addEventListener("resize", this.onWindowResize), this.onWindowResize(), 
+                this.scrollable && !this.isAutoHeight && console.warn('Modal "' + this.name + '" has scrollable flag set to true but height is not "auto" (' + this.height + ")"), 
+                this.isAutoHeight) {
+                    var MutationObserver = function() {
+                        for (var prefixes = [ "", "WebKit", "Moz", "O", "Ms" ], i = 0; i < prefixes.length; i++) {
+                            var name = prefixes[i] + "MutationObserver";
+                            if (name in window) return window[name];
+                        }
+                        return !1;
+                    }();
+                    MutationObserver && (this.mutationObserver = new MutationObserver(function(mutations) {
+                        _this2.updateRenderedHeight();
+                    }));
+                }
+                this.clickToClose && window.addEventListener("keyup", this.onEscapeKeyUp);
+            },
+            beforeDestroy: function() {
+                window.removeEventListener("resize", this.onWindowResize), this.clickToClose && window.removeEventListener("keyup", this.onEscapeKeyUp);
+            },
+            computed: {
+                isAutoHeight: function() {
+                    return "auto" === this.modal.heightType;
+                },
+                position: function() {
+                    var window = this.window, shift = this.shift, pivotX = this.pivotX, pivotY = this.pivotY, trueModalWidth = this.trueModalWidth, trueModalHeight = this.trueModalHeight, maxLeft = window.width - trueModalWidth, maxTop = window.height - trueModalHeight, left = shift.left + pivotX * maxLeft, top = shift.top + pivotY * maxTop;
+                    return {
+                        left: (0, _util.inRange)(0, maxLeft, left),
+                        top: (0, _util.inRange)(0, maxTop, top)
+                    };
+                },
+                trueModalWidth: function() {
+                    var window = this.window, modal = this.modal, adaptive = this.adaptive, minWidth = this.minWidth, maxWidth = this.maxWidth, value = "%" === modal.widthType ? window.width / 100 * modal.width : modal.width, max = Math.min(window.width, maxWidth);
+                    return adaptive ? (0, _util.inRange)(minWidth, max, value) : value;
+                },
+                trueModalHeight: function() {
+                    var window = this.window, modal = this.modal, isAutoHeight = this.isAutoHeight, adaptive = this.adaptive, maxHeight = this.maxHeight, value = "%" === modal.heightType ? window.height / 100 * modal.height : modal.height;
+                    if (isAutoHeight) return this.modal.renderedHeight;
+                    var max = Math.min(window.height, maxHeight);
+                    return adaptive ? (0, _util.inRange)(this.minHeight, max, value) : value;
+                },
+                overlayClass: function() {
+                    return {
+                        "v--modal-overlay": !0,
+                        scrollable: this.scrollable && this.isAutoHeight
+                    };
+                },
+                backgroundClickClass: function() {
+                    return [ "v--modal-background-click" ];
+                },
+                modalClass: function() {
+                    return [ "v--modal-box", this.classes ];
+                },
+                modalStyle: function() {
+                    return {
+                        top: this.position.top + "px",
+                        left: this.position.left + "px",
+                        width: this.trueModalWidth + "px",
+                        height: this.isAutoHeight ? "auto" : this.trueModalHeight + "px"
+                    };
+                }
+            },
+            methods: {
+                setInitialSize: function() {
+                    var modal = this.modal, width = (0, _parser2.default)(this.width), height = (0, 
+                    _parser2.default)(this.height);
+                    modal.width = width.value, modal.widthType = width.type, modal.height = height.value, 
+                    modal.heightType = height.type;
+                },
+                onEscapeKeyUp: function(event) {
+                    27 === event.which && this.visible && this.$modal.hide(this.name);
+                },
+                onWindowResize: function() {
+                    this.window.width = window.innerWidth, this.window.height = window.innerHeight;
+                },
+                genEventObject: function(params) {
+                    var eventData = {
+                        name: this.name,
+                        timestamp: Date.now(),
+                        canceled: !1,
+                        ref: this.$refs.modal
+                    };
+                    return Object.assign(eventData, params || {});
+                },
+                onModalResize: function(event) {
+                    this.modal.widthType = "px", this.modal.width = event.size.width, this.modal.heightType = "px", 
+                    this.modal.height = event.size.height;
+                    var size = this.modal.size, resizeEvent = this.genEventObject({
+                        size: size
+                    });
+                    this.$emit("resize", resizeEvent);
+                },
+                toggle: function(state, params) {
+                    var reset = this.reset, scrollable = this.scrollable, visible = this.visible;
+                    if (visible !== state) {
+                        var beforeEventName = visible ? "before-close" : "before-open";
+                        "before-open" === beforeEventName ? (document.activeElement && document.activeElement.blur(), 
+                        reset && (this.setInitialSize(), this.shift.left = 0, this.shift.top = 0), scrollable && (document.getElementsByTagName("html")[0].classList.add("v--modal-block-scroll"), 
+                        document.body.classList.add("v--modal-block-scroll"))) : scrollable && (document.getElementsByTagName("html")[0].classList.remove("v--modal-block-scroll"), 
+                        document.body.classList.remove("v--modal-block-scroll"));
+                        var stopEventExecution = !1, stop = function() {
+                            stopEventExecution = !0;
+                        }, beforeEvent = this.genEventObject({
+                            stop: stop,
+                            state: state,
+                            params: params
+                        });
+                        this.$emit(beforeEventName, beforeEvent), stopEventExecution || (this.visible = state);
+                    }
+                },
+                getDraggableElement: function() {
+                    var selector = "string" != typeof this.draggable ? ".v--modal-box" : this.draggable;
+                    if (selector) {
+                        var handler = this.$refs.overlay.querySelector(selector);
+                        if (handler) return handler;
+                    }
+                },
+                onBackgroundClick: function() {
+                    this.clickToClose && this.toggle(!1);
+                },
+                addDraggableListeners: function() {
+                    var _this3 = this;
+                    if (this.draggable) {
+                        var dragger = this.getDraggableElement();
+                        if (dragger) {
+                            var startX = 0, startY = 0, cachedShiftX = 0, cachedShiftY = 0, getPosition = function(event) {
+                                return event.touches && event.touches.length > 0 ? event.touches[0] : event;
+                            }, mousedown = function(event) {
+                                var target = event.target;
+                                if (!target || "INPUT" !== target.nodeName) {
+                                    var _getPosition = getPosition(event), clientX = _getPosition.clientX, clientY = _getPosition.clientY;
+                                    document.addEventListener("mousemove", _mousemove), document.addEventListener("mouseup", _mouseup), 
+                                    document.addEventListener("touchmove", _mousemove), document.addEventListener("touchend", _mouseup), 
+                                    startX = clientX, startY = clientY, cachedShiftX = _this3.shift.left, cachedShiftY = _this3.shift.top;
+                                }
+                            }, _mousemove = function(event) {
+                                var _getPosition2 = getPosition(event), clientX = _getPosition2.clientX, clientY = _getPosition2.clientY;
+                                _this3.shift.left = cachedShiftX + clientX - startX, _this3.shift.top = cachedShiftY + clientY - startY, 
+                                event.preventDefault();
+                            }, _mouseup = function _mouseup(event) {
+                                document.removeEventListener("mousemove", _mousemove), document.removeEventListener("mouseup", _mouseup), 
+                                document.removeEventListener("touchmove", _mousemove), document.removeEventListener("touchend", _mouseup), 
+                                event.preventDefault();
+                            };
+                            dragger.addEventListener("mousedown", mousedown), dragger.addEventListener("touchstart", mousedown);
+                        }
+                    }
+                },
+                removeDraggableListeners: function() {},
+                callAfterEvent: function(state) {
+                    state ? this.connectObserver() : this.disconnectObserver();
+                    var eventName = state ? "opened" : "closed", event = this.genEventObject({
+                        state: state
+                    });
+                    this.$emit(eventName, event);
+                },
+                updateRenderedHeight: function() {
+                    this.$refs.modal && (this.modal.renderedHeight = this.$refs.modal.getBoundingClientRect().height);
+                },
+                connectObserver: function() {
+                    this.mutationObserver && this.mutationObserver.observe(this.$refs.modal, {
+                        childList: !0,
+                        attributes: !0,
+                        subtree: !0
+                    });
+                },
+                disconnectObserver: function() {
+                    this.mutationObserver && this.mutationObserver.disconnect();
+                }
+            }
+        };
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        }), exports.default = {
+            data: function() {
+                return {
+                    uid: 0,
+                    modals: []
+                };
+            },
+            created: function() {
+                this.$modal._setDynamicContainer(this);
+            },
+            methods: {
+                add: function(modal, params, config, events) {
+                    var _this = this, id = this.uid++;
+                    config = config ? Object.assign({}, config) : {}, config.name || (config.name = "_dynamic-modal-" + id), 
+                    this.modals.push({
+                        id: id,
+                        component: modal,
+                        params: params || {},
+                        config: config,
+                        events: events
+                    }), this.$nextTick(function() {
+                        _this.$modal.show(config.name);
+                    });
+                },
+                remove: function(id) {
+                    for (var i in this.modals) if (this.modals[i].id === id) return void this.modals.splice(i, 1);
+                }
+            }
+        };
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        });
+        var _util = __webpack_require__(4);
+        exports.default = {
+            name: "VueJsModalResizer",
+            props: {
+                minHeight: {
+                    type: Number,
+                    default: 0
+                },
+                minWidth: {
+                    type: Number,
+                    default: 0
+                }
+            },
+            data: function() {
+                return {
+                    clicked: !1,
+                    size: {}
+                };
+            },
+            mounted: function() {
+                this.$el.addEventListener("mousedown", this.start, !1);
+            },
+            computed: {
+                className: function() {
+                    return {
+                        "vue-modal-resizer": !0,
+                        clicked: this.clicked
+                    };
+                }
+            },
+            methods: {
+                start: function(event) {
+                    this.clicked = !0, window.addEventListener("mousemove", this.mousemove, !1), window.addEventListener("mouseup", this.stop, !1), 
+                    event.stopPropagation(), event.preventDefault();
+                },
+                stop: function() {
+                    this.clicked = !1, window.removeEventListener("mousemove", this.mousemove, !1), 
+                    window.removeEventListener("mouseup", this.stop, !1), this.$emit("resize-stop", {
+                        element: this.$el.parentElement,
+                        size: this.size
+                    });
+                },
+                mousemove: function(event) {
+                    this.resize(event);
+                },
+                resize: function(event) {
+                    var el = this.$el.parentElement;
+                    if (el) {
+                        var width = event.clientX - el.offsetLeft, height = event.clientY - el.offsetTop;
+                        width = (0, _util.inRange)(this.minWidth, window.innerWidth, width), height = (0, 
+                        _util.inRange)(this.minHeight, window.innerHeight, height), this.size = {
+                            width: width,
+                            height: height
+                        }, el.style.width = width + "px", el.style.height = height + "px", this.$emit("resize", {
+                            element: el,
+                            size: this.size
+                        });
+                    }
+                }
+            }
+        };
+    }, function(module, exports, __webpack_require__) {
+        "use strict";
+        Object.defineProperty(exports, "__esModule", {
+            value: !0
+        });
+        var _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function(obj) {
+            return typeof obj;
+        } : function(obj) {
+            return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+        }, types = [ {
+            name: "px",
+            regexp: new RegExp("^[-+]?[0-9]*.?[0-9]+px$")
+        }, {
+            name: "%",
+            regexp: new RegExp("^[-+]?[0-9]*.?[0-9]+%$")
+        }, {
+            name: "px",
+            regexp: new RegExp("^[-+]?[0-9]*.?[0-9]+$")
+        } ], getType = function(value) {
+            if ("auto" === value) return {
+                type: value,
+                value: 0
+            };
+            for (var i = 0; i < types.length; i++) {
+                var type = types[i];
+                if (type.regexp.test(value)) return {
+                    type: type.name,
+                    value: parseFloat(value)
+                };
+            }
+            return {
+                type: "",
+                value: value
+            };
+        }, parse = exports.parse = function(value) {
+            switch (void 0 === value ? "undefined" : _typeof(value)) {
+              case "number":
+                return {
+                    type: "px",
+                    value: value
+                };
+
+              case "string":
+                return getType(value);
+
+              default:
+                return {
+                    type: "",
+                    value: value
+                };
+            }
+        };
+        exports.default = parse;
+    }, function(module, exports, __webpack_require__) {
+        exports = module.exports = __webpack_require__(1)(), exports.push([ module.i, "\n.vue-dialog div {\r\n  box-sizing: border-box;\n}\n.vue-dialog .dialog-flex {\r\n  width: 100%;\r\n  height: 100%;\n}\n.vue-dialog .dialog-content {\r\n  flex: 1 0 auto;\r\n  width: 100%;\r\n  padding: 15px;\r\n  font-size: 14px;\n}\n.vue-dialog .dialog-c-title {\r\n  font-weight: 600;\r\n  padding-bottom: 15px;\n}\n.vue-dialog .dialog-c-text {\n}\n.vue-dialog .vue-dialog-buttons {\r\n  display: flex;\r\n  flex: 0 1 auto;\r\n  width: 100%;\r\n  border-top: 1px solid #eee;\n}\n.vue-dialog .vue-dialog-buttons-none {\r\n  width: 100%;\r\n  padding-bottom: 15px;\n}\n.vue-dialog-button {\r\n  font-size: 12px !important;\r\n  background: transparent;\r\n  padding: 0;\r\n  margin: 0;\r\n  border: 0;\r\n  cursor: pointer;\r\n  box-sizing: border-box;\r\n  line-height: 40px;\r\n  height: 40px;\r\n  color: inherit;\r\n  font: inherit;\r\n  outline: none;\n}\n.vue-dialog-button:hover {\r\n  background: rgba(0, 0, 0, 0.01);\n}\n.vue-dialog-button:active {\r\n  background: rgba(0, 0, 0, 0.025);\n}\n.vue-dialog-button:not(:first-of-type) {\r\n  border-left: 1px solid #eee;\n}\r\n", "" ]);
+    }, function(module, exports, __webpack_require__) {
+        exports = module.exports = __webpack_require__(1)(), exports.push([ module.i, "\n.v--modal-block-scroll {\r\n  overflow: hidden;\r\n  width: 100vw;\n}\n.v--modal-overlay {\r\n  position: fixed;\r\n  box-sizing: border-box;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100vh;\r\n  background: rgba(0, 0, 0, 0.2);\r\n  z-index: 999;\r\n  opacity: 1;\n}\n.v--modal-overlay.scrollable {\r\n  height: 100%;\r\n  min-height: 100vh;\r\n  overflow-y: auto;\r\n  -webkit-overflow-scrolling: touch;\n}\n.v--modal-overlay .v--modal-background-click {\r\n  min-height: 100%;\r\n  width: 100%;\r\n  padding-bottom: 10px;\n}\n.v--modal-overlay .v--modal-box {\r\n  position: relative;\r\n  overflow: hidden;\r\n  box-sizing: border-box;\n}\n.v--modal-overlay.scrollable .v--modal-box {\r\n  margin-bottom: 2px;\r\n  /* transition: top 0.2s ease; */\n}\n.v--modal {\r\n  background-color: white;\r\n  text-align: left;\r\n  border-radius: 3px;\r\n  box-shadow: 0 20px 60px -2px rgba(27, 33, 58, 0.4);\r\n  padding: 0;\n}\n.v--modal.v--modal-fullscreen {\r\n  width: 100vw;\r\n  height: 100vh;\r\n  margin: 0;\r\n  left: 0;\r\n  top: 0;\n}\n.v--modal-top-right {\r\n  display: block;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\n}\n.overlay-fade-enter-active,\r\n.overlay-fade-leave-active {\r\n  transition: all 0.2s;\n}\n.overlay-fade-enter,\r\n.overlay-fade-leave-active {\r\n  opacity: 0;\n}\n.nice-modal-fade-enter-active,\r\n.nice-modal-fade-leave-active {\r\n  transition: all 0.4s;\n}\n.nice-modal-fade-enter,\r\n.nice-modal-fade-leave-active {\r\n  opacity: 0;\r\n  transform: translateY(-20px);\n}\r\n", "" ]);
+    }, function(module, exports, __webpack_require__) {
+        exports = module.exports = __webpack_require__(1)(), exports.push([ module.i, "\n.vue-modal-resizer {\r\n  display: block;\r\n  overflow: hidden;\r\n  position: absolute;\r\n  width: 12px;\r\n  height: 12px;\r\n  right: 0;\r\n  bottom: 0;\r\n  z-index: 9999999;\r\n  background: transparent;\r\n  cursor: se-resize;\n}\n.vue-modal-resizer::after {\r\n  display: block;\r\n  position: absolute;\r\n  content: '';\r\n  background: transparent;\r\n  left: 0;\r\n  top: 0;\r\n  width: 0;\r\n  height: 0;\r\n  border-bottom: 10px solid #ddd;\r\n  border-left: 10px solid transparent;\n}\n.vue-modal-resizer.clicked::after {\r\n  border-bottom: 10px solid #369be9;\n}\r\n", "" ]);
+    }, function(module, exports, __webpack_require__) {
+        __webpack_require__(23);
+        var Component = __webpack_require__(0)(__webpack_require__(11), __webpack_require__(20), null, null);
+        Component.options.__file = "D:\\Projects\\vue\\vue-js-modal\\src\\Resizer.vue", 
+        Component.esModule && Object.keys(Component.esModule).some(function(key) {
+            return "default" !== key && "__esModule" !== key;
+        }) && console.error("named exports are not supported in *.vue files."), Component.options.functional && console.error("[vue-loader] Resizer.vue: functional components are not supported with templates, they should use render functions."), 
+        module.exports = Component.exports;
+    }, function(module, exports, __webpack_require__) {
+        module.exports = {
+            render: function() {
+                var _vm = this, _h = _vm.$createElement, _c = _vm._self._c || _h;
+                return _c("div", {
+                    attrs: {
+                        id: "#modals-container"
+                    }
+                }, _vm._l(_vm.modals, function(modal) {
+                    return _c("modal", _vm._g(_vm._b({
+                        key: modal.id,
+                        on: {
+                            closed: function($event) {
+                                _vm.remove(modal.id);
+                            }
+                        }
+                    }, "modal", modal.config, !1), modal.events), [ _c(modal.component, _vm._b({
+                        tag: "component",
+                        on: {
+                            close: function($event) {
+                                _vm.$modal.hide(modal.config.name);
+                            }
+                        }
+                    }, "component", modal.params, !1)) ], 1);
+                }));
+            },
+            staticRenderFns: []
+        }, module.exports.render._withStripped = !0;
+    }, function(module, exports, __webpack_require__) {
+        module.exports = {
+            render: function() {
+                var _vm = this, _h = _vm.$createElement, _c = _vm._self._c || _h;
+                return _c("modal", {
+                    attrs: {
+                        name: "dialog",
+                        height: "auto",
+                        classes: [ "v--modal", "vue-dialog", this.params.class ],
+                        width: _vm.width,
+                        "pivot-y": .3,
+                        adaptive: !0,
+                        clickToClose: _vm.clickToClose,
+                        transition: _vm.transition
+                    },
+                    on: {
+                        "before-open": _vm.beforeOpened,
+                        "before-close": _vm.beforeClosed,
+                        opened: function($event) {
+                            _vm.$emit("opened", $event);
+                        },
+                        closed: function($event) {
+                            _vm.$emit("closed", $event);
+                        }
+                    }
+                }, [ _c("div", {
+                    staticClass: "dialog-content"
+                }, [ _vm.params.title ? _c("div", {
+                    staticClass: "dialog-c-title",
+                    domProps: {
+                        innerHTML: _vm._s(_vm.params.title || "")
+                    }
+                }) : _vm._e(), _vm._v(" "), _c("div", {
+                    staticClass: "dialog-c-text",
+                    domProps: {
+                        innerHTML: _vm._s(_vm.params.text || "")
+                    }
+                }) ]), _vm._v(" "), _vm.buttons ? _c("div", {
+                    staticClass: "vue-dialog-buttons"
+                }, _vm._l(_vm.buttons, function(button, i) {
+                    return _c("button", {
+                        key: i,
+                        class: button.class || "vue-dialog-button",
+                        style: _vm.buttonStyle,
+                        attrs: {
+                            type: "button"
+                        },
+                        domProps: {
+                            innerHTML: _vm._s(button.title)
+                        },
+                        on: {
+                            click: function($event) {
+                                $event.stopPropagation(), _vm.click(i, $event);
+                            }
+                        }
+                    }, [ _vm._v("\n      " + _vm._s(button.title) + "\n    ") ]);
+                })) : _c("div", {
+                    staticClass: "vue-dialog-buttons-none"
+                }) ]);
+            },
+            staticRenderFns: []
+        }, module.exports.render._withStripped = !0;
+    }, function(module, exports, __webpack_require__) {
+        module.exports = {
+            render: function() {
+                var _vm = this, _h = _vm.$createElement, _c = _vm._self._c || _h;
+                return _c("transition", {
+                    attrs: {
+                        name: "overlay-fade"
+                    }
+                }, [ _vm.visibility.overlay ? _c("div", {
+                    ref: "overlay",
+                    class: _vm.overlayClass,
+                    attrs: {
+                        "aria-expanded": _vm.visible.toString(),
+                        "data-modal": _vm.name
+                    }
+                }, [ _c("div", {
+                    class: _vm.backgroundClickClass,
+                    on: {
+                        mousedown: function($event) {
+                            $event.stopPropagation(), _vm.onBackgroundClick($event);
+                        },
+                        touchstart: function($event) {
+                            $event.stopPropagation(), _vm.onBackgroundClick($event);
+                        }
+                    }
+                }, [ _c("div", {
+                    staticClass: "v--modal-top-right"
+                }, [ _vm._t("top-right") ], 2), _vm._v(" "), _c("transition", {
+                    attrs: {
+                        name: _vm.transition
+                    }
+                }, [ _vm.visibility.modal ? _c("div", {
+                    ref: "modal",
+                    class: _vm.modalClass,
+                    style: _vm.modalStyle,
+                    on: {
+                        mousedown: function($event) {
+                            $event.stopPropagation();
+                        },
+                        touchstart: function($event) {
+                            $event.stopPropagation();
+                        }
+                    }
+                }, [ _vm._t("default"), _vm._v(" "), _vm.resizable && !_vm.isAutoHeight ? _c("resizer", {
+                    attrs: {
+                        "min-width": _vm.minWidth,
+                        "min-height": _vm.minHeight
+                    },
+                    on: {
+                        resize: _vm.onModalResize
+                    }
+                }) : _vm._e() ], 2) : _vm._e() ]) ], 1) ]) : _vm._e() ]);
+            },
+            staticRenderFns: []
+        }, module.exports.render._withStripped = !0;
+    }, function(module, exports, __webpack_require__) {
+        module.exports = {
+            render: function() {
+                var _vm = this, _h = _vm.$createElement;
+                return (_vm._self._c || _h)("div", {
+                    class: _vm.className
+                });
+            },
+            staticRenderFns: []
+        }, module.exports.render._withStripped = !0;
+    }, function(module, exports, __webpack_require__) {
+        var content = __webpack_require__(13);
+        "string" == typeof content && (content = [ [ module.i, content, "" ] ]), content.locals && (module.exports = content.locals);
+        __webpack_require__(2)("237a7ca4", content, !1);
+    }, function(module, exports, __webpack_require__) {
+        var content = __webpack_require__(14);
+        "string" == typeof content && (content = [ [ module.i, content, "" ] ]), content.locals && (module.exports = content.locals);
+        __webpack_require__(2)("2790b368", content, !1);
+    }, function(module, exports, __webpack_require__) {
+        var content = __webpack_require__(15);
+        "string" == typeof content && (content = [ [ module.i, content, "" ] ]), content.locals && (module.exports = content.locals);
+        __webpack_require__(2)("02ec91af", content, !1);
+    }, function(module, exports) {
+        module.exports = function(parentId, list) {
+            for (var styles = [], newStyles = {}, i = 0; i < list.length; i++) {
+                var item = list[i], id = item[0], css = item[1], media = item[2], sourceMap = item[3], part = {
+                    id: parentId + ":" + i,
+                    css: css,
+                    media: media,
+                    sourceMap: sourceMap
+                };
+                newStyles[id] ? newStyles[id].parts.push(part) : styles.push(newStyles[id] = {
+                    id: id,
+                    parts: [ part ]
+                });
+            }
+            return styles;
+        };
+    } ]);
+});
+
+/***/ }),
+/* 284 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(true)
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["vue-tabs"] = factory();
+	else
+		root["vue-tabs"] = factory();
+})(this, function() {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Thank's IE8 for his funny defineProperty
+module.exports = !__webpack_require__(3)(function(){
+  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  return typeof it === 'object' ? it !== null : typeof it === 'function';
+};
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var core = module.exports = {version: '2.4.0'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = function(exec){
+  try {
+    return !!exec();
+  } catch(e){
+    return true;
+  }
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var anObject       = __webpack_require__(18)
+  , IE8_DOM_DEFINE = __webpack_require__(23)
+  , toPrimitive    = __webpack_require__(25)
+  , dP             = Object.defineProperty;
+
+exports.f = __webpack_require__(0) ? Object.defineProperty : function defineProperty(O, P, Attributes){
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if(IE8_DOM_DEFINE)try {
+    return dP(O, P, Attributes);
+  } catch(e){ /* empty */ }
+  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+  if('value' in Attributes)O[P] = Attributes.value;
+  return O;
+};
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+/* globals __VUE_SSR_CONTEXT__ */
+
+// this module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle
+
+module.exports = function normalizeComponent (
+  rawScriptExports,
+  compiledTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier /* server only */
+) {
+  var esModule
+  var scriptExports = rawScriptExports = rawScriptExports || {}
+
+  // ES6 modules interop
+  var type = typeof rawScriptExports.default
+  if (type === 'object' || type === 'function') {
+    esModule = rawScriptExports
+    scriptExports = rawScriptExports.default
+  }
+
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (compiledTemplate) {
+    options.render = compiledTemplate.render
+    options.staticRenderFns = compiledTemplate.staticRenderFns
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = injectStyles
+  }
+
+  if (hook) {
+    var functional = options.functional
+    var existing = functional
+      ? options.render
+      : options.beforeCreate
+    if (!functional) {
+      // inject component registration as beforeCreate hook
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    } else {
+      // register for functioal component in vue file
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return existing(h, context)
+      }
+    }
+  }
+
+  return {
+    esModule: esModule,
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(6)(
+  /* script */
+  __webpack_require__(9),
+  /* template */
+  __webpack_require__(28),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var Component = __webpack_require__(6)(
+  /* script */
+  __webpack_require__(10),
+  /* template */
+  __webpack_require__(27),
+  /* styles */
+  null,
+  /* scopeId */
+  null,
+  /* moduleIdentifier (server only) */
+  null
+)
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports !== "undefined") {
+        factory(exports);
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports);
+        global.Tab = mod.exports;
+    }
+})(this, function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.default = {
+        props: {
+            id: { default: null },
+            name: { required: true },
+            prefix: { default: '' },
+            suffix: { default: '' },
+            isDisabled: { default: false }
+        },
+
+        data: function data() {
+            return {
+                isActive: false,
+                isVisible: true
+            };
+        },
+
+        computed: {
+            header: function header() {
+                return this.prefix + this.name + this.suffix;
+            },
+            hash: function hash() {
+                if (this.isDisabled) {
+                    return '#';
+                }
+
+                return this.id ? '#' + this.id : '#' + this.name.toLowerCase().replace(/ /g, '-');
+            }
+        }
+    };
+});
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(11)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require('../expiringStorage'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.expiringStorage);
+        global.Tabs = mod.exports;
+    }
+})(this, function (exports, _expiringStorage) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _expiringStorage2 = _interopRequireDefault(_expiringStorage);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    exports.default = {
+        props: {
+            cacheLifetime: {
+                default: 5
+            },
+            options: {
+                type: Object,
+                required: false,
+                default: function _default() {
+                    return {
+                        useUrlFragment: true
+                    };
+                }
+            }
+        },
+
+        data: function data() {
+            return {
+                tabs: [],
+                activeTabHash: ''
+            };
+        },
+
+        computed: {
+            storageKey: function storageKey() {
+                return 'vue-tabs-component.cache.' + window.location.host + window.location.pathname;
+            }
+        },
+
+        created: function created() {
+            this.tabs = this.$children;
+        },
+        mounted: function mounted() {
+            var _this = this;
+
+            window.addEventListener('hashchange', function () {
+                return _this.selectTab(window.location.hash);
+            });
+
+            if (this.findTab(window.location.hash)) {
+                this.selectTab(window.location.hash);
+                return;
+            }
+
+            var previousSelectedTabHash = _expiringStorage2.default.get(this.storageKey);
+
+            if (this.findTab(previousSelectedTabHash)) {
+                this.selectTab(previousSelectedTabHash);
+                return;
+            }
+
+            if (this.tabs.length) {
+                this.selectTab(this.tabs[0].hash);
+            }
+        },
+
+
+        methods: {
+            findTab: function findTab(hash) {
+                return this.tabs.find(function (tab) {
+                    return tab.hash === hash;
+                });
+            },
+            selectTab: function selectTab(selectedTabHash, event) {
+                // See if we should store the hash in the url fragment.
+                if (event && !this.options.useUrlFragment) {
+                    event.preventDefault();
+                }
+
+                var selectedTab = this.findTab(selectedTabHash);
+
+                if (!selectedTab) {
+                    return;
+                }
+
+                if (selectedTab.isDisabled) {
+                    return;
+                }
+
+                this.tabs.forEach(function (tab) {
+                    tab.isActive = tab.hash === selectedTab.hash;
+                });
+
+                this.$emit('changed', { tab: selectedTab });
+
+                this.activeTabHash = selectedTab.hash;
+
+                _expiringStorage2.default.set(this.storageKey, selectedTab.hash, this.cacheLifetime);
+            },
+            setTabVisible: function setTabVisible(hash, visible) {
+                var tab = this.findTab(hash);
+
+                if (!tab) {
+                    return;
+                }
+
+                tab.isVisible = visible;
+
+                if (tab.isActive) {
+                    // If tab is active, set a different one as active.
+                    tab.isActive = visible;
+
+                    this.tabs.every(function (tab, index, array) {
+                        if (tab.isVisible) {
+                            tab.isActive = true;
+
+                            return false;
+                        }
+
+                        return true;
+                    });
+                }
+            }
+        }
+    };
+});
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(14), __webpack_require__(15)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require("babel-runtime/helpers/classCallCheck"), require("babel-runtime/helpers/createClass"));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.classCallCheck, global.createClass);
+        global.expiringStorage = mod.exports;
+    }
+})(this, function (exports, _classCallCheck2, _createClass2) {
+    "use strict";
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+
+    var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+    var _createClass3 = _interopRequireDefault(_createClass2);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    var ExpiringStorage = function () {
+        function ExpiringStorage() {
+            (0, _classCallCheck3.default)(this, ExpiringStorage);
+        }
+
+        (0, _createClass3.default)(ExpiringStorage, [{
+            key: "get",
+            value: function get(key) {
+                var cached = JSON.parse(localStorage.getItem(key));
+
+                if (!cached) {
+                    return null;
+                }
+
+                var expires = new Date(cached.expires);
+
+                if (expires < new Date()) {
+                    localStorage.removeItem(key);
+                    return null;
+                }
+
+                return cached.value;
+            }
+        }, {
+            key: "set",
+            value: function set(key, value, lifeTimeInMinutes) {
+                var currentTime = new Date().getTime();
+
+                var expires = new Date(currentTime + lifeTimeInMinutes * 60000);
+
+                localStorage.setItem(key, JSON.stringify({ value: value, expires: expires }));
+            }
+        }]);
+        return ExpiringStorage;
+    }();
+
+    exports.default = new ExpiringStorage();
+});
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(7), __webpack_require__(8)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if (typeof exports !== "undefined") {
+        factory(exports, require('./components/Tab'), require('./components/Tabs'));
+    } else {
+        var mod = {
+            exports: {}
+        };
+        factory(mod.exports, global.Tab, global.Tabs);
+        global.index = mod.exports;
+    }
+})(this, function (exports, _Tab, _Tabs) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.Tabs = exports.Tab = undefined;
+
+    var _Tab2 = _interopRequireDefault(_Tab);
+
+    var _Tabs2 = _interopRequireDefault(_Tabs);
+
+    function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+            default: obj
+        };
+    }
+
+    exports.default = {
+        install: function install(Vue) {
+            Vue.component('tab', _Tab2.default);
+            Vue.component('tabs', _Tabs2.default);
+        }
+    };
+    exports.Tab = _Tab2.default;
+    exports.Tabs = _Tabs2.default;
+});
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = { "default": __webpack_require__(16), __esModule: true };
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+var _defineProperty = __webpack_require__(13);
+
+var _defineProperty2 = _interopRequireDefault(_defineProperty);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      (0, _defineProperty2.default)(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(26);
+var $Object = __webpack_require__(2).Object;
+module.exports = function defineProperty(it, key, desc){
+  return $Object.defineProperty(it, key, desc);
+};
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+
+/***/ }),
+/* 18 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(1);
+module.exports = function(it){
+  if(!isObject(it))throw TypeError(it + ' is not an object!');
+  return it;
+};
+
+/***/ }),
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// optional / simple context binding
+var aFunction = __webpack_require__(17);
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var isObject = __webpack_require__(1)
+  , document = __webpack_require__(4).document
+  // in old IE typeof document.createElement is 'object'
+  , is = isObject(document) && isObject(document.createElement);
+module.exports = function(it){
+  return is ? document.createElement(it) : {};
+};
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global    = __webpack_require__(4)
+  , core      = __webpack_require__(2)
+  , ctx       = __webpack_require__(19)
+  , hide      = __webpack_require__(22)
+  , PROTOTYPE = 'prototype';
+
+var $export = function(type, name, source){
+  var IS_FORCED = type & $export.F
+    , IS_GLOBAL = type & $export.G
+    , IS_STATIC = type & $export.S
+    , IS_PROTO  = type & $export.P
+    , IS_BIND   = type & $export.B
+    , IS_WRAP   = type & $export.W
+    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+    , expProto  = exports[PROTOTYPE]
+    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+    , key, own, out;
+  if(IS_GLOBAL)source = name;
+  for(key in source){
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if(own && key in exports)continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function(C){
+      var F = function(a, b, c){
+        if(this instanceof C){
+          switch(arguments.length){
+            case 0: return new C;
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if(IS_PROTO){
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var dP         = __webpack_require__(5)
+  , createDesc = __webpack_require__(24);
+module.exports = __webpack_require__(0) ? function(object, key, value){
+  return dP.f(object, key, createDesc(1, value));
+} : function(object, key, value){
+  object[key] = value;
+  return object;
+};
+
+/***/ }),
+/* 23 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = !__webpack_require__(0) && !__webpack_require__(3)(function(){
+  return Object.defineProperty(__webpack_require__(20)('div'), 'a', {get: function(){ return 7; }}).a != 7;
+});
+
+/***/ }),
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = function(bitmap, value){
+  return {
+    enumerable  : !(bitmap & 1),
+    configurable: !(bitmap & 2),
+    writable    : !(bitmap & 4),
+    value       : value
+  };
+};
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 7.1.1 ToPrimitive(input [, PreferredType])
+var isObject = __webpack_require__(1);
+// instead of the ES6 spec version, we didn't implement @@toPrimitive case
+// and the second argument - flag - preferred type is a string
+module.exports = function(it, S){
+  if(!isObject(it))return it;
+  var fn, val;
+  if(S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(typeof (fn = it.valueOf) == 'function' && !isObject(val = fn.call(it)))return val;
+  if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
+  throw TypeError("Can't convert object to primitive value");
+};
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(21);
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+$export($export.S + $export.F * !__webpack_require__(0), 'Object', {defineProperty: __webpack_require__(5).f});
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "tabs-component"
+  }, [_c('ul', {
+    staticClass: "tabs-component-tabs",
+    attrs: {
+      "role": "tablist"
+    }
+  }, _vm._l((_vm.tabs), function(tab, i) {
+    return _c('li', {
+      directives: [{
+        name: "show",
+        rawName: "v-show",
+        value: (tab.isVisible),
+        expression: "tab.isVisible"
+      }],
+      key: i,
+      staticClass: "tabs-component-tab",
+      class: {
+        'is-active': tab.isActive, 'is-disabled': tab.isDisabled
+      },
+      attrs: {
+        "role": "presentation"
+      }
+    }, [_c('a', {
+      staticClass: "tabs-component-tab-a",
+      attrs: {
+        "aria-controls": tab.hash,
+        "aria-selected": tab.isActive,
+        "href": tab.hash,
+        "role": "tab"
+      },
+      domProps: {
+        "innerHTML": _vm._s(tab.header)
+      },
+      on: {
+        "click": function($event) {
+          _vm.selectTab(tab.hash, $event)
+        }
+      }
+    })])
+  })), _vm._v(" "), _c('div', {
+    staticClass: "tabs-component-panels"
+  }, [_vm._t("default")], 2)])
+},staticRenderFns: []}
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('section', {
+    directives: [{
+      name: "show",
+      rawName: "v-show",
+      value: (_vm.isActive),
+      expression: "isActive"
+    }],
+    staticClass: "tabs-component-panel",
+    attrs: {
+      "aria-hidden": !_vm.isActive,
+      "id": _vm.hash,
+      "role": "tabpanel"
+    }
+  }, [_vm._t("default")], 2)
+},staticRenderFns: []}
 
 /***/ })
+/******/ ]);
+});
 
-},[83]);
+/***/ }),
+/* 285 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 286 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 287 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(294)
+/* template */
+var __vue_template__ = __webpack_require__(293)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FactorTab.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-13df049f", Component.options)
+  } else {
+    hotAPI.reload("data-v-13df049f", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 293 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("tab", { attrs: { id: "safety", name: "安全" } }, [
+    _c("h1", [_vm._v("安全")]),
+    _vm._v(" "),
+    _c("hr")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-13df049f", module.exports)
+  }
+}
+
+/***/ }),
+/* 294 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__);
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+    props: {
+        factor: {
+            type: Object,
+            default: function _default() {
+                return {
+                    name: 'factor',
+                    score: 0,
+                    details: null,
+                    enName: 'safety'
+                };
+            }
+        },
+        id: {
+            type: String,
+            default: function _default() {
+                return 'factor';
+            }
+        },
+        name: {
+            type: String,
+            default: function _default() {
+                return 'factor';
+            }
+        }
+    },
+    components: {
+        Tab: __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__["Tab"]
+    }
+});
+
+/***/ }),
+/* 295 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(304)
+}
+var normalizeComponent = __webpack_require__(3)
+/* script */
+var __vue_script__ = __webpack_require__(298)
+/* template */
+var __vue_template__ = __webpack_require__(306)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/FactorDetailModal.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-77fab466", Component.options)
+  } else {
+    hotAPI.reload("data-v-77fab466", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 296 */,
+/* 297 */,
+/* 298 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__ = __webpack_require__(284);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+//import VModal from 'vue-js-modal';
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+    props: {
+        factors: {
+            type: Array,
+            default: function _default() {
+                return [];
+            }
+        },
+        name: {
+            type: String,
+            default: function _default() {
+                return "factors-detail";
+            }
+        }
+    },
+    components: {
+        Tabs: __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__["Tabs"],
+        Tab: __WEBPACK_IMPORTED_MODULE_0_vue_tabs_component__["Tab"]
+    }
+});
+
+/***/ }),
+/* 299 */,
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(305);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(18)("369b4b24", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-77fab466\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorDetailModal.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-77fab466\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./FactorDetailModal.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 305 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(13)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.tabs-component {\r\n  height: 100%;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\n}\n.tabs-component-tabs {\r\n  border: solid 1px #ddd;\r\n  border-radius: 6px;\r\n  margin-bottom: 5px;\n}\n@media (min-width: 700px) {\n.tabs-component-tabs {\r\n    border: 0;\r\n    -webkit-box-align: stretch;\r\n        -ms-flex-align: stretch;\r\n            align-items: stretch;\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-pack: start;\r\n        -ms-flex-pack: start;\r\n            justify-content: flex-start;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    margin-bottom: -1px;\r\n    padding-left: 0;\n}\n}\n.tabs-component-tab {\r\n  color: #999;\r\n  font-size: 14px;\r\n  font-weight: 600;\r\n  margin-right: 0;\r\n  list-style: none;\n}\n.tabs-component-tab:not(:last-child) {\r\n  border-bottom: dotted 1px #ddd;\n}\n.tabs-component-tab:hover {\r\n  color: #666;\n}\n.tabs-component-tab.is-active {\r\n  color: #000;\n}\n.tabs-component-tab.is-disabled * {\r\n  color: #cdcdcd;\r\n  cursor: not-allowed !important;\n}\n@media (min-width: 700px) {\n.tabs-component-tab {\r\n    background-color: #fff;\r\n    border: solid 1px #ddd;\r\n    border-radius: 3px 3px 0 0;\r\n    margin-right: .5em;\r\n    -webkit-transform: translateY(2px);\r\n            transform: translateY(2px);\r\n    -webkit-transition: -webkit-transform .3s ease;\r\n    transition: -webkit-transform .3s ease;\r\n    transition: transform .3s ease;\r\n    transition: transform .3s ease, -webkit-transform .3s ease;\n}\n.tabs-component-tab.is-active {\r\n    border-bottom: solid 1px #fff;\r\n    z-index: 2;\r\n    -webkit-transform: translateY(0);\r\n            transform: translateY(0);\n}\n}\n.tabs-component-tab-a {\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  color: inherit;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-writing-mode: vertical-rl;\r\n      -ms-writing-mode: tb-rl;\r\n          writing-mode: vertical-rl;\r\n  padding: .75em 1em;\r\n  text-decoration: none;\n}\n.tabs-component-panels {\r\n  padding: 4em 0;\r\n  height: 100%;\r\n  width: 100%;\r\n  overflow-y: auto;\n}\n@media (min-width: 700px) {\n.tabs-component-panels {\r\n    border-top-left-radius: 0;\r\n    background-color: #fff;\r\n    border: solid 1px #ddd;\r\n    border-radius: 0 6px 6px 6px;\r\n    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .05);\r\n            box-shadow: 0 0 10px rgba(0, 0, 0, .05);\r\n    padding: 4em 2em;\n}\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 306 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "modal",
+    { attrs: { name: _vm.name, width: "70%", height: "70%" } },
+    [
+      _c(
+        "tabs",
+        { attrs: { options: { useUrlFragment: false } } },
+        _vm._l(_vm.factors, function(factor, i) {
+          return _c(
+            "tab",
+            { key: i, attrs: { id: factor.enName, name: factor.name } },
+            [
+              _c("div", { staticClass: "container" }, [
+                _c(
+                  "div",
+                  { staticClass: "row" },
+                  [
+                    _c("h1", [_vm._v(_vm._s(factor.name))]),
+                    _vm._v(" "),
+                    _c("hr"),
+                    _vm._v(" "),
+                    _vm._l(factor.details, function(detail, j) {
+                      return detail
+                        ? _c("div", { key: j, staticClass: "col-12" }, [
+                            _c("div", [
+                              _vm._v(
+                                _vm._s(detail.title) +
+                                  " 筆數：" +
+                                  _vm._s(detail.count) +
+                                  " 分數：" +
+                                  _vm._s(detail.score.toFixed(2)) +
+                                  " 權重：" +
+                                  _vm._s(detail.weight) +
+                                  " 有效距離：" +
+                                  _vm._s(detail.effectiveDistance) +
+                                  " KM"
+                              )
+                            ]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              {
+                                staticClass: "row",
+                                staticStyle: { "padding-bottom": "1rem" }
+                              },
+                              [
+                                _vm._l(detail.features, function(feature, k) {
+                                  return feature
+                                    ? _c(
+                                        "div",
+                                        {
+                                          key: k,
+                                          staticClass: "col-3",
+                                          staticStyle: {
+                                            "padding-left": "1rem"
+                                          }
+                                        },
+                                        [
+                                          _vm._v(
+                                            "\n                                " +
+                                              _vm._s(feature.properties.name) +
+                                              "\n                            "
+                                          )
+                                        ]
+                                      )
+                                    : _vm._e()
+                                }),
+                                _vm._v(" "),
+                                detail.features.length == 0
+                                  ? _c(
+                                      "div",
+                                      {
+                                        staticClass: "col-3",
+                                        staticStyle: {
+                                          "padding-left": "1rem",
+                                          color: "red"
+                                        }
+                                      },
+                                      [
+                                        _vm._v(
+                                          "\n                                本項目無查無資料\n                            "
+                                        )
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              2
+                            )
+                          ])
+                        : _vm._e()
+                    })
+                  ],
+                  2
+                )
+              ])
+            ]
+          )
+        })
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-77fab466", module.exports)
+  }
+}
+
+/***/ }),
+/* 307 */
+/***/ (function(module, exports, __webpack_require__) {
+
+!function(t,e){ true?module.exports=e():"function"==typeof define&&define.amd?define("vue-slider-component",[],e):"object"==typeof exports?exports["vue-slider-component"]=e():t["vue-slider-component"]=e()}(this,function(){return function(t){function e(s){if(i[s])return i[s].exports;var r=i[s]={i:s,l:!1,exports:{}};return t[s].call(r.exports,r,r.exports,e),r.l=!0,r.exports}var i={};return e.m=t,e.c=i,e.i=function(t){return t},e.d=function(t,i,s){e.o(t,i)||Object.defineProperty(t,i,{configurable:!1,enumerable:!0,get:s})},e.n=function(t){var i=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(i,"a",i),i},e.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},e.p="",e(e.s=2)}([function(t,e,i){i(7);var s=i(5)(i(1),i(6),null,null);t.exports=s.exports},function(t,e,i){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var s=function(){var t="undefined"!=typeof window?window.devicePixelRatio||1:1;return function(e){return Math.round(e*t)/t}}();e.default={name:"VueSliderComponent",props:{width:{type:[Number,String],default:"auto"},height:{type:[Number,String],default:6},data:{type:Array,default:null},dotSize:{type:Number,default:16},dotWidth:{type:Number,required:!1},dotHeight:{type:Number,required:!1},min:{type:Number,default:0},max:{type:Number,default:100},interval:{type:Number,default:1},show:{type:Boolean,default:!0},disabled:{type:Boolean,default:!1},piecewise:{type:Boolean,default:!1},tooltip:{type:[String,Boolean],default:"always"},eventType:{type:String,default:"auto"},direction:{type:String,default:"horizontal"},reverse:{type:Boolean,default:!1},lazy:{type:Boolean,default:!1},clickable:{type:Boolean,default:!0},speed:{type:Number,default:.5},realTime:{type:Boolean,default:!1},stopPropagation:{type:Boolean,default:!1},value:{type:[String,Number,Array,Object],default:0},piecewiseLabel:{type:Boolean,default:!1},debug:{type:Boolean,default:!0},fixed:{type:Boolean,default:!1},processDragable:{type:Boolean,default:!1},useKeyboard:{type:Boolean,default:!1},actionsKeyboard:{type:Array,default:function(){return[function(t){return t-1},function(t){return t+1}]}},sliderStyle:[Array,Object,Function],focusStyle:[Array,Object,Function],tooltipDir:[Array,String],formatter:[String,Function],piecewiseStyle:Object,piecewiseActiveStyle:Object,processStyle:Object,bgStyle:Object,tooltipStyle:[Array,Object,Function],labelStyle:Object,labelActiveStyle:Object},data:function(){return{flag:!1,keydownFlag:null,focusFlag:!1,processFlag:!1,processSign:null,size:0,fixedValue:0,focusSlider:0,currentValue:0,currentSlider:0,isComponentExists:!0}},computed:{dotWidthVal:function(){return"number"==typeof this.dotWidth?this.dotWidth:this.dotSize},dotHeightVal:function(){return"number"==typeof this.dotHeight?this.dotHeight:this.dotSize},flowDirection:function(){return"vue-slider-"+this.direction+(this.reverse?"-reverse":"")},tooltipDirection:function(){var t=this.tooltipDir||("vertical"===this.direction?"left":"top");return Array.isArray(t)?this.isRange?t:t[1]:this.isRange?[t,t]:t},tooltipStatus:function(){return"hover"===this.tooltip&&this.flag?"vue-slider-always":this.tooltip?"vue-slider-"+this.tooltip:""},tooltipClass:function(){return["vue-slider-tooltip-"+this.tooltipDirection,"vue-slider-tooltip"]},isDisabled:function(){return"none"===this.eventType||this.disabled},disabledClass:function(){return this.disabled?"vue-slider-disabled":""},stateClass:function(){return{"vue-slider-state-process-drag":this.processFlag,"vue-slider-state-drag":this.flag&&!this.processFlag&&!this.keydownFlag,"vue-slider-state-focus":this.focusFlag}},isRange:function(){return Array.isArray(this.value)},slider:function(){return this.isRange?[this.$refs.dot0,this.$refs.dot1]:this.$refs.dot},minimum:function(){return this.data?0:this.min},val:{get:function(){return this.data?this.isRange?[this.data[this.currentValue[0]],this.data[this.currentValue[1]]]:this.data[this.currentValue]:this.currentValue},set:function(t){if(this.data)if(this.isRange){var e=this.data.indexOf(t[0]),i=this.data.indexOf(t[1]);e>-1&&i>-1&&(this.currentValue=[e,i])}else{var s=this.data.indexOf(t);s>-1&&(this.currentValue=s)}else this.currentValue=t}},currentIndex:function(){return this.isRange?this.data?this.currentValue:[this.getIndexByValue(this.currentValue[0]),this.getIndexByValue(this.currentValue[1])]:this.getIndexByValue(this.currentValue)},indexRange:function(){return this.isRange?this.currentIndex:[0,this.currentIndex]},maximum:function(){return this.data?this.data.length-1:this.max},multiple:function(){var t=(""+this.interval).split(".")[1];return t?Math.pow(10,t.length):1},spacing:function(){return this.data?1:this.interval},total:function(){return this.data?this.data.length-1:(Math.floor((this.maximum-this.minimum)*this.multiple)%(this.interval*this.multiple)!=0&&this.printError("Prop[interval] is illegal, Please make sure that the interval can be divisible"),(this.maximum-this.minimum)/this.interval)},gap:function(){return this.size/this.total},position:function(){return this.isRange?[(this.currentValue[0]-this.minimum)/this.spacing*this.gap,(this.currentValue[1]-this.minimum)/this.spacing*this.gap]:(this.currentValue-this.minimum)/this.spacing*this.gap},limit:function(){return this.isRange?this.fixed?[[0,(this.maximum-this.fixedValue*this.spacing)/this.spacing*this.gap],[(this.minimum+this.fixedValue*this.spacing)/this.spacing*this.gap,this.size]]:[[0,this.position[1]],[this.position[0],this.size]]:[0,this.size]},valueLimit:function(){return this.isRange?this.fixed?[[this.minimum,this.maximum-this.fixedValue*this.spacing],[this.minimum+this.fixedValue*this.spacing,this.maximum]]:[[this.minimum,this.currentValue[1]],[this.currentValue[0],this.maximum]]:[this.minimum,this.maximum]},idleSlider:function(){return 0===this.currentSlider?1:0},wrapStyles:function(){return"vertical"===this.direction?{height:"number"==typeof this.height?this.height+"px":this.height,padding:this.dotHeightVal/2+"px "+this.dotWidthVal/2+"px"}:{width:"number"==typeof this.width?this.width+"px":this.width,padding:this.dotHeightVal/2+"px "+this.dotWidthVal/2+"px"}},sliderStyles:function(){return Array.isArray(this.sliderStyle)?this.isRange?this.sliderStyle:this.sliderStyle[1]:"function"==typeof this.sliderStyle?this.sliderStyle(this.val,this.currentIndex):this.isRange?[this.sliderStyle,this.sliderStyle]:this.sliderStyle},focusStyles:function(){return Array.isArray(this.focusStyle)?this.isRange?this.focusStyle:this.focusStyle[1]:"function"==typeof this.focusStyle?this.focusStyle(this.val,this.currentIndex):this.isRange?[this.focusStyle,this.focusStyle]:this.focusStyle},tooltipStyles:function(){return Array.isArray(this.tooltipStyle)?this.isRange?this.tooltipStyle:this.tooltipStyle[1]:"function"==typeof this.tooltipStyle?this.tooltipStyle(this.val,this.currentIndex):this.isRange?[this.tooltipStyle,this.tooltipStyle]:this.tooltipStyle},elemStyles:function(){return"vertical"===this.direction?{width:this.width+"px",height:"100%"}:{height:this.height+"px"}},dotStyles:function(){return"vertical"===this.direction?{width:this.dotWidthVal+"px",height:this.dotHeightVal+"px",left:-(this.dotWidthVal-this.width)/2+"px"}:{width:this.dotWidthVal+"px",height:this.dotHeightVal+"px",top:-(this.dotHeightVal-this.height)/2+"px"}},piecewiseDotStyle:function(){return"vertical"===this.direction?{width:this.width+"px",height:this.width+"px"}:{width:this.height+"px",height:this.height+"px"}},piecewiseDotWrap:function(){if(!this.piecewise&&!this.piecewiseLabel)return!1;for(var t=[],e=0;e<=this.total;e++){var i="vertical"===this.direction?{bottom:this.gap*e-this.width/2+"px",left:0}:{left:this.gap*e-this.height/2+"px",top:0},s=this.reverse?this.total-e:e,r=this.data?this.data[s]:this.spacing*s+this.min;t.push({style:i,label:this.formatter?this.formatting(r):r,inRange:s>=this.indexRange[0]&&s<=this.indexRange[1]})}return t}},watch:{value:function(t){this.flag||this.setValue(t,!0)},max:function(t){if(t<this.min)return this.printError("The maximum value can not be less than the minimum value.");var e=this.limitValue(this.val);this.setValue(e),this.refresh()},min:function(t){if(t>this.max)return this.printError("The minimum value can not be greater than the maximum value.");var e=this.limitValue(this.val);this.setValue(e),this.refresh()},show:function(t){var e=this;t&&!this.size&&this.$nextTick(function(){e.refresh()})},fixed:function(){this.computedFixedValue()}},methods:{bindEvents:function(){document.addEventListener("touchmove",this.moving,{passive:!1}),document.addEventListener("touchend",this.moveEnd,{passive:!1}),document.addEventListener("mousedown",this.blurSlider),document.addEventListener("mousemove",this.moving),document.addEventListener("mouseup",this.moveEnd),document.addEventListener("mouseleave",this.moveEnd),document.addEventListener("keydown",this.handleKeydown),document.addEventListener("keyup",this.handleKeyup),window.addEventListener("resize",this.refresh)},unbindEvents:function(){document.removeEventListener("touchmove",this.moving),document.removeEventListener("touchend",this.moveEnd),document.removeEventListener("mousedown",this.blurSlider),document.removeEventListener("mousemove",this.moving),document.removeEventListener("mouseup",this.moveEnd),document.removeEventListener("mouseleave",this.moveEnd),document.removeEventListener("keydown",this.handleKeydown),document.removeEventListener("keyup",this.handleKeyup),window.removeEventListener("resize",this.refresh)},handleKeydown:function(t){if(!this.useKeyboard||!this.focusFlag)return!1;switch(t.keyCode){case 37:case 40:t.preventDefault(),this.keydownFlag=!0,this.flag=!0,this.changeFocusSlider(this.actionsKeyboard[0]);break;case 38:case 39:t.preventDefault(),this.keydownFlag=!0,this.flag=!0,this.changeFocusSlider(this.actionsKeyboard[1])}},handleKeyup:function(){this.keydownFlag&&(this.keydownFlag=!1,this.flag=!1)},changeFocusSlider:function(t){var e=this;if(this.isRange){var i=this.currentIndex.map(function(i,s){if(s===e.focusSlider||e.fixed){var r=t(i),n=e.fixed?e.valueLimit[s]:[e.minimum,e.maximum];if(r<=n[1]&&r>=n[0])return r}return i});i[0]>i[1]&&(this.focusSlider=0===this.focusSlider?1:0,i=i.reverse()),this.setIndex(i)}else this.setIndex(t(this.currentIndex))},blurSlider:function(t){var e=this.isRange?this.$refs["dot"+this.focusSlider]:this.$refs.dot;if(!e||e===t.target)return!1;this.focusFlag=!1},formatting:function(t){return"string"==typeof this.formatter?this.formatter.replace(/\{value\}/,t):this.formatter(t)},getPos:function(t){return this.realTime&&this.getStaticData(),"vertical"===this.direction?this.reverse?t.pageY-this.offset:this.size-(t.pageY-this.offset):this.reverse?this.size-(t.clientX-this.offset):t.clientX-this.offset},processClick:function(t){this.fixed&&t.stopPropagation()},wrapClick:function(t){if(this.isDisabled||!this.clickable||this.processFlag)return!1;var e=this.getPos(t);this.isRange&&(this.currentSlider=e>(this.position[1]-this.position[0])/2+this.position[0]?1:0),this.setValueOnPos(e)},moveStart:function(t){var e=arguments.length>1&&void 0!==arguments[1]?arguments[1]:0,i=arguments[2];if(this.isDisabled)return!1;if(this.stopPropagation&&t.stopPropagation(),this.isRange&&(this.currentSlider=e,i)){if(!this.processDragable)return!1;this.processFlag=!0,this.processSign={pos:this.position,start:this.getPos(t.targetTouches&&t.targetTouches[0]?t.targetTouches[0]:t)}}!i&&this.useKeyboard&&(this.focusFlag=!0,this.focusSlider=e),this.flag=!0,this.$emit("drag-start",this)},moving:function(t){if(this.stopPropagation&&t.stopPropagation(),!this.flag)return!1;t.preventDefault(),t.targetTouches&&t.targetTouches[0]&&(t=t.targetTouches[0]),this.processFlag?(this.currentSlider=0,this.setValueOnPos(this.processSign.pos[0]+this.getPos(t)-this.processSign.start,!0),this.currentSlider=1,this.setValueOnPos(this.processSign.pos[1]+this.getPos(t)-this.processSign.start,!0)):this.setValueOnPos(this.getPos(t),!0)},moveEnd:function(t){var e=this;if(this.stopPropagation&&t.stopPropagation(),!this.flag)return!1;this.$emit("drag-end",this),this.lazy&&this.isDiff(this.val,this.value)&&this.syncValue(),this.flag=!1,window.setTimeout(function(){e.processFlag=!1},0),this.setPosition()},setValueOnPos:function(t,e){var i=this.isRange?this.limit[this.currentSlider]:this.limit,s=this.isRange?this.valueLimit[this.currentSlider]:this.valueLimit;if(t>=i[0]&&t<=i[1]){this.setTransform(t);var r=this.getValueByIndex(Math.round(t/this.gap));this.setCurrentValue(r,e),this.isRange&&this.fixed&&(this.setTransform(t+this.fixedValue*this.gap*(0===this.currentSlider?1:-1),!0),this.setCurrentValue(r+this.fixedValue*this.spacing*(0===this.currentSlider?1:-1),e,!0))}else t<i[0]?(this.setTransform(i[0]),this.setCurrentValue(s[0]),this.isRange&&this.fixed?(this.setTransform(this.limit[this.idleSlider][0],!0),this.setCurrentValue(this.valueLimit[this.idleSlider][0],e,!0)):this.fixed||1!==this.currentSlider||(this.focusSlider=0,this.currentSlider=0)):(this.setTransform(i[1]),this.setCurrentValue(s[1]),this.isRange&&this.fixed?(this.setTransform(this.limit[this.idleSlider][1],!0),this.setCurrentValue(this.valueLimit[this.idleSlider][1],e,!0)):this.fixed||0!==this.currentSlider||(this.focusSlider=1,this.currentSlider=1))},isDiff:function(t,e){return Object.prototype.toString.call(t)!==Object.prototype.toString.call(e)||(Array.isArray(t)&&t.length===e.length?t.some(function(t,i){return t!==e[i]}):t!==e)},setCurrentValue:function(t,e,i){var s=i?this.idleSlider:this.currentSlider;if(t<this.minimum||t>this.maximum)return!1;this.isRange?this.isDiff(this.currentValue[s],t)&&(this.currentValue.splice(s,1,t),this.lazy&&this.flag||this.syncValue()):this.isDiff(this.currentValue,t)&&(this.currentValue=t,this.lazy&&this.flag||this.syncValue()),e||this.setPosition()},getValueByIndex:function(t){return(this.spacing*this.multiple*t+this.minimum*this.multiple)/this.multiple},getIndexByValue:function(t){return(t-this.minimum)*this.multiple/(this.spacing*this.multiple)},setIndex:function(t){if(Array.isArray(t)&&this.isRange){var e=void 0;e=this.data?[this.data[t[0]],this.data[t[1]]]:[this.getValueByIndex(t[0]),this.getValueByIndex(t[1])],this.setValue(e)}else t=this.getValueByIndex(t),this.isRange&&(this.currentSlider=t>(this.currentValue[1]-this.currentValue[0])/2+this.currentValue[0]?1:0),this.setCurrentValue(t)},setValue:function(t,e,i){var s=this;if(this.isDiff(this.val,t)){var r=this.limitValue(t);this.val=this.isRange?r.concat():r,this.computedFixedValue(),this.syncValue(e)}this.$nextTick(function(){return s.setPosition(i)})},computedFixedValue:function(){if(!this.fixed)return this.fixedValue=0,!1;this.fixedValue=this.currentIndex[1]-this.currentIndex[0]},setPosition:function(t){this.flag||this.setTransitionTime(void 0===t?this.speed:t),this.isRange?(this.setTransform(this.position[0],1===this.currentSlider),this.setTransform(this.position[1],0===this.currentSlider)):this.setTransform(this.position),this.flag||this.setTransitionTime(0)},setTransform:function(t,e){var i=e?this.idleSlider:this.currentSlider,r=s(("vertical"===this.direction?this.dotHeightVal/2-t:t-this.dotWidthVal/2)*(this.reverse?-1:1)),n="vertical"===this.direction?"translateY("+r+"px)":"translateX("+r+"px)",o=this.fixed?this.fixedValue*this.gap+"px":(0===i?this.position[1]-t:t-this.position[0])+"px",l=this.fixed?(0===i?t:t-this.fixedValue*this.gap)+"px":(0===i?t:this.position[0])+"px";this.isRange?(this.slider[i].style.transform=n,this.slider[i].style.WebkitTransform=n,this.slider[i].style.msTransform=n,"vertical"===this.direction?(this.$refs.process.style.height=o,this.$refs.process.style[this.reverse?"top":"bottom"]=l):(this.$refs.process.style.width=o,this.$refs.process.style[this.reverse?"right":"left"]=l)):(this.slider.style.transform=n,this.slider.style.WebkitTransform=n,this.slider.style.msTransform=n,"vertical"===this.direction?(this.$refs.process.style.height=t+"px",this.$refs.process.style[this.reverse?"top":"bottom"]=0):(this.$refs.process.style.width=t+"px",this.$refs.process.style[this.reverse?"right":"left"]=0))},setTransitionTime:function(t){if(t||this.$refs.process.offsetWidth,this.isRange){for(var e=0;e<this.slider.length;e++)this.slider[e].style.transitionDuration=t+"s",this.slider[e].style.WebkitTransitionDuration=t+"s";this.$refs.process.style.transitionDuration=t+"s",this.$refs.process.style.WebkitTransitionDuration=t+"s"}else this.slider.style.transitionDuration=t+"s",this.slider.style.WebkitTransitionDuration=t+"s",this.$refs.process.style.transitionDuration=t+"s",this.$refs.process.style.WebkitTransitionDuration=t+"s"},limitValue:function(t){var e=this;if(this.data)return t;var i=function(i){return i<e.min?(e.printError("The value of the slider is "+t+", the minimum value is "+e.min+", the value of this slider can not be less than the minimum value"),e.min):i>e.max?(e.printError("The value of the slider is "+t+", the maximum value is "+e.max+", the value of this slider can not be greater than the maximum value"),e.max):i};return this.isRange?t.map(function(t){return i(t)}):i(t)},syncValue:function(t){var e=this.isRange?this.val.concat():this.val;this.$emit("input",e),t||this.$emit("callback",e)},getValue:function(){return this.val},getIndex:function(){return this.currentIndex},getStaticData:function(){this.$refs.elem&&(this.size="vertical"===this.direction?this.$refs.elem.offsetHeight:this.$refs.elem.offsetWidth,this.offset="vertical"===this.direction?this.$refs.elem.getBoundingClientRect().top+window.pageYOffset||document.documentElement.scrollTop:this.$refs.elem.getBoundingClientRect().left)},refresh:function(){this.$refs.elem&&(this.getStaticData(),this.computedFixedValue(),this.setPosition())},printError:function(t){this.debug&&console.error("[VueSlider error]: "+t)}},mounted:function(){var t=this;if(this.isComponentExists=!0,"undefined"==typeof window||"undefined"==typeof document)return this.printError("window or document is undefined, can not be initialization.");this.$nextTick(function(){t.isComponentExists&&(t.getStaticData(),t.setValue(t.limitValue(t.value),!0,0),t.bindEvents())})},beforeDestroy:function(){this.isComponentExists=!1,this.unbindEvents()}}},function(t,e,i){"use strict";var s=i(0);t.exports=s},function(t,e,i){e=t.exports=i(4)(),e.push([t.i,'.vue-slider-component{position:relative;box-sizing:border-box;-ms-user-select:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-o-user-select:none}.vue-slider-component.vue-slider-disabled{opacity:.5;cursor:not-allowed}.vue-slider-component.vue-slider-has-label{margin-bottom:15px}.vue-slider-component.vue-slider-disabled .vue-slider-dot{cursor:not-allowed}.vue-slider-component .vue-slider{position:relative;display:block;border-radius:15px;background-color:#ccc}.vue-slider-component .vue-slider:after{content:"";position:absolute;left:0;top:0;width:100%;height:100%;z-index:2}.vue-slider-component .vue-slider-process{position:absolute;border-radius:15px;background-color:#3498db;transition:all 0s;z-index:1}.vue-slider-component .vue-slider-process.vue-slider-process-dragable{cursor:pointer;z-index:3}.vue-slider-component.vue-slider-horizontal .vue-slider-process{width:0;height:100%;top:0;left:0;will-change:width}.vue-slider-component.vue-slider-vertical .vue-slider-process{width:100%;height:0;bottom:0;left:0;will-change:height}.vue-slider-component.vue-slider-horizontal-reverse .vue-slider-process{width:0;height:100%;top:0;right:0}.vue-slider-component.vue-slider-vertical-reverse .vue-slider-process{width:100%;height:0;top:0;left:0}.vue-slider-component .vue-slider-dot{position:absolute;border-radius:50%;background-color:#fff;box-shadow:.5px .5px 2px 1px rgba(0,0,0,.32);transition:all 0s;will-change:transform;cursor:pointer;z-index:4}.vue-slider-component .vue-slider-dot.vue-slider-dot-focus{box-shadow:0 0 2px 1px #3498db}.vue-slider-component.vue-slider-horizontal .vue-slider-dot{left:0}.vue-slider-component.vue-slider-vertical .vue-slider-dot{bottom:0}.vue-slider-component.vue-slider-horizontal-reverse .vue-slider-dot{right:0}.vue-slider-component.vue-slider-vertical-reverse .vue-slider-dot{top:0}.vue-slider-component .vue-slider-tooltip-wrap{display:none;position:absolute;z-index:9}.vue-slider-component .vue-slider-tooltip{display:block;font-size:14px;white-space:nowrap;padding:2px 5px;min-width:20px;text-align:center;color:#fff;border-radius:5px;border:1px solid #3498db;background-color:#3498db}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-top{top:-9px;left:50%;-webkit-transform:translate(-50%,-100%);transform:translate(-50%,-100%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-bottom{bottom:-9px;left:50%;-webkit-transform:translate(-50%,100%);transform:translate(-50%,100%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-left{top:50%;left:-9px;-webkit-transform:translate(-100%,-50%);transform:translate(-100%,-50%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-right{top:50%;right:-9px;-webkit-transform:translate(100%,-50%);transform:translate(100%,-50%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-top .vue-slider-tooltip:before{content:"";position:absolute;bottom:-10px;left:50%;width:0;height:0;border:5px solid transparent;border:6px solid transparent\\0;border-top-color:inherit;-webkit-transform:translate(-50%);transform:translate(-50%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-bottom .vue-slider-tooltip:before{content:"";position:absolute;top:-10px;left:50%;width:0;height:0;border:5px solid transparent;border:6px solid transparent\\0;border-bottom-color:inherit;-webkit-transform:translate(-50%);transform:translate(-50%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-left .vue-slider-tooltip:before{content:"";position:absolute;top:50%;right:-10px;width:0;height:0;border:5px solid transparent;border:6px solid transparent\\0;border-left-color:inherit;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.vue-slider-component .vue-slider-tooltip-wrap.vue-slider-tooltip-right .vue-slider-tooltip:before{content:"";position:absolute;top:50%;left:-10px;width:0;height:0;border:5px solid transparent;border:6px solid transparent\\0;border-right-color:inherit;-webkit-transform:translateY(-50%);transform:translateY(-50%)}.vue-slider-component .vue-slider-dot.vue-slider-hover:hover .vue-slider-tooltip-wrap{display:block}.vue-slider-component .vue-slider-dot.vue-slider-always .vue-slider-tooltip-wrap{display:block!important}.vue-slider-component .vue-slider-piecewise{position:absolute;width:100%;padding:0;margin:0;left:0;top:0;height:100%;list-style:none}.vue-slider-component .vue-slider-piecewise-item{position:absolute;width:8px;height:8px}.vue-slider-component .vue-slider-piecewise-dot{position:absolute;left:50%;top:50%;width:100%;height:100%;display:inline-block;background-color:rgba(0,0,0,.16);border-radius:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);z-index:2;transition:all .3s}.vue-slider-component .vue-slider-piecewise-item:first-child .vue-slider-piecewise-dot,.vue-slider-component .vue-slider-piecewise-item:last-child .vue-slider-piecewise-dot{visibility:hidden}.vue-slider-component.vue-slider-horizontal-reverse .vue-slider-piecewise-label,.vue-slider-component.vue-slider-horizontal .vue-slider-piecewise-label{position:absolute;display:inline-block;top:100%;left:50%;white-space:nowrap;font-size:12px;color:#333;-webkit-transform:translate(-50%,8px);transform:translate(-50%,8px);visibility:visible}.vue-slider-component.vue-slider-vertical-reverse .vue-slider-piecewise-label,.vue-slider-component.vue-slider-vertical .vue-slider-piecewise-label{position:absolute;display:inline-block;top:50%;left:100%;white-space:nowrap;font-size:12px;color:#333;-webkit-transform:translate(8px,-50%);transform:translate(8px,-50%);visibility:visible}.vue-slider-component .vue-slider-sr-only{clip:rect(1px,1px,1px,1px);height:1px;width:1px;overflow:hidden;position:absolute!important}',""])},function(t,e){t.exports=function(){var t=[];return t.toString=function(){for(var t=[],e=0;e<this.length;e++){var i=this[e];i[2]?t.push("@media "+i[2]+"{"+i[1]+"}"):t.push(i[1])}return t.join("")},t.i=function(e,i){"string"==typeof e&&(e=[[null,e,""]]);for(var s={},r=0;r<this.length;r++){var n=this[r][0];"number"==typeof n&&(s[n]=!0)}for(r=0;r<e.length;r++){var o=e[r];"number"==typeof o[0]&&s[o[0]]||(i&&!o[2]?o[2]=i:i&&(o[2]="("+o[2]+") and ("+i+")"),t.push(o))}},t}},function(t,e){t.exports=function(t,e,i,s){var r,n=t=t||{},o=typeof t.default;"object"!==o&&"function"!==o||(r=t,n=t.default);var l="function"==typeof n?n.options:n;if(e&&(l.render=e.render,l.staticRenderFns=e.staticRenderFns),i&&(l._scopeId=i),s){var a=Object.create(l.computed||null);Object.keys(s).forEach(function(t){var e=s[t];a[t]=function(){return e}}),l.computed=a}return{esModule:r,exports:n,options:l}}},function(t,e){t.exports={render:function(){var t=this,e=t.$createElement,i=t._self._c||e;return i("div",{directives:[{name:"show",rawName:"v-show",value:t.show,expression:"show"}],ref:"wrap",class:["vue-slider-component",t.flowDirection,t.disabledClass,t.stateClass,{"vue-slider-has-label":t.piecewiseLabel}],style:t.wrapStyles,on:{click:t.wrapClick}},[i("div",{ref:"elem",staticClass:"vue-slider",style:[t.elemStyles,t.bgStyle],attrs:{"aria-hidden":"true"}},[t.isRange?[i("div",{ref:"dot0",class:[t.tooltipStatus,"vue-slider-dot",{"vue-slider-dot-focus":t.focusFlag&&0===t.focusSlider}],style:[t.dotStyles,t.sliderStyles[0],t.focusFlag&&0===t.focusSlider?t.focusStyles[0]:null],on:{mousedown:function(e){t.moveStart(e,0)},touchstart:function(e){t.moveStart(e,0)}}},[i("span",{class:["vue-slider-tooltip-"+t.tooltipDirection[0],"vue-slider-tooltip-wrap"]},[t._t("tooltip",[i("span",{staticClass:"vue-slider-tooltip",style:t.tooltipStyles[0]},[t._v(t._s(t.formatter?t.formatting(t.val[0]):t.val[0]))])],{value:t.val[0],index:0})],2)]),t._v(" "),i("div",{ref:"dot1",class:[t.tooltipStatus,"vue-slider-dot",{"vue-slider-dot-focus":t.focusFlag&&1===t.focusSlider}],style:[t.dotStyles,t.sliderStyles[1],t.focusFlag&&1===t.focusSlider?t.focusStyles[1]:null],on:{mousedown:function(e){t.moveStart(e,1)},touchstart:function(e){t.moveStart(e,1)}}},[i("span",{class:["vue-slider-tooltip-"+t.tooltipDirection[1],"vue-slider-tooltip-wrap"]},[t._t("tooltip",[i("span",{staticClass:"vue-slider-tooltip",style:t.tooltipStyles[1]},[t._v(t._s(t.formatter?t.formatting(t.val[1]):t.val[1]))])],{value:t.val[1],index:1})],2)])]:[i("div",{ref:"dot",class:[t.tooltipStatus,"vue-slider-dot",{"vue-slider-dot-focus":t.focusFlag&&0===t.focusSlider}],style:[t.dotStyles,t.sliderStyles,t.focusFlag&&0===t.focusSlider?t.focusStyles:null],on:{mousedown:t.moveStart,touchstart:t.moveStart}},[i("span",{class:["vue-slider-tooltip-"+t.tooltipDirection,"vue-slider-tooltip-wrap"]},[t._t("tooltip",[i("span",{staticClass:"vue-slider-tooltip",style:t.tooltipStyles},[t._v(t._s(t.formatter?t.formatting(t.val):t.val))])],{value:t.val})],2)])],t._v(" "),i("ul",{staticClass:"vue-slider-piecewise"},t._l(t.piecewiseDotWrap,function(e,s){return i("li",{key:s,staticClass:"vue-slider-piecewise-item",style:[t.piecewiseDotStyle,e.style]},[t._t("piecewise",[t.piecewise?i("span",{staticClass:"vue-slider-piecewise-dot",style:[t.piecewiseStyle,e.inRange?t.piecewiseActiveStyle:null]}):t._e()],{label:e.label,index:s,first:0===s,last:s===t.piecewiseDotWrap.length-1,active:e.inRange}),t._v(" "),t._t("label",[t.piecewiseLabel?i("span",{staticClass:"vue-slider-piecewise-label",style:[t.labelStyle,e.inRange?t.labelActiveStyle:null]},[t._v("\n            "+t._s(e.label)+"\n          ")]):t._e()],{label:e.label,index:s,first:0===s,last:s===t.piecewiseDotWrap.length-1,active:e.inRange})],2)})),t._v(" "),i("div",{ref:"process",class:["vue-slider-process",{"vue-slider-process-dragable":t.isRange&&t.processDragable}],style:t.processStyle,on:{click:t.processClick,mousedown:function(e){t.moveStart(e,0,!0)},touchstart:function(e){t.moveStart(e,0,!0)}}})],2),t._v(" "),t.isRange||t.data?t._e():i("input",{directives:[{name:"model",rawName:"v-model",value:t.val,expression:"val"}],staticClass:"vue-slider-sr-only",attrs:{type:"range",min:t.min,max:t.max},domProps:{value:t.val},on:{__r:function(e){t.val=e.target.value}}})])},staticRenderFns:[]}},function(t,e,i){var s=i(3);"string"==typeof s&&(s=[[t.i,s,""]]),s.locals&&(t.exports=s.locals);i(8)("743d98f5",s,!0)},function(t,e,i){function s(t){for(var e=0;e<t.length;e++){var i=t[e],s=h[i.id];if(s){s.refs++;for(var r=0;r<s.parts.length;r++)s.parts[r](i.parts[r]);for(;r<i.parts.length;r++)s.parts.push(n(i.parts[r]));s.parts.length>i.parts.length&&(s.parts.length=i.parts.length)}else{for(var o=[],r=0;r<i.parts.length;r++)o.push(n(i.parts[r]));h[i.id]={id:i.id,refs:1,parts:o}}}}function r(){var t=document.createElement("style");return t.type="text/css",d.appendChild(t),t}function n(t){var e,i,s=document.querySelector('style[data-vue-ssr-id~="'+t.id+'"]');if(s){if(f)return v;s.parentNode.removeChild(s)}if(m){var n=p++;s=c||(c=r()),e=o.bind(null,s,n,!1),i=o.bind(null,s,n,!0)}else s=r(),e=l.bind(null,s),i=function(){s.parentNode.removeChild(s)};return e(t),function(s){if(s){if(s.css===t.css&&s.media===t.media&&s.sourceMap===t.sourceMap)return;e(t=s)}else i()}}function o(t,e,i,s){var r=i?"":s.css;if(t.styleSheet)t.styleSheet.cssText=g(e,r);else{var n=document.createTextNode(r),o=t.childNodes;o[e]&&t.removeChild(o[e]),o.length?t.insertBefore(n,o[e]):t.appendChild(n)}}function l(t,e){var i=e.css,s=e.media,r=e.sourceMap;if(s&&t.setAttribute("media",s),r&&(i+="\n/*# sourceURL="+r.sources[0]+" */",i+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(r))))+" */"),t.styleSheet)t.styleSheet.cssText=i;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(i))}}var a="undefined"!=typeof document;if("undefined"!=typeof DEBUG&&DEBUG&&!a)throw new Error("vue-style-loader cannot be used in a non-browser environment. Use { target: 'node' } in your Webpack config to indicate a server-rendering environment.");var u=i(9),h={},d=a&&(document.head||document.getElementsByTagName("head")[0]),c=null,p=0,f=!1,v=function(){},m="undefined"!=typeof navigator&&/msie [6-9]\b/.test(navigator.userAgent.toLowerCase());t.exports=function(t,e,i){f=i;var r=u(t,e);return s(r),function(e){for(var i=[],n=0;n<r.length;n++){var o=r[n],l=h[o.id];l.refs--,i.push(l)}e?(r=u(t,e),s(r)):r=[];for(var n=0;n<i.length;n++){var l=i[n];if(0===l.refs){for(var a=0;a<l.parts.length;a++)l.parts[a]();delete h[l.id]}}}};var g=function(){var t=[];return function(e,i){return t[e]=i,t.filter(Boolean).join("\n")}}()},function(t,e){t.exports=function(t,e){for(var i=[],s={},r=0;r<e.length;r++){var n=e[r],o=n[0],l=n[1],a=n[2],u=n[3],h={id:t+":"+r,css:l,media:a,sourceMap:u};s[o]?s[o].parts.push(h):i.push(s[o]={id:o,parts:[h]})}return i}}])});
+
+/***/ })
+],[91]);

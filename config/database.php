@@ -93,15 +93,15 @@ return [
 
 		'life' => [
 			'driver'   => 'mongodb',
-			'host'     => env('DB_HOST', 'localhost'),
-			'port'     => env('DB_PORT', 27017),
-			'database' => env('life'),
-			'username' => env('DB_USERNAME'),
-			'password' => env('DB_PASSWORD'),
+			'host'     => env('DB_LIFE_HOST', 'localhost'),
+			'port'     => env('DB_LIFE_PORT', 27017),
+			'database' => env('DB_LIFE_DATABASE'),
+			'username' => env('DB_LIFE_USERNAME'),
+			'password' => env('DB_LIFE_PASSWORD'),
 			'options'  => [
-				'database' => 'admin' // sets the authentication database required by mongo 3
+				'database' => 'life' // sets the authentication database required by mongo 3
 			],
-		],
+        ],
 
     ],
 
